@@ -1,0 +1,88 @@
+    <!DOCTYPE html>
+    <html lang="pt">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <!-- <link rel="stylesheet" href="styles.css"> -->
+    </head>
+    <body>
+
+        <style>
+  body {
+    margin: 0;
+    font-family: Poppins, sans-serif;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;      /* Stack child elements vertically */
+    width: auto;
+    margin: 20px auto;          /* Center the container */
+    max-width: 90vw;
+    padding-top: 10px;
+    transition: transform .5s;
+}
+
+h1 {
+    font-size: xx-large;
+    text-align: left;          /* Center the title text */
+    padding: 50px 10px; 
+    margin-left: 50px;           /* Space above the title */
+}
+
+.header {
+    display: flex;              
+    justify-content: space-around; /* Space around each span */
+    margin-bottom: 10px;       /* Optional space below the header */
+    align-items: center;
+    padding-bottom: 5%;
+}
+
+.header span {
+    flex: 1;                   /* Make spans flexible to take up equal space */
+    text-align: center;        /* Center text inside each span */
+}
+
+.listProduct {
+    position: relative;        /* Allow for absolute positioning of child elements if needed */
+}
+
+.image-container {
+    display: flex;             
+    flex-direction: column;    /* Stack images vertically */
+    gap: 50px;                /* Space between images */
+}
+
+.image-container img {
+    width: 10%;               /* Set the width of the images */
+    filter: drop-shadow(0 50px 20px #0009);
+    display: block;           /* Make images block elements */
+    margin: 0;          /* Center images within the container */
+}
+
+
+        </style>
+        <h1>Minha sacola</h1>
+        <div class="container">
+            
+            
+            <div class="header"> <!-- New header div for spacing -->
+                <span>Produto</span>
+                <span>Preço</span>
+                <span>QTD</span>
+                <span>Total</span>
+            </div>
+            <div class="listProduct"> 
+                    <div class="image-container"> <!-- New container for images -->
+                        <img src="images/fone_1.jpeg" alt="">
+                        <img src="images/fone_2.jpeg" alt="">
+                    </div>
+                </div>
+        
+            
+
+    <script></script>
+
+    </body>
+    </html>
