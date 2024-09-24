@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="email.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+
+    <title>Document</title>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        /* input {
+            display: block;
+            width: 95%;
+            margin-bottom: 15px;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #33343a;
+        } */
+
+        button[type="submit"] {
+            background-color: orangered;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            padding: 10px 20px;
+            text-align: center;
+            align-self: flex-end;
+        }
+
+        button[type="submit"]:hover {
+            background-color: orange;
+        }
+
+        .action-button {
+          background-color: orangered;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            padding: 10px 20px;
+            text-align: center;
+            /* align-self: flex-end;   */
+        }
+
+        .action-button:hover {
+            background-color: orange;
+        }
+
+        .notifications {
+            position: fixed;
+            top: 30px;
+            right: 20px;
+        }
+
+        .toast {
+            position: relative;
+            padding: 10px;
+            margin-bottom: 10px;
+            color: #fff;
+            width: 400px;
+            display: grid;
+            grid-template-columns: 70px 1fr 70px;
+            border-radius: 5px;
+            background-image: linear-gradient(to right, #0abf3055, #22242F 30%);
+            animation: show_toast 0.3s ease forwards;
+            z-index: 1100;
+        }
+
+        .toast i {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: x-large;
+        }
+
+        .toast .title {
+            font-size: x-large;
+            font-weight: bold;
+        }
+
+        /* Add a specific class for the "user not found" toast */
+        .toast.user-not-found {
+            background-image: linear-gradient(to right, #ffeb3b, #fdd835 30%); /* Yellow color */
+        }
+
+
+        @keyframes show_toast {
+            0% { transform: translateX(100%); }
+            40% { transform: translateX(-5%); }
+            100% { transform: translateX(0%); }
+        }
+
+        .loader-container {
+            display: none; /* Hidden by default */
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 100%;
+            /* background-color: rgba(0, 0, 0, 0.5); Black background with opacity */
+            z-index: 1000; /* Sit on top */
+        }
+
+        .loader {
+            display: flex;
+            justify-content: space-between;
+            width: 80px;
+        }
+
+        .loader div {
+            width: 16px;
+            height: 16px;
+            background-color: #FF5C35;
+            border-radius: 50%;
+            animation: grow-shrink 1.5s infinite;
+        }
+
+        /* Delay the animation for each dot */
+        .loader div:nth-child(1) { animation-delay: 0s; }
+        .loader div:nth-child(2) { animation-delay: 0.3s; }
+        .loader div:nth-child(3) { animation-delay: 0.6s; }
+
+        @keyframes grow-shrink {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.5); }
+        }
+
+        /* Modal Styles */
+        .modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); 
+    z-index: 999; /* Sit on top */
+}
+
+.modal-content {
+    background-color: white;
+    margin: 10% auto; /* Center modal */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 20%; /* Adjust as needed */
+    border-radius: 10px;
+    position: relative;
+    z-index: 1000; /* Ensure it sits above the overlay */
+}
+
+
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .password-container {
+    position: relative;
+    margin-bottom: 15px;
+}
+
+input {
+    display: block;
+    width: 94%; /* Ensure input takes full width of the container */
+    padding: 10px;
+    /* padding-right: 1px; Space for the icon */
+    border: 1px solid #22242F;
+    border-radius: 5px;
+    color: #22242F;
+}
+
+.button-container {
+    display: flex;
+    justify-content: flex-end; /* Align the buttons to the right */
+    gap: 10px; /* Optional: adds space between buttons */
+}
+
+    </style>
+</head>
+<body>
+
+ <!-- Button to open the modal -->
+<button id="openModalBtn" class="action-button">Open Email Form</button>
+
+<!-- Modal Structure -->
+<div id="emailModal" class="modal">
+  <div class="modal-content">
+    <span id="closeModalBtn" class="close">&times;</span>
+    <h2>Redefinição de senha</h2>
+    <form id="changePasswordForm">
+      <label for="email">Email:</label>
+      <div class="password-container">
+        <input type="email" id="email" name="email" placeholder="Digite seu email" required>
+      </div>
+      <div class="button-container">
+        <button type="button" id="cancelModalBtn" class="action-button">Cancelar</button>
+        <button type="submit" class="action-button">Enviar</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+
+
+
+<!-- Notification Area for Toasts -->
+<div class="notifications"></div>
+
+<!-- Optional Loader -->
+<div class="loader-container" style="display: none;">
+  <div class="loader">
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+</div>
+
+<!-- JavaScript -->
+<script>
+  // Get modal and buttons
+  const modal=document.getElementById("emailModal");const openModalBtn=document.getElementById("openModalBtn");const closeModalBtn=document.getElementById("closeModalBtn");const cancelModalBtn=document.getElementById("cancelModalBtn");const loaderContainer=document.querySelector(".loader-container");const modalContent=document.querySelector(".modal-content");openModalBtn.addEventListener("click",function(){modal.style.display="block";openModalBtn.style.display="none"});closeModalBtn.addEventListener("click",function(){modal.style.display="none";openModalBtn.style.display="block"});cancelModalBtn.addEventListener("click",function(){modal.style.display="none";openModalBtn.style.display="block"});window.addEventListener("click",function(event){if(event.target===modal){modal.style.display="none";openModalBtn.style.display="block"}});function createToast(type,icon,title,text){let newToast=document.createElement("div");newToast.className=`toast ${type}`;newToast.innerHTML=`
+    <i class="${icon}"></i>
+    <div class="content">
+      <div class="title">${title}</div>
+      <span>${text}</span>
+    </div>
+    <i class="close fa-solid fa-xmark" onclick="this.parentElement.remove()"></i>
+  `;notifications.appendChild(newToast);setTimeout(()=>{newToast.style.animation="hide_toast 0.3s ease forwards";setTimeout(()=>newToast.remove(),300)},3e3)}document.getElementById("changePasswordForm").addEventListener("submit",function(e){e.preventDefault();loaderContainer.style.display="flex";modalContent.style.display="none";setTimeout(()=>{loaderContainer.style.display="none";modalContent.style.display="block";createToast("success","fa-solid fa-check","Sucesso","Ação concluída com sucesso.")},2e3)});
+
+</script>
+  
+</body>
+</html>
+
