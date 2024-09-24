@@ -5,6 +5,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Document</title>
         <!-- <link rel="stylesheet" href="styles.css"> -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
     </head>
     <body>
 
@@ -26,64 +28,195 @@
 
 h1 {
     font-size: xx-large;
-    text-align: left;          /* Center the title text */
-    padding: 50px 10px; 
-    margin-left: 50px;           /* Space above the title */
+    text-align: left;           /* Align the title text */
+    padding: 50px 10px;
+    margin-left: 50px;          /* Space above the title */
 }
 
+
 .header {
-    display: flex;              
-    justify-content: space-around; /* Space around each span */
-    margin-bottom: 10px;       /* Optional space below the header */
-    align-items: center;
+    display: flex;
+    justify-content:flex-start; /* Align items to the start */
+    margin-bottom: 10px;        /* Optional space below the header */
     padding-bottom: 5%;
+    gap: 50px;                  /* Adjust this value to set the desired gap */
 }
 
 .header span {
-    flex: 1;                   /* Make spans flexible to take up equal space */
-    text-align: center;        /* Center text inside each span */
+    margin: 0 80px;             /* Horizontal margins for each span */
 }
+
 
 .listProduct {
-    position: relative;        /* Allow for absolute positioning of child elements if needed */
+    display: flex;             /* Use flexbox for layout */
+    flex-direction: column;    /* Stack items vertically */
+    gap: 20px;                /* Space between items */
 }
 
-.image-container {
-    display: flex;             
-    flex-direction: column;    /* Stack images vertically */
-    gap: 50px;                /* Space between images */
+.listProduct-item {
+    display: flex;             /* Flex layout for item content */
+    justify-content: space-between; /* Space between image/text and details */
+    align-items: center;       /* Center items vertically */
+    background-color: #EEEEE6; /* Background color for items */
+    padding: 20px;            /* Padding for items */
+    border-radius: 20px;      /* Rounded corners */
 }
 
-.image-container img {
-    width: 10%;               /* Set the width of the images */
-    filter: drop-shadow(0 20px 20px #0009);
-    display: block;           /* Make images block elements */
-    margin: 0;     
-    border-radius: 20%;     /* Center images within the container */
+.image-text-container {
+    display: flex;             /* Use flexbox for layout */
+    align-items: center;       /* Center items vertically */
+    gap: 25px;                /* Space between image and text */
+}
+
+.image-text-container img {
+    filter: drop-shadow(0 18px 18px #0009);
+    width: 100px;             /* Set a specific width for the image */
+    height: auto;             /* Maintain aspect ratio */
+    border-radius: 20%;       /* Rounded corners */
+}
+
+.details-container {
+    display: flex;             /* Use flexbox for details */
+    flex-direction: row;      /* Arrange details in a row */
+    align-items: center;      /* Center items vertically */
+    flex: 1;   
+    justify-content: space-between;               
+}
+
+.details-container span {
+    text-align: center;       /* Center text inside each span */
+    flex: 1;                  /* Allow spans to grow equally */
+}
+
+.price {
+    letter-spacing: 1px;      /* Adjust letter spacing */
+    font-size: medium;         /* Font size for price */
+    margin: 10px 0;
+}
+
+.trash-icon {
+    display: inline-flex;            /* Use inline-flex to center the icon */
+    justify-content: center;         /* Center the icon horizontally */
+    align-items: center;             /* Center the icon vertically */
+    width: 30px;                     /* Set a width for the background */
+    height: 30px;                    /* Set a height for the background */
+    background-color: rgba(0, 0, 0, 0.5); /* Black background with 50% opacity */
+    border-radius: 50%;              /* Circular background */
+    cursor: pointer;   
+    margin-left: 0px;              /* Change cursor to pointer for interactivity */
+}
+
+.trash-icon i {
+    color: white;                    /* Set icon color to white for contrast */
+    font-size: 1em;                 /* Adjust icon size */
+}
+
+.quantity {
+    display: block ; 
+    align-items: center;
+}
+
+.quantity i {
+    cursor: pointer;         /* Change cursor to pointer for interactivity */
+    font-size: 1em;         /* Adjust icon size */
+    color: #353432; 
+    margin: 10px;
+}
+
+
+
+.listProduct .item button {
+    background-color: #353432;
+    color: #eee;
+    border: none;
+    padding: 5px 10px;
+    margin-top: 10px;
+    border-radius: 20px;
 }
 
 
         </style>
-        <h1>Minha sacola</h1>
-        <div class="container">
-            
-            
-            <div class="header"> <!-- New header div for spacing -->
-                <span>Produto</span>
-                <span>Preço</span>
-                <span>QTD</span>
-                <span>Total</span>
-            </div>
-            <div class="listProduct"> 
-                    <div class="image-container"> <!-- New container for images -->
-                        <img src="images/fone_1.jpeg" alt="">
-                        <img src="images/fone_2.jpeg" alt="">
-                    </div>
-                </div>
-        
-            
+<h1>Minha sacola</h1>
+<div class="container">
+    <div class="header"> <!-- Header that contains product labels -->
+        <span>Produto</span>
+        <span>Preço</span>
+        <span>QTD</span>
+        <span>Total</span>
+    </div>
 
-    <script></script>
+    <div class="listProduct">
+        <div class="listProduct-item"> <!-- Wrapper for each product item -->
+            <div class="image-text-container"> <!-- Flex container for image and product name -->
+                <img src="images/fone_1.jpeg" alt="Fone 1">
+                <h2>Fone 1</h2> <!-- Product Name -->
+            </div>
+            <div class="details-container"> <!-- Container for details -->
+                <span class="price">R$ 150,00</span> <!-- Price -->
+                <span class="quantity">
+                    <i class="fas fa-minus"></i>
+                    <span>2</span>
+                    <i class="fas fa-plus"></i>
+                </span>
+                <span>R$ 750,00</span> <!-- Total -->
+            </div>
+            <div class="trashy">
+                <span class="trash-icon">
+                    <i class="fas fa-trash"></i> <!-- Font Awesome trash icon -->
+                </span>
+                </div>
+        </div>
+
+        <div class="listProduct-item"> <!-- Wrapper for the second product item -->
+            <div class="image-text-container"> <!-- Flex container for image and product name -->
+                <img src="images/fone_2.jpeg" alt="Fone 2">
+                <h2>Fone 2</h2> <!-- Product Name -->
+            </div>
+            <div class="details-container"> <!-- Container for details -->
+            <span class="price">R$ 180,00</span> <!-- Price -->
+            <span class="quantity">
+                <i class="fas fa-minus"></i> <!-- Minus icon -->
+                <span>2</span> <!-- Quantity -->
+                <i class="fas fa-plus"></i> <!-- Plus icon -->
+            </span>
+                <span>R$ 360,00</span> <!-- Total -->
+              
+            </div>
+            <div class="trashy">
+                <span class="trash-icon">
+                    <i class="fas fa-trash"></i> <!-- Font Awesome trash icon -->
+                </span>
+                </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+    <script>
+
+document.querySelectorAll('.quantity').forEach(quantityElement => {
+    const quantitySpan = quantityElement.querySelector('span');
+    const minusIcon = quantityElement.querySelector('.fa-minus');
+    const plusIcon = quantityElement.querySelector('.fa-plus');
+
+    minusIcon.addEventListener('click', () => {
+        let quantity = parseInt(quantitySpan.textContent);
+        if (quantity > 1) { // Prevent going below 1
+            quantitySpan.textContent = quantity - 1;
+        }
+    });
+
+    plusIcon.addEventListener('click', () => {
+        let quantity = parseInt(quantitySpan.textContent);
+        quantitySpan.textContent = quantity + 1; // Increase quantity
+    });
+});
+
+
+    </script>
 
     </body>
     </html>
