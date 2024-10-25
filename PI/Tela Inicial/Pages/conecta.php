@@ -1,6 +1,6 @@
 <?php
 $banco = "cadastro";
-$local = "10.38.0.5";
+$local = "";
 $user = "devweb";
 $password = "suporte@22";
 
