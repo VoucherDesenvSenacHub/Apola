@@ -1,8 +1,8 @@
 <?php
-$banco = "cadastro";
+$banco = "";
 $local = "";
-$user = "devweb";
-$password = "suporte@22";
+$user = "";
+$password = "";
 
 $con = new mysqli($local,$user,$password,$banco);
 if ($con->connect_error) {
