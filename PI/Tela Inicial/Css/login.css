@@ -1,4 +1,4 @@
-.body-log .main{
+.body-log .main-login{
     width: 98.7.5vw;
     height: auto;
     overflow: hidden;
@@ -27,7 +27,7 @@
 /* Area Shape  */
 
 
- .content-login .shape{
+ .content-login .shape-login{
     position: absolute;
     top: -27%;
     left: -20%;
@@ -39,7 +39,7 @@
  
 }
 
-.content-login .shape-2{
+.content-login .shape-login2{
     position: absolute;
     top: -20%;
     left: -20%;
@@ -52,29 +52,25 @@
 }
 
 
-
-
-
-
 /* Area Imagem */
 
 
-.img-container{
+.img-container-login{
     width: 55%;
     height: 100%;
     position: relative;
 }
 
 
-.img-container img{
+.img-container-login img{
     position: absolute;
     height: 70%;
     z-index: 10;
     top: 5%;
     left: 10%;
     width: auto;
+    
 }
-
 
 
 /* Area Login */
@@ -301,7 +297,7 @@ Area Texto Login */
 
 @media (min-width: 1280px){
 
-    .img-container img{
+    .img-container-login img{
         position: absolute;
         height:85%;
         width: auto;
@@ -324,7 +320,7 @@ Area Texto Login */
 @media  (max-width: 1024px){
 
 
-    .img-container{
+    .img-container-login{
       width: 55%;
       height: 100%;
       position: relative;
@@ -332,7 +328,7 @@ Area Texto Login */
   }
   
   
-  .img-container img{
+  .img-container-login img{
       position: absolute;
       height:50%;
       width: auto;
@@ -355,7 +351,7 @@ Area Texto Login */
 
 @media (min-width: 1024px) and (max-height: 600px){
 
-    .img-container img{
+    .img-container-login img{
         position: absolute;
         height:75%;
         width: auto;
@@ -377,7 +373,7 @@ Area Texto Login */
 
 
 @media (max-width:912px){
-    .img-container{
+    .img-container-login{
         width: 55%;
         height: 100%;
         position: relative;
@@ -385,7 +381,7 @@ Area Texto Login */
     }
     
     
-    .img-container img{
+    .img-container-login img{
         position: absolute;
         height: 45%;
         z-index: 10;
@@ -414,7 +410,7 @@ Area Texto Login */
 
 
 @media (max-width:767px) {
-    .img-container{
+    .img-container-login{
         display: none;
    
 
@@ -452,7 +448,7 @@ Area Texto Login */
 
     }
     
-    .content-login .shape{
+    .content-login .shape-login{
         position: absolute;
         top: -55%;
         left: -30%;
@@ -464,7 +460,7 @@ Area Texto Login */
     
     }
 
-    .content-login .shape-2{
+    .content-login .shape-login2{
         position: absolute;
         top: -60%;
         left: -30%;
@@ -529,7 +525,7 @@ Area Texto Login */
         box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
     }
 
-    .content-login .shape{
+    .content-login .shape-login{
         position: absolute;
         top: -70%;
         left: -30%;
@@ -541,7 +537,7 @@ Area Texto Login */
     
     }
 
-    .content-login .shape-2{
+    .content-login .shape-login2{
         position: absolute;
         top: -70%;
         left: -30%;
@@ -560,7 +556,7 @@ Area Texto Login */
 
 
 @media (min-width: 540px) and (max-width: 720px){
-    .img-container{
+    .img-container-login{
       width: 55%;
       height: 100%;
       position: relative;
@@ -568,7 +564,7 @@ Area Texto Login */
   }
   
   
-  .img-container img{
+  .img-container-login img{
       position: absolute;
       height:50%;
       width: auto;

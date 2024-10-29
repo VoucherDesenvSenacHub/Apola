@@ -1,4 +1,4 @@
-.body-cad .main{
+.body-cad .main-cad{
   width: 98.7.5vw;
   height: auto;
   overflow: hidden;
@@ -485,7 +485,7 @@ Area Texto Cadastro */
   .btn-cadastro a button{
       display: flex;
       width: 100%;
-      height: 45px;
+      height: 40px;
       justify-content: center;
       align-items: center;
       font-size: 15px;
