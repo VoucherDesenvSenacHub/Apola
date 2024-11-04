@@ -112,7 +112,7 @@ body{
 .lista-item{
     display: flex;
     width: 40%;
-    height: auto;
+    height: 80px;
 }
 
 .itens-menu{
@@ -241,6 +241,7 @@ Area Sub Menu */
   visibility: hidden;
   transition: 0.1s ease;
   border-radius: 5px;
+  
 
 
 }
@@ -278,6 +279,7 @@ Area Sub Menu */
 
 .mega-menu .mega-menu-content .row{
   line-height: 45px;
+  flex-direction: column;
 
 }
 
@@ -285,6 +287,7 @@ Area Sub Menu */
   color: #272727;
   font-size: 16px;
   font-weight: 600;
+  padding-right: 2rem;
 }
 
 .row .mega-links li{

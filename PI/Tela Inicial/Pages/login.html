@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../Css/syte.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="../JS/validar_form_login.js" defer></script>
     <title>Login</title>
 </head>
 <body class="body-log">
@@ -29,20 +30,19 @@
                 <div class="container-login">
                     <div class="form-container">
                         <div class="text-login">Login</div>
-                        <form action="">
+                        <form autocomplete="off" onsubmit="return validaFormlogin()">
                             <div class="form__group field">
-                                <input type="email" class="form__field" placeholder="E-mail" required="">
+                                <input type="email" id="email-login" class="form__field" placeholder="E-mail" required>
                                 <label for="email" class="form__label">E-mail*</label>
                             </div>
                             <div class="form__group field">
-                                <input type="password" class="form__field" placeholder="Senha" required="">
+                                <input type="password" id="senha-login"  class="form__field" placeholder="Senha" required>
                                 <label for="senha" class="form__label">Senha*</label>
                             </div>
                             <div class="form__group field">
-                                <input type="password" class="form__field" placeholder="Senha" required="">
+                                <input type="password" id="conf-senha-login" class="form__field" placeholder="Senha" required>
                                 <label for="confsenha" class="form__label">Confirmação de senha*</label>
                             </div>
-                            
                             <div class="remenber">
                                 <label for="">
                                     <input type="checkbox"> Lembre-me
@@ -52,6 +52,7 @@
                             <div class="btn-login">
                                 <a href=""> <button type="submit">Entrar</button></a>
                             </div>
+                            <p id="msnErro-login" class="msnErro-login">  </p>
                             <span class="span-login">Novo na Apola?<a href="../Pages/cadastro.html">Cadastra-se</a></span>
                         </form>
                     </div>

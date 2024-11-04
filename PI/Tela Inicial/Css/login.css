@@ -281,7 +281,14 @@ Area Texto Login */
 }
 
 
-
+.msnErro-login{
+    display: flex;
+    font-size: 13px;
+    padding-top: 1rem;
+    padding-left: 0.2rem;
+    color: red;
+    
+}
 
 
 
