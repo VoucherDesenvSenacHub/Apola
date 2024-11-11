@@ -11,6 +11,12 @@
         <script src="../JS/menu-mobile.js" defer></script>
         <script src="../JS/banner.js" defer></script>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+        <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js" defer></script> 
+        
+
         
     
     <title>Home</title>
@@ -273,6 +279,9 @@
                 </div>
             </div>
         </section>
+
+    <!-- INICIO CARDS CATEGORIA -->
+
         <section class="cards_cartegoria">
             <div class="content_cards_categoria">
                 <div class="title_categoria">
@@ -280,48 +289,166 @@
                 </div>
                 <ul class="list_cards_categoria">
                     <li class="item_cards_categoria">
-                        <div class="img_content_categoria">
-                            <img src="../src/imagens/img_categorias/urso-teddy.png" alt="">
-                        </div>
-                        <div class="text_cards_categoria">Amigurumi</div>
+                        <a class="link_cards_categoria" href="#">
+                            <div class="img_content_categoria">
+                                <img src="../src/imagens/img_categorias/urso-teddy.png" alt="">
+                            </div>
+                            <div class="text_cards_categoria">Amigurumi</div>
+                        </a>
                     </li>
                     <li class="item_cards_categoria">
-                        <div class="img_content_categoria">
-                            <img src="../src/imagens/img_categorias/bengala-burra.png" alt="">
-                        </div>
-                        <div class="text_cards_categoria">Cachepô</div>
+                        <a class="link_cards_categoria" href="#">
+                            <div class="img_content_categoria">
+                                <img src="../src/imagens/img_categorias/urso-teddy.png" alt="">
+                            </div>
+                            <div class="text_cards_categoria">Amigurumi</div>
+                        </a>
                     </li>
                     <li class="item_cards_categoria">
-                        <div class="img_content_categoria">
-                            <img src="../src/imagens/img_categorias/bastidor-de-bordar.png" alt="">
-                        </div>
-                        <div class="text_cards_categoria">Bordado</div>
+                        <a class="link_cards_categoria" href="#">
+                            <div class="img_content_categoria">
+                                <img src="../src/imagens/img_categorias/urso-teddy.png" alt="">
+                            </div>
+                            <div class="text_cards_categoria">Amigurumi</div>
+                        </a>
                     </li>
                     <li class="item_cards_categoria">
-                        <div class="img_content_categoria">
-                            <img src="../src/imagens/img_categorias/caneca.png" alt="">
-                        </div>
-                        <div class="text_cards_categoria">Canecas</div>
+                        <a class="link_cards_categoria" href="#">
+                            <div class="img_content_categoria">
+                                <img src="../src/imagens/img_categorias/urso-teddy.png" alt="">
+                            </div>
+                            <div class="text_cards_categoria">Amigurumi</div>
+                        </a>
                     </li>
                     <li class="item_cards_categoria">
-                        <div class="img_content_categoria">
-                            <img src="../src/imagens/img_categorias/caneca.png" alt="">
-                        </div>
-                        <div class="text_cards_categoria">Canecas</div>
+                        <a class="link_cards_categoria" href="#">
+                            <div class="img_content_categoria">
+                                <img src="../src/imagens/img_categorias/urso-teddy.png" alt="">
+                            </div>
+                            <div class="text_cards_categoria">Amigurumi</div>
+                        </a>
                     </li>
                     <li class="item_cards_categoria">
-                        <div class="img_content_categoria">
-                            <img src="../src/imagens/img_categorias/caneca.png" alt="">
-                        </div>
-                        <div class="text_cards_categoria">Canecas</div>
+                        <a class="link_cards_categoria" href="#">
+                            <div class="img_content_categoria">
+                                <img src="../src/imagens/img_categorias/urso-teddy.png" alt="">
+                            </div>
+                            <div class="text_cards_categoria">Amigurumi</div>
+                        </a>
                     </li>
+                    <li class="item_cards_categoria">
+                        <a class="link_cards_categoria" href="#">
+                            <div class="img_content_categoria">
+                                <img src="../src/imagens/img_categorias/urso-teddy.png" alt="">
+                            </div>
+                            <div class="text_cards_categoria">Amigurumi</div>
+                        </a>
+                    </li>
+                
                 </ul>
             </div>
 
+        <!-- FIM CARDS CATEGORIA -->
+
                 
         </section>
-        <section class="cards_produtos">
-            
+        <section class="cards_produtos_content">
+            <div class="title_produto">
+                <span class="text_produto">Amigurumi</span>
+            </div>
+            <div class="cards_produtos_wrapper ">
+                <div class="btn_content_prev_next_card">
+                    <div class="btn_prev_card_produto  btn_default_card_produto"><i class="fa-solid fa-chevron-left"></i></div>
+                    <div class="btn_next_card_produto  btn_default_card_produto"><i class="fa-solid fa-chevron-right"></i></div>
+                </div>
+                <ul class="carrosel_card "> 
+                    <li class="cards_produtos">
+                        <div class="img_content_produto">
+                            <img src="../src/imagens/card_produto/IMG1-Produto.png" alt="">
+                        </div>
+                        <div class="text_cards_produto">
+                            <div class="nome_produto_card">Amigurumi Raposa</div>
+                            <div class="star_card">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                            </div>
+                            <div class="preco_produto_card">R$ 45,37</div>
+                            <div class="btn_content_card_produto">
+                                <div class="btn_bag_card_produto"><i class="fa-solid fa-bag-shopping"></i></div>
+                                <div class="btn_buy_card_produto">Comprar</div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="cards_produtos">
+                        <div class="img_content_produto">
+                            <img src="../src/imagens/card_produto/IMG5-Produto.png" alt="">
+                        </div>
+                        <div class="text_cards_produto">
+                            <div class="nome_produto_card">Amigurumi Esquilo</div>
+                            <div class="star_card">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                            </div>
+                            <div class="preco_produto_card">R$ 120,67</div>
+                            <div class="btn_content_card_produto">
+                                <div class="btn_bag_card_produto"><i class="fa-solid fa-bag-shopping"></i></div>
+                                <div class="btn_buy_card_produto">Comprar</div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="cards_produtos">
+                        <div class="img_content_produto">
+                            <img src="../src/imagens/card_produto/IMG8-Produto.png" alt="">
+                        </div>
+                        <div class="text_cards_produto">
+                            <div class="nome_produto_card">Amigurumi Stitch</div>
+                            <div class="star_card">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                            </div>
+                            <div class="preco_produto_card">R$ 100,56</div>
+                            <div class="btn_content_card_produto">
+                                <div class="btn_bag_card_produto"><i class="fa-solid fa-bag-shopping"></i></div>
+                                <div class="btn_buy_card_produto">Comprar</div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="cards_produtos">
+                        <div class="img_content_produto">
+                            <img src="../src/imagens/card_produto/IMG3-Produto.png" alt="">
+                        </div>
+                        <div class="text_cards_produto">
+                            <div class="nome_produto_card">Amigurumi Raposa</div>
+                            <div class="star_card">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                            </div>
+                            <div class="preco_produto_card">R$ 90,32</div>
+                            <div class="btn_content_card_produto">
+                                <div class="btn_bag_card_produto"><i class="fa-solid fa-bag-shopping"></i></div>
+                                <div class="btn_buy_card_produto">Comprar</div>
+                            </div>
+                        </div>
+                    </li>
+                  
+                </ul>
+
+            </div>
+
+
+
         </section>
 
 
