@@ -11,6 +11,7 @@ main{
     display: flex;
     justify-content: center;
     align-items: center;
+    object-fit:scale-down;
 
 }
 
@@ -97,7 +98,7 @@ main{
 .cards_cartegoria{
     display: grid;
     width: 100%;
-    height: 30%;
+    height: 300px;
     margin-top: 2rem;
 }
 
@@ -204,97 +205,61 @@ main{
 /* AREA DE CARDS PRODUTOS*/
 
 
-.cards_produtos_content{
+.card_produtos{
     display: flex;
     width: 100%;
-    flex-direction: column;
-    height:100%;
+    height: 550px;
+    padding: 1rem;
+
+} 
+
+
+.swiper{
+    width: 80%;
+    height: 84.1%;
+    display: flex;
+    background-color: aqua;
+}
+
+.swiper-wrapper{
+    display: flex;
+    justify-items: center;
+
+}
+
+.swiper-slide{
+    display: flex;
+    border-radius: 10px;
     justify-content: center;
-    align-items: center;
+
 
 }
 
 
-
-.cards_produtos_wrapper{
+.card_produto{
     display: flex;
-    max-width: 1300px;
-    height: auto;
-    width: 100%;
-    flex-direction: row;
-    overflow: hidden;
-    padding: 25px;
-    border-radius: 5px;
+    background-color: rgb(248, 248, 248);
     flex-direction: column;
-
-}
-
-.cards_produtos_content .title_produto{
-    display: flex;
-    width: 100%;
-    height: 20%;
-    align-items: end;
-    font-size: 20px;
-    font-weight: 600;
-    padding-left: 5rem;
-    padding-bottom: 1rem;
-
- 
-    
+    padding: 10px 0px 0px 10px;
+    width: 240px;
+    border-radius: 5px;
 }
 
 
-.btn_content_prev_next_card{
+
+
+
+.icon_favorite{
     display: flex;
+    width: 100% ;
     justify-content: end;
-    width: 99%;
-    column-gap: 30px;
-    height: 50px;
 }
 
-.btn_default_card_produto{
-    display: flex;
+.icon_favorite i{
+    font-size: 24px;
+    color: rgb(168, 168, 168);
     cursor: pointer;
-    border-radius: 50%;
-    width: 35px;
-    height: 35px;
-    justify-content: center;
-    align-items: center;
-    background-color:#FA301E;
-    color: white;
-    transition: 0.2s ease-in-out;
-}
-
-.btn_default_card_produto:hover{
-    transform: scale(1.05);
-}
-
-
-.carrosel_card{
-    display: flex;
-    column-gap:82px;
-}
-
-
-
-
-
-.cards_produtos{
-    width: 250px;
-    height: auto;
-    background-color: rgb(243, 243, 243);
-    justify-content: center;
-    align-items: center;
-    display: flex;
-    flex-direction: column;
-    border-radius: 5px;
-    row-gap: 15px;
-    transition: 0.2s ease;
-    cursor: pointer;
-    text-decoration: none;
-    list-style: none;
-    
-    
+    padding-right: 0.5rem;
 }
 
 
@@ -317,35 +282,31 @@ main{
     transform: scale(1.05);
 }
 
-.text_cards_produto{
+
+
+.conteudo_card{
     display: flex;
     flex-direction: column;
-    justify-content: start;
-    width: 100%;
-    padding-left: 10px;
+    padding-top: 1rem;
 }
 
-
-.text_cards_produto .nome_produto_card{
-    display: flex;
-    font-size: 16px;
-    font-weight: 500;
+.nome_card_produto{
+    font-size: 14px;
     color: #4A4A4A;
 }
 
-
-.star_card{
-    display: flex;
-    font-size: 13px;
-    padding-top: 0.8rem;
-    color: rgb(225, 135, 0);
+.content_star_icon{
+    font-size: 12px;
+    color: rgb(255, 153, 0);
 }
 
-.preco_produto_card{
-    display: flex;
-    padding-top: 0.5rem;
-    font-size: 18px;
+
+.preco_card_produto{
+    font-size: 20px;
     font-weight: 600;
+    padding-top: 0.5rem;
+    color: #4A4A4A;
+
 }
 
 
@@ -354,43 +315,90 @@ main{
     width: 100%;
     height: 100%;
     padding-top: 1rem;
-    
+    justify-content: center;
 }
 
 
-.btn_content_card_produto .btn_bag_card_produto{
-    display: flex;
+
+.btn_content_card_produto .btn_bag_card{
     width: 50%;
     justify-content: center;
     align-items: center;
+    display: flex;
     font-size: 20px;
-    transition: 0.2s ease ;
     color: #4A4A4A;
-
-}
-.btn_content_card_produto .btn_bag_card_produto:hover{
-    transform: scale(1.10);
+    cursor: pointer;
 
 }
 
 
-.btn_content_card_produto .btn_buy_card_produto{
-    display: flex;
-    color: white;
-    padding: 10px;
+.btn_content_card_produto .btn_buy_card{
     width: 50%;
     justify-content: center;
     align-items: center;
+    display: flex;
+    font-size: 15px;
     background-color: #4200db;
+    padding: 10px;
     border-radius: 5px 0px 5px 0px;
-    height: 100%;
+    color: white;
     font-weight: 600;
-    transition: 0.2s ease ;
-    height: 50px;
-
+    cursor: pointer;
+    transition: 0.2s ease-in-out;
 }
 
-
-.btn_content_card_produto .btn_buy_card_produto:hover{
+.btn_content_card_produto .btn_buy_card:hover{
     background-color: #4A4A4A;
 }
+
+
+
+.Title_card_produto{
+    display: flex;
+    font-weight: 600;
+    font-size: 18px;
+    color: #4A4A4A;
+}
+
+.btn_card_produto{
+    display: flex;
+    width: 100%;
+    height: 50px;
+    justify-content: end;
+    gap: 15px;
+    padding: 5px;
+
+}
+
+
+.btn_prev_card, .btn_next_card{
+    display: flex;
+    width: 27px;
+    height: 27px;
+    border-radius: 50%;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.2s ease;
+    cursor: pointer;
+
+}
+
+.default_btn_icon_card{
+    font-size: 18px;
+    color: #4A4A4A;
+}
+
+.btn_prev_card:hover, .btn_next_card:hover{
+    transform: scale(1.10);
+    background-color: #FA301E;
+}
+
+
+.btn_prev_card:hover > .default_btn_icon_card, .btn_next_card:hover > .default_btn_icon_card{
+    color: white;
+
+}
+/* CARDS */
+
+
+

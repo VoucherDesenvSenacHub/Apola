@@ -1,8 +1,8 @@
-@import url(navbar.css);
-@import url(home.css);
-@import url(footer.css);
 @import url(cadastro.css);
+@import url(footer.css);
+@import url(home.css);
 @import url(login.css);
+@import url(navbar.css);
 
 
 
@@ -14,7 +14,7 @@
 
 
 :root{
-  --color-Branco-1: rgb(255, 255, 255);
+  --color-Branco-1: #ffffff;
   --color-Laranja-2: #FA301E;
   --color-CinzaEscuro-3: #4A4A4A;
   --color-Azul-4: #4200db;
