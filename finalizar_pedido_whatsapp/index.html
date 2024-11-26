@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Modal de Pedido</title>
+  <link rel="stylesheet" href="styles.css"> 
+</head>
+<body>
+
+<button id="finalizarPedido">Finalizar Pedido</button>
+
+<div id="myModal">
+  <div class="modal-content">
+    <h3>Pedido Realizado!</h3>
+    <p>Segue o link do nosso WhatsApp para realizar o pagamento. Entraremos em contato em breve.</p>
+    <div class="whatsapp-link">
+      <a href="https://wa.me/" target="_blank">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" width="20">
+        https://wa.me/
+      </a>
+    </div>
+    <a class="close" id="closeModal">Voltar</a>
+  </div>
+</div>
+
+<script src="script.js"></script> 
+</body>
+</html>

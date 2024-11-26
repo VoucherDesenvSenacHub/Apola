@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pedido #5332</title>
+    <link rel="stylesheet" href="info_pedido.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Pedido #5332</h2>
+        <div class="pedido-info">
+            <div class="left-side">
+                <div class="form-group">
+                    <label>Cliente</label>
+                    <input type="text" value="Amanda de Rocha Almeida" readonly>
+                </div>
+                <div class="form-group">
+                    <label>Rua</label>
+                    <input type="text" value="Rua das Flores" readonly>
+                </div>
+                <div class="form-group half-width">
+                    <label>Nº</label>
+                    <input type="text" value="234" readonly>
+                </div>
+                <div class="form-group half-width">
+                    <label>CEP*</label>
+                    <input type="text" value="04567-890" readonly>
+                </div>
+                <div class="form-group">
+                    <label>Bairro</label>
+                    <input type="text" value="Jardim Primavera" readonly>
+                </div>
+                <div class="form-group half-width">
+                    <label>Cidade</label>
+                    <input type="text" value="São Paulo" readonly>
+                </div>
+                <div class="form-group half-width">
+                    <label>Estado</label>
+                    <input type="text" value="SP" readonly>
+                </div>
+                <div class="form-group">
+                    <label>Contato</label>
+                    <input type="text" value="(55) 9876-5432" readonly>
+                </div>
+            </div>
+
+            <div class="right-side">
+                <div class="form-group">
+                    <label>Produto</label>
+                    <input type="text" value="Amigurumi Gato Colorido" readonly>
+                </div>
+                <div class="form-group half-width">
+                    <label>Cor</label>
+                    <input type="text" value="Branco" readonly>
+                </div>
+                <div class="form-group half-width">
+                    <label>Tamanho</label>
+                    <input type="text" value="20 cm" readonly>
+                </div>
+                <div class="form-group">
+                    <label>Código de Rastreio</label>
+                    <input type="text" value="RA123456789BR" readonly>
+                </div>
+                <div class="form-group">
+                    <label>Status Pedido</label>
+                    <input type="text" value="Produção" readonly>
+                </div>
+                <div class="form-group">
+                    <label>Preço Total</label>
+                    <input type="text" value="R$ 86,50" readonly>
+                </div>
+                <div class="form-group">
+                    <label>Imagem do Produto</label>
+                    <img src="bobo.jpg.jpg" alt="Imagem do Produto" id="produto-imagem">
+                </div>
+            </div>
+        </div>
+
+        <div class="buttons">
+            <button class="btn-recuse">Recusar Pedido</button>
+            <button class="btn-accept">Aceitar Pedido</button>
+        </div>
+    </div>
+
+    <!-- Modal para visualizar imagem em tamanho grande -->
+    <div id="imageModal" class="modal">
+        <span class="close">&times;</span>
+        <img class="modal-content" id="modal-img">
+    </div>
+
+    <script>
+        // Script para abrir e fechar a visualização da imagem em tamanho maior
+        var modal = document.getElementById("imageModal");
+        var img = document.getElementById("produto-imagem");
+        var modalImg = document.getElementById("modal-img");
+
+        img.onclick = function() {
+            modal.style.display = "block";
+            modalImg.src = this.src;
+        }
+
+        var span = document.getElementsByClassName("close")[0];
+
+        span.onclick = function() {
+            modal.style.display = "none";
+        }
+    </script>
+</body>
+</html>

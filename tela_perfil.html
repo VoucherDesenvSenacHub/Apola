@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alterar Perfil</title>
+    <link rel="stylesheet" href="tela_perfil.css">
+</head>
+<body>
+    <div class="profile-container">
+        <h1>Alterar Perfil</h1>
+        <form action="tela_perfil1.php" method="POST">
+            <div class="profile-picture">
+                <img src="profile.jpg" alt="Foto do Perfil">
+                <input type="file" name="profile_picture" accept="image/*">
+            </div>
+
+            <label for="name">Nome Completo:</label>
+            <input type="text" name="name" id="name" value="">
+
+            <label for="email">E-mail:</label>
+            <input type="email" name="email" id="email" value="">
+
+            <label for="password">Senha:</label>
+            <input type="password" name="password" id="password">
+
+            <label for="telefone">Telefone:</label>
+            <input type="text" name="telefone" id="telefone" value="">
+
+            <label for="data">Data:</label>
+            <input type="text" name="data" id="data" value="">
+            
+            <button type="submit">Salvar</button>
+        </form>
+    </div>
+</body>
+</html>

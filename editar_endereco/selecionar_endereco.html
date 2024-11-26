@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Selecionar Endereço</title>
+    <link rel="stylesheet" href="selecionar_endereco.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Endereços Cadastrados</h1>
+        <p>Selecione o endereço padrão de envio desejado.</p>
+
+        <form id="addressForm">
+            <div class="address-option">
+                <input type="radio" id="address1" name="address" value="teste">
+                <label for="address1">teste</label>
+            </div>
+
+            <div class="address-option">
+                <input type="radio" id="address2" name="address" value="teste">
+                <label for="address2">teste</label>
+            </div>
+
+            <div class="address-option">
+                <input type="radio" id="address3" name="address" value="teste">
+                <label for="address3">teste</label>
+            </div>
+
+            <div class="buttons">
+                <button type="button" id="cancelBtn" class="btn btn-red">Editar</button>                  
+                <button type="submit" class="btn btn-black">Salvar</button>
+            </div>
+        </form>
+    </div>
+
+    <script src="selecionar.endereco.js"></script>
+</body>
+</html>

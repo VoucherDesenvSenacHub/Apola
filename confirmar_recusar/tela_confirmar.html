@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cancelar Pedido</title>
+    <link rel="stylesheet" href="tela_confirmar_css.css" hreflang="">
+</head>
+<body>
+        <button id="cancelBtn" class="btn-red">Recusar Pedido</button>
+
+        <div id="modal" class="modal hidden">
+            <div class="modal-content">
+                <h2>Deseja realmente Recusar?</h2>
+                <p>Escreva "CONFIRMAR" para Recusar</p>
+                <input type="text" id="confirmText">
+                <div class="modal-actions">
+                    <button id="cancelModalBtn" class="btn-black">Cancelar</button>
+                    <button id="confirmBtn" class="btn-red">Recusar</button>
+                </div>
+            </div>
+        </div>
+    <script src="tela_confirmar.js"></script>
+</body>
+</html>
