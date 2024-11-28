@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="rastreio_confirm.css"> 
+
+</head>
+<body>
+
+    <style>
+.previsao {
+    display: none;
+
+}
+
+.listProduct-item:last-child,
+.listProduct-item:nth-last-child(2) {
+    border-bottom: none; 
+    /* padding-top: 150px; */
+}
+
+.button-1 {
+    display: flex;
+    justify-content: end;
+}
+
+.btn  {
+    background-color: black;
+    color: white;
+    border: none;
+    cursor: pointer;
+    margin: 10px 0px; 
+    padding: 20px; 
+    width: 150px; 
+    border-radius: 7%;
+    font-weight: bolder;
+    margin-right: 80px;
+}
+
+@media screen and (min-width: 0px) and (max-width: 700px) {
+ 
+ .body {
+     margin: 0;         /* Ensure no automatic margins */
+     padding: 0;        /* Remove any padding */
+     overflow-x: unset;  /* Allow scrolling on mobile */
+ }
+ 
+ .qtd-label {
+     display: inline; /* Show QTD label for smaller screens */
+ }
+ 
+ .image-text-container h2 {
+     display: none; /* Hide product names on smaller screens */
+ }
+ 
+ .trash-icon  {
+     display: none; /* Hide trash icon container */
+ }
+ 
+ .listProduct-item {
+     /* display: flex; */
+     /* justify-content: space-between; */
+     /* align-items: center; */
+     border: none;
+     border-top: 1px solid #ccc;
+     padding-right: 0px;
+     box-sizing: border-box;
+     flex: 1 1 calc(50% - 20px); 
+     gap: 5px;
+     padding-top: 10px;
+ }
+ 
+ /* Add extra space to push the input and paragraph down */
+ .delivery {
+     display: flex;
+     flex-direction: column;
+ }
+ 
+ .delivery .input-container {
+     margin-top: 20px; /* Increase space above the input-container */
+     margin-bottom: 0px;
+ }
+ 
+ .delivery .resume {
+     order: 2; /* Move resume section below input-container */
+     position: relative;
+     left: 20px; /* Adjust space from the left */
+ }
+ 
+
+ 
+ .image-text-container img {
+     filter: drop-shadow(0 14px 15px #0009);
+     width: 80px; /* Set a specific width for the image */
+     height: auto; /* Maintain aspect ratio */
+     border-radius: 20%; /* Rounded corners */
+     margin-top: 0px;
+     margin-right: 30px;
+ }
+ 
+ }
+ 
+ @media screen and (orientation: landscape), screen and (min-width: 420px) {
+     .product-table th:nth-child(3) {
+         display: table-cell; /* Show the "Quantidade" column */
+     }
+ 
+     .quantity-label {
+         display: inline; /* Show quantity label */
+     }
+ 
+     .qtd-label {
+         display: none; 
+     }
+ 
+     .product-table th:nth-child(4) {
+         width: 20%; /* Set width for "Total" */
+     }
+ }
+ 
+ @media screen and (max-width: 639px) {
+ 
+     .card {
+         display: none;
+     }
+ 
+     .quantity-cell .quantity-label {
+         visibility: hidden; /* Hide "Quantidade" label */
+         display: none; /* Ensure it does not take space */
+     }
+ 
+     .remove {
+         visibility: hidden; /* Hide "Quantidade" label */
+         display: none; /* Ensure it does not take space */
+     }
+ 
+ 
+     .product-table th, 
+ .product-table td {
+     padding: 10px 0 10px 0; /* Padding for table cells */
+     text-align: center; /* Align text to the left */
+ }
+ 
+
+ .image-text-container img {
+     filter: drop-shadow(0 14px 15px #0009);
+     width: 100px; /* Set a specific width for the image */
+     height: auto; /* Maintain aspect ratio */
+     border-radius: 20%; /* Rounded corners */
+     margin-top: 0px;
+     margin-right: 0px;
+ }
+ 
+ .image-text-container {
+     display: flex; /* Use flexbox for layout */
+     align-items: center; /* Center items vertically */
+     margin-left: 0px;
+     margin-top: 50px;
+ }
+
+ .listProduct-item:last-child,
+.listProduct-item:nth-last-child(3) {
+    border-bottom: none; 
+    /* padding-top: 150px; */
+}
+
+.btn  {
+    display: flex;
+    justify-content: center;
+    background-color: black;
+    color: white;
+    border: none;
+    cursor: pointer;
+    margin: 10px 0px; 
+    padding: 20px; 
+    width: 150px; 
+    border-radius: 5%;
+    font-weight: bolder;
+    border: 2px solid transparent;
+}
+
+.btn:hover {
+    background-color: white;
+    color: black;
+    border-color: black;
+}
+ 
+.button-1 {
+    display: flex;
+    justify-content: center;
+}
+
+.previsao {
+        display: block; /* Show in this media query */
+    }
+
+ }
+
+    </style>
+
+<div class="container">
+
+    <div class="rastreio-details">
+    <!-- <div class="container px-1 px-md-4 py-5 mx-auto"> -->
+        <div class="card">
+            <div class="row d-flex justify-content-between px-3 top">
+                <div class="d-flex">
+                    <h5>Pedido <span style="color: red;" class="font-weight-bold">#1234567890</span></h5>
+
+                </div>
+                <div class="d-flex flex-column text-sm-right">
+                    <p class="mb-0">Previsão de entrega <span>01/12/2024</span></p>
+                    <!-- <p>USPS <span class="font-weight-bold">234094567242423422898</span></p> -->
+                </div>
+            </div>
+            <!-- Add class 'active' to progress -->
+            <div class="row d-flex justify-content-center">
+                <div class="col-12">
+                <ul id="progressbar" class="text-center">
+                    <li class="active step0"></li>
+                    <li class="active step0"></li>
+                    <li class="active step0"></li>
+                    <li class="step0"></li>
+                </ul>
+                </div>
+            </div>
+            <div class="row justify-content-between top">
+                <div class="row d-flex icon-content" style="display: flex; align-items: center;">
+                    <img class="icon" src="images/undefined - Imgur.png">
+                    <div class="d-flex flex-column">
+                        <p class="font-weight-bold">Pedido<br>Processado</p>
+                    </div>
+                </div>
+                <div class="row d-flex icon-content">
+                    <img class="icon" src="images/u1AzR7w - Imgur.png">
+                    <div class="d-flex flex-column">
+                        <p class="font-weight-bold">Pedido<br>Despachado</p>
+                    </div>
+                </div>
+                <div class="row d-flex icon-content">
+                    <img class="icon" src="images/TkPm63y - Imgur.png">
+                    <div class="d-flex flex-column">
+                        <p class="font-weight-bold">Pedido<br>Em rota</p>
+                    </div>
+                </div>
+                <div class="row d-flex icon-content">
+                    <img class="icon" src="images/home.png" alt="Home Icon">
+                    <div class="d-flex flex-column">
+                        <p class="font-weight-bold">Pedido<br>Entregue</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="status-bar">
+            <p class="previsao" style="font-weight: bold;">Previsão de entrega: <span>01/12/2024</span></p>
+            <br>
+            <div class="status-item">
+                <span>Despachado</span>
+                <span>01/01/2022 10:00</span>
+            </div>
+            <div class="status-item">
+                <span>Enviado</span>
+                <span>02/01/2022 11:30</span>
+            </div>
+            <div class="status-item">
+                <span>#Entregue ao destinatário</span>
+                <span>03/01/2022 12:00#</span>
+            </div>
+        </div>
+            
+       
+
+    <table class="product-table">
+        <thead>
+            <tr>
+                <!-- <th style="width: 40%;">NW3421</th>  -->
+            <th class="product-cell" style="width: 0%;">
+                <span class="product">Produto</span> <!-- Wider column for product name -->
+                <span class="prod">Prod.</span> <!-- Wider column for product name -->
+            </th>
+                <th>Preço</th>
+                <th class="quantity-cell">
+                    <span class="quantity-label">Quantidade</span>
+                    <span class="qtd-label">QTD</span> <!-- This will overlay the quantity -->
+                </th>
+                <!-- <th style="width: 0%;">Total</th> -->
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="listProduct-item"> <!-- Wrapper for each product item -->
+                <td>
+                    <div class="image-text-container">
+                        <img src="images/fone_1.jpeg" alt="Fone 1">
+                        <h2>Fone 1</h2>
+                    </div>
+                </td>
+                <td>
+                    <span class="price" data-price="15.00">R$ 15,00</span>
+                </td>
+                <td>
+                    <span class="quantity">                       
+                     <span>2</span>                       
+                    </span>
+                </td>
+            </tr>
+            <tr class="listProduct-item"> <!-- Wrapper for the second product item -->
+                <td>
+                    <div class="image-text-container">
+                        <img src="images/fone_2.jpeg" alt="Fone 2">
+                        <h2>Fone 2</h2>
+                    </div>
+                </td>
+                <td>
+                    <span class="price" data-price="18.00">R$ 18,00</span>
+                </td>
+                <td>
+                    <span class="quantity">
+                        <span>2</span>                       
+                    </span>
+                </td>
+            </tr>
+            <tr class="listProduct-item"> <!-- New row for Total -->
+                <td></td> <!-- Empty cell for alignment -->
+                <td class="totaled" style="text-align: center; padding: 50px;" colspan="1">
+                    <span class="total-price" style="font-weight: bold;">Total: R$ 0,00</span>
+                </td>
+                <td>
+                    <span class="quantity" style="font-weight: bold;">
+                        <span>4</span>                       
+                    </span>
+                </td>
+            </tr>
+            
+        </tbody>        
+    </table>    
+    
+    <div class="button-1">
+        <button type="button" class="btn btn-primary btn-sm">Ver</button>
+    </div>
+</div> 
+
+<script>
+
+// Function to calculate and update the total price
+        function calculateTotal() {
+            let total = 0;
+
+            // Loop over each product row to calculate the total price
+            document.querySelectorAll('.listProduct-item').forEach(productItem => {
+                const quantityElement = productItem.querySelector('.quantity');
+                const priceElement = productItem.querySelector('.price');
+
+                if (quantityElement && priceElement) {
+                    const quantity = parseInt(quantityElement.textContent) || 0;
+                    const unitPrice = parseFloat(priceElement.dataset.price) || 0;
+                    total += quantity * unitPrice; // Calculate total
+                }
+            });
+
+            // Update total display
+            const totalPriceDisplay = document.querySelector('.total-price');
+            if (totalPriceDisplay) {
+                totalPriceDisplay.textContent = `Total: R$ ${total.toFixed(2).replace('.', ',')}`;
+            }
+        }
+
+        // Call the function to calculate and display the total on page load
+        calculateTotal();
+    
+</script>
+
+</body>
+</html>

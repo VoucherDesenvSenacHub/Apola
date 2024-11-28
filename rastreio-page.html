@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- <link rel="stylesheet" href="../../css/output.css"> -->
+
+</head>
+<body>
+
+    <style>
+
+body {
+    /* margin: 150px; */
+    font-family: Poppins, sans-serif;
+    /* overflow-y: hidden; */
+}
+
+.previsao {
+    display: none;
+
+}
+
+
+.resume {
+    display: grid;
+    min-width: 100%;
+    max-width: 100px;
+    gap: 5px;
+    justify-content: end;
+}
+
+
+    .rastreio-details {
+        width: 100%;
+        padding: 20px;
+    }
+
+
+
+.resume-item {
+    display: flex; /* Use flex to align items */
+    justify-content: space-between; /* Space between the h3 and p */
+    padding: 5px 0; /* Vertical padding for spacing */
+    border-bottom: 1px solid red; /* Bottom border */
+    align-items: center;
+}
+
+.resume h3 {
+    margin: 0;
+    padding-right: 10px;
+    text-align: left;
+}
+
+.resume p {
+    margin: 0;
+    text-align: right;
+    padding-left: 10px;
+}
+
+.font-weight-bold-media {
+    display: none;
+    padding: 0px;
+}
+
+
+.submit-cart-button {
+    display: flex;
+    width: 230px;
+    justify-content: center;
+}
+
+.submit-cart-button input[type="submit"] {
+    /* justify-content: center; */
+    background-color: red;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 200px;
+    /* text-align: center; */
+    font-size: 10px;
+    margin-top: auto;
+    font-weight: bold;
+
+}
+
+.submit-cart-button input[type="submit"]:hover {
+    background-color: rgba(255, 0, 0, 0.411);
+}
+
+ .codigo {
+    font-size: large;
+    margin-right: 12px;
+}
+
+
+.image-text-container img {
+    filter: drop-shadow(0 14px 15px #0009);
+    width: 150px; /* Set a specific width for the image */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 10%; /* Rounded corners */
+    margin: 20px 50px 50px 0px;
+}
+
+.image-text-container {
+    display: flex; /* Use flexbox for layout */
+    align-items: center; /* Center items vertically */
+    gap: 15px; /* Space between image and text */
+    border-bottom: 1px solid #ccc;
+    flex-wrap: wrap;
+
+}
+
+.text-alignment {
+    flex-wrap: wrap;
+}
+
+/* body {
+    color: #000;
+    overflow-x: hidden;
+    height: 100px;
+    width: 100px;
+    background-color: #8C9EFF;
+    background-repeat: no-repeat;
+} */
+
+.card {
+    /* background-color: ; */
+    z-index: 0;
+    /* background-color: #ECEFF1; */
+    padding-bottom: 20px;
+    margin-top: 20px;
+    margin-bottom: 90px;
+    border-radius: 10px;
+}
+
+.top {
+    padding-top: 40px;
+    padding-left: 10% !important;
+    padding-right: 10% !important;
+}
+
+/*Icon progressbar*/
+/* #progressbar {
+    margin-bottom: 0px;
+    overflow: hidden;
+    color: #FF5757;
+    padding-left: 0px;
+    margin-top: 30px;
+}  */
+
+#progressbar li {
+    list-style-type: none;
+    font-size: 13px;
+    width: 25%;
+    float: left;
+    position: relative;
+    font-weight: 400;
+}
+
+#progressbar .step0:before {
+    font-family: FontAwesome;
+    content: "\f10c";
+    color: #fff;
+}
+
+#progressbar li:before {
+    width: 40px;
+    height: 40px;
+    line-height: 45px;
+    display: block;
+    font-size: 20px;
+    background: #ccc;
+    border-radius: 50%;
+    margin: auto;
+    padding: 0px;
+}
+
+/*ProgressBar connectors*/
+#progressbar li:after {
+    content: '';
+    width: 100%;
+    height: 12px;
+    background: #ccc;
+    position: absolute;
+    left: 0;
+    top: 16px;
+    z-index: -1;
+}
+
+#progressbar li:last-child:after {
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    position: absolute;
+    left: -50%;
+}
+
+#progressbar li:nth-child(2):after, #progressbar li:nth-child(3):after {
+    left: -50%;
+}
+
+#progressbar li:first-child:after {
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    position: absolute;
+    left: 50%;
+}
+
+#progressbar li:last-child:after {
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+#progressbar li:first-child:after {
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+/*Color number of the step and the connector before it*/
+#progressbar li.active:before, #progressbar li.active:after {
+    background: red;
+}
+
+#progressbar li.active:before {
+    font-family: FontAwesome;
+    content: "\f00c";
+}
+
+.icon {
+    display: flex;
+    width: 60px;
+    height: 60px;
+    margin: 0px 20px 0px 0px; /* Adjusted margins for more spacing */
+    padding: 0;
+
+}
+
+.icon-content {
+    display: flex;
+    padding-bottom: 20px;
+}
+
+span h5 {
+    color: #FF5757;
+}
+
+@media screen and (max-width: 990px) {
+.container {
+ background: none;
+}
+
+.resume {
+    display: grid;
+    min-width: 50px;
+    max-width: 100%;
+    gap: 5px;
+    margin-top: 50px;
+    justify-content: center;
+}
+
+
+.image-text-container img {
+    filter: drop-shadow(0 14px 15px #0009);
+    width: 150px; /* Set a specific width for the image */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 10%; /* Rounded corners */
+    margin: 50px auto;
+}
+
+    .icon {
+    width: 30px;
+    height: 30px;
+    margin: 0px 15px 0px 55px; /* Adjusted margins for more spacing */
+    }
+
+    .icon-content {
+    display: flex;
+    flex-direction: column;
+}
+
+    .font-weight-bold {
+    color: red;
+    font-size: 10px;
+    }
+
+
+    .card .home-icon {
+    width: 35px;
+    height: 25px;
+    padding-right: 10px;
+    color: #f2f2f2; /* Use color, not fill, for Font Awesome icons */
+}
+
+.card {
+    display: none;
+    /* background-color: ; */
+    /* z-index: 0; */
+    /* background-color: #ECEFF1; */
+    /* padding-bottom: 20px;
+    margin-top: 5px;
+    margin-bottom: 90px;
+    border-radius: 10px; */
+}
+
+.botao-confirmar {
+    display: flex;
+    justify-content: center;
+    padding-top: 0px;
+}
+
+.submit-cart-button {
+    display: flex;
+    justify-content:center;
+    /* padding: 0px; */
+}
+
+.status-item span {
+    font-weight: bold;
+}
+
+.previsao {
+        display: block; /* Show in this media query */
+    }
+
+}
+
+.status-item span {
+    font-weight: bold;
+}
+
+.text-primary {
+    color: #000;
+}
+
+.image-text-container:nth-child(4) {
+    border-bottom: none;
+}
+
+.image-text-container:last-of-type {
+    border-bottom: none;
+}
+
+.image-text-container:last-child {
+    border-bottom: none;
+}
+
+.order-done {
+    background-color: black;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 210px;
+    /* text-align: center; */
+    font-size: 16px;
+    margin-top: auto;
+    font-weight: bold;
+}
+
+.order-done:hover {
+    background-color: rgba(255, 0, 0, 0.8);
+    color: white;
+    font-weight: bold;
+}
+
+.botao-confirmar {
+    display: flex;
+    margin-top: 20px;
+    padding-bottom: 20px;
+}
+
+
+
+.font-weight-bold {
+
+    }
+
+
+</style>
+
+    <div class="container">
+        <div class="rastreio-details">
+            <!-- <h2>#1234567890</h2> -->
+
+            <!-- <div class="container px-1 px-md-4 py-5 mx-auto"> -->
+                <div class="card">
+                    <div class="row d-flex justify-content-between px-3 top">
+                        <div class="d-flex">
+                            <h5>Pedido <span style="color: red;" class="font-weight-bold">#1234567890</span></h5>
+
+                        </div>
+                        <div class="d-flex flex-column text-sm-right">
+                            <p class="mb-0">Previsão de entrega <span>01/12/2024</span></p>
+                            <!-- <p>USPS <span class="font-weight-bold">234094567242423422898</span></p> -->
+                        </div>
+                    </div>
+                    <!-- Add class 'active' to progress -->
+                    <div class="row d-flex justify-content-center">
+                        <div class="col-12">
+                        <ul id="progressbar" class="text-center">
+                            <li class="active step0"></li>
+                            <li class="active step0"></li>
+                            <li class="active step0"></li>
+                            <li class="step0"></li>
+                        </ul>
+                        </div>
+                    </div>
+                    <div class="row justify-content-between top">
+                        <div class="row d-flex icon-content" style="display: flex; align-items: center;">
+                            <img class="icon" src="images/undefined - Imgur.png">
+                            <div class="d-flex flex-column">
+                                <p class="font-weight-bold">Pedido<br>Processado</p>
+                                <p class="font-weight-bold-media">Pedido<br>Processado</p>
+                            </div>
+                        </div>
+                        <div class="row d-flex icon-content">
+                            <img class="icon" src="images/u1AzR7w - Imgur.png">
+                            <div class="d-flex flex-column">
+                                <p class="font-weight-bold">Pedido<br>Despachado</p>
+                                <p class="font-weight-bold-media">Pedido<br>Despachado</p>
+                            </div>
+                        </div>
+                        <div class="row d-flex icon-content">
+                            <img class="icon" src="images/TkPm63y - Imgur.png">
+                            <div class="d-flex flex-column">
+                                <p class="font-weight-bold">Pedido<br>Em rota</p>
+                                <p class="font-weight-bold-media">Pedido<br>Em rota</p>
+                            </div>
+                        </div>
+                        <div class="row d-flex icon-content">
+                            <img class="icon" src="images/home.png" alt="Home Icon">
+                            <div class="d-flex flex-column">
+                                <p class="font-weight-bold">Pedido<br>Entregue</p>
+                                <p class="font-weight-bold-media">Pedido<br>Entregue</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            <div class="status-bar">
+                <p class="previsao" style="font-weight: bold;">Previsão de entrega: <span>01/12/2024</span></p>
+                <br>
+                <div class="status-item">
+                    <span>Despachado</span>
+                    <span>01/01/2022 10:00</span>
+                </div>
+                <div class="status-item">
+                    <span>Enviado</span>
+                    <span>02/01/2022 11:30</span>
+                </div>
+                <div class="status-item">
+                    <span>#Entregue ao destinatário</span>
+                    <span>03/01/2022 12:00#</span>
+                </div>
+            </div>
+            <!-- <div class="tracking-info">
+                <p>Este rastreio é de um
+        </div> -->
+
+        <div class="image-text-container">
+            <img src="images/fone_1.jpeg" alt="Fone 1">
+            <div class="text-alignment">
+            <h2>Prod-1</h2>
+            <p>Cor - branco / Tam. - 15 cm. / Qtd. - 3  </p>
+            </br>
+            </br>
+            <p>Endereço - Avenida dos Eucaliptos, 789, centro, RJ   </p>
+        </div>
+        </div>
+
+
+        <div class="image-text-container">
+            <img src="images/fone_2.jpeg" alt="Fone 1">
+            <div class="text-alignment">
+                <h2>Prod-2</h2>
+                <p>Cor - branco / Tam. - 15 cm. / Qtd. - 3  </p>
+                </br>
+                </br>
+                <p>Endereço - Avenida dos Eucaliptos, 789, centro, RJ   </p>
+            </div>
+
+        </div>
+
+        <!-- <div class="image-text-container">
+            <img src="images/fone_3.png" alt="Fone 1">
+            <div class="text-alignment">
+                <h2>Prod-3</h2>
+                <p>Cor - branco / Tam. - 15 cm. / Qtd. - 3  </p>
+                </br>
+                </br>
+                <p>Endereço - Avenida dos Eucaliptos, 789, centro, RJ   </p>
+            </div>
+        </div> -->
+
+        <div class="resume">
+            <div class="resume-item">
+                <h3>Subtotal:</h3>
+                <p>R$ 295,00</p>
+            </div>
+            <div class="resume-item">
+                <h3>Frete:</h3>
+                <p>R$ 35,00</p>
+            </div>
+            <div class="resume-item">
+                <h3>Total:</h3>
+                <p>R$ 330,00</p>
+            </div>
+
+            <div class="codigo" style="right: 40px;">
+                <p>Código:<span style="color: red;"> #1234567890</span></p>
+            </div>
+
+
+        </br>
+        <div class="submit-cart-button">
+            <input type="submit" value="Rastreie sua encomenda">
+        </div>
+
+    </div>
+
+    <div class="botao-confirmar">
+        <button class="order-done" type="button">Confirmar entrega</button>
+    </div>
+</div>
+
+
+  <!-- jQuery -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <!-- Bootstrap Bundle (includes Popper.js) -->
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

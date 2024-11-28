@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="email.css">
+    <title>Document</title>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        input {
+            display: block;
+            width: 95%;
+            margin-bottom: 15px;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #33343a;
+            outline: none;
+        }
+
+        button[type="submit"] {
+            background-color: orangered;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            padding: 10px 20px;
+            text-align: center;
+            align-self: flex-start;
+        }
+
+        button[type="submit"]:hover {
+            background-color: orange;
+        }
+
+        .notifications {
+            position: fixed;
+            top: 30px;
+            right: 20px;
+        }
+
+        .toast {
+            position: relative;
+            padding: 10px;
+            margin-bottom: 10px;
+            color: #fff;
+            width: 400px;
+            display: grid;
+            grid-template-columns: 70px 1fr 70px;
+            border-radius: 5px;
+            background-image: linear-gradient(to right, #0abf3055, #22242F 30%);
+            animation: show_toast 0.3s ease forwards;
+            z-index: 1100;
+        }
+
+        .toast i {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: x-large;
+        }
+
+        .toast .title {
+            font-size: x-large;
+            font-weight: bold;
+        }
+
+        /* Add a specific class for the "user not found" toast */
+        .toast.user-not-found {
+            background-image: linear-gradient(to right, #ffeb3b, #fdd835 30%); /* Yellow color */
+        }
+
+
+        @keyframes show_toast {
+            0% { transform: translateX(100%); }
+            40% { transform: translateX(-5%); }
+            100% { transform: translateX(0%); }
+        }
+
+        .loader-container {
+            display: none; /* Hidden by default */
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 100%;
+            /* background-color: rgba(0, 0, 0, 0.5); Black background with opacity */
+            z-index: 1000; /* Sit on top */
+        }
+
+        .loader {
+            display: flex;
+            justify-content: space-between;
+            width: 80px;
+        }
+
+        .loader div {
+            width: 16px;
+            height: 16px;
+            background-color: #FF5C35;
+            border-radius: 50%;
+            animation: grow-shrink 1.5s infinite;
+        }
+
+        /* Delay the animation for each dot */
+        .loader div:nth-child(1) { animation-delay: 0s; }
+        .loader div:nth-child(2) { animation-delay: 0.3s; }
+        .loader div:nth-child(3) { animation-delay: 0.6s; }
+
+        @keyframes grow-shrink {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.5); }
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none; /* Hidden by default */
+            position: fixed; /* Stay in place */
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5); 
+            z-index: 999; /* Sit on top */
+            overflow: auto; /* Enable scroll if needed */
+        }
+
+        .modal-content {
+            background-color: white;
+            margin: 10% auto; /* 10% from the top and centered */
+            padding: 20px;
+            border: 1px solid #888;
+            width: 25%; /* Adjust as needed */
+            border-radius: 10px;
+            position: relative;
+            
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+  <!-- Button to open the modal -->
+  <button id="openModalBtn">Open Email Form</button>
+
+  <!-- Modal Structure -->
+  <div id="emailModal" class="modal">
+    <div class="modal-content">
+      <span id="closeModalBtn" class="close">&times;</span>
+      <h2>Redefinição de senha</h2>
+        <form id="changePasswordForm">
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email" placeholder="Digite seu email" required>
+          <button type="submit">Enviar</button>
+        </form>
+      </div>
+    </div>  
+
+  <div class="loader-container">
+    <div class="loader">
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+  </div>
+
+  <div class="notifications"></div>
+
+  <script>
+    // Get modal and buttons
+    const modal = document.getElementById('emailModal');
+    const openModalBtn = document.getElementById('openModalBtn');
+    const closeModalBtn = document.getElementById('closeModalBtn');
+    const changePasswordForm = document.getElementById('changePasswordForm');
+    const notifications = document.querySelector('.notifications');
+    const loaderContainer = document.querySelector('.loader-container');
+    const modalContent = document.querySelector('.modal-content');
+  
+    document.getElementById('openModalBtn').addEventListener('click', function() {
+    document.getElementById('emailModal').style.display = 'block';
+    this.style.display = 'none'; // Hide the button
+    });
+
+    document.getElementById('closeModalBtn').addEventListener('click', function() {
+    document.getElementById('emailModal').style.display = 'none';
+    document.getElementById('openModalBtn').style.display = 'block'; // Show the button
+    });
+  
+    // Toast creation function
+    function createToast(type, icon, title, text) {
+      let newToast = document.createElement('div');
+      newToast.className = `toast ${type}`;
+      newToast.innerHTML = `
+        <i class="${icon}"></i>
+        <div class="content">
+          <div class="title">${title}</div>
+          <span>${text}</span>
+        </div>
+        <i class="close fa-solid fa-xmark" onclick="this.parentElement.remove()"></i>
+      `;
+      notifications.appendChild(newToast);
+  
+      setTimeout(() => {
+        newToast.style.animation = "hide_toast 0.3s ease forwards";
+        setTimeout(() => newToast.remove(), 300);
+      }, 3000);
+    }
+  
+    // Handle form submission
+    changePasswordForm.addEventListener('submit', async function (e) {
+      e.preventDefault(); // Prevent default form submission
+  
+      const emailField = document.getElementById('email');
+      const email = emailField.value;
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  
+      if (!emailRegex.test(email)) {
+        createToast('error', 'fa-solid fa-exclamation-triangle', 'Erro', 'Por favor, insira um e-mail válido.');
+        return;
+      }
+  
+      // Show loader and hide form content
+      loaderContainer.style.display = 'flex';
+      modalContent.style.display = 'none';
+  
+      // Simulate form submission request
+      try {
+        let response = await fetch('/forgot-password', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email })
+        });
+  
+        let data = await response.json();
+  
+        if (response.ok) {
+          createToast('success', 'fa-solid fa-check', 'Sucesso', 'Verifique seu e-mail para redefinir sua senha.');
+          emailField.value = ''; // Clear input field
+        } else {
+          createToast('error', 'fa-solid fa-exclamation-triangle', 'Erro', data.message || 'Ocorreu um erro. Tente novamente.');
+        }
+      } catch (error) {
+        createToast('error', 'fa-solid fa-exclamation-triangle', 'Erro', 'Ocorreu um erro. Tente novamente.');
+      } finally {
+        // Hide loader and show form content
+        loaderContainer.style.display = 'none';
+        modalContent.style.display = 'block';
+      }
+    });
+  </script>
+  
+</body>
+</html>

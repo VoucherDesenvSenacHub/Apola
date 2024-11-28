@@ -1,0 +1,206 @@
+    <!DOCTYPE html>
+    <html lang="pt">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <link rel="stylesheet" href="cart_styles.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    </head>
+    <body>
+
+        <style>
+
+        </style>
+<div class="back-arrow">
+    <img src="images/back-arrow.svg" alt="">
+</div>
+
+<h1 class="header-title">
+    Minha Sacola
+</h1>
+
+
+    <div class="container">
+        <table class="product-table">
+            <thead>
+                <tr>
+                    <th style="width: 20%;">Produto</th> <!-- Wider column for product name -->
+                    <th style="width: 0%;">Preço</th>
+                    <th style="width: 20%;" class="quantity-cell">
+                        <span class="quantity-label">Quantidade</span>
+                        <span class="qtd-label">QTD</span> <!-- This will overlay the quantity -->
+                    </th>
+                    <th style="width: 0%;">Total</th>
+                    <th class="remove">Remover</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="listProduct-item"> <!-- Wrapper for each product item -->
+                    <td>
+                        <div class="image-text-container">
+                            <img src="images/fone_1.jpeg" alt="Fone 1">
+                            <h2>Fone 1</h2>
+                        </div>
+                    </td>
+                    <td>
+                        <span class="price" data-price="150.00">R$ 150,00</span>
+                    </td>
+                    <td>
+                        <span class="quantity">
+                            <i class="fas fa-minus"></i>
+                            <span>2</span>
+                            <i class="fas fa-plus"></i>
+                        </span>
+                    </td>
+                    <td>
+                        <span class="total-price">R$ 300,00</span>
+                    </td>
+                    <td>
+                        <span class="trash-icon">
+                            <img src="images/trash-can.svg" alt="">
+                        </span>
+                    </td>
+                </tr>
+                <tr class="listProduct-item"> <!-- Wrapper for the second product item -->
+                    <td>
+                        <div class="image-text-container">
+                            <img src="images/fone_2.jpeg" alt="Fone 2">
+                            <h2>Fone 2</h2>
+                        </div>
+                    </td>
+                    <td>
+                        <span class="price" data-price="180.00">R$ 180,00</span>
+                    </td>
+                    <td>
+                        <span class="quantity">
+                            <i class="fas fa-minus"></i>
+                            <span>2</span>
+                            <i class="fas fa-plus"></i>
+                        </span>
+                    </td>
+                    <td>
+                        <span class="total-price">R$ 360,00</span>
+                    </td>
+                    <td>
+                        <span class="trash-icon">
+                            <img src="images/trash-can.svg" alt="">
+                        </span>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <aside style="width: 99%; border-left: 3px solid #FF5757; padding-left: 15px;">
+            <div class="delivery">
+                <div class="radio-group">
+                    <label class="custom-radio">
+                        <input type="radio" name="address" value="endereco1">
+                        <span class="radio-check"></span>
+                        <span class="address-text">Endereço - Rua das Aranhas, 789, Jequié, Bahia - CEP - 99999-999 = R$ 29,00</span>
+                    </label>
+                </div>
+
+                <div class="radio-group">
+                    <label class="custom-radio">
+                        <input type="radio" name="address" value="endereco2">
+                        <span class="radio-check"></span>
+                        Outro Endereço
+                    </label>
+                </div>
+
+                <div class="resume">
+                    <div class="resume-item">
+                        <h3>Subtotal:</h3>
+                        <p>R$ 295,00</p>
+                    </div>
+                    <div class="resume-item">
+                        <h3>Frete:</h3>
+                        <p>R$ 35,00</p>
+                    </div>
+                    <div class="resume-item">
+                        <h3>Total:</h3>
+                        <p>R$ 330,00</p>
+                    </div>
+                    <div class="submit-cart-button">
+                        <input type="submit" value="Finalizar Pedido">
+                    </div>
+                </div>
+
+                <div class="input-container">
+                    <input type="text" class="CEP" placeholder="CEP (99999-999)" required>
+                    <img src="images/truck.svg" class="truckk" alt="Truck Icon">
+                </div>
+                <p><i>Informe o CEP</i></p>
+            </div>
+        </aside>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+        </div>
+
+      </aside>
+
+
+
+<script src="cleave.main.js"></script>
+<script src="cleave.min.js"></script>
+<script>
+    document.querySelectorAll('.listProduct-item').forEach(productItem => {
+        const quantityElement = productItem.querySelector('.quantity span');
+        const minusIcon = productItem.querySelector('.fa-minus');
+        const plusIcon = productItem.querySelector('.fa-plus');
+        const priceDisplay = productItem.querySelector('.price');
+        const totalPriceDisplay = productItem.querySelector('.total-price');
+        const trashIcon = productItem.querySelector('.trash-icon'); // Select the trash icon
+
+        // Function to update the total price based on quantity and fixed price
+        function updatePrices() {
+            const quantity = parseInt(quantityElement.textContent);
+            const unitPrice = parseFloat(priceDisplay.dataset.price); // Fetch price from data attribute
+            const totalPrice = (unitPrice * quantity).toFixed(2); // Calculate total price
+            totalPriceDisplay.textContent = `R$ ${totalPrice.replace('.', ',')}`; // Update total price display
+
+            // Check if quantity is 0 and remove item if true
+            if (quantity === 0) {
+                productItem.remove(); // Remove the product item from the DOM
+            }
+        }
+
+        minusIcon.addEventListener('click', () => {
+            let quantity = parseInt(quantityElement.textContent);
+            if (quantity > 0) { // Allow to reach 0
+                quantityElement.textContent = quantity - 1;
+                updatePrices(); // Update total price when quantity changes
+            }
+        });
+
+        plusIcon.addEventListener('click', () => {
+            let quantity = parseInt(quantityElement.textContent);
+            quantityElement.textContent = quantity + 1; // Increase quantity
+            updatePrices(); // Update total price when quantity changes
+        });
+
+        // Add event listener for the trash icon
+        trashIcon.addEventListener('click', () => {
+            productItem.remove(); // Remove the product item from the DOM
+        });
+
+        // Initial price display setup
+        updatePrices(); // Call to set the initial total price
+    });
+
+</script>
+
+</body>
+</html>
