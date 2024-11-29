@@ -108,6 +108,9 @@ main{
     width: 100%;
     flex-direction: column;
     padding: 30px;
+    justify-content: center;
+    align-items: center;
+    
 }
 
 
@@ -132,6 +135,7 @@ main{
     justify-content: center;
     align-items: center;
     width: 100%;
+    
 
     
 }
@@ -180,7 +184,7 @@ main{
 
 .img_content_categoria img{
     display: flex;
-    height: 100px;
+    height: 90px;
     
 }
 
@@ -219,7 +223,7 @@ main{
 
 
 .swiper{
-    width: 92%;
+    width: 85%;
     height: 84.1%;
     display: flex;
 }
@@ -323,7 +327,7 @@ main{
 
 
 .btn_content_card_produto .btn_bag_card{
-    width: 50%;
+    width: 51%;
     justify-content: center;
     align-items: center;
     display: flex;
@@ -335,7 +339,7 @@ main{
 
 
 .btn_content_card_produto .btn_buy_card{
-    width: 50%;
+    width: 49%;
     justify-content: center;
     align-items: center;
     display: flex;
@@ -457,7 +461,6 @@ main{
 
 .banner_card_3{
     grid-area:  banner3;
-    background-color: rgb(0, 255, 47);
     height: 50%;
     display: flex;
     width: 100%;
@@ -500,9 +503,10 @@ main{
 }
 
 .banners_secudarios img{
-    display: flex;
-    object-fit: scale-down;
-    box-shadow: rgba(0, 0, 0, 0.09) 0px 3px 12px;
+    width: 90%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
 } 
 
 
@@ -626,11 +630,25 @@ BANNER PROMOCIONAL FINAL */
     display: flex;
     width: 100%;
     font-size: 25px;
-    font-weight: 500;
+    font-weight: 600;
     letter-spacing: 0.2rem;
     color: #4A4A4A;
-    height: 80%;
+    height: 70%;
     align-items: end;
+}
+
+.text_call_banner_final2{
+    display: flex;
+    width: 100%;
+    font-size: 15px;
+    font-weight: 500;
+    color: #4A4A4A;
+    height: 20%;
+    align-items: end;
+    text-transform:uppercase;
+    letter-spacing: 0.2rem;
+
+
 }
 
 .content_btn_banner_final{
@@ -647,12 +665,21 @@ BANNER PROMOCIONAL FINAL */
     width: 200px;
     background-color: #FA301E;
     border-radius: 5px;
-    text-decoration: none;
+    text-decoration:none;
     justify-content: center;
     align-items: center;
     font-size: 20px;
     font-weight: 600;
     color: #ffffff;
+    transition: all ease 0.2s;
+}
+
+
+.btn__banner_final:hover{
+    color: white;
+    text-decoration: none;
+    background-color: #4A4A4A;
+
 }
 
 
@@ -672,3 +699,17 @@ BANNER PROMOCIONAL FINAL */
     top: -10rem;
     transform: rotate(10deg);
 }
+
+
+
+
+
+
+
+
+
+
+/* MEDIA QUERIEES  */
+
+
+
