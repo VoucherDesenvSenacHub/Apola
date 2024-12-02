@@ -29,7 +29,7 @@
                 <div class="container-login">
                     <div class="form-container">
                         <div class="text-login">Login</div>
-                        <form autocomplete="off" onsubmit="return validaFormlogin()">
+                        <form method="POST">
                             <div class="form__group field">
                                 <input type="email" id="email-login" class="form__field" placeholder="E-mail" required>
                                 <label for="email" class="form__label">E-mail*</label>

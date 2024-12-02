@@ -1,3 +1,64 @@
+
+
+<?php
+
+
+
+require '../Entity/Cliente.php';
+
+
+
+if (isset($_POST['cadastrar'])) {
+    $nome = $_POST["nome"];
+    $email = $_POST["email"];
+    $cep = $_POST['cep'];
+    $senha = $_POST['senha'];
+    $cpf = $_POST['cpf'];
+    $confSenha = $_POST['conf-senha'];
+
+    if (!empty($nome) && !empty($email) && !empty($cep) && !empty($senha) && !empty($cpf) && !empty($confSenha)) {
+        if ($senha == $confSenha) {
+            $cliente = new Cliente($nome,$email,$cpf,$cep,$senha);
+            $result= $cliente->cadastrarCliente();
+
+            echo $result;
+            if ($result){
+                ?>
+                <div class="msg-sucesso">
+                    <p>Cadastro Realizado com Sucesso!</p>
+                </div>
+                <?php
+            } else {
+                ?>
+                <div class="msg-erro">
+                    <p>Cadastro não realizado, tente novamente!</p>
+                </div>
+                <?php
+            }
+
+        } else {
+            ?>
+            <div class="msg-erro">
+                <p>Senha e Confirmar Senha não conferem</p>
+            </div>
+            <?php
+        }
+
+    } else {
+        ?>
+        <div class="msg-erro">
+            <?php echo "Erro: " .$err->getMessage(); ?>
+        </div>
+        <?php
+    }
+}
+
+
+
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -24,29 +85,33 @@
                 <div class="container-cadastro">
                     <div class="form-cadastro">
                         <div class="text-cadastro">Cadastro</div>
-                        <form action="">
+                        <form method='POST'>
                             <div class="form__group field">
-                                <input type="text" class="form__field" placeholder="Nome completo" id="nome-cad" required>
+                                <input type="text" name='nome' class="form__field" placeholder="Nome completo" id="nome-cad" required>
                                 <label for="nome" class="form__label">Nome Completo*</label>
                             </div>
                             <div class="form__group field">
-                                <input type="email" id="email-cad" class="form__field" placeholder="E-mail" required>
+                                <input type="email" name='email' id="email-cad" class="form__field" placeholder="E-mail" required>
                                 <label for="email" class="form__label">E-mail*</label>
                             </div>
                             <div class="form__group field">
-                                <input type="number" id="cpf-cad" class="form__field" placeholder="CPF" required>
+                                <input type="number" name='cpf' id="cpf-cad" class="form__field" placeholder="CPF" required>
                                 <label for="cpf" class="form__label">CPF*</label>
                             </div>
                             <div class="form__group field">
-                                <input type="number" id="cep-cad" class="form__field" placeholder="CEP" required>
+                                <input type="number" name='cep' id="cep-cad" class="form__field" placeholder="CEP" required>
                                 <label for="cep" class="form__label">CEP*</label>
                             </div>
                             <div class="form__group field">
-                                <input type="password" id="senha-cad" class="form__field" placeholder="Senha" required>
+                                <input type="password" name='senha' id="senha-cad" class="form__field" placeholder="Senha" required>
                                 <label for="senha" class="form__label">Senha*</label>
                             </div>
+                            <div class="form__group field">
+                                <input type="password" name='conf-senha' id="senha-cad" class="form__field" placeholder="Senha" required>
+                                <label for="senha" class="form__label">Confirmar Senha*</label>
+                            </div>
                             <div class="btn-cadastro">
-                                <a href=""><button type="submit" >Cadastra-se</button></a>
+                                <a href=""><button type="submit" name='cadastrar' >Cadastra-se</button></a>
                             </div>
                             <span class="span-cadastro">Já possui conta? <a href="../Pages/login.html">Faça login</a></span>
                         </form>
