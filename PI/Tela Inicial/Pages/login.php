@@ -1,3 +1,54 @@
+
+<?php
+require '../Entity/Cliente.php';
+
+require '../Session/Login.php';
+Login::requireLogout();
+
+
+$alertaLogin ='';
+
+
+$alertaCadastro ='';
+
+if (isset($_POST['logar'])){
+    if(isset($_POST['email'], $_POST['senha'], $_POST['conf-senha'])){
+        $email = $_POST['email'];
+        $senha = $_POST['senha'];
+        $confSenha = $_POST['conf-senha'];
+        // Verificar se exite usuario com esse email no banco
+        $cliente = Cliente::getUsuarioPorEmail($_POST['email']);
+
+        // Verifica se exite usuario com essa senha no banco
+        if(!$cliente instanceof Cliente || !password_verify($_POST['senha'], $cliente->senha)){
+            $alertaLogin = 'Email ou senha Inválidos';
+            
+        }else{
+               // Loga usuario
+               Login::login($cliente);
+        }
+    
+
+    }
+}
+
+
+
+
+
+
+
+
+
+?>
+
+
+
+
+
+
+
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -31,15 +82,15 @@
                         <div class="text-login">Login</div>
                         <form method="POST">
                             <div class="form__group field">
-                                <input type="email" id="email-login" class="form__field" placeholder="E-mail" required>
+                                <input type="email" name='email' id="email-login" class="form__field" placeholder="E-mail" required>
                                 <label for="email" class="form__label">E-mail*</label>
                             </div>
                             <div class="form__group field">
-                                <input type="password" id="senha-login"  class="form__field" placeholder="Senha" required>
+                                <input type="password" name='senha' id="senha-login"  class="form__field" placeholder="Senha" required>
                                 <label for="senha" class="form__label">Senha*</label>
                             </div>
                             <div class="form__group field">
-                                <input type="password" id="conf-senha-login" class="form__field" placeholder="Senha" required>
+                                <input type="password" name='conf-senha' id="conf-senha-login" class="form__field" placeholder="Senha" required>
                                 <label for="confsenha" class="form__label">Confirmação de senha*</label>
                             </div>
                             <div class="remenber">
@@ -49,9 +100,9 @@
                                 <p><a href="#">Esqueceu a senha?</a></p>
                             </div>
                             <div class="btn-login">
-                                <a href=""> <button type="submit">Entrar</button></a>
+                                <a href=""><button name='logar' type="submit">Entrar</button></a>
                             </div>
-                            <p id="msnErro-login" class="msnErro-login">  </p>
+                            <p id="msnErro-login" class="msnErro-login"> <?=$alertaLogin?> </p>
                             <span class="span-login">Novo na Apola?<a href="../Pages/cadastro.html">Cadastra-se</a></span>
                         </form>
                     </div>

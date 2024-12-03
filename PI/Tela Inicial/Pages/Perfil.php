@@ -1,0 +1,10 @@
+<?php
+
+require '../Session/Login.php';
+Login::requireLogin();
+
+
+
+
+
+echo "TESTE DE LOGIN PERFIL";

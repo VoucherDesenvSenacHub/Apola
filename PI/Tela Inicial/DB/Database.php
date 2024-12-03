@@ -3,11 +3,11 @@
 
 class Database{
 
-    public $conn;
-    public string $local = '10.38.0.122';
+    public $conection;
+    public string $local = 'localhost';
     public string $db = 'pi_artesanato';
-    public string $user = 'devweb';
-    public string $password = 'suporte@22';
+    public string $user = 'root';
+    public string $password = '';
     public $table;
 
 
@@ -20,12 +20,12 @@ class Database{
 
     private function conecta(){
         try{
-            $this->conn = new PDO("mysql:host=".$this->local.";dbname=$this->db",
+            $this->conection = new PDO("mysql:host=".$this->local.";dbname=$this->db",
             $this->user,$this->password); 
-            $this->conn->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
+            $this->conection->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
             return true;
         }catch (PDOException $err){
-            die("Connection Failed" . $err->getMesssage());
+            die("Connection Failed" . $err->getMessage());
             return false;
         }
     }
@@ -33,14 +33,11 @@ class Database{
     public function execute($query,$binds = []){
         //BINDS = parametros
         try{
-            $stmt = $this->conn->prepare($query);
+            $stmt = $this->conection->prepare($query);
             $stmt->execute($binds);
             return $stmt;
-
         }catch (PDOException $err) {
             //retirar msg em produção
-
-
             die("Connection Failed " . $err->getMessage());
 
         }
@@ -61,7 +58,24 @@ class Database{
 
 
         $this->execute($query,array_values($values));
+
+        return $this->conection->lastInsertId();
         
+    }
+
+
+
+    public function select($where=null, $order=null, $limit=null, $fields = '*'){
+
+        $where = strlen($where) ? 'WHERE '.$where : '';
+        $order = strlen($order) ? 'ORDER '.$order : '';
+        $limit = strlen($limit) ? 'LIMIT '.$limit : '';
+
+        // COM FIELDS NA FUNÇÃO SELECT COMO PARAMENTRO = "$fields = '*'
+        $query = 'SELECT '.$fields.' FROM '. $this->table.' '.$where.' '.$order.' '.$limit;
+        // $query = 'SELECT * FROM '. $this->table.' '.$where.' '.$order.' '.$limit.;
+
+        return $this->execute($query);
     }
 
 

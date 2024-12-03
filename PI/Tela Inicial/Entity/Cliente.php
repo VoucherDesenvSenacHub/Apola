@@ -36,7 +36,7 @@ class Cliente{
     public function cadastrarCliente(){
         $db = new Database('cliente');
 
-        $result = $db->insertCliente(
+        $this->id_cliente = $db->insertCliente(
             [
                 'nome'=> $this->nome,
                 'cep' => $this->cep,
@@ -46,12 +46,22 @@ class Cliente{
             ]
             );
 
-            if($result){
-                return true;
+        return true; 
+    }
 
-            }else{
-                return false;
-            }
+
+
+    public static function getCliente($where=null, $order =null, $limit = null){
+        return (new Database('cliente'))->select($where,$order<$limit)
+                                        ->fetchAll(PDO::FETCH_CLASS,slef::class);
+
+    }
+
+    // Retorna uma instâcia de usuario com base no email
+    public static function getUsuarioPorEmail($email){
+
+        return (new Database('cliente'))->select('email = "'.$email.'"')->fetchObject(self::class);
+
 
     }
 

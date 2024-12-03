@@ -8,52 +8,24 @@ require '../Entity/Cliente.php';
 
 
 
-if (isset($_POST['cadastrar'])) {
+
+$AlertErr= '';
+
+if (isset($_POST['nome'],$_POST['email'], $_POST['cep'], $_POST['cpf'],$_POST['senha'])) {
     $nome = $_POST["nome"];
     $email = $_POST["email"];
     $cep = $_POST['cep'];
-    $senha = $_POST['senha'];
+    $senha = password_hash($_POST['senha'], PASSWORD_DEFAULT);
     $cpf = $_POST['cpf'];
-    $confSenha = $_POST['conf-senha'];
 
-    if (!empty($nome) && !empty($email) && !empty($cep) && !empty($senha) && !empty($cpf) && !empty($confSenha)) {
-        if ($senha == $confSenha) {
-            $cliente = new Cliente($nome,$email,$cpf,$cep,$senha);
-            $result= $cliente->cadastrarCliente();
+    $cliente = new Cliente($nome,$email,$cpf,$cep,$senha);
+    $result= $cliente->cadastrarCliente();
 
-            echo $result;
-            if ($result){
-                ?>
-                <div class="msg-sucesso">
-                    <p>Cadastro Realizado com Sucesso!</p>
-                </div>
-                <?php
-            } else {
-                ?>
-                <div class="msg-erro">
-                    <p>Cadastro não realizado, tente novamente!</p>
-                </div>
-                <?php
-            }
+    header('location: login.php?status=success');
+    exit;
 
-        } else {
-            ?>
-            <div class="msg-erro">
-                <p>Senha e Confirmar Senha não conferem</p>
-            </div>
-            <?php
-        }
 
-    } else {
-        ?>
-        <div class="msg-erro">
-            <?php echo "Erro: " .$err->getMessage(); ?>
-        </div>
-        <?php
-    }
 }
-
-
 
 
 ?>
@@ -105,10 +77,6 @@ if (isset($_POST['cadastrar'])) {
                             <div class="form__group field">
                                 <input type="password" name='senha' id="senha-cad" class="form__field" placeholder="Senha" required>
                                 <label for="senha" class="form__label">Senha*</label>
-                            </div>
-                            <div class="form__group field">
-                                <input type="password" name='conf-senha' id="senha-cad" class="form__field" placeholder="Senha" required>
-                                <label for="senha" class="form__label">Confirmar Senha*</label>
                             </div>
                             <div class="btn-cadastro">
                                 <a href=""><button type="submit" name='cadastrar' >Cadastra-se</button></a>
