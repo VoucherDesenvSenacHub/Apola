@@ -15,7 +15,6 @@ class Login{
     public static function login($obCliente){
         self::init();
 
-
         // Sessão de usuario
         $_SESSION['cliente'] =[
             'id' => $obCliente->id,
@@ -41,6 +40,7 @@ class Login{
     // Obriga o usuario a estar logado para acessar
     public static function requireLogin(){
         if (!self::isLogged()){
+            
             header('location: ../Pages/login.php');
             exit;
         }

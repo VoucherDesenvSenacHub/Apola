@@ -13,24 +13,22 @@ class Cliente{
     public int $cpf;
     public string $email;
     public string $senha;
-    public int $telefone;
+    private ?string $telefone = null;
     public int $num_casa;
-    public string $rua;
-    public string $bairro;
-    public string $estado;
-    public string $cidade;
-    public string$complemento;
+    private ?string $rua = null;
+    private ?string $bairro = null;
+    private ?string $estado = null;
+    private ?string $cidade = null;
+    private ?string $complemento = null;
 
 
-
-
-    public function __construct(string $nome, string $email, int $cpf,string $cep, string $senha ) {
-        $this->nome = $nome;
-        $this->email = $email;
-        $this->cpf = $cpf;
-        $this->cep = $cep;
-        $this->senha = $senha;
-    }
+    // public function __construct(string $nome, string $email, int $cpf,string $cep, string $senha ) {
+    //     $this->nome = $nome;
+    //     $this->email = $email;
+    //     $this->cpf = $cpf;
+    //     $this->cep = $cep;
+    //     $this->senha = $senha;
+    // }
 
 
     public function cadastrarCliente(){
@@ -52,18 +50,27 @@ class Cliente{
 
 
     public static function getCliente($where=null, $order =null, $limit = null){
-        return (new Database('cliente'))->select($where,$order<$limit)
-                                        ->fetchAll(PDO::FETCH_CLASS,slef::class);
+        return (new Database('cliente'))->select($where,$order,$limit)
+                                        ->fetchAll(PDO::FETCH_CLASS,self::class);
 
     }
 
     // Retorna uma instâcia de usuario com base no email
-    public static function getUsuarioPorEmail($email){
 
-        return (new Database('cliente'))->select('email = "'.$email.'"')->fetchObject(self::class);
+    public static function getUsuarioPorEmail($where=null, $order =null, $limit = null){
 
+        return (new Database('cliente'))->select('email = "'. $where .'"')->fetchObject(self::class);
 
     }
+
+
+    // QUANDO EU QUERO RETORNAR UM OBJETO "CLASSE" PARA INSTANCIAR 
+    // public static function getUsuarioPorEmail($where=null, $order =null, $limit = null){
+
+    //     return (new Database('cliente'))->select('email = "'. $where .'"')->fetchObject(self::class);
+
+    // }
+
 
 
 
