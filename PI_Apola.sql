@@ -28,12 +28,12 @@ create table cliente(
     cpf char(11) unique not null,
     email varchar(150) unique not null,
     senha varchar(20) not null,
-    telefone char(11) not null,
-    numero_casa int(5) not null,
-    rua varchar(150) not null,
-    bairro varchar(150) not null,
-    estado varchar(100) not null,
-    cidade varchar (150) not null,
+    telefone char(11),
+    numero_casa int(5),
+    rua varchar(150),
+    bairro varchar(150),
+    estado varchar(100),
+    cidade varchar (150),
     complemento varchar(200),
     
      /*chave primaria*/
@@ -263,8 +263,8 @@ INSERT INTO sacola (preco_frete, valor_total, cep, id_cliente) VALUES
 (14.00, 200.00, '22233-445', 9),
 (9.00, 90.00, '33344-556', 10);
 
-
-
+show databases;
+use pi_artesanato;
 select * from produto;	
 select * from sacola;
 select *from cliente;
@@ -276,10 +276,10 @@ select * from item_pedido;
 desc item_pedido;
 
 insert into item_pedido(quantidade_pedido,data_pedido,status_pedido,codigo_rastreio,valor_total,id_produto,id_sacola) 
-values (5, current_timestamp(),'APR', 'ASDFGHfgh', 123.34, 1,1);
+values (5, current_timestamp(),'APR', 'ASDFGHfgh', 123.34, 5,4);
 
 select * from produto;
-
+delete from item_pedido where id_item_pedido = 1;
 
 
 CREATE TRIGGER baixa_estoque AFTER INSERT 
@@ -287,6 +287,43 @@ ON item_pedido
 FOR EACH ROW
 UPDATE produto set quantidade = (quantidade - NEW.quantidade_pedido) where id_produto = NEW.id_produto;
 
+create trigger aumento_valor after insert
+on item_pedido
+for each row
+update sacola set valor_total = (valor_total + new.valor_total) where id_cliente = new.id_sacola;
 
-select produto.nome 
 
+
+drop trigger aumento_valor;
+select  * from item_pedido;
+select * from item_pedido;
+
+
+
+
+
+insert into item_pedido(id_item_pedido, quantidade_pedido, data_pedido, status_pedido, codigo_rastreio, valor_total, id_produto, id_sacola, id_produto_perso) 
+values (default, 1, current_timestamp(),'APR', 'ASDFGHfgh', 19.90 , 3, 4, null);
+
+
+insert into item_pedido(id_item_pedido, quantidade_pedido, data_pedido, status_pedido, codigo_rastreio, valor_total, id_produto, id_sacola, id_produto_perso) 
+values (default, 1, current_timestamp(),'APR', 'ASDFGHfgh', 19.90 , 3, 4, null);
+
+
+
+
+
+
+
+
+
+select cliente.nome as QUEM_AVALIOU, avaliacoes.text_avaliacao as AVALIACOES, produto.nome as QUAL_PRODUTO
+from cliente join avaliacoes on cliente.id_cliente = avaliacoes.id_cliente
+join produto on avaliacoes.id_produto = produto.id_produto;
+
+select cliente.nome, favoritos.id_produto, produto.nome from cliente join favoritos 
+on cliente.id_cliente = favoritos.id_cliente 
+join produto on favoritos.id_produto = produto.id_produto;
+
+select cliente.id_cliente, cliente.nome, sacola.id_sacola, sacola.cep, sacola.valor_total from cliente left join sacola
+on cliente.id_cliente = sacola.id_sacola;
