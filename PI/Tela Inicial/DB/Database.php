@@ -4,10 +4,10 @@
 class Database{
 
     public $conection;
-    public string $local = '10.38.0.117';
+    public string $local = 'localhost';
     public string $db = 'pi_artesanato';
-    public string $user = 'devweb';
-    public string $password = 'suporte@22';
+    public string $user = 'root';
+    public string $password = '';
     public $table;
 
 
@@ -76,6 +76,7 @@ class Database{
         // $query = 'SELECT * FROM '. $this->table.' '.$where.' '.$order.' '.$limit.;
 
         return $this->execute($query);
+        
     }
 
 

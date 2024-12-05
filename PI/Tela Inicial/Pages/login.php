@@ -16,25 +16,22 @@ if (isset($_POST['logar'])){
         $email = $_POST['email'];
         $senha = $_POST['senha'];
         $confSenha = $_POST['conf-senha'];
-
         // Verificar se exite usuario com esse email no banco
-        $obj = Cliente::getUsuarioPorEmail($_POST['email']);
-        $emailCliente = $obj->email;
-        $senhaCliente = password_verify($_POST['senha'], $obj->senha);
+        $cliente = Cliente::getUsuarioPorEmail($_POST['email']);
+        
 
-
-
-        if($emailCliente === $email && $senhaCliente === true){
-            Login::login($obj);
-        }else{   
-            $alertaLogin ='Email ou senha inválidos';
+        // Verifica se exite usuario com essa senha no banco
+        if(!$cliente instanceof Cliente || !password_verify($_POST['senha'], $cliente->senha)){
+            $alertaLogin = 'Email ou senha Inválidos';
+            
+        }else{
+               // Loga usuario
+               Login::login($cliente);
         }
-
-
+    
 
     }
 }
-
 
 
 

@@ -7,12 +7,12 @@ require '../DB/Database.php';
 class Cliente{
 
 
-    public int $id_cliente;
-    public string $nome;
-    public  string $cep;
-    public int $cpf;
-    public string $email;
-    public string $senha;
+    public ?int $id_cliente;
+    public ?string $nome;
+    public  ?string $cep;
+    public ?int $cpf;
+    public ?string $email;
+    public ?string $senha;
     private ?string $telefone = null;
     public int $num_casa;
     private ?string $rua = null;
@@ -22,13 +22,13 @@ class Cliente{
     private ?string $complemento = null;
 
 
-    // public function __construct(string $nome, string $email, int $cpf,string $cep, string $senha ) {
-    //     $this->nome = $nome;
-    //     $this->email = $email;
-    //     $this->cpf = $cpf;
-    //     $this->cep = $cep;
-    //     $this->senha = $senha;
-    // }
+    public function __construct($nome = null, $cep = null, $cpf = null, $email = null, $senha = null) {
+        $this->nome = $nome;
+        $this->email = $email;
+        $this->cpf = $cpf;
+        $this->cep = $cep;
+        $this->senha = $senha;
+    }
 
 
     public function cadastrarCliente(){
