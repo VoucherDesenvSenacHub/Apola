@@ -4,9 +4,11 @@ footer{
     background-color: #1f1f1f;
     padding: 70px 0;
     width: 100%;
-    height: auto;
-    z-index: 300;
-
+    height: 100%;
+    display: flex;
+    position: static;
+    bottom: 0;
+    
 }
 
 ul{

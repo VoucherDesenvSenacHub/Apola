@@ -18,7 +18,7 @@ if (isset($_POST['nome'],$_POST['email'], $_POST['cep'], $_POST['cpf'],$_POST['s
     $senha = password_hash($_POST['senha'], PASSWORD_DEFAULT);
     $cpf = $_POST['cpf'];
 
-    $cliente = new Cliente($nome,$email,$cpf,$cep,$senha);
+    $cliente = new Cliente($nome,$cep,$cpf,$email,$senha);
     $result= $cliente->cadastrarCliente();
 
     header('location: login.php?status=success');
