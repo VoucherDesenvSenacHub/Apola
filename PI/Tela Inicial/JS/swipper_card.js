@@ -45,3 +45,21 @@ const swiper = new Swiper('.swiper', {
 
 
 });
+
+
+
+
+
+var swiperMenu = new Swiper(".mySwiperMenu", {
+  pagination: {
+    el: ".swiper-pagination",
+  },
+
+  breakpoints: {
+    // when window width is >= 320px
+    520: {
+      slidesPerView: 1,
+      spaceBetween: 25
+    },
+  }
+});

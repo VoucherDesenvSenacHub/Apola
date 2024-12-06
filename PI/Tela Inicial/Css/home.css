@@ -2,19 +2,21 @@
     display: flex;
     width: 100%;
     height: 100%;
+    overflow: hidden;
 } 
 
 /* AREA BANNER */
 
-.slide{
+.carrosel_pc .slide{
     display: flex;
     justify-content: center;
     align-items: center;
     object-fit:scale-down;
 
+
 }
 
-.carousel-item .w-100{
+.carrosel_pc .carousel-item .w-100{
     object-fit:scale-down;
 }
 
@@ -26,7 +28,7 @@
 .area_promocional{
     display: flex;
     width: 100%;
-    height: 40%;
+    height: 40vh;
     justify-content: center;
     align-items: center;
 
@@ -36,8 +38,8 @@
 
 .content_area_promocional{
     display: flex;
-    width: 100%;
-    height: 50%;
+    width: 90%;
+    height: 70%;
     background-color: rgb(244, 244, 244);
     justify-content: center;
     align-items: center;
@@ -97,7 +99,7 @@
 .cards_cartegoria{
     display: flex;
     width: 100%;
-    height: 50%px;
+    height: 50vh;
     
 }
 
@@ -109,8 +111,8 @@
     justify-content: center;
     align-items: center;
     
+    
 }
-
 
 
 
@@ -132,7 +134,8 @@
     gap: 37px;
     justify-content: center;
     align-items: center;
-    width: 100%;
+    width: 80%;
+    flex-wrap: wrap;
     
 
     
@@ -409,7 +412,7 @@
 
 .banner_card{
     display: grid;
-    height: 65%;
+    height: 65vh;
     width: 100%;
     justify-content: center;
     grid-template-columns: 50% 40%;
@@ -496,7 +499,7 @@
     justify-content: center;
     align-items: center;
     display: flex;
-    height: 65%;
+    height: 65vh;
 
 }
 
@@ -516,7 +519,7 @@
 .card_cat_2{
     display: flex;
     width: 100%;
-    height: 80%;
+    height: 80vh;
     justify-content: center;
     align-items: center;
     flex-direction: column;
@@ -609,7 +612,7 @@ BANNER PROMOCIONAL FINAL */
 .banner_promocional_final{
     display: flex;
     width: 100%;
-    height: 90%;
+    height: 90vh;
     justify-content: center;
     align-items: center;
 }
@@ -723,6 +726,9 @@ BANNER PROMOCIONAL FINAL */
 
 
 
+.carrosel_menu{
+    display: none;
+}
 
 
 
@@ -731,26 +737,72 @@ BANNER PROMOCIONAL FINAL */
 
 
 
+
+
 @media (max-width: 1020px) {
 
     
-/* AREA PROMOCIONAL */
-    
-.area_promocional{
+
+/* AREA DE CATEGORIAS */
+
+
+.cards_cartegoria{
     display: flex;
     width: 100%;
-    height: 40%;
-    
+    height: 80vh;
+}
+
+.content_cards_categoria{
+    display: flex;
+    width: 100%;
+    padding: 30px;
+}
+
+
+
+.list_cards_categoria{
+    gap: 37px;
+    width: 80%;
+    flex-wrap: wrap;
+
+}
+
+.list_cards_categoria .item_cards_categoria{
+    width: 150px;
+    height: 200px;
+    background-color: rgb(246, 246, 246);
+    row-gap: 15px;
+}
+
+
+.img_content_categoria{
+    width: 100%;
+}
+
+.img_content_categoria img{
+    height: 90px;
+}
+
+
+.text_cards_categoria{
+    font-weight: 500;
+    padding-top: 1rem;
+}
+
+
+
+
+/* AREA PROMOCIONAL */
+
+.area_promocional{
+    height: 35vh;
 }
 
 
 .content_area_promocional{
-    display: flex;
     width: 90%;
     height: 70%;
-    column-gap: 100px;
-
-
+    column-gap: 80px;
 }
 
 
@@ -763,6 +815,7 @@ BANNER PROMOCIONAL FINAL */
     width: 5rem;
     height: 5rem;
 
+    
 }
 
 
@@ -771,9 +824,9 @@ BANNER PROMOCIONAL FINAL */
 }
 
 .icon_promocional .texto_promocional{
-    font-size: 15px;
+    font-size: 16px;
+    font-weight: 400;
 }
-
 
 
 
@@ -783,7 +836,8 @@ BANNER PROMOCIONAL FINAL */
 
 .banners_secudarios{
     width: 100%;
-    height: 40%;
+    height: 50vh;
+
 }
 
 
@@ -795,57 +849,10 @@ BANNER PROMOCIONAL FINAL */
 
 .banner_card{
     display: grid;
-    height: 45%;
+    height: 40vh;
     width: 100%;
 }
 
-.banner_card_1{
-    grid-area: banner1;
-    height: 60%;
-    width: 100%;
-
-}
-
-.banner_card_1 img{
-    width: 100%;
-    height: 100%;
-
-}
-
-
-.banner_card_2{
-    grid-area:  banner2;
-    height:60% ;
-    display: flex;
-    width: 100%;
-}
-
-.banner_card_2 img{
-    width: 100%;
-    height: 50%;
-
-}
-
-.banner_card_3{
-    grid-area:  banner3;
-    height: 50%;
-    width: 100%;
-}
-
-.banner_card_3 img{
-    width: 100%;
-    height: 100%;;
-}
-
-
-.grid-banner-areas{
-    grid-template-areas: 
-    "banner1 banner2"
-    "banner1 banner2"
-    "banner1 banner3"
-    "banner1 banner3"
-    ;
-}
 
 
 
@@ -857,85 +864,88 @@ BANNER PROMOCIONAL FINAL */
 .card_cat_2{
     display: flex;
     width: 100%;
-    height: 60%;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+    height: 60vh;
     gap: 4rem;
 }
 
+
 .content_card_cat_2{
-    display: flex;
-    width: 90%;
-    height: 75%;
-    align-items: center;
-    justify-content: center;
     gap: 4rem;
     
  
 }
 
 
-
-
 .item_card_cat_2{
     display: flex;
-    width:30%;
+    width:26%;
     height: 100%;
+
+}
+
+
+/* 
+BANNER PROMOCIONAL FINAL */
+
+
+
+
+.banner_promocional_final{
+    display: flex;
+    width: 100%;
+    height: 80vh;
     justify-content: center;
     align-items: center;
-    position: relative;
-    border-radius: 5px;
-    overflow: hidden;
-    cursor: pointer;
+}
+
+
+.content_banner_promocional_final{
+    background-color:#f2f2f2;
+    height: 70%;
+    width: 90%;
 
 }
 
-.img_card_cat_2{
-    display: flex;
-    object-fit:cover;
-    height: 100%;
-    width: 100%;
-    position: absolute;
-    z-index: 5;
-    border-radius: 5px;
-    transition: all 0.2s ease;
+
+
+
+.text_call_banner_final{
+    font-size: 17px;
+    font-weight: 600;
 
 }
 
-.overlay_cat_2{
-    display: flex;
-    z-index: 10;
-    background-color: #0000003a;
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    border-radius: 5px;
-    transition: all 0.2s ease;
-}
+.text_call_banner_final2{
 
-.text_card_cat_2{
-    display: flex;
-    z-index: 15;
-    color: white;
+    font-size: 15px;
     font-weight: 500;
-    font-size: 20px;
-    transition: all 0.2s ease;
 }
 
 
 
-
-.item_card_cat_2:hover .img_card_cat_2{
-    transform: scale(1.10);
+.btn__banner_final{
+    display: flex;
+    height: 60px;
+    width: 180px;
+    background-color: #FA301E;
+    font-size: 18px;
 }
 
-.item_card_cat_2:hover .overlay_cat_2{
-    background-color: #0000006a;
+
+.content_img_final{
+    display: flex;
+    width: 40%;
+    position: relative;
 }
 
-.item_card_cat_2:hover .text_card_cat_2{
-    font-size: 25px;
+
+.content_img_final img{
+    position:absolute;
+    display: flex;
+    height: 500px;
+    right: 0;
+    top: -8rem;
+    transform: rotate(10deg);
 }
 
 
@@ -946,3 +956,1671 @@ BANNER PROMOCIONAL FINAL */
 
     
 }
+
+@media (max-width: 840px)  {
+       
+
+/* AREA DE CATEGORIAS */
+
+
+.cards_cartegoria{
+    display: flex;
+    width: 100%;
+    height: 80vh;
+    
+}
+
+.content_cards_categoria{
+    display: flex;
+    width: 100%;
+    padding: 30px;
+}
+
+
+
+.list_cards_categoria{
+    gap: 37px;
+    width: 80%;
+    flex-wrap: wrap;
+
+}
+
+.list_cards_categoria .item_cards_categoria{
+    width: 150px;
+    height: 200px;
+    background-color: rgb(246, 246, 246);
+    row-gap: 15px;
+}
+
+
+.img_content_categoria{
+    width: 100%;
+}
+
+.img_content_categoria img{
+    height: 90px;
+}
+
+
+.text_cards_categoria{
+    font-weight: 500;
+    padding-top: 1rem;
+}
+
+
+
+
+/* AREA PROMOCIONAL */
+
+.area_promocional{
+    height: 40vh;
+}
+
+
+.content_area_promocional{
+    width: 90%;
+    height: 70%;
+    column-gap: 50px;
+}
+
+
+.icon_promocional{
+    column-gap: 20px;
+}
+
+
+.img_content_promocional{
+    width: 4rem;
+    height: 4rem;
+
+    
+}
+
+
+.icon_promocional img{
+    height: 2rem;
+}
+
+.icon_promocional .texto_promocional{
+    font-size: 13px;
+    font-weight: 400;
+}
+
+
+
+
+/* BANNER SECUNDÁRIO */
+
+
+.banners_secudarios{
+    width: 100%;
+    height: 60vh;
+
+}
+
+.banners_secudarios img{
+    width: 90%;
+    height: 70%;
+    display: block;
+    margin: 0 auto;
+} 
+
+
+
+
+
+
+/* AREA CARD BANNER PROMOCIONAL */
+
+
+.banner_card{
+    display: grid;
+    height: 50vh;
+    width: 100%;
+}
+
+
+.banner_card_1{
+    grid-area: banner1;
+    height: 60%;
+    width: 100%;
+    display: flex;
+    padding: 5px;
+
+}
+
+
+.banner_card_2{
+    grid-area:  banner2;
+    height:60% ;
+    display: flex;
+    width: 100%;
+    border-radius: 5px;
+    flex-direction: column;
+    gap: 0.8rem;
+    padding-top: 0.3rem;
+}
+
+
+
+.banner_card_3{
+    grid-area:  banner3;
+    height: 50%;
+    display: flex;
+    width: 100%;
+}
+
+
+
+
+
+/* CARDS CATEGORIA SEGUNDARIO */
+
+
+
+.card_cat_2{
+    display: flex;
+    width: 100%;
+    height: 60vh;
+    gap: 4rem;
+}
+
+
+.content_card_cat_2{
+    gap: 4rem;
+    
+ 
+}
+
+
+.item_card_cat_2{
+    display: flex;
+    width:26%;
+    height: 100%;
+
+}
+
+
+/* 
+BANNER PROMOCIONAL FINAL */
+
+
+
+
+.banner_promocional_final{
+    display: flex;
+    width: 100%;
+    height: 75vh;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.content_banner_promocional_final{
+    background-color:#f2f2f2;
+    height: 70%;
+    width: 90%;
+
+}
+
+
+
+
+.text_call_banner_final{
+    font-size: 14px;
+    font-weight: 600;
+
+}
+
+.text_call_banner_final2{
+
+    font-size: 11px;
+    font-weight: 500;
+}
+
+
+
+.btn__banner_final{
+    display: flex;
+    height: 40px;
+    width: 120px;
+    background-color: #FA301E;
+    font-size: 14px;
+}
+
+
+.content_img_final{
+    display: flex;
+    width: 40%;
+    position: relative;
+}
+
+
+.content_img_final img{
+    position:absolute;
+    display: flex;
+    height: 400px;
+    right: 0;
+    top: -5rem;
+    transform: rotate(10deg);
+}
+
+
+
+    
+}
+@media (max-width: 720px)  {
+       
+
+    /* AREA DE CATEGORIAS */
+    
+    
+    .cards_cartegoria{
+        display: flex;
+        width: 100%;
+        height: 90vh;
+        
+    }
+    
+    .content_cards_categoria{
+        display: flex;
+        width: 100%;
+        padding: 30px;
+    }
+    
+    
+    
+    .list_cards_categoria{
+        gap: 37px;
+        width: 90%;
+        flex-wrap: wrap;
+    
+    }
+    
+    .list_cards_categoria .item_cards_categoria{
+        width: 150px;
+        height: 200px;
+        background-color: rgb(246, 246, 246);
+        row-gap: 15px;
+    }
+    
+    
+    .img_content_categoria{
+        width: 100%;
+    }
+    
+    .img_content_categoria img{
+        height: 90px;
+    }
+    
+    
+    .text_cards_categoria{
+        font-weight: 500;
+        padding-top: 1rem;
+    }
+    
+    
+    
+    
+    /* AREA PROMOCIONAL */
+    
+    .area_promocional{
+        height: 40vh;
+    }
+    
+    
+    .content_area_promocional{
+        width: 90%;
+        height: 70%;
+        column-gap: 50px;
+    }
+    
+    
+    .icon_promocional{
+        column-gap: 10px;
+    }
+    
+    
+    .img_content_promocional{
+        width: 3rem;
+        height: 3rem;
+    
+        
+    }
+    
+    
+    .icon_promocional img{
+        height: 1.5rem;
+    }
+    
+    .icon_promocional .texto_promocional{
+        font-size: 11px;
+        font-weight: 400;
+    }
+    
+    
+    
+    
+    /* BANNER SECUNDÁRIO */
+    
+    
+    .banners_secudarios{
+        width: 100%;
+        height: 50vh;
+    
+    }
+    
+    .banners_secudarios img{
+        width: 90%;
+        height: 70%;
+        display: block;
+        margin: 0 auto;
+    } 
+    
+    
+    
+    
+    
+    
+    /* AREA CARD BANNER PROMOCIONAL */
+    
+    
+    .banner_card{
+        display: grid;
+        height: 55vh;
+        width: 100%;
+
+    }
+    
+    
+    .banner_card_1{
+        grid-area: banner1;
+        height: 70%;
+        width: 100%;
+        display: flex;
+        padding: 5px;
+    
+    }
+    
+    
+    .banner_card_2{
+        grid-area:  banner2;
+        height:70% ;
+        display: flex;
+        width: 100%;
+        border-radius: 5px;
+        flex-direction: column;
+        gap: 0.8rem;
+        padding-top: 0.3rem;
+    }
+    
+    
+    
+    .banner_card_3{
+        grid-area:  banner3;
+        height: 50%;
+        display: flex;
+        width: 100%;
+    }
+    
+    
+    
+    
+    
+    /* CARDS CATEGORIA SEGUNDARIO */
+    
+    
+    
+    .card_cat_2{
+        display: flex;
+        width: 100%;
+        height: 60vh;
+        gap: 4rem;
+    }
+    
+    
+    .content_card_cat_2{
+        gap: 2rem;
+        
+     
+    }
+    
+    
+    .item_card_cat_2{
+        display: flex;
+        width:29%;
+        height: 100%;
+    
+    }
+    
+    
+    /* 
+    BANNER PROMOCIONAL FINAL */
+    
+    
+    
+    
+    .banner_promocional_final{
+        display: flex;
+        width: 100%;
+        height: 75vh;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    
+    .content_banner_promocional_final{
+        background-color:#f2f2f2;
+        height: 70%;
+        width: 90%;
+    
+    }
+    
+    
+    
+    
+    .text_call_banner_final{
+        font-size: 12px;
+        font-weight: 600;
+    
+    }
+    
+    .text_call_banner_final2{
+    
+        font-size: 10px;
+        font-weight: 500;
+    }
+    
+    
+    
+    .btn__banner_final{
+        display: flex;
+        height: 40px;
+        width: 110px;
+        background-color: #FA301E;
+        font-size: 14px;
+    }
+    
+    
+    .content_img_final{
+        display: flex;
+        width: 40%;
+        position: relative;
+    }
+    
+    
+    .content_img_final img{
+        position:absolute;
+        display: flex;
+        height: 350px;
+        right: 0;
+        top: -5rem;
+        transform: rotate(10deg);
+    }
+    
+    
+    
+        
+    }
+
+
+@media (max-width: 642px)  {
+    
+
+    /* AREA DE CATEGORIAS */
+    
+    
+    .cards_cartegoria{
+        display: flex;
+        width: 100%;
+        height: 90vh;
+        
+    }
+    
+    .content_cards_categoria{
+        display: flex;
+        width: 100%;
+        padding: 30px;
+    }
+    
+    
+    
+    .list_cards_categoria{
+        gap: 37px;
+        width: 100%;
+        flex-wrap: wrap;
+    
+    }
+    
+    .list_cards_categoria .item_cards_categoria{
+        width: 150px;
+        height: 200px;
+        background-color: rgb(246, 246, 246);
+        row-gap: 15px;
+    }
+    
+    
+    .img_content_categoria{
+        width: 100%;
+    }
+    
+    .img_content_categoria img{
+        height: 90px;
+    }
+    
+    
+    .text_cards_categoria{
+        font-weight: 500;
+        padding-top: 1rem;
+    }
+    
+    
+    
+    
+    /* AREA PROMOCIONAL */
+    
+    .area_promocional{
+        height: 40vh;
+    }
+    
+    
+    .content_area_promocional{
+        width: 90%;
+        height: 70%;
+        column-gap: 30px;
+    }
+    
+    
+    .icon_promocional{
+        column-gap: 10px;
+    }
+    
+    
+    .img_content_promocional{
+        width: 3rem;
+        height: 3rem;
+    
+        
+    }
+    
+    
+    .icon_promocional img{
+        height: 1.5rem;
+    }
+    
+    .icon_promocional .texto_promocional{
+        font-size: 11px;
+        font-weight: 400;
+    }
+    
+    
+    
+    
+    /* BANNER SECUNDÁRIO */
+    
+    
+    .banners_secudarios{
+        width: 100%;
+        height: 50vh;
+    
+    }
+    
+    .banners_secudarios img{
+        width: 90%;
+        height: 70%;
+        display: block;
+        margin: 0 auto;
+    } 
+    
+    
+    
+    
+    
+    
+    /* AREA CARD BANNER PROMOCIONAL */
+    
+    
+    .banner_card{
+        display: grid;
+        height: 60vh;
+        width: 100%;
+
+    }
+    
+    
+    .banner_card_1{
+        grid-area: banner1;
+        height: 80%;
+        width: 100%;
+        display: flex;
+        padding: 5px;
+    
+    }
+    
+    
+    .banner_card_2{
+        grid-area:  banner2;
+        height:82% ;
+        display: flex;
+        width: 100%;
+        border-radius: 5px;
+        flex-direction: column;
+        gap: 0.8rem;
+        padding-top: 0.3rem;
+    }
+    
+    
+    
+    .banner_card_3{
+        grid-area:  banner3;
+        height: 50%;
+        display: flex;
+        width: 100%;
+    }
+    
+    
+    
+    
+    
+    /* CARDS CATEGORIA SEGUNDARIO */
+    
+    
+    
+    .card_cat_2{
+        display: flex;
+        width: 100%;
+        height: 55vh;
+        gap: 4rem;
+    }
+    
+    
+    .content_card_cat_2{
+        gap: 2rem;
+        
+        
+    }
+    
+    
+    .item_card_cat_2{
+        display: flex;
+        width:35%;
+        height: 100%;
+    
+    }
+    
+    
+    /* 
+    BANNER PROMOCIONAL FINAL */
+    
+    
+    
+    
+    .banner_promocional_final{
+        display: flex;
+        width: 100%;
+        height: 75vh;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    
+    .content_banner_promocional_final{
+        background-color:#f2f2f2;
+        height: 70%;
+        width: 90%;
+    
+    }
+    
+    
+    
+    
+    .text_call_banner_final{
+        font-size: 10px;
+        font-weight: 600;
+    
+    }
+    
+    .text_call_banner_final2{
+    
+        font-size: 8px;
+        font-weight: 500;
+    }
+    
+    
+    
+    .btn__banner_final{
+        display: flex;
+        height: 40px;
+        width: 110px;
+        background-color: #FA301E;
+        font-size: 12px;
+    }
+    
+    
+    .content_img_final{
+        display: flex;
+        width: 40%;
+        position: relative;
+    }
+    
+    
+    .content_img_final img{
+        position:absolute;
+        display: flex;
+        height: 330px;
+        right: 0;
+        top: -5rem;
+        transform: rotate(10deg);
+    }
+    
+    
+    
+        
+    }
+
+    
+@media (max-width: 583px)  {
+    
+
+    /* AREA DE CATEGORIAS */
+    
+    
+    .cards_cartegoria{
+        display: flex;
+        width: 100%;
+        height: 100vh;
+        
+    }
+    
+    .content_cards_categoria{
+        display: flex;
+        width: 100%;
+        padding: 30px;
+    }
+    
+    
+    
+    .list_cards_categoria{
+        gap: 37px;
+        width: 100%;
+        flex-wrap: wrap;
+    
+    }
+    
+    .list_cards_categoria .item_cards_categoria{
+        width: 130px;
+        height: 180px;
+        background-color: rgb(246, 246, 246);
+        row-gap: 15px;
+    }
+    
+    
+    .img_content_categoria{
+        width: 100%;
+    }
+    
+    .img_content_categoria img{
+        height: 70px;
+    }
+    
+    
+    .text_cards_categoria{
+        font-weight: 500;
+        padding-top: 1rem;
+    }
+    
+    
+    
+    
+    /* AREA PROMOCIONAL */
+    
+    .area_promocional{
+        height: 35vh;
+    }
+    
+    
+    .content_area_promocional{
+        width: 90%;
+        height: 60%;
+        column-gap: 20px;
+    }
+    
+    
+    .icon_promocional{
+        column-gap: 10px;
+    }
+    
+    
+    .img_content_promocional{
+        width: 3rem;
+        height: 3rem;
+    
+        
+    }
+    
+    
+    .icon_promocional img{
+        height: 1.3rem;
+    }
+    
+    .icon_promocional .texto_promocional{
+        font-size: 10px;
+        font-weight: 400;
+    }
+    
+    
+    
+    
+    /* BANNER SECUNDÁRIO */
+    
+    
+    .banners_secudarios{
+        width: 100%;
+        height: 50vh;
+    
+    }
+    
+    .banners_secudarios img{
+        width: 90%;
+        height: 90%;
+        display: block;
+        margin: 0 auto;
+    } 
+    
+    
+    
+    
+    
+    
+    /* AREA CARD BANNER PROMOCIONAL */
+    
+    
+    .banner_card{
+        display: grid;
+        height: 55vh;
+        width: 100%;
+
+    }
+    
+    
+    .banner_card_1{
+        grid-area: banner1;
+        height: 90%;
+        width: 100%;
+        display: flex;
+        padding: 5px;
+    
+    }
+    
+    
+    .banner_card_2{
+        grid-area:  banner2;
+        height:100% ;
+        display: flex;
+        width: 90%;
+        border-radius: 5px;
+        flex-direction: column;
+        gap: 0.8rem;
+    }
+    
+    
+    
+    .banner_card_3{
+        grid-area:  banner3;
+        height: 90%;
+        display: flex;
+        width: 100%;
+    }
+    
+    
+    
+    
+    
+    /* CARDS CATEGORIA SEGUNDARIO */
+    
+    
+    
+    .card_cat_2{
+        display: flex;
+        width: 100%;
+        height: 50vh;
+        gap: 4rem;
+    }
+    
+    
+    .content_card_cat_2{
+        gap: 2rem;
+        
+        
+    }
+    
+    
+    .item_card_cat_2{
+        display: flex;
+        width:50%;
+        height: 100%;
+    
+    }
+
+    .text_card_cat_2{
+        font-size: 14px;
+    }
+    
+    
+    
+    /* 
+    BANNER PROMOCIONAL FINAL */
+    
+    
+    
+    
+    .banner_promocional_final{
+        display: flex;
+        width: 100%;
+        height: 65vh;
+        justify-content: center;
+        align-items: center;
+    
+    }
+    
+    
+    .content_banner_promocional_final{
+        background-color:#f2f2f2;
+        height: 65%;
+        width: 90%;
+    
+    }
+    
+    
+    
+    
+    .text_call_banner_final{
+        font-size: 10px;
+        font-weight: 600;
+    
+    }
+    
+    .text_call_banner_final2{
+    
+        font-size: 8px;
+        font-weight: 500;
+    }
+    
+    
+    
+    .btn__banner_final{
+        display: flex;
+        height: 40px;
+        width: 110px;
+        background-color: #FA301E;
+        font-size: 11px;
+    }
+    
+    
+    .content_img_final{
+        display: flex;
+        width: 40%;
+        position: relative;
+    }
+    
+    
+    .content_img_final img{
+        position:absolute;
+        display: flex;
+        height: 300px;
+        right: -3rem;
+        top: -5rem;
+        transform: rotate(10deg);
+    }
+    
+    
+    
+        
+    }
+
+      
+@media (max-width: 447px)  {
+
+
+    .swiper_menu{
+        display: flex;
+        width: 100%;
+        height:auto;
+        position: relative;
+    }
+
+    .swiper_menu .swiper-wrapper{
+        display: flex;
+        width: 100%;
+        object-fit: cover;
+        background-color: aqua;
+        height: 60vh;
+    }
+
+    .swiper-slide{
+        display: flex;
+        object-fit: cover;
+
+    }
+
+    .swiper-slide img{
+        display: flex;
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+    }
+
+ 
+   
+
+
+
+
+
+
+
+
+    .carrosel_pc{
+        display: none;
+    }
+
+  
+
+
+
+    /* AREA DE CATEGORIAS */
+    
+    
+    .cards_cartegoria{
+        display: flex;
+        width: 100%;
+        height: 100vh;
+    }
+    
+    .content_cards_categoria{
+        display: flex;
+        width: 100%;
+        padding: 30px;
+    }
+    
+    
+    
+    .list_cards_categoria{
+        gap: 37px;
+        width: 100%;
+        flex-wrap: wrap;
+    
+    }
+    
+    .list_cards_categoria .item_cards_categoria{
+        width: 120px;
+        height: 160px;
+        background-color: rgb(246, 246, 246);
+        row-gap: 15px;
+    }
+    
+    
+    .img_content_categoria{
+        width: 100%;
+    }
+    
+    .img_content_categoria img{
+        height: 70px;
+    }
+    
+    
+    .text_cards_categoria{
+        font-weight: 500;
+        padding-top: 1rem;
+    }
+    
+    
+    
+    
+    /* AREA PROMOCIONAL */
+    
+    .area_promocional{
+        height: 60vh;
+
+    }
+    
+    
+    .content_area_promocional{
+        width: 90%;
+        height: 80%;
+        row-gap: 30px;
+        flex-direction: column;
+
+    }
+    
+    
+    .icon_promocional{
+        column-gap: 15px;
+        width: 100%;
+        justify-content: start;
+        padding-left: 4rem;
+
+    }
+    
+    
+    .img_content_promocional{
+        width: 4rem;
+        height: 4rem;
+    
+        
+    }
+    
+    
+    .icon_promocional img{
+        height: 2rem;
+    }
+    
+    .icon_promocional .texto_promocional{
+        font-size: 15px;
+        font-weight: 400;
+    }
+    
+    
+    
+    
+    /* BANNER SECUNDÁRIO */
+    
+    
+    .banners_secudarios{
+        width: 100%;
+        height: 45vh;
+    
+    }
+    
+    .banners_secudarios img{
+        width: 90%;
+        height: 200px;
+        display: block;
+        margin: 0 auto;
+    } 
+    
+    
+    
+    
+    
+    
+    /* AREA CARD BANNER PROMOCIONAL */
+    
+    
+   
+/* AREA CARD BANNER PROMOCIONAL */
+
+
+.banner_card{
+    display: flex;
+    height: 100vh;
+    width: 100%;
+    justify-content: center;
+    position: relative;
+    padding: 0rem 1rem 0rem 1rem;
+    flex-direction: column;
+    margin-top: 4rem;
+    margin-bottom: 4rem;
+
+}
+
+.banner_card_1{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    border-radius: 5px;
+}
+
+.banner_card_1 img{
+    display: flex;
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+    object-fit: contain;
+}
+
+
+.banner_card_2{
+    height:100% ;
+    display: flex;
+    width: 100%;
+    border-radius: 5px;
+    flex-direction: column;
+}
+
+.banner_card_2 img{
+    display: flex;
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+    object-fit: contain;
+
+}
+
+.banner_card_3{
+    height: 100%;
+    display: flex;
+    width: 100%;
+    border-radius: 5px;
+}
+
+.banner_card_3 img{
+    display: flex;
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+    object-fit: contain;
+    padding-top: 1rem;
+}
+
+
+    
+    /* CARDS CATEGORIA SEGUNDARIO */
+    
+    
+    
+    .card_cat_2{
+        display: flex;
+        width: 100%;
+        height: 45vh;
+        gap: 1rem;
+    }
+    
+    
+    .content_card_cat_2{
+        gap: 1rem;
+        
+        
+    }
+    
+    
+    .item_card_cat_2{
+        display: flex;
+        width:100%;
+        height: 100%;
+    
+    }
+
+    .text_card_cat_2{
+        font-size: 13px;
+    }
+    
+    
+    /* 
+    BANNER PROMOCIONAL FINAL */
+    
+    
+    
+    
+    .banner_promocional_final{
+        display: flex;
+        width: 100%;
+        height: 65vh;
+        justify-content: center;
+        align-items: center;
+    
+    }
+    
+    
+    .content_banner_promocional_final{
+        background-color:#f2f2f2;
+        height: 65%;
+        width: 90%;
+    
+    }
+    
+    
+
+
+    .text_content_promo_final{
+        display: flex;
+        width: 90%;
+        height: 80%;
+        align-items: end;
+        flex-direction: column;
+        justify-content: center;
+    }
+    
+
+    .text_call_banner_final{
+        justify-content: start;
+        font-size: 12px;
+    }
+
+
+    .text_call_banner_final2{
+        font-size: 8px;
+        font-weight: 500;
+    }
+    
+    
+    
+    .btn__banner_final{
+        display: flex;
+        height:35px;
+        width: 100px;
+        background-color: #FA301E;
+        font-size: 10px;
+    }
+    
+    
+    .content_img_final{
+        display: flex;
+        width: 40%;
+        position: relative;
+    }
+    
+    
+    .content_img_final img{
+        position:absolute;
+        display: flex;
+        height: 250px;
+        right: -2rem;
+        top: -2rem;
+        transform: rotate(10deg);
+    }
+    
+    
+    
+        
+    }
+
+@media (max-width: 336px)  {
+
+
+    /* AREA DE CATEGORIAS */
+    
+    
+    .cards_cartegoria{
+        display: flex;
+        width: 100%;
+        height: 100vh;
+    }
+    
+    .content_cards_categoria{
+        display: flex;
+        width: 100%;
+        padding: 30px;
+    }
+    
+    
+    
+    .list_cards_categoria{
+        gap: 37px;
+        width: 100%;
+        flex-wrap: wrap;
+    
+    }
+    
+    .list_cards_categoria .item_cards_categoria{
+        width: 100px;
+        height: 140px;
+        background-color: rgb(246, 246, 246);
+        row-gap: 15px;
+    }
+    
+    
+    .img_content_categoria{
+        width: 100%;
+    }
+    
+    .img_content_categoria img{
+        height: 55px;
+    }
+    
+    
+    .text_cards_categoria{
+        font-weight: 500;
+        padding-top: 1rem;
+    }
+    
+    
+    
+    
+    /* AREA PROMOCIONAL */
+    
+    .area_promocional{
+        height: 60vh;
+
+    }
+    
+    
+    .content_area_promocional{
+        width: 90%;
+        height: 80%;
+        row-gap: 30px;
+        flex-direction: column;
+
+    }
+    
+    
+    .icon_promocional{
+        column-gap: 15px;
+        width: 100%;
+        justify-content: start;
+        padding-left: 4rem;
+
+    }
+    
+    
+    .img_content_promocional{
+        width: 4rem;
+        height: 4rem;
+    
+        
+    }
+    
+    
+    .icon_promocional img{
+        height: 2rem;
+    }
+    
+    .icon_promocional .texto_promocional{
+        font-size: 15px;
+        font-weight: 400;
+    }
+    
+    
+    
+    
+    /* BANNER SECUNDÁRIO */
+    
+    
+    .banners_secudarios{
+        width: 100%;
+        height: 45vh;
+    
+    }
+    
+    .banners_secudarios img{
+        width: 90%;
+        height: 200px;
+        display: block;
+        margin: 0 auto;
+    } 
+    
+    
+    
+    
+    
+    
+    /* AREA CARD BANNER PROMOCIONAL */
+    
+    
+    
+/* AREA CARD BANNER PROMOCIONAL */
+
+
+.banner_card{
+    display: flex;
+    height: 100vh;
+    width: 100%;
+    justify-content: center;
+    position: relative;
+    padding: 0rem 1rem 0rem 1rem;
+    flex-direction: column;
+    margin-top: 4rem;
+    margin-bottom: 4rem;
+
+}
+
+.banner_card_1{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    border-radius: 5px;
+}
+
+.banner_card_1 img{
+    display: flex;
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+    object-fit: contain;
+}
+
+
+.banner_card_2{
+    height:100% ;
+    display: flex;
+    width: 100%;
+    border-radius: 5px;
+    flex-direction: column;
+}
+
+.banner_card_2 img{
+    display: flex;
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+    object-fit: contain;
+
+}
+
+.banner_card_3{
+    height: 100%;
+    display: flex;
+    width: 100%;
+    border-radius: 5px;
+}
+
+.banner_card_3 img{
+    display: flex;
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+    object-fit: contain;
+    padding-top: 1rem;
+}
+
+
+    
+    /* CARDS CATEGORIA SEGUNDARIO */
+    
+    
+    
+    .card_cat_2{
+        display: flex;
+        width: 100%;
+        height: 45vh;
+        gap: 1rem;
+    }
+    
+    
+    .content_card_cat_2{
+        gap: 1rem;
+        
+        
+    }
+    
+    
+    .item_card_cat_2{
+        display: flex;
+        width:100%;
+        height: 100%;
+    
+    }
+
+    .text_card_cat_2{
+        font-size: 13px;
+    }
+    
+    
+    /* 
+    BANNER PROMOCIONAL FINAL */
+    
+    
+    
+    
+    .banner_promocional_final{
+        display: flex;
+        width: 100%;
+        height: 65vh;
+        justify-content: center;
+        align-items: center;
+    
+    }
+    
+    
+    .content_banner_promocional_final{
+        background-color:#f2f2f2;
+        height: 65%;
+        width: 90%;
+    
+    }
+    
+    
+
+
+    .text_content_promo_final{
+        display: flex;
+        width: 90%;
+        height: 80%;
+        align-items: end;
+        flex-direction: column;
+        justify-content: center;
+    }
+    
+
+    .text_call_banner_final{
+        justify-content: start;
+        font-size: 12px;
+    }
+
+
+    .text_call_banner_final2{
+        font-size: 8px;
+        font-weight: 500;
+    }
+    
+    
+    
+    .btn__banner_final{
+        display: flex;
+        height:35px;
+        width: 100px;
+        background-color: #FA301E;
+        font-size: 10px;
+    }
+    
+    
+    .content_img_final{
+        display: flex;
+        width: 40%;
+        position: relative;
+    }
+    
+    
+    .content_img_final img{
+        position:absolute;
+        display: flex;
+        height: 250px;
+        right: -2rem;
+        top: -2rem;
+        transform: rotate(10deg);
+    }
+    
+    
+    
+        
+    }
