@@ -4,7 +4,7 @@
 
 
 
-require '../Entity/Cliente.php';
+require '../App/Entity/Cliente.php';
 
 
 
@@ -37,7 +37,7 @@ if (isset($_POST['nome'],$_POST['email'], $_POST['cep'], $_POST['cpf'],$_POST['s
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro</title>
-    <link rel="stylesheet" href="../Css/syte.css">
+    <link rel="stylesheet" href="../src/Css/syte.css">
 </head>
 <body class="body-cad">
     <main class="main-cad">
@@ -81,7 +81,7 @@ if (isset($_POST['nome'],$_POST['email'], $_POST['cep'], $_POST['cpf'],$_POST['s
                             <div class="btn-cadastro">
                                 <a href=""><button type="submit" name='cadastrar' >Cadastra-se</button></a>
                             </div>
-                            <span class="span-cadastro">Já possui conta? <a href="../Pages/login.html">Faça login</a></span>
+                            <span class="span-cadastro">Já possui conta? <a href="../Pages/login.php">Faça login</a></span>
                         </form>
                     </div>
                 </div>
@@ -91,45 +91,5 @@ if (isset($_POST['nome'],$_POST['email'], $_POST['cep'], $_POST['cpf'],$_POST['s
             </div>
         </section>
     </main>
-    <footer>
-        <div class="container-footer">
-            <div class="row-footer">
-                <div class="footer-col">
-                    <h4>Loja</h4>
-                    <ul>
-                        <li><a href="">Sobre Nós</a></li>
-                        <li><a href="">Politica de Cookies</a></li>
-                        <li><a href="">Produtos Personalizados</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h4>Categorias</h4>
-                    <ul>
-                        <li><a href="">Cachepô</a></li>
-                        <li><a href="">Amigurumi</a></li>
-                        <li><a href="">Bordado</a></li>
-                        <li><a href="">Porta-Chaves</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col contato-footer">
-                    <h4>Contato</h4>
-                    <ul>
-                        <li><a href=""><i class="fa-brands fa-whatsapp"></i><p>(67) 992934537</p></a></li>
-                        <li><a href=""><i class="fa-solid fa-phone"></i><p>(67) 992934537</p></a></li>
-                        <li><a href=""><i class="fa-regular fa-envelope"></i><p>contato@apola.com</p></a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h4>Redes Sociais</h4>
-                    <div class="link-social-media">
-                        <a href=""><i class="fa-brands fa-instagram"></i></a>
-                        <a href=""><i class="fa-brands fa-pinterest-p"></i></a>
-                        <a href=""><i class="fa-brands fa-facebook-f"></i></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer> 
-    
 </body>
 </html>

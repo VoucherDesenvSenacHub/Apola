@@ -1,8 +1,8 @@
 
 <?php
-require '../Entity/Cliente.php';
+require '../App/Entity/Cliente.php';
 
-require '../Session/Login.php';
+require '../App/Session/Login.php';
 Login::requireLogout();
 
 
@@ -19,11 +19,9 @@ if (isset($_POST['logar'])){
         // Verificar se exite usuario com esse email no banco
         $cliente = Cliente::getUsuarioPorEmail($_POST['email']);
         
-
         // Verifica se exite usuario com essa senha no banco
         if(!$cliente instanceof Cliente || !password_verify($_POST['senha'], $cliente->senha)){
             $alertaLogin = 'Email ou senha Inválidos';
-            
         }else{
                // Loga usuario
                Login::login($cliente);
@@ -35,18 +33,7 @@ if (isset($_POST['logar'])){
 
 
 
-
-
-
-
-
-
 ?>
-
-
-
-
-
 
 
 
@@ -55,7 +42,7 @@ if (isset($_POST['logar'])){
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../Css/syte.css">
+    <link rel="stylesheet" href="../src/Css/syte.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script src="../JS/validar_form_login.js" defer></script>
     <title>Login</title>
@@ -104,7 +91,7 @@ if (isset($_POST['logar'])){
                                 <a href=""><button name='logar' type="submit">Entrar</button></a>
                             </div>
                             <p id="msnErro-login" class="msnErro-login"> <?=$alertaLogin?> </p>
-                            <span class="span-login">Novo na Apola?<a href="../Pages/cadastro.html">Cadastra-se</a></span>
+                            <span class="span-login">Novo na Apola?<a href="../Pages/cadastro.php">Cadastra-se</a></span>
                         </form>
                     </div>
                 </div>
@@ -112,44 +99,5 @@ if (isset($_POST['logar'])){
         </section>
             
     </main>
-    <footer>
-        <div class="container-footer">
-            <div class="row-footer">
-                <div class="footer-col">
-                    <h4>Loja</h4>
-                    <ul>
-                        <li><a href="">Sobre Nós</a></li>
-                        <li><a href="">Politica de Cookies</a></li>
-                        <li><a href="">Produtos Personalizados</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h4>Categorias</h4>
-                    <ul>
-                        <li><a href="">Cachepô</a></li>
-                        <li><a href="">Amigurumi</a></li>
-                        <li><a href="">Bordado</a></li>
-                        <li><a href="">Porta-Chaves</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col contato-footer">
-                    <h4>Contato</h4>
-                    <ul>
-                        <li><a href=""><i class="fa-brands fa-whatsapp"></i><p>(67) 992934537</p></a></li>
-                        <li><a href=""><i class="fa-solid fa-phone"></i><p>(67) 992934537</p></a></li>
-                        <li><a href=""><i class="fa-regular fa-envelope"></i><p>contato@apola.com</p></a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h4>Redes Sociais</h4>
-                    <div class="link-social-media">
-                        <a href=""><i class="fa-brands fa-instagram"></i></a>
-                        <a href=""><i class="fa-brands fa-pinterest-p"></i></a>
-                        <a href=""><i class="fa-brands fa-facebook-f"></i></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer>
 </body>
 </html>

@@ -114,6 +114,10 @@
     
 }
 
+.Title_card_categoria{
+    width: 88%;
+    padding-bottom: 3rem;
+}
 
 
 .content_cards_categoria .title_categoria{
@@ -726,7 +730,7 @@ BANNER PROMOCIONAL FINAL */
 
 
 
-.carrosel_menu{
+.mySwiperMenu{
     display: none;
 }
 
@@ -1982,7 +1986,7 @@ BANNER PROMOCIONAL FINAL */
 @media (max-width: 447px)  {
 
 
-    .swiper_menu{
+    .mySwiperMenu{
         display: flex;
         width: 100%;
         height:auto;
@@ -2010,19 +2014,210 @@ BANNER PROMOCIONAL FINAL */
         object-fit: cover;
     }
 
- 
-   
-
-
-
-
-
-
-
 
     .carrosel_pc{
         display: none;
     }
+
+    
+
+
+
+/* AREA DE CARDS PRODUTOS*/
+
+.card_produtos{
+    display: flex;
+    width: 100%;
+    height: 547px;
+    padding: 1rem;
+    justify-content: center;
+    align-items: center;
+
+} 
+
+
+.swiper{
+    width: 85%;
+    height: 84.1%;
+    display: flex;
+}
+
+.swiper-wrapper{
+    display: flex;
+
+}
+
+.swiper-slide{
+    display: flex;
+    border-radius: 10px;
+
+
+}
+
+
+.card_produto{
+    display: flex;
+    background-color: rgb(248, 248, 248);
+    flex-direction: column;
+    padding: 10px 0px 0px 10px;
+    width: 240px;
+    border-radius: 5px;
+}
+
+
+
+
+
+.icon_favorite{
+    display: flex;
+    width: 100% ;
+    justify-content: end;
+}
+
+.icon_favorite i{
+    font-size: 24px;
+    color: rgb(168, 168, 168);
+    cursor: pointer;
+    padding-right: 0.5rem;
+}
+
+
+.img_content_produto{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    
+}
+
+
+.img_content_produto img{
+    display: flex;
+    height: 170px;
+    transition: 0.2s ease-in-out;
+    object-fit: contain;
+
+}
+.img_content_produto img:hover{
+    transform: scale(1.05);
+}
+
+
+
+.conteudo_card{
+    display: flex;
+    flex-direction: column;
+    padding-top: 1rem;
+}
+
+.nome_card_produto{
+    font-size: 14px;
+    color: #4A4A4A;
+}
+
+.content_star_icon{
+    font-size: 12px;
+    color: rgb(255, 153, 0);
+}
+
+
+.preco_card_produto{
+    font-size: 20px;
+    font-weight: 600;
+    padding-top: 0.5rem;
+    color: #4A4A4A;
+
+}
+
+
+.btn_content_card_produto{
+    display: flex;
+    width: 100%;
+    height: 100%;
+    padding-top: 1rem;
+    justify-content: center;
+}
+
+
+
+.btn_content_card_produto .btn_bag_card{
+    width: 51%;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    font-size: 20px;
+    color: #4A4A4A;
+    cursor: pointer;
+
+}
+
+
+.btn_content_card_produto .btn_buy_card{
+    width: 49%;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    font-size: 15px;
+    background-color: #4200db;
+    padding: 10px;
+    border-radius: 5px 0px 5px 0px;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.2s ease-in-out;
+}
+
+.btn_content_card_produto .btn_buy_card:hover{
+    background-color: #4A4A4A;
+}
+
+
+
+.Title_card_produto{
+    display: flex;
+    font-weight: 600;
+    font-size: 18px;
+    color: #4A4A4A;
+}
+
+.btn_card_produto{
+    display: flex;
+    width: 100%;
+    height: 50px;
+    justify-content: end;
+    gap: 15px;
+    padding: 5px;
+
+}
+
+
+.btn_prev_card, .btn_next_card{
+    display: flex;
+    width: 27px;
+    height: 27px;
+    border-radius: 50%;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.2s ease;
+    cursor: pointer;
+
+}
+
+.default_btn_icon_card{
+    font-size: 18px;
+    color: #4A4A4A;
+}
+
+.btn_prev_card:hover, .btn_next_card:hover{
+    transform: scale(1.10);
+    background-color: #FA301E;
+}
+
+
+.btn_prev_card:hover > .default_btn_icon_card, .btn_next_card:hover > .default_btn_icon_card{
+    color: white;
+
+}
 
   
 
@@ -2034,13 +2229,19 @@ BANNER PROMOCIONAL FINAL */
     .cards_cartegoria{
         display: flex;
         width: 100%;
-        height: 100vh;
+        height: 90vh;
+
     }
     
     .content_cards_categoria{
         display: flex;
         width: 100%;
         padding: 30px;
+    }
+
+    .Title_card_categoria{
+        width: 92%;
+        padding-bottom: 3rem;
     }
     
     
@@ -2323,7 +2524,24 @@ BANNER PROMOCIONAL FINAL */
     
     
         
+}
+
+@media (max-width:376px) {
+    .cards_cartegoria{
+        display: flex;
+        width: 100%;
+        height: 100vh;
+        padding-top: 3rem;
+
     }
+
+    .Title_card_categoria{
+        width: 94%;
+        padding-bottom: 3rem;
+    }
+    
+}
+
 
 @media (max-width: 336px)  {
 
@@ -2623,4 +2841,4 @@ BANNER PROMOCIONAL FINAL */
     
     
         
-    }
+}

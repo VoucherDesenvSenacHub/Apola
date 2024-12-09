@@ -631,6 +631,8 @@ Area Responsiva */
 .btn-voltar-submenu .fa-chevron-left {
     color: #FA301E;
     font-size: 18px;
+    padding-bottom: 14px;
+
 }
 
 .btn-voltar-submenu .text-submenu-voltar {
@@ -639,7 +641,7 @@ Area Responsiva */
 }
 
 .dropdown__menu li {
-    padding-top: 1rem;
+    padding-bottom: 1rem;
 }
 
 
@@ -647,7 +649,6 @@ Area Responsiva */
 
 
 }
-
 
 
 
@@ -660,8 +661,6 @@ Area Responsiva */
   }
 
 }
-
-
 
 
 @media (max-width:715px){
@@ -677,7 +676,6 @@ Area Responsiva */
 
 
 
-
 @media (max-width:668px){
   .container-barra:hover > .input-pesquisa{
     width: 230px;
@@ -689,7 +687,6 @@ Area Responsiva */
   
 
 }
-
 
 
 
@@ -762,7 +759,6 @@ Area Responsiva */
 }
 
 
-
 @media (max-width: 450px){
 
   .container-menu{
@@ -783,7 +779,6 @@ Area Responsiva */
   }
 
 }
-
 
 
 @media (max-width: 370px){

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../Css/syte.css">
+    <link rel="stylesheet" href="../src/Css/syte.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
         </style>
@@ -17,17 +17,14 @@
 
 
         <!-- SWIPER -->
-
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
 
 
-
-
-    
     <title>Home</title>
 </head>
 
 <body>
+
     <!-- INICIO MeENU NAVABAR -->
     <header class="menu">
         <nav class="container-menu">
@@ -75,11 +72,6 @@
                     </div>
 
                     <div class="content-conteudo-mobile">
-
-
-
-
-
                         <h5>Destaque</h5>
                         <ul>
                             <li>
@@ -96,7 +88,7 @@
                             </li>
                             <li>
                                 <i class="fa-solid fa-people-group"></i>
-                                <a href="">Sobre Nós</a>
+                                <a href="../Pages/SobreNos.html">Sobre Nós</a>
                             </li>
                         </ul>
                         <h5>Categorias</h5>
@@ -165,7 +157,7 @@
                     <nav class="itens-menu">
                         <ul class="menu-main">
                             <li class="icon-default-back">
-                                <a id="icon-default" href="">Sobre Nós</a>
+                                <a id="icon-default" href="../Pages/SobreNos.html">Sobre Nós</a>
                             </li>
                             <li class="icon-default-back">
                                 <a id="icon-default" href="">Personalize</a>
@@ -258,24 +250,26 @@
           <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
         <!-- FIM BANNER PRINCIPAL -->
 
+
+
+
         <!-- INICIO BANNER MENU -->
-        <div class="swiper_menu mySwiperMenu carrosel_menu">
+        <div class="mySwiperMenu carrosel_menu">
             <div class="swiper-wrapper swiper-wrapper_menu">
               <div class="swiper-slide"><img src="../src/imagens/img_banner_menu/1.png" alt=""></div>
               <div class="swiper-slide"><img src="../src/imagens/img_banner_menu/2.png" alt=""></div>
               <div class="swiper-slide"><img src="../src/imagens/img_banner_menu/3.png" alt=""></div>
               <div class="swiper-slide"><img src="../src/imagens/img_banner_menu/4.png" alt=""></div>
             </div>
-            <div class="swiper-pagination"></div>
-          </div>
-
-
+            <div class="swiper-pagination" style="--swiper-pagination-color:rgb(255, 255, 255);"></div>
+        </div>
 
 
 
         <!-- INICIO CARDS CATEGORIA -->
         <section class="cards_cartegoria">
                 <div class="content_cards_categoria">
+                    <div class="Title_card_produto Title_card_categoria">Mais Vendidos</div>
                     <ul class="list_cards_categoria">
                         <li class="item_cards_categoria">
                             <a class="link_cards_categoria" href="#">
@@ -331,8 +325,7 @@
         </section>
         <!-- FIM CARDS CATEGORIA -->  
         
-        
-
+    
 
 
         <!-- INICIO 1* CARDS PRODUTOS -->
@@ -506,16 +499,11 @@
 
 
 
-
-
         <!-- INICIO BANNER SECUNDARIO -->
-
         <section class="banners_secudarios">
             <img src="../src/imagens/banner/3.png" alt="">
         </section>
         <!-- FIM BANNER SECUNDARIO -->
-
-
 
 
 
@@ -696,7 +684,7 @@
 
 
 
-         <!-- INICIO 3* CARDS PRODUTOS -->
+        <!-- INICIO 3* CARDS PRODUTOS -->
         <section class="card_produtos">
             <div class="swiper">
                 <div class="Title_card_produto">Mais Vendidos</div>
@@ -834,8 +822,6 @@
             </div>
         </section>
         <!-- FIM 3* CARDS PRODUTOS -->
-
-
 
 
 
@@ -1002,13 +988,13 @@
             </div>
         </section>
         <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-        <script src="../JS/swipper_card.js"></script>
+        <script src="../src/JS/swipper_card.js"></script>
         <!-- FIM 4* CARDS PRODUTOS -->
         
 
 
 
-         <!-- INICIO  BANNER FINAL  -->
+        <!-- INICIO  BANNER FINAL  -->
         <section class="banner_promocional_final">
             <div class="content_banner_promocional_final">
                 <div class="item_promocional_final">

@@ -1,7 +1,7 @@
 <?php
 
 
-require '../DB/Database.php';
+require '../App/DB/Database.php';
 
 
 class Cliente{
