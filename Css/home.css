@@ -1,0 +1,396 @@
+main{
+    display: flex;
+    width: 100%;
+    height: 100vh;
+    
+}
+
+/* AREA BANNER */
+
+.slide{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.carousel-item .w-100{
+    object-fit:scale-down;
+}
+
+
+
+
+
+/* AREA PROMOCIONAL */
+
+.area_promocional{
+    display: flex;
+    width: 100%;
+    height: 30%;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+
+.content_area_promocional{
+    display: flex;
+    width: 85%;
+    height: 80%;
+    background-color: rgb(244, 244, 244);
+    justify-content: center;
+    align-items: center;
+    column-gap: 100px;
+    border-radius: 5px;
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 3px 3px 0px;
+
+}
+
+
+.icon_promocional{
+    display: flex;
+    column-gap: 30px;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.img_content_promocional{
+    display: flex;
+    border: 2px solid #4A4A4A;
+    width: 80px;
+    height: 80px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    
+}
+
+.img_content_promocional, .icon_promocional img:hover{
+    transform: scale(1.05);
+}
+
+.icon_promocional img{
+    display: flex;
+    height: 50px;
+    justify-content: center;
+    align-items: center;
+    transition: 0.2s ease;
+}
+
+.icon_promocional .texto_promocional{
+    display: flex;
+    font-size: 18px;
+    font-weight: 400;
+    color: #4A4A4A;
+    text-transform: uppercase;
+}
+
+
+
+
+
+/* AREA DE CATEGORIAS */
+
+
+.cards_cartegoria{
+    display: grid;
+    width: 100%;
+    height: 30%;
+    margin-top: 2rem;
+}
+
+.content_cards_categoria{
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    padding: 30px;
+}
+
+
+
+
+.content_cards_categoria .title_categoria{
+    display: flex;
+    width: 100%;
+    height: 20%;
+    align-items: end;
+    font-size: 20px;
+    font-weight: 600;
+    padding-left: 5rem;
+    padding-bottom: 2rem;
+    
+}
+
+
+.list_cards_categoria{
+    display: flex;
+    column-gap: 37px;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    
+}
+
+.list_cards_categoria .item_cards_categoria{
+    width: 150px;
+    height: 200px;
+    background-color: rgb(246, 246, 246);
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    border-radius: 5px;
+    row-gap: 15px;
+    transition: 0.2s ease;
+    cursor: pointer;
+    text-decoration: none;
+    list-style: none;
+}
+
+.item_cards_categoria .link_cards_categoria{
+    text-decoration: none;
+}
+
+
+    
+    
+.list_cards_categoria .item_cards_categoria:hover{
+    background-color: white;
+    transform: scale(1.10);
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+
+
+}
+
+
+
+.img_content_categoria{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    
+
+}
+
+.img_content_categoria img{
+    display: flex;
+    height: 100px;
+    
+}
+
+
+.text_cards_categoria{
+    font-weight: 500;
+    color: #4A4A4A;
+    padding-top: 1rem;
+    
+    
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* AREA DE CARDS PRODUTOS*/
+
+
+.cards_produtos_content{
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    height:100%;
+    justify-content: center;
+    align-items: center;
+
+}
+
+
+
+.cards_produtos_wrapper{
+    display: flex;
+    max-width: 1300px;
+    height: auto;
+    width: 100%;
+    flex-direction: row;
+    overflow: hidden;
+    padding: 25px;
+    border-radius: 5px;
+    flex-direction: column;
+
+}
+
+.cards_produtos_content .title_produto{
+    display: flex;
+    width: 100%;
+    height: 20%;
+    align-items: end;
+    font-size: 20px;
+    font-weight: 600;
+    padding-left: 5rem;
+    padding-bottom: 1rem;
+
+ 
+    
+}
+
+
+.btn_content_prev_next_card{
+    display: flex;
+    justify-content: end;
+    width: 99%;
+    column-gap: 30px;
+    height: 50px;
+}
+
+.btn_default_card_produto{
+    display: flex;
+    cursor: pointer;
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    justify-content: center;
+    align-items: center;
+    background-color:#FA301E;
+    color: white;
+    transition: 0.2s ease-in-out;
+}
+
+.btn_default_card_produto:hover{
+    transform: scale(1.05);
+}
+
+
+.carrosel_card{
+    display: flex;
+    column-gap:82px;
+}
+
+
+
+
+
+.cards_produtos{
+    width: 250px;
+    height: auto;
+    background-color: rgb(243, 243, 243);
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    border-radius: 5px;
+    row-gap: 15px;
+    transition: 0.2s ease;
+    cursor: pointer;
+    text-decoration: none;
+    list-style: none;
+    
+    
+}
+
+
+.img_content_produto{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    
+}
+
+
+.img_content_produto img{
+    display: flex;
+    height: 170px;
+    transition: 0.2s ease-in-out;
+
+}
+.img_content_produto img:hover{
+    transform: scale(1.05);
+}
+
+.text_cards_produto{
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    width: 100%;
+    padding-left: 10px;
+}
+
+
+.text_cards_produto .nome_produto_card{
+    display: flex;
+    font-size: 16px;
+    font-weight: 500;
+    color: #4A4A4A;
+}
+
+
+.star_card{
+    display: flex;
+    font-size: 13px;
+    padding-top: 0.8rem;
+    color: rgb(225, 135, 0);
+}
+
+.preco_produto_card{
+    display: flex;
+    padding-top: 0.5rem;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+
+.btn_content_card_produto{
+    display: flex;
+    width: 100%;
+    height: 100%;
+    padding-top: 1rem;
+    
+}
+
+
+.btn_content_card_produto .btn_bag_card_produto{
+    display: flex;
+    width: 50%;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    transition: 0.2s ease ;
+    color: #4A4A4A;
+
+}
+.btn_content_card_produto .btn_bag_card_produto:hover{
+    transform: scale(1.10);
+
+}
+
+
+.btn_content_card_produto .btn_buy_card_produto{
+    display: flex;
+    color: white;
+    padding: 10px;
+    width: 50%;
+    justify-content: center;
+    align-items: center;
+    background-color: #4200db;
+    border-radius: 5px 0px 5px 0px;
+    height: 100%;
+    font-weight: 600;
+    transition: 0.2s ease ;
+    height: 50px;
+
+}
+
+
+.btn_content_card_produto .btn_buy_card_produto:hover{
+    background-color: #4A4A4A;
+}
