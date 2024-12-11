@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil do Usuário - Ecommerce Apola</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="editar-perfil.css">
+</head>
+
+<body class="editar_perfil">
+
+<div class="page">
+
+<!-- CONTAINER COM A FOTO -->
+    <div class="container">
+    <img src="foto.jpg" alt="">
+    </div>
+
+<!-- BOTÕES -->
+    <div class="botoes">
+            <button class="cancel-button">Cancelar</button>
+            <button class="save-button">Salvar</button>
+    </div>
+
+
+<!--FORMULÁRIO-->
+    <div class="form-container">
+        
+        <form>
+
+            <div class="linha"> <!--Linha 1-->
+                <div class="dados-input-col"> <!--Coluna da esquerda-->
+                    <label for="nome-usuario" class="span-usuario">Nome Usuário:</label>
+                    <div class="input-wrapper">
+                        <input type="text" name="nome_usuario" id="nome-usuario" placeholder="Ana Paula_Brandão" class="input-form"> 
+                        <i class="fas fa-pencil-alt"></i>
+                    </div>
+                </div>
+
+                <div class="dados-input-col"> <!--Coluna da direita-->
+                    <label for="nome" class="span-usuario">Nome:</label>
+                    <div class="input-wrapper">
+                        <input type="text" name="nome" id="nome" placeholder="Ana Paula Brandão Fernandes" class="input-form grande">
+                        <i class="fas fa-pencil-alt"></i>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="linha"> <!--Linha 2-->
+                <div class="dados-input-col"> <!--Coluna da esquerda-->
+                    <label for="e-mail" class="span-usuario">E-mail:</label>
+                    <div class="input-wrapper">
+                        <input type="text" name="e-mail" id="e-mail" placeholder="anapaulaf55@gmail.com" class="input-form grande">
+                        <i class="fas fa-pencil-alt"></i>
+                    </div>
+                </div>
+
+                <div class="dados-input-col"> <!--Coluna da direita-->
+                    <label for="senha" class="span-usuario">Senha:</label>
+                    <div class="input-wrapper">
+                        <input type="text" name="senha" id="senha" placeholder="********" class="input-form grande">
+                        <i class="fas fa-pencil-alt"></i>
+                    </div>
+                </div>
+            </div>
+            
+
+
+            <div class="linha"> <!--Linha 3-->
+                <div class="dados-input col"> <!--Coluna da esquerda-->
+                    <label for="cep" class="span-usuario">CEP:</label>
+                    <div class="input-wrapper"></div>
+                    <input type="text" name="cep" id="cep" placeholder="20032-920" class="input-form">
+                </div>
+
+                <div class="dados-input col"> <!--Coluna da esquerda-->
+                    <label for="n°" class="span-usuario">N°:</label>
+                    <div class="input-wrapper"></div>
+                    <input type="text" name="n°:" id="n°:" placeholder="345" class="input-form numero">
+                </div>
+
+                <div class="dados-input-col"> <!--Coluna da direita-->
+                    <label for="telefone" class="span-usuario">Telefone:</label>
+                    <div class="input-wrapper">
+                        <input type="text" name="telefone" id="telefone" placeholder="(21) 98765-4321" class="input-form">
+                        <i class="fas fa-pencil-alt"></i>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="linha"> <!--Linha 4-->
+                <div class="dados-input col"> <!--Coluna da esquerda-->
+                    <label for="rua" class="span-usuario">Rua:</label>
+                    <div class="input-wrapper"></div>
+                    <input type="text" name="rua" id="rua" placeholder="Avenida dos Eucaliptos" class="input-form grande">
+                </div>
+
+                <div class="dados-input col"> <!--Coluna da direita-->
+                    <span class="span-usuario">CPF: 075******-85****</span> 
+                </div>
+            </div>
+
+
+            <div class="linha"> <!--Linha 5-->
+                <div class="dados-input col"> <!--Coluna da esquerda-->
+                    <label for="baivou lhe enviar kmeiurro" class="span-usuario">Bairro:</label>
+                    <div class="input-wrapper"></div>
+                    <input type="text" name="bairro" id="bairro" placeholder="Centro" class="input-form">
+                </div>
+
+                <div class="dados-input col"> <!--Coluna da direita-->
+                    <div class="form-group">
+                        <label for="cidade" class="span-usuario">Cidade:</label>
+                        <div class="input-wrapper"></div>
+                        <input type="text" name="cidade" id="cidade" placeholder="Rio de Janeiro" class="input-form">
+                        <a href="#" class="endereco-link">Endereços Cadastrados</a> <!-- Adicionando o link logo abaixo do campo -->
+                    </div>
+                </div>
+
+                <div class="dados-input col"> <!--Coluna da direita-->
+                    <label for="estado" class="span-usuario">Estado:</label>
+                    <div class="input-wrapper"></div>
+                    <input type="text" name="estado" id="estado" placeholder="RJ" class="input-form estado">
+                </div>
+            </div>
+
+        </form>
+        
+    </div>
+
+    <script src="scripts.js"></script>
+
+</body>
+</html>

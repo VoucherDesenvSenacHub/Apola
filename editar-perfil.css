@@ -1,0 +1,275 @@
+/* CONTAINER PRINCIPAL */
+.page{
+    width: 80%;
+    float: right;
+}
+
+.container{
+    display: block;
+    background-color: rgb(245, 244, 244);
+    height: 350px;
+    margin: 50px auto;
+    margin-right: 50px;
+    padding: 20px;
+    border-radius: 50px 0px 0px 0px ;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-bottom: 5px solid rgb(198, 195, 195);
+}
+
+
+/* FOTO */
+.container img{ 
+    display: flex;
+    border-radius: 50%;
+    margin-top: 200px;
+    margin-left: 50px;
+    z-index: 3;
+    position: absolute;
+    border: 10px solid white;
+}
+
+
+/* BOTÕES */
+.botoes{
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 100px;
+    gap: 40px;
+    margin-bottom: 20px;
+}
+
+.cancel-button{
+    background-color: transparent;
+    color: black;
+    border: #fff;
+    padding: 10px 20px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.cancel-button:hover{
+    background-color: transparent;
+}
+
+.save-button{
+    background-color: black;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 14px;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+}
+
+.save-button:hover{
+    background-color: #000b05;
+}
+
+/* Botões com fonte em negrito */
+.cancel-button, .save-button{
+    font-weight: bold; /* Negrito */
+    transition: 0.5s; /* Suaviza as transições */
+}
+
+/* Efeito de piscar ao passar o mouse */
+.cancel-button:hover, .save-button:hover{
+    animation: piscar 0.5s infinite;
+}
+
+/* Definição da animação de piscar */
+@keyframes piscar{
+    0%, 100%{
+        opacity: 1;
+    }
+    50%{
+        opacity: 0.5;
+    }
+}
+
+/* CONTAINER PRINCIPAL */
+.page{
+    width: 80%;
+    float: right;
+}
+
+.container{
+    display: block;
+}
+
+/* FORMULÁRIO */
+.form-container{
+    display: flex;
+    margin-top: 120px;
+    gap: 20px;
+    background-color: #fbfbfb;
+    padding: 20px;
+    border-radius: 10px;
+    justify-content: space-around;
+    margin-right: 50px;
+    height: 65vh;
+}
+
+form{
+    width: 90%;
+    height: 500px;
+}
+
+/* Espaçamento entre as linhas */
+.linha{
+    display: flex;
+    row-gap: 20px;
+    justify-content:space-between;
+    padding: 10px;
+    margin-left: 0px;
+    margin-right: 0px;
+    gap: 100px;
+    margin-bottom: 30px; /* Espaço maior entre as linhas */
+}
+
+/* Espaçamento entre os campos na mesma linha */
+.dados-input-col{
+    display: flex;
+    flex-direction: column;   
+    margin-right: 0px; /* Espaço horizontal entre colunas */
+}
+
+input[type=text]{
+    padding: 20px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.07);         
+}
+
+/* Wrapper do campo e ícone */
+.input-wrapper{
+    position: relative; /* Garante que o ícone seja posicionado em relação ao input */
+    display: flex;
+    align-items: center;
+}
+
+/* Campo de entrada */
+.input-wrapper input{
+    width: 100%; /* O campo ocupa toda a largura disponível */
+    padding-right: 30px; /* Reserva espaço para o ícone */
+    box-sizing: border-box; /* Garante que o padding não afete o tamanho total */
+}
+
+/* Ícone do lápis */
+.input-wrapper i{
+    position: absolute; /* Posiciona o ícone relativo ao wrapper */
+    right: 10px; /* Alinha no canto direito */
+    color: #aaa;
+    font-size: 16px;
+    cursor: pointer;
+    transition: color 0.3s; /* Animação suave ao passar o mouse */
+}
+
+/* Efeito de hover no ícone */
+.input-wrapper i:hover{
+    color: #000; /* Fica mais visível ao passar o mouse */
+}
+
+/* CONTAINER PRINCIPAL */
+.page{
+    width: 80%;
+    float: right;
+}
+
+.container{
+    display: block;
+}
+
+.container{
+    display: block;ute;
+    right: 10px;
+    color: #aaa;
+    font-size: 16px;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.input-wrapper i:hover{
+    color: #000;
+}
+
+/* Ajuste do tamanho do campo N° */
+.input-form.numero{
+    width: 60px; /* Define a largura específica */
+}
+
+/* Ajuste do tamanho do campo Estado */
+.input-form.estado{
+    width: 20px; /* Define a largura específica */
+}
+
+.input-form.e-mail{
+    width: 100%; /* Padrão de largura para os campos restantes */
+}
+
+/* Link "Endereços Cadastrados" */
+.endereco-link{
+    display: block; /* O link ocupará uma linha inteira */
+    margin-top: 5px; /* Espaçamento entre o campo e o link */
+    font-size: 14px; /* Ajusta o tamanho do texto */
+    color: #007bff; /* Define a cor azul do link */
+    text-decoration: none; /* Remove o sublinhado do link */
+}
+
+.endereco-link:hover{
+    text-decoration: underline; /* Adiciona o sublinhado ao passar o mouse */
+    color: #0056b3; /* Escurece o azul ao passar o mouse */
+}
+
+/* Ajuste das larguras */
+#nome, #nome-usuario, #e-mail, #cep, #senha{
+    width: 500px;
+}
+
+#rua, #bairro{
+    width: 300px;
+} 
+
+#cidade{
+    width: 280px;
+}
+
+#span-usuario, #telefone, #cep{
+    width: 220px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
