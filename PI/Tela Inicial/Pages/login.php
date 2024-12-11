@@ -36,7 +36,6 @@ if (isset($_POST['logar'])){
 ?>
 
 
-
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -46,7 +45,7 @@ if (isset($_POST['logar'])){
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script src="../JS/validar_form_login.js" defer></script>
     <title>Login</title>
-</head>
+</head> 
 <body class="body-log">
     <main class="main-login">
         <header class="menu">
