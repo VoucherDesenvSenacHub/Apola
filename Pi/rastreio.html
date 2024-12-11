@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"> -->
+    <!-- <link rel="stylesheet" href="../Css/navbar.css"> -->
+    <!-- <link rel="stylesheet" href="rastreio-confirm.css">  -->
+    <!-- <link rel="stylesheet" href="../Css/syte.css"> -->
+    <link rel="stylesheet" href="cart_styles.css">
+
+
+
+</head>
+<body>
+    <header class="menu">
+        <nav class="container-menu">
+                <div class="img-menu">
+                    <a href="../Pages/Home.html">
+                        <img src="../Src/imagens/Apola__1_-removebg-preview.png" alt=""class="img-logo" >
+                    </a>
+                </div>
+                <div class="barra-pesquisa">
+                    <div class="container-barra">
+                        <input class="input-pesquisa" type="text" placeholder="Pesquise seu produto...">
+                        <a href="#" class="btn-pesquisa">
+                                <i class="fa-solid fa-magnifying-glass"></i>
+                        </a>
+                    </div>
+                </div>
+                
+        <!-- INICIO MENU MOBILE -->
+                <div class="btn-abrir-menu" id="btn-menu-abrir">
+                    <i class="fa-solid fa-bars"></i>
+                </div>
+
+                <div class="mobile-btn" id="mobile-btn">
+                    <div class="btn-fechar" id="btn-fechar">
+                        <i class="fa-solid fa-xmark"></i>
+                    </div>
+                    <div class="content-mobile-top">
+                        <div class="img-content-mobile">
+                            <i class="fa-solid fa-user"></i>
+                        </div>
+                        <div class="text-content-mobile"><span>Faça seu login ou cadastra-se</span></div>
+                    </div>
+                    <div class="content-mobile-btn-login-cad">
+                        <button class="btn-login-mobile">
+                            <a href="login.html">Login</a>
+
+                        </button>
+                        <button class="btn-cadastro-mobile">
+                            <a href="cadastro.html">Cadastro</a>
+                        </button>
+                    </div>
+                    <div class="barra-pesquisa-mobile">
+                        <div class="content-mobile-pesquisa">
+                            <input type="text"><button class="btn-pesquisa-mobile"><i class="fa-solid fa-magnifying-glass"></i></button>
+                        </div>
+                    </div>
+
+                    <div class="content-conteudo-mobile">
+
+
+
+
+
+                        <h5>Destaque</h5>
+                        <ul>
+                            <li>
+                                <i class="fa-solid fa-fire"></i>
+                                <a href="">Mais Vendidos</a>
+                            </li>
+                            <li>
+                                <i class="fa-solid fa-dollar-sign"></i>
+                                <a href="">Ofertas</a>
+                            </li>
+                            <li>
+                                <i class="fa-solid fa-box"></i>
+                                <a href="./personalize.html">Produto Personalizado</a>
+                            </li>
+                            <li>
+                                <i class="fa-solid fa-people-group"></i>
+                                <a href="">Sobre Nós</a>
+                            </li>
+                        </ul>
+                        <h5>Categorias</h5>
+                        <ul>
+                            <li class="categoria-content-mobile-items">
+                                <a href="#">Amigurumi</a>
+                                <i class="fa-solid fa-chevron-right"></i>
+                            </li>
+                            <div class="submenu-drop-mobile">
+                                <ul class="dropdown__menu">
+                                    <div class="btn-voltar-submenu">
+                                        <i class="fa-solid fa-chevron-left"></i><p class="text-submenu-voltar">voltar</p>
+                                    </div>
+                                    <li><a class="drop__link" href="#">Amigurumi Cacto</a></li>
+                                    <li><a class="drop__link" href="#">Amigurumi Urso</a></li>
+                                </ul>
+                            </div>
+                        
+                            <li class="categoria-content-mobile-items">
+                                <a href="#">Cachepô</a>
+                                <i class="fa-solid fa-chevron-right"></i>
+                            </li>
+                            <div class="submenu-drop-mobile">
+                                <ul class="dropdown__menu">
+                                    <div class="btn-voltar-submenu">
+                                        <i class="fa-solid fa-chevron-left"></i><p class="text-submenu-voltar">voltar</p>
+                                    </div>
+                                    <li><a class="drop__link" href="#">Cachepô Bolsa</a></li>
+                                    <li><a class="drop__link" href="#">Cachepô Tapete</a></li>
+                                </ul>
+                            </div>
+                        
+                            <li class="categoria-content-mobile-items">
+                                <a href="#">Porta-Chaves</a>
+                                <i class="fa-solid fa-chevron-right"></i>
+                            </li>
+                            <div class="submenu-drop-mobile">
+                                <ul class="dropdown__menu">
+                                    <div class="btn-voltar-submenu">
+                                        <i class="fa-solid fa-chevron-left"></i><p class="text-submenu-voltar">voltar</p>
+                                    </div>
+                                    <li><a class="drop__link" href="#">Porta-Chaves de raposa</a></li>
+                                    <li><a class="drop__link" href="#">Porta-Chaves de raposa</a></li>
+                                </ul>
+                            </div>
+                            <li class="categoria-content-mobile-items">
+                                <a href="#">Bordado</a>
+                                <i class="fa-solid fa-chevron-right"></i>
+                            </li>
+                            <div class="submenu-drop-mobile">
+                                <ul class="dropdown__menu">
+                                    <div class="btn-voltar-submenu">
+                                        <i class="fa-solid fa-chevron-left"></i><p class="text-submenu-voltar">voltar</p>
+                                    </div>
+                                    <li><a class="drop__link" href="#">Bordado paisagem</a></li>
+                                    <li><a class="drop__link" href="#">Bordado paisagem</a></li>
+                                </ul>
+                            </div>
+                        </ul>
+                        
+                    </div>
+                </div>
+                <div class="overlay-mobile" id="overlay-mobile"></div>
+        <!-- FIM MENU MOBILE -->
+                <div class="lista-item">
+                    <nav class="itens-menu">
+                        <ul class="menu-main">
+                            <li class="icon-default-back">
+                                <a id="icon-default" href="">Sobre Nós</a>
+                            </li>
+                            <li class="icon-default-back">
+                                <a id="icon-default" href="../Pages/personalize.html">Personalize</a>
+                            </li>
+                            <li id="text-categoria">
+                                <a href="">Categorias<i class="fa-solid fa-chevron-down icon-seta"></i></a>
+                                <div class="mega-menu">
+                                    <div class="mega-menu-content">
+                                        <div class="row">
+                                            <h3 class="Title-cat"><a href="">Amigurumi</a></h3>
+                                            <ul class="mega-links">
+                                                <li><a href="">Amigurumi Cacto</a></li>
+                                                <li><a href="">Amigurumi Cacto</a></li>
+                                                <li><a href="">Amigurumi Cacto</a></li>
+                                                <li><a href="">Amigurumi Cacto</a></li>
+                                            </ul>
+                                        </div>
+                                        <div class="row">
+                                            <h3 class="Title-cat"><a href="">Cachepô</a></h3>
+                                            <ul class="mega-links">
+                                                <li><a href="">Cachepô Cacto</a></li>
+                                                <li><a href="">Cachepô Cacto</a></li>
+                                                <li><a href="">Cachepô Cacto</a></li>
+                                                <li><a href="">Cachepô Cacto</a></li>
+                                            </ul>
+                                        </div>
+                                        <div class="row">
+                                            <h3 class="Title-cat"><a href="">Porta-Chaves</a></h3>
+                                            <ul class="mega-links">
+                                                <li><a href="">Porta-Chaves Cacto</a></li>
+                                                <li><a href="">Porta-Chaves Cacto</a></li>
+                                                <li><a href="">Porta-Chaves Cacto</a></li>
+                                                <li><a href="">Porta-Chaves Cacto</a></li>
+                                            </ul>
+                                        </div>
+                                        <div class="row">
+                                            <h3 class="Title-cat"><a href="">Bordado</a></h3>
+                                            <ul class="mega-links">
+                                                <li><a href="">Bordado Cacto</a></li>
+                                                <li><a href="">Bordado Cacto</a></li>
+                                                <li><a href="">Bordado Cacto</a></li>
+                                                <li><a href="">Bordado Cacto</a></li>
+                                            </ul>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="icon-default-back">
+                                <a id="icon-default" href=""><i class="fa-solid fa-bag-shopping"></i></a>
+                            </li>
+                            <li class="icon-default-back">
+                                <a id="icon-default" href=""><i class="fa-solid fa-user"></i></a>
+                                <ul class="drop-menu">
+                                    <div class="shape-perfil"></div>
+                                    <li><a href="../Pages/login.html">Login</a></li>
+                                    <li><a href="../Pages/cadastro.html">Cadastro</a></li>
+                                </ul>
+                                </div>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+        </nav>
+    </header>
+    <style>
+.previsao {
+    display: none;
+
+}
+
+.card {
+    background-color: whitesmoke !important;
+    z-index: 0;
+    /* background-color: #ECEFF1; */
+    /* padding-bottom: 50px; */
+    /* margin-top: 20px; */
+    border-radius: 10px !important; 
+    border: none;   
+    /* border-bottom: 1px solid #ccc;x */
+    padding: 0%  !important;
+}
+
+.listProduct-item:last-child,
+.listProduct-item:nth-last-child(2) {
+    border-bottom: none; 
+    /* padding-top: 150px; */
+}
+
+.button-1 {
+    display: flex;
+    justify-content: end;
+}
+
+.btn  {
+    background-color: black;
+    color: white;
+    border: none;
+    cursor: pointer;
+    margin: 10px 0px; 
+    padding: 20px; 
+    width: 150px; 
+    border-radius: 7%;
+    font-weight: bolder;
+    margin-right: 80px;
+}
+
+@media screen and (min-width: 0px) and (max-width: 700px) {
+ 
+ .body {
+     margin: 0;         /* Ensure no automatic margins */
+     padding: 0;        /* Remove any padding */
+     overflow-x: unset;  /* Allow scrolling on mobile */
+ }
+ 
+ .qtd-label {
+     display: inline; /* Show QTD label for smaller screens */
+ }
+ 
+ .image-text-container h2 {
+     display: none; /* Hide product names on smaller screens */
+ }
+ 
+ .trash-icon  {
+     display: none; /* Hide trash icon container */
+ }
+ 
+ .listProduct-item {
+     /* display: flex; */
+     /* justify-content: space-between; */
+     /* align-items: center; */
+     border: none;
+     border-top: 1px solid #ccc;
+     padding-right: 0px;
+     box-sizing: border-box;
+     flex: 1 1 calc(50% - 20px); 
+     gap: 5px;
+     padding-top: 10px;
+ }
+ 
+ /* Add extra space to push the input and paragraph down */
+ .delivery {
+     display: flex;
+     flex-direction: column;
+ }
+ 
+ .delivery .input-container {
+     margin-top: 20px; /* Increase space above the input-container */
+     margin-bottom: 0px;
+ }
+ 
+ .delivery .resume {
+     order: 2; /* Move resume section below input-container */
+     position: relative;
+     left: 20px; /* Adjust space from the left */
+ }
+ 
+
+ 
+ .image-text-container img {
+     filter: drop-shadow(0 14px 15px #0009);
+     width: 80px; /* Set a specific width for the image */
+     height: auto; /* Maintain aspect ratio */
+     border-radius: 20%; /* Rounded corners */
+     margin-top: 0px;
+     margin-right: 30px;
+ }
+ 
+ }
+ 
+ @media screen and (orientation: landscape), screen and (min-width: 420px) {
+     .product-table th:nth-child(3) {
+         display: table-cell; /* Show the "Quantidade" column */
+     }
+ 
+     .quantity-label {
+         display: inline; /* Show quantity label */
+     }
+ 
+     .qtd-label {
+         display: none; 
+     }
+ 
+     .product-table th:nth-child(4) {
+         width: 20%; /* Set width for "Total" */
+     }
+ }
+ 
+ @media screen and (max-width: 639px) {
+ 
+     .card {
+         /* display: none; */
+        
+    }
+    .resume-item{
+        justify-content: center;
+        align-items: center;
+    }
+    .resume{
+    display: flex;
+    width: 150px;
+    flex-direction: column;
+    justify-content: end !important;
+    align-items: end !important;
+    font-size: 10px;
+}
+    .justify-content-between {
+        display: none;
+    }
+    #progressbar li:before {
+        font-size: 12px;
+        width: 40px;
+        height: 40px;
+    }
+ 
+     .quantity-cell .quantity-label {
+         visibility: hidden; /* Hide "Quantidade" label */
+         display: none; /* Ensure it does not take space */
+     }
+ 
+     .remove {
+         visibility: hidden; /* Hide "Quantidade" label */
+         display: none; /* Ensure it does not take space */
+     }
+ 
+ 
+     .product-table th, 
+ .product-table td {
+     padding: 10px 0 10px 0; /* Padding for table cells */
+     text-align: center; /* Align text to the left */
+ }
+ 
+
+ .image-text-container img {
+     filter: drop-shadow(0 14px 15px #0009);
+     width: 100px; /* Set a specific width for the image */
+     height: auto; /* Maintain aspect ratio */
+     border-radius: 20%; /* Rounded corners */
+     margin-top: 0px;
+     margin-right: 0px;
+ }
+ 
+ .image-text-container {
+     display: flex; /* Use flexbox for layout */
+     align-items: center; /* Center items vertically */
+     margin-left: 0px;
+     margin-top: 50px;
+ }
+
+ .listProduct-item:last-child,
+.listProduct-item:nth-last-child(3) {
+    border-bottom: none; 
+    /* padding-top: 150px; */
+}
+}
+
+.btn  {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+    color: white;
+    border: none;
+    cursor: pointer;
+    margin: 10px; 
+    padding: 20px; 
+    width: 150px;
+    height: 50px; 
+    border-radius: 10px;
+    font-weight: bolder;
+    border: 2px solid transparent;
+}
+
+.btn:hover {
+    background-color: white;
+    color: black;
+    border-color: black;
+}
+ 
+.button-1 {
+    display: flex;
+    justify-content: end;
+}
+
+.previsao {
+        display: block; /* Show in this media query */
+    }
+
+
+
+.container{
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    background-color: white;
+    margin-bottom: 20px;
+}
+ .details-container {
+    max-height: 0;
+    /* opacity: 0; */
+    overflow: hidden;
+    transition: max-height 0.5s ease-in, opacity 2.5s ease-in;
+}
+
+.details-container.active {
+    max-height: 900px; 
+    opacity: 1;
+    transition: max-height 2.5s ease-out, opacity 0.5s ease-out; 
+}
+.resume-item {
+    display: flex; /* Use flex to align items */
+    width: 40%;
+    justify-content: space-between; /* Space between the h3 and p */
+    padding: 5px 0; /* Vertical padding for spacing */
+    border-bottom: 1px solid #ccc; /* Bottom border */
+    align-items: center;
+}
+
+.resume h3 {
+    margin: 0;
+    padding-right: 10px;
+    text-align: right;
+}
+
+.resume{
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    align-items: end;
+}
+.resume p {
+    margin: 0;
+    text-align: right;
+    padding-left: 10px;
+}
+.submit-cart-button {
+    display: flex;
+    width: 150px;
+    /* height: 300px; */
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.submit-cart-button input[type="submit"] {
+    justify-content: center;
+    background-color: red;
+    color: white;
+    /* padding: 10px 20px; */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    /* width: 130px; */
+    height: 40px;
+    text-align: center;
+    font-size: 10px;
+    margin-top: auto;
+    font-weight: bold;
+
+}
+
+.submit-cart-button input[type="submit"]:hover {
+    background-color: rgba(255, 0, 0, 0.411);
+}
+
+    </style>
+
+<div class="back-arrow">
+    <img src="images/back-arrow.svg" alt="">
+</div>
+
+<h1 class="header-title">
+    Minha Sacola
+</h1>
+
+
+    <div class="container-cart">
+        <table class="product-table">
+            <thead>
+                <tr>
+                    <th style="width: 20%;">Produto</th> <!-- Wider column for product name -->
+                    <th style="width: 0%;">Preço</th>
+                    <th style="width: 20%;" class="quantity-cell">
+                        <span class="quantity-label">Quantidade</span>
+                        <span class="qtd-label">QTD</span> <!-- This will overlay the quantity -->
+                    </th>
+                    <th style="width: 0%;">Total</th>
+                    <th class="remove">Remover</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="listProduct-item"> <!-- Wrapper for each product item -->
+                    <td>
+                        <div class="image-text-container">
+                            <img src="images/fone_1.jpeg" alt="Fone 1">
+                            <h2>Fone 1</h2>
+                        </div>
+                    </td>
+                    <td>
+                        <span class="price" data-price="150.00">R$ 150,00</span>
+                    </td>
+                    <td>
+                        <span class="quantity">
+                            <i class="fas fa-minus"></i>
+                            <span>2</span>
+                            <i class="fas fa-plus"></i>
+                        </span>
+                    </td>
+                    <td>
+                        <span class="total-price">R$ 300,00</span>
+                    </td>
+                    <td>
+                        <span class="trash-icon">
+                            <img src="images/trash-can.svg" alt="">
+                        </span>
+                    </td>
+                </tr>
+                <tr class="listProduct-item"> <!-- Wrapper for the second product item -->
+                    <td>
+                        <div class="image-text-container">
+                            <img src="images/fone_2.jpeg" alt="Fone 2">
+                            <h2>Fone 2</h2>
+                        </div>
+                    </td>
+                    <td>
+                        <span class="price" data-price="180.00">R$ 180,00</span>
+                    </td>
+                    <td>
+                        <span class="quantity">
+                            <i class="fas fa-minus"></i>
+                            <span>2</span>
+                            <i class="fas fa-plus"></i>
+                        </span>
+                    </td>
+                    <td>
+                        <span class="total-price">R$ 360,00</span>
+                    </td>
+                    <td>
+                        <span class="trash-icon">
+                            <img src="images/trash-can.svg" alt="">
+                        </span>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+        <div class="aside" style="width: 99%; border-left: 3px solid #FF5757; padding-left: 15px;">
+            <div class="delivery">
+                <div class="radio-group">
+                    <label class="custom-radio">
+                        <input type="radio" name="address" value="endereco1">
+                        <span class="radio-check"></span>
+                        <span class="address-text">Endereço - Rua das Aranhas, 789, Jequié, Bahia - CEP - 99999-999 = R$ 29,00</span>
+                    </label>
+                </div>
+
+                <div class="radio-group">
+                    <label class="custom-radio">
+                        <input type="radio" name="address" value="endereco2">
+                        <span class="radio-check"></span>
+                        Outro Endereço
+                    </label>
+                </div>
+
+                <div class="resumee">
+                    <div class="resumee-item">
+                        <h3>Subtotal:</h3>
+                        <p>R$ 295,00</p>
+                    </div>
+                    <div class="resumee-item">
+                        <h3>Frete:</h3>
+                        <p>R$ 35,00</p>
+                    </div>
+                    <div class="resumee-item">
+                        <h3>Total:</h3>
+                        <p>R$ 330,00</p>
+                    </div>
+                    <div class="submit-cart-buttonn">
+                        <input type="submit" value="Finalizar Pedido">
+                    </div>
+                </div>
+
+                <div class="input-container">
+                    <input type="text" class="CEP" placeholder="CEP (99999-999)" required>
+                    <img src="images/truck.svg" class="truckk" alt="Truck Icon">
+                </div>
+                <p><i>Informe o CEP</i></p>
+            </div>
+        </aside>
+    </div>
+<!-- </div> -->
+
+<footer>
+    <div class="container-footer">
+        <div class="row-footer">
+            <div class="footer-col">
+                <h4>Loja</h4>
+                <ul>
+                    <li><a href="">Sobre Nós</a></li>
+                    <li><a href="">Politica de Cookies</a></li>
+                    <li><a href="./personalize.html">Produtos Personalizados</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Categorias</h4>
+                <ul>
+                    <li><a href="">Cachepô</a></li>
+                    <li><a href="">Amigurumi</a></li>
+                    <li><a href="">Bordado</a></li>
+                    <li><a href="">Porta-Chaves</a></li>
+                </ul>
+            </div>
+            <div class="footer-col contato-footer">
+                <h4>Contato</h4>
+                <ul>
+                    <li><a href=""><i class="fa-brands fa-whatsapp"></i><p>(67) 992934537</p></a></li>
+                    <li><a href=""><i class="fa-solid fa-phone"></i><p>(67) 992934537</p></a></li>
+                    <li><a href=""><i class="fa-regular fa-envelope"></i><p>contato@apola.com</p></a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Redes Sociais</h4>
+                <div class="link-social-media">
+                    <a href=""><i class="fa-brands fa-instagram"></i></a>
+                    <a href=""><i class="fa-brands fa-pinterest-p"></i></a>
+                    <a href=""><i class="fa-brands fa-facebook-f"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+<script>
+    document.querySelectorAll('.listProduct-item').forEach(productItem => {
+        const quantityElement = productItem.querySelector('.quantity span');
+        const minusIcon = productItem.querySelector('.fa-minus');
+        const plusIcon = productItem.querySelector('.fa-plus');
+        const priceDisplay = productItem.querySelector('.price');
+        const totalPriceDisplay = productItem.querySelector('.total-price');
+        const trashIcon = productItem.querySelector('.trash-icon'); // Select the trash icon
+
+        // Function to update the total price based on quantity and fixed price
+        function updatePrices() {
+            const quantity = parseInt(quantityElement.textContent);
+            const unitPrice = parseFloat(priceDisplay.dataset.price); // Fetch price from data attribute
+            const totalPrice = (unitPrice * quantity).toFixed(2); // Calculate total price
+            totalPriceDisplay.textContent = `R$ ${totalPrice.replace('.', ',')}`; // Update total price display
+
+            // Check if quantity is 0 and remove item if true
+            if (quantity === 0) {
+                productItem.remove(); // Remove the product item from the DOM
+            }
+        }
+
+        minusIcon.addEventListener('click', () => {
+            let quantity = parseInt(quantityElement.textContent);
+            if (quantity > 0) { // Allow to reach 0
+                quantityElement.textContent = quantity - 1;
+                updatePrices(); // Update total price when quantity changes
+            }
+        });
+
+        plusIcon.addEventListener('click', () => {
+            let quantity = parseInt(quantityElement.textContent);
+            quantityElement.textContent = quantity + 1; // Increase quantity
+            updatePrices(); // Update total price when quantity changes
+        });
+
+        // Add event listener for the trash icon
+        trashIcon.addEventListener('click', () => {
+            productItem.remove(); // Remove the product item from the DOM
+        });
+
+        // Initial price display setup
+        updatePrices(); // Call to set the initial total price
+    });
+
+</script>
+
+    
+</script>
+
+</body>s
+</html>

@@ -1,0 +1,214 @@
+
+
+body {
+    margin: 20px;
+    font-family: Poppins, sans-serif;
+    /* overflow-y: hidden; */
+}
+
+.rastreio-details {
+        width: 100%;
+        padding: 20px;
+    }
+
+
+.product-table {
+    border-collapse: collapse; 
+    width: 100%;
+}
+
+.price, 
+.quantity {
+    display: flex;
+    justify-content: center;
+    /* text-align: center; Center text inside each span */
+}
+
+.quantity-label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Specific column adjustments */
+.product-table th:nth-child(1) {
+    padding: 20px 0 20px 0px;       
+    text-align: center;
+}
+
+/* Specific column adjustments */
+.product-table th:nth-child(2) {
+    padding: 20px 0 20px 0px;
+    text-align: center;
+}
+
+/* Specific column adjustments */
+.product-table th:nth-child(3) {
+    padding: 20px 0 20px 0px;
+    text-align: center;
+}
+
+/* Specific column adjustments */
+.listProduct-item td:nth-child(1) {
+    width: 5%; /* Aligns product names to the left */
+    
+}
+
+/* Specific column adjustments */
+.listProduct-item td:nth-child(2) {
+    width: 5%; /* Aligns product names to the left */
+    
+}
+
+/* Specific column adjustments */
+.listProduct-item td:nth-child(3) {
+    width: 5%; /* Aligns product names to the left */
+    
+}
+
+
+.image-text-container img {
+    filter: drop-shadow(0 14px 15px #0009);
+    width: 150px; /* Set a specific width for the image */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 10%; /* Rounded corners */
+    margin: 20px 0px 50px 0px;
+}
+
+.image-text-container {
+    display: flex; /* Use flexbox for layout */
+    align-items: center; /* Center items vertically */
+    flex-wrap: wrap;
+    gap: 60px;
+    justify-content: center;
+}
+
+.text-alignment {
+    flex-wrap: wrap;
+}
+
+.listProduct-item {
+    border-bottom: 1px solid #ccc;
+}
+
+.top {
+    padding-top: 40px;
+    padding-left: 10% !important;
+    padding-right: 10% !important;
+}
+
+/*Icon progressbar*/
+/* #progressbar {
+    margin-bottom: 0px;
+    overflow: hidden;
+    color: #FF5757;
+    padding-left: 0px;
+    margin-top: 30px;
+}  */
+
+#progressbar li {
+    list-style-type: none;
+    font-size: 13px;
+    width: 25%;
+    float: left;
+    position: relative;
+    font-weight: 400;
+}
+
+#progressbar .step0:before {
+    font-family: FontAwesome;
+    content: "\f10c";
+    color: #fff;
+}
+
+#progressbar li:before {
+    width: 40px;
+    height: 40px;
+    line-height: 45px;
+    display: block;
+    font-size: 20px;
+    background: #ccc;
+    border-radius: 50%;
+    margin: auto;
+    padding: 0px;
+}
+
+/*ProgressBar connectors*/
+#progressbar li:after {
+    content: '';
+    width: 100%;
+    height: 12px;
+    background: #ccc;
+    position: absolute;
+    left: 0;
+    top: 16px;
+    z-index: -1;
+}
+
+#progressbar li:last-child:after {
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    position: absolute;
+    left: -50%;
+}
+
+#progressbar li:nth-child(2):after, #progressbar li:nth-child(3):after {
+    left: -50%;
+}
+
+#progressbar li:first-child:after {
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    position: absolute;
+    left: 50%;
+}
+
+#progressbar li:last-child:after {
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+#progressbar li:first-child:after {
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+/*Color number of the step and the connector before it*/
+#progressbar li.active:before, #progressbar li.active:after {
+    background: red;
+}
+
+#progressbar li.active:before {
+    font-family: FontAwesome;
+    content: "\f00c";
+}
+
+.icon {
+    display: flex;
+    width: 60px;
+    height: 60px;
+    margin: 0px 20px 0px 0px; /* Adjusted margins for more spacing */
+    padding: 0;
+
+}
+
+.icon-content {
+    display: flex;
+    padding-bottom: 20px;
+}
+
+span h5 {
+    color: #FF5757;
+}
+
+.status-item span {
+    font-weight: bold;
+}
+
+.product-cell .prod {
+        visibility: hidden; /* Hide "Quantidade" label */
+        display: none; /* Ensure it does not take space */
+    }
+
+
+   

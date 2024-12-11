@@ -1,0 +1,524 @@
+body {
+    margin: 20px;
+    font-family: Poppins, sans-serif;
+    overflow-y: auto;
+}
+
+
+
+.container-cart {
+    /* width: 1600px; */
+    /* max-width: 1600px; */
+    margin: 20px auto; /* Center the container */
+    padding: 0;
+    transition: transform 0.5s;
+    /* border: 1px solid #ccc; */
+    background-color: whitesmoke;
+    flex: 1; /* Optional: Allow children to grow/shrink */    flex: 1; /* Optional: Allow children to grow/shrink */
+}
+
+.product-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0; /* Space between table and other elements */
+}
+
+.product-table th,
+.product-table td {
+    /* border-top-left-radius: 5px; */
+    /* border-top-right-radius: 5px; */
+    padding: 20px;
+    text-align: center;
+}
+
+.product-table th {
+    background-color: #FF5757;
+    font-weight: bold; /* Bold text for headers */
+}
+
+
+.listProduct-item {
+    border-top: 1px solid #ccc;
+    /* box-sizing: border-box; */
+        /* flex: 1 1 calc(50% - 20px); */
+}
+
+.listProduct-item:hover {
+    background-color: #f0f0f0; /* Highlight the row on hover */
+
+}
+
+.image-text-container {
+    display: flex; /* Use flexbox for layout */
+    align-items: center; /* Center items vertically */
+    margin-bottom: 0px;
+}
+
+.image-text-container img {
+    filter: drop-shadow(0 14px 15px #0009);
+    width: 100px; /* Set a specific width for the image */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 5px; /* Rounded corners */
+    margin-right: 0px; /* Space between image and text */
+    margin-top: 0px;
+}
+
+.price,
+.quantity,
+.total-price {
+    text-align: center; /* Center text inside each span */
+}
+
+.quantity {
+    display: flex; /* Use flexbox for quantity buttons and text */
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+}
+
+/* Trash icon styles */
+.trash-icon {
+    display: inline-flex; /* Use inline-flex to center the icon */
+    justify-content: center; /* Center the icon horizontally */
+    align-items: center; /* Center the icon vertically */
+    width: 40px; /* Set a width for the icon */
+    height: 40px; /* Set a height for the icon */
+    background-color: white; /* White background */
+    border-radius: 50%; /* Circular background */
+    cursor: pointer; /* Pointer cursor on hover */
+    border: 1px solid #ccc; /* Border around the icon */
+    color: white; /* Color for icon */
+}
+
+.trash-icon img {
+    width: 20px; /* Set width for the trash icon */
+    height: auto; /* Maintain aspect ratio */
+}
+
+h1, h2{
+    font-size: xx-large;
+    text-align: center; /* Align the title text */
+    padding: 50px 10px;
+    margin-left: 50px; /* Space above the title */
+}
+
+/* .header {
+    display: grid;
+    text-align: center;
+    grid-template-columns: 1fr 1fr 1fr 0fr ;
+    font-weight: bold;
+    padding: 10px;
+    background-color: #f0f0f0;
+} */
+
+/* Specific column adjustments */
+.product-table th:nth-child(1) {
+    text-align: center; /* Aligns product names to the left */
+}
+
+.product-table th:nth-child(2) {
+    text-align: center; /* Center aligns price */
+}
+
+.product-table th:nth-child(3) {
+    text-align: center; /* Center aligns quantity */
+}
+
+.product-table th:nth-child(4) {
+    text-align: center; /* Center aligns QTD label */
+}
+
+/* Commented out styles for header span alignment, if needed in future
+.header span:nth-child(1) {
+    text-align: left;
+    flex-grow: 1;
+}
+
+.header span:nth-child(2) {
+    text-align: center;
+    flex-grow: 0;
+}
+
+.header span:nth-child(3) {
+    text-align: left;
+    flex-grow: 0;
+}
+
+.header span:nth-child(4) {
+    text-align: right;
+    flex-grow: 0;
+}
+*/
+
+.aside {
+    margin: 0 auto;
+    background: linear-gradient(to right, #d1cbcb2f, #eee6e62f);
+    margin-top: 0px;
+    border-left: 3px solid #FF5757;
+    border-radius: 5px;
+    padding-left: 15px; /* Moved padding here for consistency */
+    min-height: 330px; /* Use min-height to allow flexibility */
+    /* max-width: 1600px; */
+}
+
+.aside .delivery {
+    position: relative;
+    /* top: 0px; */
+    font: 1em sans-serif;
+}
+
+.delivery input.CEP {
+    padding-left: 10px;
+    outline: none;
+}
+
+.radio-group {
+    display: block; /* Changed to block to stack elements */
+    margin-bottom: 10px; /* Add spacing between radio groups */
+}
+
+.custom-radio {
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.custom-radio input {
+    margin-right: 10px;
+}
+
+.custom-radio .address-text {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    flex-grow: 1;
+}
+
+.custom-radio input[type="radio"] {
+    display: none;
+}
+
+.custom-radio .radio-check {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    border: 2px solid #FF5757;
+    position: relative;
+    margin-right: 10px;
+    background-color: white;
+}
+
+.custom-radio input[type="radio"]:checked + .radio-check {
+    background-color: #FF5757;
+    border-color: #FF5757;
+}
+
+.custom-radio .radio-check::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: white;
+    opacity: 0;
+    transition: opacity 0.2s;
+}
+
+.custom-radio input[type="radio"]:checked + .radio-check::before {
+    opacity: 1;
+}
+
+.delivery .resumee {
+    display: grid;
+    /* grid-template-columns: auto auto; */
+    justify-content: end;
+    align-items: center;
+    gap: 5px;
+    margin-right: 60px; /* Add margin to separate from above content */
+}
+
+.delivery .resumee-item {
+    display: flex; /* Use flex to align items */
+    justify-content: space-between; /* Space between the h3 and p */
+    padding: 5px 0; /* Vertical padding for spacing */
+    border-bottom: 1px solid #FF5757; /* Bottom border */
+    align-items: center;
+}
+
+.resumee h3 {
+    margin: 0;
+    padding-right: 10px;
+    text-align: left;
+}
+
+.resumee p {
+    margin: 0;
+    text-align: right;
+    padding-left: 10px;
+}
+
+
+/* This applies styles when the radio button is checked
+.delivery input[type="radio"]:checked + label {
+    color: green; /* Change label text color when checked */
+
+
+.delivery label {
+    margin: 0; /* Remove any margin on the label */
+}
+
+/* Add extra space to push the input and paragraph down */
+.delivery .input-container {
+    position: relative;
+    width: 200px; /* Adjust the width as needed */
+    margin-top: 0px; /* Increase space above the input-container */
+}
+
+/* Adjust spacing for the italic paragraph */
+.delivery p {
+    margin: 5px 0; /* Increase space above and below each paragraph */
+}
+
+/* Styling the input */
+.delivery .CEP {
+    padding: 10px; /* Adjust padding */
+    font-size: large;
+    width: 100%; /* Make it fill the container */
+    border: 1px solid #ccc;
+    border-radius: 4px; /* Rounded corners for the input */
+    box-sizing: border-box; /* Ensure the input doesn't overflow the container */
+}
+
+/* Truck icon inside the input */
+.delivery .truckk {
+    position: absolute;
+    left: 160px; /* Positioning the icon inside the input */
+    top: 50%;
+    transform: translateY(-50%); /* Center the icon vertically */
+    pointer-events: none; /* Prevent the icon from interfering with input interaction */
+}
+
+/* Optional: focus state styling */
+.delivery .CEP:focus {
+    border-color: #000; /* Changes border color when the input is focused */
+}
+
+/* Vertical line separator between icon and text */
+.delivery .input-container:before {
+    content: '';
+    position: absolute;
+    left: 150px; /* Position the separator close to the icon */
+    top: 7px;
+    bottom: 7px;
+    width: 2px;
+    background-color: #ccc; /* Color of the separator line */
+    margin-left: 5px;
+}
+
+/* Placeholder styling */
+.delivery .CEP::placeholder {
+    color: #999;
+}
+
+.header-title {
+    display: flex;            /* Use flexbox */
+    align-items: center;     /* Align items vertically */
+    text-decoration: underline;
+}
+
+.header-title img {
+    margin-left: 30px;       /* Add some space between text and image */
+    height: 200px;            /* Adjust height as needed */
+    width: 200px;             /* Keep the aspect ratio */
+}
+
+.back-arrow {
+    margin: 10px;
+    cursor: pointer;
+}
+
+.qtd-label {
+    visibility: hidden;
+    display: none;
+}
+
+/* .grid-container {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+    padding: 10px;
+    border-bottom: 1px solid #e0e0e0;
+    align-items: center;
+} */
+
+.delivery .submit-cart-buttonn input[type="submit"] {
+    background-color: #FF6347;
+    color: white;
+    padding: 10px 50px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 250px;
+    /* text-align: center; */
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+.delivery .submit-cart-buttonn input[type="submit"]:hover {
+    background-color: #ff7f6e;
+}
+
+@media screen and (min-width: 0px) and (max-width: 700px) {
+
+.body {
+    margin: 0;         /* Ensure no automatic margins */
+    padding: 0;        /* Remove any padding */
+    overflow-x: unset;  /* Allow scrolling on mobile */
+}
+
+.qtd-label {
+    display: inline; /* Show QTD label for smaller screens */
+}
+
+.image-text-container h2 {
+    display: none; /* Hide product names on smaller screens */
+}
+
+.trash-icon  {
+    display: none; /* Hide trash icon container */
+}
+
+.listProduct-item {
+    /* display: flex; */
+    /* justify-content: space-between; */
+    /* align-items: center; */
+    border: none;
+    border-top: 1px solid #ccc;
+    padding-right: 0px;
+    box-sizing: border-box;
+    flex: 1 1 calc(50% - 20px);
+    gap: 5px;
+    padding-top: 10px;
+}
+
+/* Add extra space to push the input and paragraph down */
+.delivery {
+    display: flex;
+    flex-direction: column;
+}
+
+.delivery .input-container {
+    margin-top: 20px; /* Increase space above the input-container */
+    margin-bottom: 0px;
+}
+
+.delivery .resumee {
+    order: 2; /* Move resume section below input-container */
+    position: relative;
+    left: 20px; /* Adjust space from the left */
+}
+
+.aside {
+    padding-left: 0px;
+    min-height: 350px; /* Use min-height to allow flexibility */
+}
+
+.image-text-container img {
+    filter: drop-shadow(0 14px 15px #0009);
+    width: 80px; /* Set a specific width for the image */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 20%; /* Rounded corners */
+    margin-top: 0px;
+    margin-right: 30px;
+}
+
+
+
+}
+
+
+
+
+
+
+@media screen and (orientation: landscape), screen and (min-width: 420px) {
+    .product-table th:nth-child(3) {
+        display: table-cell; /* Show the "Quantidade" column */
+    }
+
+    .quantity-label {
+        display: inline; /* Show quantity label */
+    }
+
+    .qtd-label {
+        display: none;
+    }
+
+    .product-table th:nth-child(4) {
+        width: 20%; /* Set width for "Total" */
+    }
+}
+
+@media screen and (max-width: 639px) {
+
+
+    .quantity-cell .quantity-label {
+        visibility: hidden; /* Hide "Quantidade" label */
+        display: none; /* Ensure it does not take space */
+    }
+
+    .remove {
+        visibility: hidden; /* Hide "Quantidade" label */
+        display: none; /* Ensure it does not take space */
+    }
+
+    .quantity-cell .qtd-label {
+        visibility: visible; /* Show "QTD" */
+    }
+
+    .product-table th:nth-child(3) {
+        visibility: visible; /* Hide the entire "Quantidade" column */
+    }
+
+    .product-table th:nth-child(4) {
+        width: 20%; /* Set width for "Total" */
+    }
+
+    .quantity {
+        display: flex; /* Use flexbox for quantity buttons and text */
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+    }
+
+    .product-table th,
+.product-table td {
+    padding: 10px 0 10px 0; /* Padding for table cells */
+    text-align: center; /* Align text to the left */
+}
+
+.price,
+.quantity,
+.total-price {
+    text-align: center; /* Center text inside each span */
+}
+
+.image-text-container img {
+    filter: drop-shadow(0 14px 15px #0009);
+    width: 80px; /* Set a specific width for the image */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 20%; /* Rounded corners */
+    margin-top: 0px;
+    margin-right: 10px;
+}
+
+.image-text-container {
+    display: flex; /* Use flexbox for layout */
+    align-items: center; /* Center items vertically */
+    margin-left: 10px;
+}
+
+}
