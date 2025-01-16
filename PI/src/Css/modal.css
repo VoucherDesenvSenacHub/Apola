@@ -1,0 +1,250 @@
+
+dialog:not([open]) {
+    display: none;
+}
+
+dialog::backdrop{
+    background-color: #00000080;
+}
+
+
+dialog{
+    width: 500px;
+    border: none;
+    padding: 2rem;
+    border-radius: 5px;
+}
+
+
+
+.modal_header{
+    display: flex;
+    width: 100%;
+    justify-content: end;
+    padding-bottom: 1rem;
+}
+
+.modal_header button {
+    background-color: transparent;
+    border: none;
+}
+
+.modal_header button i{
+    font-size: 25px;
+    cursor: pointer;
+    color: #4A4A4A;
+    transition: all 0.2s ease-in-out;
+}
+
+.modal_header button i:hover{
+    transform: scale(1.09);
+}
+
+.modal_body{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    gap: 1.5rem;
+}
+
+.modal_body .title_modal_zap{
+    display: flex;
+    font-size: 22px;
+    color: #4A4A4A;
+    font-weight: 600;
+
+}
+
+
+.modal_body .text_modal_zap{
+    display: flex;
+    font-size: 14px;
+    color: #a5a5a5;
+}
+
+
+
+.conatiner_item_modal_link_zap{
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    width: 100%;
+}
+
+
+.item_modal_link_zap{
+    display: flex;
+    width: 60%;
+    background-color: #e4e4e4;
+    padding: 1rem;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    gap: 10px;
+}
+
+
+.item_modal_link_zap a,.item_modal_link_zap i {
+    display: flex;
+    font-size: 16px;
+    color: #4A4A4A;
+    transition: all 0.2s ease;
+}
+.item_modal_link_zap i {
+    font-size: 18px;
+}
+
+.item_modal_link_zap a{
+    text-decoration: underline;
+}
+.item_modal_link_zap a:hover{
+    color: #979797;
+}
+
+
+
+
+
+
+
+
+
+
+ .form_modal {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 0.5rem;
+    justify-content: start;
+    align-items: start;
+
+
+}
+
+
+ .label_modal{
+    color: #4A4A4A;
+    font-size: 14px;
+    padding-bottom: 8px;
+    display: flex;
+    
+}
+
+.input_modal{
+    display: flex;
+    height: 45px;
+    outline: none;
+    border: 1px solid #c2c2c2 ;
+    width: 100%;
+    background-color: transparent;
+    border-radius: 5px;
+    padding: 1rem;
+    color: #4A4A4A;
+    
+}
+
+.container_btn_modal_email{
+    display: flex;
+    width: 100%;
+    justify-content: end;
+    padding-top: 2rem;
+}
+
+.container_btn_modal_email button{
+    display: flex;
+    width: 120px;
+    height: 45px;
+    border: none;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    background-color: #FA301E;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+
+.container_btn_modal_email button:hover{
+    background-color: #b61608;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+.item_endereco_cadastrados_modal{
+    display: flex;
+    background-color: rgb(231, 231, 231);
+    height: 55px;
+    border-radius: 5px;
+    width: 100%;
+    align-items: center;
+    gap:1.5rem;
+    padding: 10px;
+    cursor: pointer;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    margin-top: 1rem;
+}
+
+
+
+.item_endereco_cadastrados_modal .selection_shape_modal{
+    display: flex;
+    width: 15px;
+    height: 15px;
+    background-color: #b4b4b4;
+    border-radius: 50%;
+}
+
+
+.active{
+    background-color: #FA301E;
+}
+
+
+.item_endereco_cadastrados_modal .text_endereco_cadatrados_modal{
+    display: flex;
+    font-size: 15px;
+    color: #4A4A4A;
+}
+
+
+
+
+
+@media (max-width:600px) {
+    dialog{
+        width: 400px;
+    }
+
+    
+}
+
+
+@media (max-width:500px) {
+    dialog{
+        width: 300px;
+    }
+
+    
+}
+
+@media (max-width:384px) {
+    dialog{
+        width: 280px;
+    }
+
+    
+}
