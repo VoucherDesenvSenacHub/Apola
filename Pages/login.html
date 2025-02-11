@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../Css/syte.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="../JS/validar_form_login.js" defer></script>
+    <title>Login</title>
+</head>
+<body class="body-log">
+    <main class="main-login">
+        <header class="menu">
+            <nav class="container-menu">
+                    <div class="img-menu">
+                        <a href="../Pages/Home.html">
+                            <img src="../Src/imagens/Apola__1_-removebg-preview.png" alt=""class="img-logo" >
+                        </a>
+                    </div>
+            </nav>
+        </header>
+        <section class="login">
+            <div class="content-login">
+                <div class="shape-login"></div>
+                <div class="shape-login2"></div>
+                <div class="img-container-login">
+                    <img src="../Src/imagens/login/Knitting-amico.png" alt="">
+                </div>
+                <div class="container-login">
+                    <div class="form-container">
+                        <div class="text-login">Login</div>
+                        <form autocomplete="off" onsubmit="return validaFormlogin()">
+                            <div class="form__group field">
+                                <input type="email" id="email-login" class="form__field" placeholder="E-mail" required>
+                                <label for="email" class="form__label">E-mail*</label>
+                            </div>
+                            <div class="form__group field">
+                                <input type="password" id="senha-login"  class="form__field" placeholder="Senha" required>
+                                <label for="senha" class="form__label">Senha*</label>
+                            </div>
+                            <div class="form__group field">
+                                <input type="password" id="conf-senha-login" class="form__field" placeholder="Senha" required>
+                                <label for="confsenha" class="form__label">Confirmação de senha*</label>
+                            </div>
+                            <div class="remenber">
+                                <label for="">
+                                    <input type="checkbox"> Lembre-me
+                                </label>
+                                <p><a href="#">Esqueceu a senha?</a></p>
+                            </div>
+                            <div class="btn-login">
+                                <a href=""> <button type="submit">Entrar</button></a>
+                            </div>
+                            <p id="msnErro-login" class="msnErro-login">  </p>
+                            <span class="span-login">Novo na Apola?<a href="../Pages/cadastro.html">Cadastra-se</a></span>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+            
+    </main>
+    <footer>
+        <div class="container-footer">
+            <div class="row-footer">
+                <div class="footer-col">
+                    <h4>Loja</h4>
+                    <ul>
+                        <li><a href="">Sobre Nós</a></li>
+                        <li><a href="">Politica de Cookies</a></li>
+                        <li><a href="">Produtos Personalizados</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Categorias</h4>
+                    <ul>
+                        <li><a href="">Cachepô</a></li>
+                        <li><a href="">Amigurumi</a></li>
+                        <li><a href="">Bordado</a></li>
+                        <li><a href="">Porta-Chaves</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col contato-footer">
+                    <h4>Contato</h4>
+                    <ul>
+                        <li><a href=""><i class="fa-brands fa-whatsapp"></i><p>(67) 992934537</p></a></li>
+                        <li><a href=""><i class="fa-solid fa-phone"></i><p>(67) 992934537</p></a></li>
+                        <li><a href=""><i class="fa-regular fa-envelope"></i><p>contato@apola.com</p></a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Redes Sociais</h4>
+                    <div class="link-social-media">
+                        <a href=""><i class="fa-brands fa-instagram"></i></a>
+                        <a href=""><i class="fa-brands fa-pinterest-p"></i></a>
+                        <a href=""><i class="fa-brands fa-facebook-f"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,293 @@
+
+.body-favoritos{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+
+main{
+    display: flex;
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
+}
+
+.main-favorite-wrapper {
+    display: grid;
+    grid-template-columns: 200px auto;
+    height: 100%; 
+
+}
+    
+.aside-menu-wrapper{
+    display: flex;
+    
+}
+.aside-menu-wrapper li{
+    font-size: 18px;
+    color: black;
+}
+    
+    
+.area-cards-favoritos{
+    width: 100%;
+    display: grid;
+    height: 100%;
+   
+  
+
+}
+.favorite-wrapper {
+    display: grid;
+    gap: 95px; 
+    padding: 20px 30px; 
+    height: 100%;
+    width: 100%;  
+    grid-template-columns: repeat(3, 1fr);
+  
+    
+   
+}
+
+.favorite-card {
+    display: flex;
+    flex-direction: column; 
+    align-items: center;  
+    height: 250px;
+    width: 300px;
+   
+}  
+
+.favorite-card-image-container {
+    -webkit-box-shadow: 0px 0px 2px 1px rgba(0, 0, 0, 0.3);
+    -moz-box-shadow: 0px 0px 2px 1px rgba(0, 0, 0, 0.3);
+    box-shadow: 0px 0px 2px 1px rgba(0, 0, 0, 0.3); 
+    border-radius: 5px;
+    background: #fafafa;
+    width: 300px;
+    margin-top: 50px;
+    align-items: center; 
+     
+}
+
+.card_produto{
+    display: flex;  
+    background-color: rgb(248, 248, 248);
+    flex-direction: column;   
+    padding: 10px 0px 0px 10px;   
+    width: 240px;
+    border-radius: 5px; 
+    gap: 24px;   
+     
+    
+}
+.checkbox-heart input {
+    display: none;
+} 
+  
+.checkbox-heart  .i {
+    width: 30px;
+    height: 30px;
+    background-color: #ccc;
+    display: inline-block;
+    border-radius: 50%;
+    position: relative;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+  
+.checkbox-heart .i:before, .checkbox-heart .i:after {
+    content: '';
+    width: 20px;
+    height: 20px;
+    background-color: #ccc;
+    position: absolute;
+    top: -10px;
+    border-radius: 50%;
+    transition: background-color 0.3s ease;
+}
+  
+  
+.checkbox-heart input:checked + i {
+    color: red; /* Cor do coração quando marcado */
+}
+  
+
+
+.icon_favorite{
+    display: flex;
+    width: 100% ;
+    justify-content: end;
+    
+} 
+
+.icon_favorite i{
+    font-size: 24px;
+    color: rgb(168, 168, 168); 
+    cursor: pointer;
+    padding-right: 0.5rem;
+    
+}  
+
+
+.img_content_produto{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    
+} 
+
+
+.img_content_produto img{
+    display: flex;
+    height: 170px;
+    transition: 0.2s ease-in-out;
+
+}
+.img_content_produto img:hover{
+    transform: scale(1.05);
+}
+
+
+
+.conteudo_card{
+    display: flex;
+    flex-direction: column;
+    padding-top: 1rem;
+    
+}
+
+.nome_card_produto{
+    font-size: 14px;
+    color: #4A4A4A;
+    margin-top: 30px;
+    padding: 5px;
+}
+
+.content_star_icon{
+    font-size: 12px;
+    color: rgb(255, 153, 0);
+    padding: 5px;
+}
+
+
+.preco_card_produto{
+    font-size: 20px;
+    font-weight: 600;
+    padding-top: 0.5rem;
+    color: #4A4A4A;
+    padding: 5px;
+
+}
+
+
+.btn_content_card_produto{
+    display: flex;
+    width: 100%;
+    height: 100%;
+    padding-top: 1rem;
+    justify-content: center;
+}
+
+
+
+.btn_content_card_produto .btn_bag_card{
+    width: 51%;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    font-size: 20px;
+    color: #4A4A4A;
+    cursor: pointer;
+
+}
+
+
+.btn_content_card_produto .btn_buy_card{
+    width: 49%;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    font-size: 15px;
+    background-color: #4200db;
+    padding: 10px;
+    border-radius: 5px 0px 5px 0px;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.2s ease-in-out;
+}
+
+.btn_content_card_produto .btn_buy_card:hover{
+    background-color: #4A4A4A;
+}
+
+
+
+.Title_card_produto{
+    display: flex;
+    font-weight: 600;
+    font-size: 18px;
+    color: #4A4A4A;
+}
+
+.btn_card_produto{
+    display: flex;
+    width: 100%;
+    height: 50px;
+    justify-content: end;
+    gap: 15px;
+    padding: 5px;
+
+}
+
+
+.btn_prev_card, .btn_next_card{
+    display: flex;
+    width: 27px;
+    height: 27px;
+    border-radius: 50%;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.2s ease;
+    cursor: pointer;
+
+}
+
+.default_btn_icon_card{
+    font-size: 18px;
+    color: #4A4A4A;
+}
+
+.btn_prev_card:hover, .btn_next_card:hover{
+    transform: scale(1.10);
+    background-color: #FA301E;
+}
+
+
+.btn_prev_card:hover > .default_btn_icon_card, .btn_next_card:hover > .default_btn_icon_card{
+    color: white;
+
+}
+
+#coracao {
+    display: none;
+  }
+
+  #coracao:checked + label > svg {
+    animation: preencher;
+    animation-duration: .5s;
+    animation-fill-mode: forwards;
+  }
+
+  @keyframes preencher {
+    0% {
+      fill: transparent;
+    }
+    100% {
+      fill: red;
+    }
+  }
+

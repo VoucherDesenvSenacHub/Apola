@@ -1,0 +1,11 @@
+.aside-menu-wrapper {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    border-right: 2px solid #878787;
+    padding: 20px;
+}
+
+.aside-menu-item {
+    padding: 20px;
+}
