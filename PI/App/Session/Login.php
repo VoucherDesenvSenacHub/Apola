@@ -48,7 +48,7 @@ class Login{
     }
 
 
-    
+
 
     // Obriga o usuario a estar deslogado para acessar
     public static function requireLogout(){

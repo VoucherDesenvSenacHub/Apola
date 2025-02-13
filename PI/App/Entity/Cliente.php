@@ -36,7 +36,7 @@ class Cliente{
     public function cadastrarCliente(){
         $db = new Database('cliente');
 
-        $this->id_cliente = $db->insert(
+        $result = $db->insert(
             [
                 'nome'=> $this->nome,
                 'cep' => $this->cep,
@@ -46,7 +46,7 @@ class Cliente{
             ]
             );
 
-        return true; 
+        echo "erro"; 
     }
 
 

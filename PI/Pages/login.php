@@ -1,4 +1,4 @@
-<!-- 
+
 <?php
 require '../App/Entity/Cliente.php';
 
@@ -33,7 +33,7 @@ if (isset($_POST['logar'])){
 
 
 
-?> -->
+?>
 
 <!DOCTYPE html>
 <html lang="pt-br">

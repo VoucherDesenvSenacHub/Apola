@@ -12,6 +12,9 @@
     <script src="../src/JS/navbar_adm.js" defer></script>
 
 
+    <script src="../src/JS/list_controle_adm.js" defer></script>
+
+
     <title>Navbar ADM</title>
 </head>
 <body class="body_adm">
@@ -77,137 +80,61 @@
                         <i class="fa-solid fa-magnifying-glass"></i>
                         <button class="btn_search_listar_produto">Buscar</button>
                     </div>
-                    <script>
-
-                        // Seleciona todos os botões pela classe
-                        const buttons = document.querySelectorAll('.btn_item_listar_produto');
-
-                        // Adiciona o evento de clique a cada botão
-                        buttons.forEach(button => {
-                            button.addEventListener('click', () => {
-                                console.log(`Botão "${button.textContent}" clicado`);
-
-                                // Remove os estilos dos outros botões
-                                buttons.forEach(btn => {
-                                    btn.style.backgroundColor = '';
-                                    btn.style.color = '';
-                                });
-
-                                // Adiciona os estilos ao botão clicado
-                                button.style.backgroundColor = '#FA301E';
-                                button.style.color = '#ffffff';
-                            });
-                        });
-
-                    </script>
                     
                 </div>
                 <div class="container_body_listar_produtos_body">
                     <table>
                         <tr>
+                            <th class="td_adm">
+                                eeee
+                            </th>
                             <th>
                                 Titulo
                             </th>
                             <th>
-                                Qut. Produtos
+                                quant. produtos
                             </th>
                             <th>
-                                Status
+                                status
                             </th>
                             <th>
-                                Editar
+                                editar
                             </th>
                         </tr>
                         <tr>
-                            <td class="container_listar_check">
+                            <td class="container_listar_check_box   td_adm">
                                 <input type="checkbox" name="" id="">
+                            </td>
+                            <td class="container_listar_check">
                                 Cachepô
                             </td>
                             <td>
                                 16
                             </td>
-                            <td>
+                            <td class="td_adm">
                                 <div class="shape_status_produtos"></div>
+                                Ativo
                             </td>
-                            <td>
-                                <i class="fa-solid fa-eye"></i>
+                            <td class="drop_father-drop_adm_view">
+                                <i class="fa-solid fa-eye open_drop_adm_view">
+                                    <div class="drop_adm_view">
+                                        <ul>
+                                            <li>
+                                                <a href="">
+                                                    <i class="fa-solid fa-pencil"></i>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="">
+                                                    <i class="fa-solid fa-trash"></i>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </i>
                             </td>
                         </tr>
-                        <tr>
-                            <td class="container_listar_check">
-                                <input type="checkbox" name="" id="">
-                                Cachepô
-                            </td>
-                            <td>
-                                16
-                            </td>
-                            <td>
-                                <div class="shape_status_produtos"></div>
-                            </td>
-                            <td>
-                                <i class="fa-solid fa-eye"></i>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="container_listar_check">
-                                <input type="checkbox" name="" id="">
-                                Cachepô
-                            </td>
-                            <td>
-                                16
-                            </td>
-                            <td>
-                                <div class="shape_status_produtos"></div>
-                            </td>
-                            <td>
-                                <i class="fa-solid fa-eye"></i>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="container_listar_check">
-                                <input type="checkbox" name="" id="">
-                                Cachepô
-                            </td>
-                            <td>
-                                16
-                            </td>
-                            <td>
-                                <div class="shape_status_produtos"></div>
-                            </td>
-                            <td>
-                                <i class="fa-solid fa-eye"></i>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="container_listar_check">
-                                <input type="checkbox" name="" id="">
-                                Cachepô
-                            </td>
-                            <td>
-                                16
-                            </td>
-                            <td>
-                                <div class="shape_status_produtos"></div>
-                            </td>
-                            <td>
-                                <i class="fa-solid fa-eye"></i>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="container_listar_check">
-                                <input type="checkbox" name="" id="">
-                                Cachepô
-                            </td>
-                            <td>
-                                16
-                            </td>
-                            <td>
-                                <div class="shape_status_produtos"></div>
-                            </td>
-                            <td>
-                                <i class="fa-solid fa-eye"></i>
-                            </td>
-                        </tr>
+
 
                     </table>
 

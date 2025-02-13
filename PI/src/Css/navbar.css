@@ -660,6 +660,7 @@ Area Responsiva */
     height: 100%;
     opacity: 1;
     overflow: visible;
+    background-color: white;
 }
 
 .dropdown__menu {

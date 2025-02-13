@@ -69,21 +69,26 @@
 .container_body_listar_produtos_header{
     display: flex;
     width: 100%;
-    align-items: center;
+    background-color:#4A4A4A;
+    border-radius: 5px 5px 5px 5px;
+  
 }
 
 
 .container_btn_item_listar_produto{
     display: flex;
     width: 40%;
-    gap: 2rem;
+    align-items: end;
+    padding-top: 10px;
+    padding-left: 5px;
+
 }
 
 .container_btn_item_listar_produto .btn_item_listar_produto{
     display: flex;
     width: 15%;
     height: 35px;
-    border-radius: 5px;
+    border-radius:  5px 5px 0px 0px;
     justify-content: center;
     align-items: center;
     background-color: transparent;
@@ -91,13 +96,14 @@
     color: #4A4A4A;
     cursor: pointer;
     border: none;
-    font-size: 15px;
+    font-size: 13px;
     cursor: pointer;
     transition: all 0.2s ease;
+    color: white;
 }
 .container_btn_item_listar_produto .btn_item_listar_produto:hover{
-    background-color: #FA301E;
-    color: white;
+    color:#b4b4b4;
+    border-radius: 5px 5px 0px 0px;
 }
 
 
@@ -108,6 +114,7 @@
     gap: 10px;
     align-items: center;
     position: relative;
+    
 }
 
 
@@ -136,7 +143,7 @@
 .conatiner_search_listar_produto button{
     width: 13%;
     border-radius: 5px;
-    background-color: #838383;
+    background-color: #FA301E;
     border: none;
     color: white;
     font-weight: 500;
@@ -178,6 +185,12 @@
     justify-items: center;
   }
 
+.td_adm{
+  text-align:left;
+  padding: 8px;
+  justify-items: center;
+}
+
   .container_body_listar_produtos_body th:first-child {
     width: 20%; /* Ajusta a largura do título */
 }
@@ -211,6 +224,7 @@
     padding: 5px;
     transition: all 0.1s ease;
     border-radius: 50%;
+    z-index: 0;
   }
   .container_body_listar_produtos_body table td i:hover{
     background-color: #4A4A4A;
@@ -218,8 +232,78 @@
   }
 
 
+  .drop_father-drop_adm_view{
+    position: relative;
+  }
+
+  .drop_father-drop_adm_view .open_drop_adm_view:hover .drop_adm_view{
+    opacity: 1;
+    visibility: visible;
+    transition: all 0.1s ease-in-out;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+  }
+ 
+
+  .drop_adm_view{
+    display: flex;
+    width: 90px;
+    height: 50px;
+    border-radius: 5px;
+    position: absolute;
+    right: 35px;
+    top: 10px;
+    opacity: 0;
+    visibility: hidden;
+    z-index: 100;
+  }
 
 
+
+  .drop_adm_view ul{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    gap: 5px;
+
+    
+  }
+
+  .drop_adm_view ul li a{
+    display: flex;
+    text-decoration: none;
+  }
+  .drop_adm_view ul li a i{
+    display: flex;
+    text-decoration: none;
+    font-size: 16px;
+  }
+  .drop_adm_view ul li a .fa-trash{
+    color: #FA301E;
+  }
+  .drop_adm_view ul li a .fa-trash:hover{
+    color: #FA301E;
+    background-color: rgb(219, 219, 219);
+  }
+  .container_body_listar_produtos_body table .container_listar_check_box{
+    justify-content: start;
+    align-items: center;
+  }
+
+  .container_listar_check_box input{
+    width: 20px;
+    height: 20px;
+
+  }
+
+
+.conatiner_shape_status_produtos{
+  display: flex;
+  gap: 5px;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
 
   .container_body_listar_produtos_body .shape_status_produtos{
     width: 20px;
@@ -230,15 +314,12 @@
 
 
   .container_listar_check{
-    display: flex;
     gap: 1rem;
-    align-items: center;
+    text-align: center;
+
   }
 
-  .container_listar_check input{
-    width: 20px;
-    height: 20px;
-  }
+
 
   .container_listar_check .img_conatiner_listar_produto{
     width: 50px;

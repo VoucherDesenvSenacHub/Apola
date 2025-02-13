@@ -11,6 +11,8 @@
 
     <script src="../src/JS/navbar_adm.js" defer></script>
 
+    <script src="../src/JS/list_controle_adm.js" defer></script>
+
 
     <title>Navbar ADM</title>
 </head>
@@ -77,29 +79,6 @@
                         <i class="fa-solid fa-magnifying-glass"></i>
                         <button class="btn_search_listar_produto">Buscar</button>
                     </div>
-                    <script>
-
-                        // Seleciona todos os botões pela classe
-                        const buttons = document.querySelectorAll('.btn_item_listar_produto');
-
-                        // Adiciona o evento de clique a cada botão
-                        buttons.forEach(button => {
-                            button.addEventListener('click', () => {
-                                console.log(`Botão "${button.textContent}" clicado`);
-
-                                // Remove os estilos dos outros botões
-                                buttons.forEach(btn => {
-                                    btn.style.backgroundColor = '';
-                                    btn.style.color = '';
-                                });
-
-                                // Adiciona os estilos ao botão clicado
-                                button.style.backgroundColor = '#FA301E';
-                                button.style.color = '#ffffff';
-                            });
-                        });
-
-                    </script>
                     
                 </div>
                 <div class="container_body_listar_produtos_body">

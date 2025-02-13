@@ -7,7 +7,7 @@
     --first-color: #FA301E;
     --title-color: hsl(228,12%,15%);
     --text-color: hsl(228,8%,50%);
-    --body-color: hsl(228,100%,99%);
+    --body-color: #fafbff;
     --container-color: #c5c5c51b;
 
     --body-font: 'Poppins',sans-serif;
@@ -73,6 +73,7 @@ a{
     width: 100%;
     height: 100%;
     gap: 10px;
+    border-radius: 5px;
 }
 .nav__link i{
     font-size: 1.20rem;
@@ -89,10 +90,10 @@ a{
 
 .nav__link:hover{
     color:white;
-
 }
 .active-link{
     color:white;
+
 
 }
 @media screen and (max-width: 320px) {

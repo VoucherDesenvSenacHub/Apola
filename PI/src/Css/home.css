@@ -1992,7 +1992,6 @@ BANNER PROMOCIONAL FINAL */
         display: flex;
         width: 100%;
         object-fit: cover;
-        background-color: aqua;
         height: 60vh;
     }
 

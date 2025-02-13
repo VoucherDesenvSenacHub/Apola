@@ -20,6 +20,8 @@ if (isset($_POST['nome'],$_POST['email'], $_POST['cep'], $_POST['cpf'],$_POST['s
     $cliente = new Cliente($nome,$cep,$cpf,$email,$senha);
     $result= $cliente->cadastrarCliente();
 
+
+
     header('location: login.php?status=success');
     exit;
 
