@@ -4,6 +4,7 @@
     height: 100%;
     align-items: end;
     flex-direction: column;
+    margin-bottom: 4rem;
 
 }
 
@@ -48,22 +49,27 @@
     display: flex;
     width: 90%;
     padding: 0.5rem;
-    border: 1px solid #c2c2c2 ;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 50px;
     border-radius: 5px;
     margin-right: 2rem;
     flex-direction: column;
 }
 
 
+.adm_center{
+  text-align: left;
+  padding: 8px;
+  justify-items: left;
 
 
+}
 
-
-
-
-
-
-
+.container_item_listimg_nome{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
 
 
 .container_body_listar_produtos_header{
@@ -206,7 +212,20 @@
     background-color: rgb(238, 238, 238);
     color:#4A4A4A;
     font-weight: 500;
-    text-transform: capitalize;
+  }
+
+  .adtm_center_item{
+    display: flex;
+    justify-content: start;
+    width: 100%;
+    padding-left: 1rem;
+
+  }
+  .adtm_center_item input{
+    width: 20px;
+    height: 20px;
+    border: none;
+
   }
 
   .container_body_listar_produtos_body table td{
@@ -232,62 +251,86 @@
   }
 
 
-  .drop_father-drop_adm_view{
-    position: relative;
-  }
 
-  .drop_father-drop_adm_view .open_drop_adm_view:hover .drop_adm_view{
-    opacity: 1;
-    visibility: visible;
-    transition: all 0.1s ease-in-out;
-    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
-  }
- 
 
-  .drop_adm_view{
+
+
+  .item_list_tree ul{
     display: flex;
-    width: 90px;
-    height: 50px;
-    border-radius: 5px;
-    position: absolute;
-    right: 35px;
-    top: 10px;
-    opacity: 0;
-    visibility: hidden;
-    z-index: 100;
-  }
-
-
-
-  .drop_adm_view ul{
-    display:flex;
     justify-content: center;
     align-items: center;
-    width: 100%;
-    gap: 5px;
+    gap: 10px;
 
-    
   }
 
-  .drop_adm_view ul li a{
+  .item_list_tree ul li{
     display: flex;
+  }
+
+  .item_list_tree ul li a{
     text-decoration: none;
   }
-  .drop_adm_view ul li a i{
-    display: flex;
-    text-decoration: none;
-    font-size: 16px;
+  .item_list_tree ul li a i{
+    font-size: 17px;
   }
-  .drop_adm_view ul li a .fa-trash{
+  .item_list_tree ul li a .fa-trash{
     color: #FA301E;
   }
-  .drop_adm_view ul li a .fa-trash:hover{
-    color: #FA301E;
-    background-color: rgb(219, 219, 219);
+  .item_list_tree ul li a .fa-trash:hover{
+    background-color: #ebebeb;
   }
+
+
+
+
+  /* From Uiverse.io by Yaya12085 */ 
+.item_list_tree ul li .switch {
+  position: relative;
+  height: 1rem;
+  width: 2rem;
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+  border-radius: 9999px;
+  background-color: rgba(100, 116, 139, 0.377);
+  transition: all .3s ease;
+}
+.item_list_tree ul li .switch:checked {
+  background-color: rgba(77, 175, 80, 1);
+}
+
+.item_list_tree ul li .switch::before {
+  position: absolute;
+  content: "";
+  left: calc(1.5rem - 1.6rem);
+  top: calc(1.5rem - 1.6rem);
+  display: block;
+  height: 1rem;
+  width: 1rem;
+  cursor: pointer;
+  border: 1px solid rgba(100, 116, 139, 0.527);
+  border-radius: 9999px;
+  background-color: rgba(255, 255, 255, 1);
+  box-shadow: 0 3px 10px rgba(100, 116, 139, 0.327);
+  transition: all .3s ease;
+}
+
+.item_list_tree ul li .switch:hover::before {
+  box-shadow: 0 0 0px 8px rgba(0, 0, 0, .15)
+}
+
+.item_list_tree ul li .switch:checked:hover::before {
+  box-shadow: 0 0 0px 8px rgba(77, 175, 80, .15)
+}
+
+.item_list_tree ul li .switch:checked:before {
+  transform: translateX(100%);
+  border-color: rgba(77, 175, 80, 1);
+}
+
+
   .container_body_listar_produtos_body table .container_listar_check_box{
-    justify-content: start;
-    align-items: center;
+   display: flex;
   }
 
   .container_listar_check_box input{
@@ -297,15 +340,14 @@
   }
 
 
-.conatiner_shape_status_produtos{
-  display: flex;
-  gap: 5px;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
-}
-
-  .container_body_listar_produtos_body .shape_status_produtos{
+  .container_flex_shape_status{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    gap: 5px;
+  }
+  .container_flex_shape_status .shape_status_produtos{
     width: 20px;
     height: 20px;
     background-color: #7ef80c;
@@ -321,7 +363,8 @@
 
 
 
-  .container_listar_check .img_conatiner_listar_produto{
+  .img_conatiner_listar_produto{
+    display: flex;
     width: 50px;
     height: 50px;
     background-color: rgb(245, 245, 245);
@@ -332,7 +375,7 @@
 
   }
 
-  .container_listar_check .img_conatiner_listar_produto img{
+  .img_conatiner_listar_produto img{
     width: 60%;
   }
 
@@ -479,6 +522,14 @@
   display: none;
 }
 
+.adtm_center_item input{
+  width: 15px;
+  height: 15px;
+}
+.item_list_tree ul li a i{
+  font-size: 14px;
+}
+
 
 
 
@@ -489,12 +540,43 @@
  
   @media (max-width:566px) {
 
+  
+  .item_list_tree ul li .switch {
+
+    height: 0.5rem;
+    width: 1rem;
+  }
+
+  .item_list_tree ul li .switch::before {
+    height: 0.5rem;
+    width: 0.5rem;
+  }
+
+
+
+    .item_list_tree ul{
+      gap: 5px;
+    }
+    .adtm_center_item input{
+      width: 10px;
+      height: 10px;
+    }
+
+
+    .item_list_tree ul li a i{
+      font-size: 12px;
+    }
+    .container_flex_shape_status .shape_status_produtos{
+      width: 15px;
+      height: 15px;
+    }
+
     .container_body_listar_produtos_body table th{
       font-size: 10px;
   
     }
     .container_body_listar_produtos_body table td{
-      font-size: 10px;
+      font-size: 8px;
   
     }
 
@@ -539,9 +621,10 @@
 }
 
 .container_btn_item_listar_produto{
-  border: 1px solid #c2c2c2 ;
+
   border-radius: 5px;
 }
+
 
 .conatiner_search_listar_produto input, .conatiner_search_listar_produto button{
   height: 35px;

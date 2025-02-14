@@ -1,4 +1,9 @@
-
+.top_container_cadastrar_categoria_adm{
+    display: flex;
+    width: 100%;
+    height: 100%;
+    gap: 2rem;
+}
 
 
 .medium_container_cadastrar_categoria_adm{
@@ -9,6 +14,31 @@
     padding-top: 1rem;
 }
 
+
+.left_conatiner_cadastrar_categoria_adm{
+    display: flex;
+    width: 50%;
+    flex-direction: column;
+    gap: 10px;
+
+}
+
+.left_conatiner_cadastrar_categoria_adm .item_top_produto select{
+    width: 50% ;
+
+}
+
+.left_conatiner_cadastrar_categoria_adm .item_top_produto textarea{
+    width: 100% ;
+
+}
+
+
+
+.right_conatiner_cadastrar_categoria_adm{
+    display: flex;
+    width: 50%;
+}
 
 .item_categoria_top input{
     display: flex;
