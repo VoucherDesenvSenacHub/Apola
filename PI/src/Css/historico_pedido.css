@@ -8,10 +8,12 @@
 }
 
 .container_historico_pedido .container_body_cart{
-    background-color: rgb(247, 247, 247);
+    background-color: #f7f7f7;
     box-shadow: rgba(14, 63, 126, 0.04) 0px 0px 0px 1px, rgba(42, 51, 69, 0.04) 0px 1px 1px -0.5px, rgba(42, 51, 70, 0.04) 0px 3px 3px -1.5px, rgba(42, 51, 70, 0.04) 0px 6px 6px -3px, rgba(14, 63, 126, 0.04) 0px 12px 12px -6px, rgba(14, 63, 126, 0.04) 0px 24px 24px -12px;
     padding: 1rem;
     border-radius: 5px;
+    position: sticky;
+
 
 }
 .container_btn_historico_pedidos{
@@ -72,12 +74,74 @@
 
 }
 
-.container_historico_pedido  .container_final_cart{
-    margin-top: 3rem;
+
+.conatiner_btn_drop{
+    display: flex;
+    width: 100%;
+    justify-content: end;
 }
+
+
+.conatiner_btn_drop .btn_drop{
+    display: flex;
+    width: 30px;
+    height: 30px;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.2s ease-in-out;
+
+    border-radius: 50%;
+}
+
+.conatiner_btn_drop .btn_drop i{
+    color: #4A4A4A;
+    font-size: 20px;
+    transition: all 0.2s ease-in-out;
+}
+
+.conatiner_btn_drop .btn_drop:hover{
+    background-color: #e0e0e0;
+    cursor: pointer;
+}
+
+.conatiner_btn_drop .btn_drop:hover i{
+    transform: rotate(45deg);
+}
+
+
+
+
+
+.container_final_cart{
+    margin-top: 3rem;
+    position:absolute;
+    overflow: hidden;
+    visibility: hidden;
+
+    height: 0%;
+    display:flex;
+    z-index: 1000;
+    background-color:#f7f7f7 ;
+    opacity: 0;
+}
+
+.active_pedido{
+
+    height: 100%;
+    visibility: visible;
+    opacity: 1;
+    transition: all 0.4s ease-in-out;
+    position: sticky;
+    overflow: hidden;
+
+
+}
+
+
 
 .container_historico_pedido .container_final_cart_right{
     width: 40%;
+
 }
 .container_historico_pedido .container_final_cart_left{
     width: 60%;
@@ -131,7 +195,7 @@
     display: flex;
     background-color:#b9b9b9;
     height: 9px;
-    width: 20%;
+    width: 40%;
     justify-content: center;
     align-self: center;
     position: absolute;
@@ -161,7 +225,7 @@
 
 @media (max-width:1017px) {
     .linha_shape_hist{
-        width: 30%;
+        width: 35%;
     }
 
     .total_text_cart, .total_valor_cart{
@@ -172,7 +236,7 @@
 
 @media (max-width:785px) {
     .linha_shape_hist{
-        width: 30%;
+        width: 35%;
     }
 
     .total_text_cart, .total_valor_cart{

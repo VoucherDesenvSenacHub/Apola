@@ -19,6 +19,20 @@
     }
 }
 
+
+
+
+.shape_adm{
+    position: absolute;
+    right: 80px;
+    z-index: 4;
+    top: 0px;
+    height: 400px;
+    transform: rotate(20deg);
+}
+
+
+
 .body_adm{
     position: relative;
     font-family: var(--body-font);
@@ -121,6 +135,7 @@ a{
         padding: 2rem;
         transition: .3s;
         display: flex;
+    
     }
     .nav__logo{
         display: none;

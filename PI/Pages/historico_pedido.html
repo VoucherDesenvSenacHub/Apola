@@ -6,6 +6,8 @@
     <title>Histórico de Pedidos</title>
     <link rel="stylesheet" href="../src/Css/style.css">
 
+    <script src="../src/JS/drop_pedido.js" defer></script>
+
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
@@ -297,9 +299,10 @@
                                <h6 class="preco_produto_cart">1</h6>
                             </li>
                         </ul>
-                        .
-                        <div class="shape_sacola"></div>
-                        <div class="container_final_cart">
+                        <div class="conatiner_btn_drop">
+                            <div id="btnOpenDrop" class="btn_drop"><i class="fa-solid fa-plus"></i></div>
+                        </div>
+                        <div id="ConteudoDrop" class="container_final_cart">
                             <div class="container_final_cart_left">
                              
                                 <ul class="status_shape_hist">
@@ -366,6 +369,7 @@
                             <script src="../src/JS/modal.js"></script>
             
                         </div>
+                        <div class="shape_sacola"></div>
                     </div>
                     
                 </div>

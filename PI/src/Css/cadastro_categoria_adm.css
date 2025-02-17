@@ -6,6 +6,8 @@
 }
 
 
+
+
 .medium_container_cadastrar_categoria_adm{
     display: flex;
     width: 100%;
@@ -38,7 +40,62 @@
 .right_conatiner_cadastrar_categoria_adm{
     display: flex;
     width: 50%;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
+
+.container_title_imf_cat{
+    display: flex;
+    width: 100%;
+    padding-bottom: 10px;
+}
+.container_title_imf_cat h6{
+    display: flex;
+    font-size: 13px;
+    color: #4A4A4A;
+    font-weight: 500;
+}
+
+
+.right_conatiner_cadastrar_categoria_adm .conatiner_img_categoria{
+    display: flex;
+    border: 1px solid #aaaaaa ;
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+    gap: 1rem;
+    padding: 10px;
+    
+}
+
+.right_conatiner_cadastrar_categoria_adm .conatiner_img_categoria img{
+    width: 150px;
+    height: 150px;
+    background-color: #eeeeee;
+    object-fit: contain;
+    border-radius: 5px;
+}
+
+
+.right_conatiner_cadastrar_categoria_adm .container_input_file{
+    width: 150px;
+    height: 150px;
+    background-color: #e1e1e1;
+    object-fit: contain;
+    border-radius: 5px;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    color: #4A4A4A;
+    display: flex;
+    cursor: pointer;
+
+}
+
+
+
+
 
 .item_categoria_top input{
     display: flex;
@@ -191,7 +248,23 @@
 
 
 
+@media (max-width: 974px) {
 
+    .left_conatiner_cadastrar_categoria_adm, .right_conatiner_cadastrar_categoria_adm{
+        width: 100%;
+
+    }
+
+    .top_container_cadastrar_categoria_adm{
+        display: flex;
+        width: 100%;
+        height: 100%;
+        gap: 2rem;
+        flex-direction: column;
+    }
+    
+    
+}
 
 
 
