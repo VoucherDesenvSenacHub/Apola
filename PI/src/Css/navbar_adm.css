@@ -25,10 +25,10 @@
 .shape_adm{
     position: absolute;
     right: 80px;
-    z-index: 4;
     top: 0px;
     height: 400px;
     transform: rotate(20deg);
+    display: none;
 }
 
 
@@ -76,6 +76,7 @@ a{
         column-gap: 36px;
         transition: .4s;
         height: 10%;
+        z-index: 5;
     }
 }
 .nav__link{
@@ -135,6 +136,7 @@ a{
         padding: 2rem;
         transition: .3s;
         display: flex;
+        z-index: 1;
     
     }
     .nav__logo{
