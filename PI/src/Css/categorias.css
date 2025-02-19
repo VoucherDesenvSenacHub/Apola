@@ -365,6 +365,7 @@ MOBILE */
     color: #4A4A4A;
     font-weight:500 ;
     font-size: 18px;
+    
 }
 
 
@@ -381,12 +382,14 @@ MOBILE */
     border-radius: 5px;
     border-top: 0;
     gap: 1.5rem;
+    background-color: transparent;
 }
 
 
 .active-accordion{
     height: 100%;
     opacity: 1;
+    background-color: transparent;
 
 }
 
@@ -457,3 +460,44 @@ MOBILE */
 
 }
 
+
+@media (max-width: 520px){
+    .wrap__filtro_right{
+        gap: 1rem;
+    }
+    .wrap__filtro_right .card_produto{
+        height: 250px;
+        width: 170px;
+
+    }
+
+    .icon_favorite i{
+        font-size: 18px;
+
+    }
+
+    .img_content_produto img{
+        height: 100px;
+    }
+
+    .nome_card_produto{
+        font-size: 12px;
+    }
+    .preco_card_produto{
+        font-size: 15px;
+    }
+
+    .btn_content_card_produto{
+        padding-top: unset;
+    }
+
+    .btn_content_card_produto .btn_bag_card{
+        font-size: 15px;
+    }
+    .btn_content_card_produto .btn_buy_card{
+        font-size: 12px;
+    }
+    
+    
+    
+}

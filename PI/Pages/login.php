@@ -12,7 +12,7 @@ $alertaLogin ='';
 $alertaCadastro ='';
 
 if (isset($_POST['logar'])){
-    if(isset($_POST['email'], $_POST['senha'], $_POST['conf-senha'])){
+    if(isset($_POST['email'], $_POST['senha'])){
         $email = $_POST['email'];
         $senha = $_POST['senha'];
         $confSenha = $_POST['conf-senha'];
@@ -46,7 +46,7 @@ if (isset($_POST['logar'])){
     <title>Login</title>
 </head> 
 <body class="body-log">
-    <main class="main-login">
+    <main>
         <header class="menu">
             <nav class="container-menu">
                     <div class="img-menu">
@@ -74,10 +74,6 @@ if (isset($_POST['logar'])){
                             <div class="form__group field">
                                 <input type="password" name='senha' id="senha-login"  class="form__field" placeholder="Senha" required>
                                 <label for="senha" class="form__label">Senha*</label>
-                            </div>
-                            <div class="form__group field">
-                                <input type="password" name='conf-senha' id="conf-senha-login" class="form__field" placeholder="Senha" required>
-                                <label for="confsenha" class="form__label">Confirmação de senha*</label>
                             </div>
                             <div class="remenber">
                                 <label for="">
