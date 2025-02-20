@@ -1,8 +1,8 @@
 
 <?php
-require '../App/Entity/Cliente.php';
+require '../../App/Entity/Cliente.php';
 
-require '../App/Session/Login.php';
+require '../../App/Session/Login.php';
 Login::requireLogout();
 
 
@@ -40,9 +40,10 @@ if (isset($_POST['logar'])){
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../src/Css/style.css">
+    <link rel="stylesheet" href="../../src/Css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script src="../JS/validar_form_login.js" defer></script>
+
     <title>Login</title>
 </head> 
 <body class="body-log">
@@ -50,8 +51,8 @@ if (isset($_POST['logar'])){
         <header class="menu">
             <nav class="container-menu">
                     <div class="img-menu">
-                        <a href="../Pages/Home.html">
-                            <img src="../Src/imagens/Apola__1_-removebg-preview.png" alt=""class="img-logo" >
+                        <a href="./Home.php">
+                            <img src="../../src/imagens/Apola__1_-removebg-preview.png" alt=""class="img-logo" >
                         </a>
                     </div>
             </nav>
@@ -61,7 +62,7 @@ if (isset($_POST['logar'])){
                 <div class="shape-login"></div>
                 <div class="shape-login2"></div>
                 <div class="img-container-login">
-                    <img src="../Src/imagens/login/Knitting-amico.png" alt="">
+                    <img src="../../src/imagens/login/Knitting-amico.png" alt="">
                 </div>
                 <div class="container-login">
                     <div class="form-container">
@@ -97,13 +98,13 @@ if (isset($_POST['logar'])){
                                     </div>
                                 </div>
                                 </dialog>
-                                <script src="../src/JS/modal.js"></script>
+                                <script src="../../src/JS/modal.js"></script>
                             </div>
                             <div class="btn-login">
                                 <a href=""><button name='logar' type="submit">Entrar</button></a>
                             </div>
                             <p id="msnErro-login" class="msnErro-login"> <?=$alertaLogin?> </p>
-                            <span class="span-login">Novo na Apola?<a href="../Pages/cadastro.php">Cadastra-se</a></span>
+                            <span class="span-login">Novo na Apola?<a href="./cadastro.php">Cadastra-se</a></span>
                         </form>
                     </div>
                 </div>

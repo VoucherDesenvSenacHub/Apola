@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="../src/Css/style.css">
+    <link rel="stylesheet" href="../../src/Css/style.css">
 
         
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -12,6 +12,17 @@
 
     <!-- SCRIPT MENU MOBILE -->
     <script src="../src/JS/menu-mobile.js" defer></script>
+    <script src="../../src/JS/banner.js" defer></script>
+    <script src="../../src/JS/comprar_produto.js" defer></script>
+    <script src="../../src/JS/drop_cep.js" defer></script>
+    <script src="../../src/JS/drop_pedido.js" defer></script>
+    <script src="../../src/JS/filtro-mobile.js" defer></script>
+    <script src="../../src/JS/modal.js" defer></script>
+    <script src="../../src/JS/navbar_adm.js" defer></script>
+    <script src="../../src/JS/swiper_sobre.js" defer></script>
+    <script src="../../src/JS/swipper_card.js" defer></script>
+    <script src="../../src/JS/list_adm.js" defer></script>
+
 
 
 
@@ -22,8 +33,8 @@
         <header class="menu">
             <nav class="container-menu">
                     <div class="img-menu">
-                        <a href="../Pages/Home.html">
-                            <img src="../Src/imagens/Apola__1_-removebg-preview.png" alt=""class="img-logo" >
+                        <a href="./Home.php">
+                            <img src="../../src/imagens/Apola__1_-removebg-preview.png" alt=""class="img-logo" >
                         </a>
                     </div>
                     <div class="barra-pesquisa">
@@ -43,15 +54,15 @@
                         <div class="btn-fechar" id="btn-fechar">
                             <i class="fa-solid fa-xmark"></i>
                         </div>
-                        <a  href="../Pages/Perfil.html" class="content-mobile-top">
+                        <a  href="./perfil.php" class="content-mobile-top">
                             <div class="img-content-mobile">
-                                <img src="../src/imagens/img_categorias/urso-teddy.png" alt="">
+                                <img src="../../src/imagens/img_categorias/urso-teddy.png" alt="">
                             </div>
                             <div class="text-content-mobile"><span>Meu Perfil</span></div>
                         </a>
                         <div class="content-mobile-btn-login-cad">
                             <button class="btn-login-mobile">
-                                <a href="#"><i class="fa-solid fa-bag-shopping"></i> Sacola</a>
+                                <a href="./carrinho.php"><i class="fa-solid fa-bag-shopping"></i> Sacola</a>
                             </button>
                             <button class="btn-cadastro-mobile">
                                 <a href="#">Ajuda</a>
@@ -76,19 +87,19 @@
                                 </li>
                                 <li>
                                     <i class="fa-solid fa-box"></i>
-                                    <a href="">Produto Personalizado</a>
+                                    <a href="./produto_personalizado.php">Produto Personalizado</a>
                                 </li>
                                 <li>
                                     <i class="fa-solid fa-people-group"></i>
-                                    <a href="../Pages/SobreNos.html">Sobre Nós</a>
+                                    <a href="./SobreNos.php">Sobre Nós</a>
                                 </li>
                                 <li>
                                     <i class="fa-solid fa-heart"></i>
-                                    <a href="../Pages/Favoritos.html">Favoritos</a>
+                                    <a href="./Favoritos.php">Favoritos</a>
                                 </li>
                                 <li>
                                     <i class="fa-solid fa-boxes-stacked"></i>
-                                    <a href="#">Histórico de pedidos</a>
+                                    <a href="./historico_pedido.php">Histórico de pedidos</a>
                                 </li>
                             </ul>
                             <h5>Categorias</h5>
@@ -157,10 +168,10 @@
                         <nav class="itens-menu">
                             <ul class="menu-main">
                                 <li class="icon-default-back">
-                                    <a id="icon-default" href="../Pages/SobreNos.html">Sobre Nós</a>
+                                    <a id="icon-default" href="./SobreNos.php">Sobre Nós</a>
                                 </li>
                                 <li class="icon-default-back">
-                                    <a id="icon-default" href="">Personalize</a>
+                                    <a id="icon-default" href="./produto_personalizado.php">Personalize</a>
                                 </li>
                                 <li id="text-categoria">
                                     <a href="">Categorias<i class="fa-solid fa-chevron-down icon-seta"></i></a>
@@ -208,7 +219,7 @@
                                     <a id="icon-default" href=""><i class="fa-solid fa-bag-shopping"></i></a>
                                 </li>
                                 <li class="icon-default-back">
-                                    <a class="conatiner_navbar_perfil_2" href="../Pages/Perfil.html"><img class="img_navbar_2" src="../src/imagens/img_categorias/urso-teddy.png" alt=""></a>
+                                    <a class="conatiner_navbar_perfil_2" href="./perfil.php"><img class="img_navbar_2" src="../../src/imagens/img_categorias/urso-teddy.png" alt=""></a>
             
                 
                                 </li>
@@ -218,6 +229,3 @@
             </nav>
             <!-- FIM MENU NAVBAR -->
         </header>
-    
-</body>
-</html>

@@ -1,7 +1,9 @@
 <?php
 
 
-require '../App/DB/Database.php';
+require(__DIR__ . '/../DB/Database.php');
+
+
 
 
 class Cliente{

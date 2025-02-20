@@ -77,6 +77,8 @@ a{
         transition: .4s;
         height: 10%;
         z-index: 5;
+
+    
     }
 }
 .nav__link{
@@ -111,6 +113,46 @@ a{
 
 
 }
+
+
+
+
+
+.container_btn_sair_nav_dm{
+    display: flex;
+    width: 100%;
+    height: 50%;
+    justify-content: end;
+    align-items: end;
+}
+
+.container_btn_sair_nav_dm button{
+    width: 100%;
+    background-color: #eeeeee;
+    height: 40px;
+    outline: none;
+    border: none;
+    border-radius: 5px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    display: flex;
+    font-weight: 600;
+    color: #4A4A4A;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+
+}
+.container_btn_sair_nav_dm button:hover{
+    background-color: #d3d3d3;
+ 
+
+}
+.container_btn_sair_nav_dm button i{
+    display: flex;
+    transform: rotate(180deg);
+}
 @media screen and (max-width: 320px) {
     .nav__list{
         column-gap: 20px;
@@ -123,6 +165,9 @@ a{
     }
 }
 @media screen and (min-width: 767px) {
+    .fa-arrow-right-from-bracket{
+        visibility: visible;
+    }
     .container{
         margin-left: 7rem;
         margin-right: 1.5rem;
@@ -137,13 +182,17 @@ a{
         transition: .3s;
         display: flex;
         z-index: 1;
+        /* padding-top: 6rem; */
+        flex-direction: column;
     
     }
     .nav__logo{
         display: none;
-        height: 70%;
-        align-items: end;
+        align-items: start;
         justify-content: center;
+        margin-bottom: 5rem;
+
+
 
     }
     .nav__logo .logo{
@@ -182,7 +231,6 @@ a{
         display: flex;
         flex-direction: column;
         width: 100%;
-        padding-top: 5rem;
     }
     .nav__toggle{
         position: absolute;
@@ -213,6 +261,12 @@ a{
 
 .active-logo{
     display: flex;
+}
+
+.active-text{
+    display: none;
+    background-color: aqua;
+
 }
 
 .rotate-icon{

@@ -1,64 +1,11 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<?php
 
 
-    <link rel="stylesheet" href="../src/Css/style.css">
+include "navbar_adm.php";
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-
-    <script src="../src/JS/navbar_adm.js" defer></script>
-
-    
-    <script src="../src/JS/list_controle_adm.js" defer></script>
+?>
 
 
-    <title>Navbar ADM</title>
-</head>
-<body class="body_adm">
-    <header>
-        <div class="nav" id="nav">
-            <nav class="nav__content">
-                <div class="nav__toggle" id="nav-toggle">
-                    <i class="fa-solid fa-chevron-right"></i>
-                </div>
-
-                <div class="nav__list">
-
-                    <a href="#" class="nav__link">
-                        <i class="fa-solid fa-clipboard-list"></i>
-                        <span class="nav__name">Dashboard</span>
-                    </a>
-
-                    <a href="#" class="nav__link active-link">
-                        <i class="fa-solid fa-truck"></i>
-                        <span class="nav__name">Pedidos</span>
-                    </a>
-            
-                    <a href="#" class="nav__link">
-                        <i class="fa-solid fa-box"></i>
-                        <span class="nav__name">Produtos</span>
-                    </a>
-
-                    <a href="#" class="nav__link">
-                        <i class="fa-solid fa-boxes-stacked"></i>
-                        <span class="nav__name">Categorias</span>
-                    </a>
-                    <a href="#" class="nav__link">
-                        <i class="fa-solid fa-bookmark"></i>
-                        <span class="nav__name">Banners</span>
-                    </a>
-                </div>
-                <a href="#" class="nav__logo" id="nav_logo_id">
-                    <div class="logo">
-                        <img src="../src/imagens/Apola__1_-removebg-preview.png" alt="">
-                    </div>
-                </a>
-            </nav>
-        </div>
-    </header>
     <main  class="main2">
         <div class="listar_produtos">
             <div class="container_header_listar_produtos">
@@ -125,7 +72,37 @@
                             <td class="item_list_tree">
                                 <ul>
                                     <li>
-                                        <a href=""><i class="fa-solid fa-pencil"></i></a>
+                                        <a href="../adm/pedido_solo.php"><i class="fa-solid fa-pencil"></i></a>
+                                    </li>
+                                    <li>
+                                        <a href=""><i class="fa-solid fa-trash"></i></a>
+                                    </li>
+                                </ul>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="container_listar_check">
+                                #5632
+                            </td>
+                            <td>
+                                R$ 166
+                            </td>
+                            <td>
+                                Personalizado
+                            </td>
+                            <td>
+                                MS
+                            </td>
+                            <td>
+                                <div class="container_flex_shape_status">
+                                    <div class="shape_status_produtos"></div>
+                                    Ativo
+                                </div>
+                            </td>
+                            <td class="item_list_tree">
+                                <ul>
+                                    <li>
+                                        <a href="../adm/pedido_personalizado.php"><i class="fa-solid fa-pencil"></i></a>
                                     </li>
                                     <li>
                                         <a href=""><i class="fa-solid fa-trash"></i></a>

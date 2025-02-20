@@ -3,18 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Produto Personalizado</title>
-    <link rel="stylesheet" href="../src/Css/style.css">
+    
+    <link rel="stylesheet" href="../../src/Css/style.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css" integrity="sha256-5uKiXEwbaQh9cgd2/5Vp6WmMnsUr3VZZw0a8rKnOKNU=" crossorigin="anonymous">
+
+    <!-- SWIPER -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+
+    
+    <!-- SCRIPT MENU MOBILE -->
+    <script src="../../src/JS/menu-mobile.js" defer></script>
+    <script src="../../src/JS/banner.js" defer></script>
+    <script src="../../src/JS/comprar_produto.js" defer></script>
+    <script src="../../src/JS/drop_cep.js" defer></script>
+    <script src="../../src/JS/drop_pedido.js" defer></script>
+    <script src="../../src/JS/filtro-mobile.js" defer></script>
+    <script src="../../src/JS/modal.js" defer></script>
+    <script src="../../src/JS/navbar_adm.js" defer></script>
+    <script src="../../src/JS/swiper_sobre.js" defer></script>
+    <script src="../../src/JS/swipper_card.js" defer></script>
+    <script src="../../src/JS/list_adm.js" defer></script>
 
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
+    <title>Home</title>
 </head>
+
 <body>
+
+    <!-- INICIO MeENU NAVABAR -->
     <header class="menu">
         <nav class="container-menu">
                 <div class="img-menu">
-                    <a href="../Pages/Home.html">
-                        <img src="../Src/imagens/Apola__1_-removebg-preview.png" alt=""class="img-logo" >
+                    <a href="../Pages/Home.php">
+                        <img src="../../Src/imagens/Apola__1_-removebg-preview.png" alt=""class="img-logo" >
                     </a>
                 </div>
                 <div class="barra-pesquisa">
@@ -42,11 +68,11 @@
                     </div>
                     <div class="content-mobile-btn-login-cad">
                         <button class="btn-login-mobile">
-                            <a href="login.php">Login</a>
+                            <a href="./login.php">Login</a>
 
                         </button>
                         <button class="btn-cadastro-mobile">
-                            <a href="cadastro.php">Cadastro</a>
+                            <a href="./cadastro.php">Cadastro</a>
                         </button>
                     </div>
                     <div class="barra-pesquisa-mobile">
@@ -68,11 +94,11 @@
                             </li>
                             <li>
                                 <i class="fa-solid fa-box"></i>
-                                <a href="">Produto Personalizado</a>
+                                <a href="./produto_personalizado.php">Produto Personalizado</a>
                             </li>
                             <li>
                                 <i class="fa-solid fa-people-group"></i>
-                                <a href="../Pages/SobreNos.html">Sobre Nós</a>
+                                <a href="./SobreNos.php">Sobre Nós</a>
                             </li>
                         </ul>
                         <h5>Categorias</h5>
@@ -141,10 +167,10 @@
                     <nav class="itens-menu">
                         <ul class="menu-main">
                             <li class="icon-default-back">
-                                <a id="icon-default" href="../Pages/SobreNos.html">Sobre Nós</a>
+                                <a id="icon-default" href="./SobreNos.php">Sobre Nós</a>
                             </li>
                             <li class="icon-default-back">
-                                <a id="icon-default" href="">Personalize</a>
+                                <a id="icon-default" href="./produto_personalizado.php">Personalize</a>
                             </li>
                             <li id="text-categoria">
                                 <a href="">Categorias<i class="fa-solid fa-chevron-down icon-seta"></i></a>
@@ -189,14 +215,14 @@
                                 </div>
                             </li>
                             <li class="icon-default-back">
-                                <a id="icon-default" href=""><i class="fa-solid fa-bag-shopping"></i></a>
+                                <a id="icon-default" href="./carrinho.php"><i class="fa-solid fa-bag-shopping"></i></a>
                             </li>
                             <li class="icon-default-back">
                                 <a id="icon-default" href=""><i class="fa-solid fa-user"></i></a>
                                 <ul class="drop-menu">
                                     <div class="shape-perfil"></div>
-                                    <li><a href="../Pages/login.php">Login</a></li>
-                                    <li><a href="../Pages/cadastro.php">Cadastro</a></li>
+                                    <li><a href="./login.php">Login</a></li>
+                                    <li><a href="./cadastro.php">Cadastro</a></li>
                                 </ul>
                                 </div>
                             </li>
@@ -206,147 +232,3 @@
         </nav>
         <!-- FIM MENU NAVBAR -->
     </header>
-    <main  class="main2">
-       <div class="container_produto_personazalizado">
-
-        <section class="Banner_Sobre_Nos">
-            <div class="shape_sobre"></div>
-            <div class="content_banner_sobre_nos">
-                <img class="img_sobre_banner" src="../src/imagens/SobreMim/Giant Panda – Amigurumi Crochet Pattern.jpg" alt="">
-                <div class="content_coteudo_banner_sobre">
-                    <h4 class="text_top_sobre">Lorem ipsum dolor sit amet consectetur adipisicing elit.</h4>
-                    <h5 class="text_bottom_sobre">Lorem ipsum dolor, sit amet consectetur adipisicing elit. </h4>
-                    <button class="btn_sobre"> <a href="">Conheça</a></button>
-                </div>
-            </div>
-        </section>
-        <section class="container_items_produto_personalizado">
-            <div class="card_produto_personalizado">
-                <i class="fa-regular fa-clipboard"></i>
-                <h6 class="name_card_item_personalizado">Pedido</h6>
-            </div>
-            <div class="card_produto_personalizado">
-                <i class="fa-solid fa-paint-roller"></i>
-                <h6 class="name_card_item_personalizado">Produção</h6>
-            </div>
-            <div class="card_produto_personalizado">
-                <i class="fa-solid fa-truck-front"></i>
-                <h6 class="name_card_item_personalizado">Envio</h6>
-            </div>
-            <div class="card_produto_personalizado">
-                <i class="fa-solid fa-box"></i>
-                <h6 class="name_card_item_personalizado">Entregue</h6>
-            </div>
-        </section>
-
-        <form class="container_form_produto_personalizado">
-            <div class="container_personalizado">
-                <h1 class="title-quadro_personalizado">Descriçao</h1>
-                <div class="quadro">
-                        <p class="descricao-quadro">Descreva as características específicas do seu pedido, incluindo formas, materiais, desenhos, cores e quaisquer detalhes adicionais que você gostaria de incorporar.</p>
-                    <textarea class="insert-text" placeholder="Escreva aqui..."></textarea>
-                </div>
-            </div>
-            <div class="container_personalizado">
-                <h1 class="title-quadro_personalizado">Imagens</h1>
-                <div class="quadro">
-                    <p class="descricao-quadro">Forneça imagens de referência que possam ajudar na criação do seu produto personalizado, destaquando detalhes visuais importantes que você deseje incorporar.</p>
-                    <div class="quadro-ex-img">
-                         <div class="box-insert-image">
-                            <div class="custom-file-upload">
-                                <input type="file" id="file-upload" class="insert-image" accept="image/*" multiple>
-                                <label for="file-upload">Adicionar imagem +</label>
-                            </div>
-                            <div class="container_img_anex">
-                                <div id="image-preview" class="image-preview"></div>
-                                <div id="alert" class="alert"></div>
-                            </div>
-                        </div> 
-                        <script>
-                            const fileUpload = document.getElementById('file-upload');
-                            const imagePreview = document.getElementById('image-preview');
-                            const alertDiv = document.getElementById('alert');
-                    
-                            fileUpload.addEventListener('change', function() {
-                                const files = Array.from(fileUpload.files);
-                                const currentFiles = imagePreview.querySelectorAll('.preview-image').length;
-                                // Limpa o alerta anterior
-                                alertDiv.textContent = '';
-        
-                    
-                                // Verifica se o total de arquivos (atual + novos) excede 4
-                                if (currentFiles + files.length > 4){
-                                    alertDiv.textContent = 'Você só pode selecionar até 4 imagens.';
-                                    fileUpload.value = '';
-                                    // let msg = 'Você só pode selecionar até 4 imagens';
-                                    // alert(msg);
-                                    
-                                    return;
-                                    
-                                }
-                    
-                                // Limpa as pré-visualizações anteriores
-                                Array.from(files).forEach(file => {
-                                    const reader = new FileReader();
-                                    reader.onload = function(e) {
-                                        // Cria um contêiner para a imagem e o botão de remoção
-                                        const container = document.createElement('div');
-                                        container.classList.add('image-container');
-                    
-                                        // Cria a imagem
-                                        const img = document.createElement('img');
-                                        img.src = e.target.result;
-                                        img.classList.add('preview-image');
-                    
-                                        // Cria o botão de remoção
-                                        const removeButton = document.createElement('button');
-                                        removeButton.classList.add('remove-button');
-                                        removeButton.textContent = '×';
-                                        removeButton.onclick = function() {
-                                            imagePreview.removeChild(container);
-                                        };
-                    
-                                        // Adiciona a imagem e o botão ao contêiner
-                                        container.appendChild(img);
-                                        container.appendChild(removeButton);
-                                        imagePreview.appendChild(container);
-                                    };
-                                    reader.readAsDataURL(file);
-                                });
-                            });
-                        </script>
-                    </div>
-                </div>
-            </div>
-            <div class="box-button">
-            <div data-modal="modal-1" class="btn-finalizar open-modal"><a href=""></a>Finalizar Pedido</div>
-
-            <dialog id="modal-1">
-                <div class="modal_header">
-                  <button class="close-modal" data-modal="modal-1"><i class="fa-solid fa-xmark"></i></button>
-                </div>
-                <div class="modal_body">
-                  <h5 class="title_modal_zap">Pedido Realizado!</h5>
-                  <div class="text_modal_zap">Segue o link do nosso WhatsApp para realizar o pagamento. Entraremos em contato em breve.</div>
-                  <div class="conatiner_item_modal_link_zap">
-                    <div class="item_modal_link_zap">
-                      <i class="fa-brands fa-whatsapp"></i>
-                      <a href="#">67 991924837</a>
-                    </div>
-                  </div>  
-                </div>
-              </dialog>
-              <script src="../src/JS/modal.js"></script>
-            </div>
-
-        </form>
-    
-        
-       </div>
-    </main>
-    
-
-
-    
-</body>
-</html>

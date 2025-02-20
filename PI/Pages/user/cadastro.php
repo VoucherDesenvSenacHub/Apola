@@ -3,7 +3,7 @@
 
 
 
-require '../App/Entity/Cliente.php';
+require '../../App/Entity/Cliente.php';
 
 
 
@@ -22,7 +22,7 @@ if (isset($_POST['nome'],$_POST['email'], $_POST['cep'], $_POST['cpf'],$_POST['s
 
 
 
-    header('location: login.php?status=success');
+    header('location: ./login.php?status=success');
     exit;
 
 
@@ -38,15 +38,16 @@ if (isset($_POST['nome'],$_POST['email'], $_POST['cep'], $_POST['cpf'],$_POST['s
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro</title>
-    <link rel="stylesheet" href="../src/Css/style.css">
+
+    <link rel="stylesheet" href="../../src/Css/style.css">
 </head>
 <body class="body-cad">
     <main class="main-cad">
         <header class="menu">
             <nav class="container-menu">
                     <div class="img-menu">
-                        <a href="../Pages/Home.html">
-                            <img src="../Src/imagens/Apola__1_-removebg-preview.png" alt=""class="img-logo" >
+                        <a href="./Home.php">
+                            <img src="../../src/imagens/Apola__1_-removebg-preview.png" alt=""class="img-logo" >
                         </a>
                     </div>
             </nav>
@@ -82,12 +83,12 @@ if (isset($_POST['nome'],$_POST['email'], $_POST['cep'], $_POST['cpf'],$_POST['s
                             <div class="btn-cadastro">
                                 <a href=""><button type="submit" name='cadastrar' >Cadastra-se</button></a>
                             </div>
-                            <span class="span-cadastro">Já possui conta? <a href="../Pages/login.php">Faça login</a></span>
+                            <span class="span-cadastro">Já possui conta? <a href="./login.php">Faça login</a></span>
                         </form>
                     </div>
                 </div>
                 <div class="img-container-cadastro">
-                    <img src="../Src/imagens/cadastro/mulher-plana-cuidando-de-plantas.png" alt="">
+                    <img src="../../src/imagens/cadastro/mulher-plana-cuidando-de-plantas.png" alt="">
                 </div>
             </div>
         </section>
