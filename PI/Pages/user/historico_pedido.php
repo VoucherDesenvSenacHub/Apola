@@ -10,7 +10,7 @@ include "navbar_logado.php";
                 <div class="container_favoritos_left">
                     <div class="title_left_favoritos">Meu Perfil</div>
                     <ul>
-                        <li class="item_favorito_left">
+                    <li class="item_favorito_left">
                             <i class="fa-solid icon_favorito_content  fa-house"></i><a class="link_favorito_left" href="./perfil.php">Conta</a>
                         </li>
                         <li class="item_favorito_left">

@@ -1,8 +1,17 @@
 
 /* AREA BANNER */
 
+
+.carrosel_pc{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
 .carrosel_pc .slide{
     display: flex;
+    justify-content: center;
+    align-items: center;
     justify-content: center;
     align-items: center;
 
@@ -13,6 +22,10 @@
 .carrosel_pc .carousel-item .w-100{
     object-fit:cover;
     background-color:white;
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
 }
 
 
@@ -154,6 +167,7 @@
     cursor: pointer;
     text-decoration: none;
     list-style: none;
+    text-align: center;
 }
 
 .item_cards_categoria .link_cards_categoria{
@@ -221,11 +235,16 @@
 
 } 
 
+.card_produtos a{
+    text-decoration: none;
+}
+
 
 .swiper{
     width: 85%;
     height: 84.1%;
     display: flex;
+    text-decoration: none;
 }
 
 .swiper-wrapper{
@@ -355,6 +374,7 @@
 
 .btn_content_card_produto .btn_buy_card:hover{
     background-color: #4A4A4A;
+    
 }
 
 
@@ -507,6 +527,7 @@
     height: auto;
     display: block;
     margin: 0 auto;
+    border-radius: 5px;
 } 
 
 
@@ -771,6 +792,8 @@ BANNER PROMOCIONAL FINAL */
     height: 200px;
     background-color: rgb(246, 246, 246);
     row-gap: 15px;
+    align-items: center;
+    
 }
 
 
@@ -1062,6 +1085,7 @@ BANNER PROMOCIONAL FINAL */
     height: 70%;
     display: block;
     margin: 0 auto;
+    object-fit: cover;
 } 
 
 
@@ -2056,7 +2080,9 @@ BANNER PROMOCIONAL FINAL */
     padding: 10px 0px 0px 10px;
     width: 240px;
     border-radius: 5px;
+    text-decoration: none;
 }
+
 
 
 
@@ -2094,6 +2120,7 @@ BANNER PROMOCIONAL FINAL */
 }
 .img_content_produto img:hover{
     transform: scale(1.05);
+
 }
 
 

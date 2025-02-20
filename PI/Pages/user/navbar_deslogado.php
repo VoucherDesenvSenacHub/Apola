@@ -10,24 +10,25 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css" integrity="sha256-5uKiXEwbaQh9cgd2/5Vp6WmMnsUr3VZZw0a8rKnOKNU=" crossorigin="anonymous">
 
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
     <!-- SWIPER -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
 
     
     <!-- SCRIPT MENU MOBILE -->
-    <script src="../../src/JS/menu-mobile.js" defer></script>
     <script src="../../src/JS/banner.js" defer></script>
     <script src="../../src/JS/comprar_produto.js" defer></script>
     <script src="../../src/JS/drop_cep.js" defer></script>
     <script src="../../src/JS/drop_pedido.js" defer></script>
     <script src="../../src/JS/filtro-mobile.js" defer></script>
-    <script src="../../src/JS/modal.js" defer></script>
-    <script src="../../src/JS/navbar_adm.js" defer></script>
-    <script src="../../src/JS/swiper_sobre.js" defer></script>
-    <script src="../../src/JS/swipper_card.js" defer></script>
     <script src="../../src/JS/list_adm.js" defer></script>
-
-
+    <script src="../../src/JS/list_controle_adm.js" defer></script>
+    <script src="../../src/JS/menu-mobile.js" defer></script>
+    <script src="../../src/JS/modal.js" defer></script>
+    <script src="../../src/JS/swiper_sobre.js" defer></script>
+    <!-- <script src="../../src/JS/swipper_card.js" defer></script> -->
 
 
     <title>Home</title>
@@ -39,7 +40,7 @@
     <header class="menu">
         <nav class="container-menu">
                 <div class="img-menu">
-                    <a href="../Pages/Home.php">
+                    <a href="./Home.php">
                         <img src="../../Src/imagens/Apola__1_-removebg-preview.png" alt=""class="img-logo" >
                     </a>
                 </div>

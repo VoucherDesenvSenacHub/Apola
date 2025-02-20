@@ -4,7 +4,7 @@
 include "navbar_deslogado.php";
 
 ?>
-    <main  class="main2">
+    <main style=" margin-bottom: unset;"  class="main2">
 
         <section class="Banner_Sobre_Nos">
             <div class="shape_sobre"></div>
@@ -158,7 +158,7 @@ include "navbar_deslogado.php";
                 </div>
             </div>
         </section>
-        <script src="../../src/JS/swiper_sobre.js"></script>
+        <!-- <script src="../../src/JS/swiper_sobre.js"></script> -->
 
 
 
@@ -169,7 +169,7 @@ include "navbar_deslogado.php";
                     Lorem ipsum dolor sit <span class="title_section_sobre2">amet consectetur</span>
                 </h1>
                 <video  controls class="video_content">
-                    <source src="https://www.youtube.com/watch?v=kM8crupu9DM"> 
+                    <source autoplay src="https://www.youtube.com/watch?v=kM8crupu9DM"> 
                 </video>
                 <div class="item_conteudo_sobre">
                     <p class="text_sobre_video">Lorem ipsum dolor sit amet consectetur adipisicing elit. At quas fuga optio aspernatur laudantium minus, doloribus dolor dolore nihil nemo totam corrupti facilis beatae illo eum, excepturi atque nam rem?</p>

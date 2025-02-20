@@ -10,7 +10,7 @@ include "navbar_logado.php";
                 <div class="container_favoritos_left">
                     <div class="title_left_favoritos">Meu Perfil</div>
                     <ul>
-                        <li class="item_favorito_left">
+                    <li class="item_favorito_left">
                             <i class="fa-solid icon_favorito_content  fa-house"></i><a class="link_favorito_left" href="./perfil.php">Conta</a>
                         </li>
                         <li class="item_favorito_left">
@@ -18,6 +18,9 @@ include "navbar_logado.php";
                         </li>
                         <li class="item_favorito_left">
                             <i class="fa-solid  icon_favorito_content fa-boxes-stacked"></i><a class="link_favorito_left" href="./historico_pedido.php">Histórico de Pedidos</a>
+                        </li>
+                        <li class="item_favorito_left">
+                            <i class="fa-solid fa-pencil icon_favorito_content"></i><a class="link_favorito_left" href="./alterar_perfil.php">Alterar Perfil</a>
                         </li>
                     </ul>
 

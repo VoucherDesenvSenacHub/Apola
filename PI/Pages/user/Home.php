@@ -6,13 +6,14 @@ include "navbar_deslogado.php";
 ?>
     <main  class="main2">
         <!-- INICIO BANNER PRINCIPAL -->
+             
         <section id="carouselExampleControls" class="carousel slide carrosel_pc" data-ride="carousel">
             <div class="carousel-inner">
               <div class="carousel-item active">
                 <img class="d-block w-100" src="../../src/imagens/banner/1.png" alt="First slide">
               </div>
               <div class="carousel-item">
-                <img class="d-block w-100" src="../../src/imagens/banner/2.png" alt="Second slide">
+                <img class="d-block w-100" src="../../src/imagens/banner/4.png" alt="Second slide">
               </div>
               <div class="carousel-item">
                 <img class="d-block w-100" src="../../src/imagens/banner/3.png" alt="Third slide">
@@ -29,7 +30,7 @@ include "navbar_deslogado.php";
         </section>
           <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
           <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-          <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+          <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script> 
         <!-- FIM BANNER PRINCIPAL -->
 
 
@@ -56,7 +57,23 @@ include "navbar_deslogado.php";
                         <li class="item_cards_categoria">
                             <a class="link_cards_categoria" href="#">
                                 <div class="img_content_categoria">
-                                    <img src="../../src/imagens/img_categorias/urso-teddy.png" alt="">
+                                    <img src="../../src/imagens/img_categorias/img1.png" alt="">
+                                </div>
+                                <div class="text_cards_categoria">Cachepô</div>
+                            </a>
+                        </li>
+                        <li class="item_cards_categoria">
+                            <a class="link_cards_categoria" href="#">
+                                <div class="img_content_categoria">
+                                    <img src="../../src/imagens/img_categorias/img2.png" alt="">
+                                </div>
+                                <div class="text_cards_categoria">Bordado</div>
+                            </a>
+                        </li>
+                        <li class="item_cards_categoria">
+                            <a class="link_cards_categoria" href="./categorias.php">
+                                <div class="img_content_categoria">
+                                    <img src="../../src/imagens/img_categorias/img3.png" alt="">
                                 </div>
                                 <div class="text_cards_categoria">Amigurumi</div>
                             </a>
@@ -64,44 +81,11 @@ include "navbar_deslogado.php";
                         <li class="item_cards_categoria">
                             <a class="link_cards_categoria" href="#">
                                 <div class="img_content_categoria">
-                                    <img src="../../src/imagens/img_categorias/urso-teddy.png" alt="">
+                                    <img src="../../src/imagens/img_categorias/img4.png" alt="">
                                 </div>
-                                <div class="text_cards_categoria">Amigurumi</div>
+                                <div class="text_cards_categoria">Caneca</div>
                             </a>
-                        </li>
-                        <li class="item_cards_categoria">
-                            <a class="link_cards_categoria" href="#">
-                                <div class="img_content_categoria">
-                                    <img src="../../src/imagens/img_categorias/urso-teddy.png" alt="">
-                                </div>
-                                <div class="text_cards_categoria">Amigurumi</div>
-                            </a>
-                        </li>
-                        <li class="item_cards_categoria">
-                            <a class="link_cards_categoria" href="#">
-                                <div class="img_content_categoria">
-                                    <img src="../../src/imagens/img_categorias/urso-teddy.png" alt="">
-                                </div>
-                                <div class="text_cards_categoria">Amigurumi</div>
-                            </a>
-                        </li>
-                        <li class="item_cards_categoria">
-                            <a class="link_cards_categoria" href="#">
-                                <div class="img_content_categoria">
-                                    <img src="../../src/imagens/img_categorias/urso-teddy.png" alt="">
-                                </div>
-                                <div class="text_cards_categoria">Amigurumi</div>
-                            </a>
-                        </li>
-                        <li class="item_cards_categoria">
-                            <a class="link_cards_categoria" href="#">
-                                <div class="img_content_categoria">
-                                    <img src="../../src/imagens/img_categorias/urso-teddy.png" alt="">
-                                </div>
-                                <div class="text_cards_categoria">Amigurumi</div>
-                            </a>
-                        </li>
-                    
+                        </li>       
                     </ul>
                 </div> 
         </section>
@@ -142,24 +126,26 @@ include "navbar_deslogado.php";
                 </div>
                 <div class="swiper-slide card_produto">
                     <div class="icon_favorite"><i class="fa-solid fa-heart"></i></div>
-                    <div class="img_content_produto">
-                        <img src="../../src/imagens/card_produto/IMG2-Produto.png" alt="">
-                    </div>
-                    <div class="conteudo_card">
-                        <div class="nome_card_produto">Amigurmi Raposa</div>
-                        <div class="content_star_icon">
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
+                    <a  style ="text-decoration:none;"class="link_produto_home" href="./comprar_produto.php">
+                        <div class="img_content_produto">
+                            <img src="../../src/imagens/card_produto/IMG9-Produto.png" alt="">
                         </div>
-                        <div class="preco_card_produto">R$ 50,89</div>
-                        <div class="btn_content_card_produto">
-                            <div class="btn_bag_card"><i class="fa-solid fa-bag-shopping"></i></div>
-                            <div class="btn_buy_card">Comprar</div>
+                        <div class="conteudo_card">
+                            <div class="nome_card_produto">Amigurmi Raposa</div>
+                            <div class="content_star_icon">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                            </div>
+                            <div class="preco_card_produto">R$ 50,89</div>
+                            <div class="btn_content_card_produto">
+                                <div class="btn_bag_card"><i class="fa-solid fa-bag-shopping"></i></div>
+                                <div class="btn_buy_card">Comprar</div>
+                            </div>
                         </div>
-                    </div>
+                    </a>
                 </div>
                 <div class="swiper-slide card_produto">
                     <div class="icon_favorite"><i class="fa-solid fa-heart"></i></div>
@@ -283,7 +269,7 @@ include "navbar_deslogado.php";
 
         <!-- INICIO BANNER SECUNDARIO -->
         <section class="banners_secudarios">
-            <img src="../../src/imagens/banner/3.png" alt="">
+            <img src="../../src/imagens/banner/2.png" alt="">
         </section>
         <!-- FIM BANNER SECUNDARIO -->
 

@@ -132,7 +132,14 @@ include "navbar_deslogado.php";
                 <div class="container_title_left_categoria">
                     <h6 class="title_left_categoria">Pagina Inicial</h6>
                     <h6 class="title_left_categoria">></h6>
-                    <h6 class="title_left_categoria">Cachepô</h6>
+                    <h6 class="title_left_categoria">Amigurmi</h6>
+                </div>
+                <div class="container_title_left_categoria">
+                    <h6 class="title_left_categoria  title_left_categoria_mobile">Faixa de Preço</h6>
+                </div>
+                <div class="conatiner_input_preco">
+                    <input type="range" id="preco" name="preco" min="0" max="1000" step="10" oninput="document.getElementById('rangeValue').innerText = this.value">
+                    <div class="range-value">R$ <span id="rangeValue">500</span></div>
                 </div>
                 <div class="container_left_filtro">
                     <div class="item_filtro_cat">
@@ -222,13 +229,6 @@ include "navbar_deslogado.php";
                             <h6 class="name_filtro_cat">30 cm</h6>
                         </div>
                     </div>
-                </div>
-                <div class="container_title_left_categoria">
-                    <h6 class="title_left_categoria  title_left_categoria_mobile">Faixa de Preço</h6>
-                </div>
-                <div class="conatiner_input_preco">
-                    <input type="range" id="preco" name="preco" min="0" max="1000" step="10" oninput="document.getElementById('rangeValue').innerText = this.value">
-                    <div class="range-value">R$ <span id="rangeValue">500</span></div>
                 </div>
                 
             </aside>

@@ -20,7 +20,7 @@ include "navbar_logado.php";
                             <i class="fa-solid  icon_favorito_content fa-boxes-stacked"></i><a class="link_favorito_left" href="./historico_pedido.php">Histórico de Pedidos</a>
                         </li>
                         <li class="item_favorito_left">
-                            <i class="fa-solid fa-pencil icon_favorito_content"></i><a class="link_favorito_left" href="./alterar_pedido.php">Alterar Perfil</a>
+                            <i class="fa-solid fa-pencil icon_favorito_content"></i><a class="link_favorito_left" href="./alterar_perfil.php">Alterar Perfil</a>
                         </li>
                     </ul>
 
@@ -40,77 +40,77 @@ include "navbar_logado.php";
                             <div class="input_item_perfil">
                                 <label for="">Nome Usuário</label>
                                 <div class="container_edit_perfil">
-                                    <input type="text" name="nome_user" id="">
+                                    <input disabled="" type="text" name="nome_user" id="">
                                    
                                 </div>
                             </div>
                             <div class="input_item_perfil">
                                 <label for="">Nome Completo</label>
                                 <div class="container_edit_perfil">
-                                    <input type="text" name="nome" id="">
+                                    <input disabled="" type="text" name="nome" id="">
                                    
                                 </div>
                             </div>
                             <div class="input_item_perfil">
                                 <label for="">Email</label>
                                 <div class="container_edit_perfil">
-                                    <input type="email" name="email" id="">
+                                    <input disabled="" type="email" name="email" id="">
                                    
                                 </div>
                             </div>
                             <div class="input_item_perfil">
                                 <label for="">Senha</label>
                                 <div class="container_edit_perfil">
-                                    <input type="senha" name="senha" id="">
+                                    <input disabled="" type="senha" name="senha" id="">
                               
                                 </div>
                             </div>
                             <div class="input_item_perfil">
                                 <label for="">CEP</label>
                                 <div class="container_edit_perfil">
-                                    <input type="text" name="cep" id="">
+                                    <input disabled="" type="text" name="cep" id="">
                               
                                 </div>
                             </div>
                             <div class="input_item_perfil">
                                 <label for="">N°</label>
                                 <div class="container_edit_perfil">
-                                    <input class="input_esp_num" type="text" name="num_casa" id="">
+                                    <input disabled="" class="input_esp_num" type="text" name="num_casa" id="">
                               
                                 </div>
                             </div>
                             <div class="input_item_perfil">
                                 <label for="">Telefone</label>
                                 <div class="container_edit_perfil">
-                                    <input type="tel" name="telefone" id="">
+                                    <input disabled="" type="tel" name="telefone" id="">
                               
                                 </div>
                             </div>
                             <div class="input_item_perfil">
                                 <label for="">Rua</label>
                                 <div class="container_edit_perfil">
-                                    <input type="text" name="rua" id="">
+                                    <input disabled="" type="text" name="rua" id="">
                               
                                 </div>
                             </div>
                             <div class="input_item_perfil">
                                 <label for="">CPF</label>
                                 <div class="container_edit_perfil">
-                                    <input type="text" name="cpf" id="">
+                                    <input disabled="" type="text" name="cpf" id="">
                               
                                 </div>
                             </div>
                             <div class="input_item_perfil">
                                 <label for="">Bairro</label>
                                 <div class="container_edit_perfil">
-                                    <input type="text" name="bairro" id="">
+                                    <input disabled="" type="text" name="bairro" id="">
                               
                                 </div>
                             </div>
                             <div class="input_item_perfil">
                                 <label for="">Cidade</label>
                                 <div class="container_edit_perfil">
-                                    <input type="text" name="cidade" id="">
+                                    <input disabled="" type="text" name="cidade" id="">
                               
                                 </div>
                                 <div data-modal="modal-1" class="endereco_cadastrados open-modal">Endereços Cadastrados</div>
@@ -142,14 +142,14 @@ include "navbar_logado.php";
                             <div class="input_item_perfil">
                                 <label for="">Estado:</label>
                                 <div class="container_edit_perfil">
-                                    <input class="input_esp_num" type="text" name="num_casa" id="">
+                                    <input disabled="" class="input_esp_num" type="text" name="num_casa" id="">
                                    
                                 </div>
                             </div>
-                            <div class="container_btn_perfil">
+                            <!-- <div class="container_btn_perfil">
                                 <button class="btn_cancelar">Cancelar</button>
                                 <button class="btn_salvar">Salvar</button>
-                            </div>
+                            </div> -->
 
                         </div>
 

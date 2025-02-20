@@ -9,19 +9,22 @@
         
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
 
     <!-- SCRIPT MENU MOBILE -->
-    <script src="../src/JS/menu-mobile.js" defer></script>
     <script src="../../src/JS/banner.js" defer></script>
     <script src="../../src/JS/comprar_produto.js" defer></script>
     <script src="../../src/JS/drop_cep.js" defer></script>
     <script src="../../src/JS/drop_pedido.js" defer></script>
     <script src="../../src/JS/filtro-mobile.js" defer></script>
+    <script src="../../src/JS/list_adm.js" defer></script>
+    <script src="../../src/JS/list_controle_adm.js" defer></script>
+    <script src="../../src/JS/menu-mobile.js" defer></script>
     <script src="../../src/JS/modal.js" defer></script>
-    <script src="../../src/JS/navbar_adm.js" defer></script>
     <script src="../../src/JS/swiper_sobre.js" defer></script>
     <script src="../../src/JS/swipper_card.js" defer></script>
-    <script src="../../src/JS/list_adm.js" defer></script>
 
 
 
@@ -216,7 +219,7 @@
                                     </div>
                                 </li>
                                 <li class="icon-default-back">
-                                    <a id="icon-default" href=""><i class="fa-solid fa-bag-shopping"></i></a>
+                                    <a id="icon-default" href="./carrinho.php"><i class="fa-solid fa-bag-shopping"></i></a>
                                 </li>
                                 <li class="icon-default-back">
                                     <a class="conatiner_navbar_perfil_2" href="./perfil.php"><img class="img_navbar_2" src="../../src/imagens/img_categorias/urso-teddy.png" alt=""></a>
