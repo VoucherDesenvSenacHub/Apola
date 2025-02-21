@@ -13,7 +13,7 @@ const swiper = new Swiper('.swiper_sobre', {
 
       centeredSlides: true, // Garante que os slides estarão no centro
       slidesPerView: 'auto', // Adapta os slides para centralização
-      spaceBetween: 20, // Adiciona espaço entre os slides
+      spaceBetween: 50, // Adiciona espaço entre os slides
 
     breakpoints: {
         

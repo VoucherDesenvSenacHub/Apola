@@ -81,8 +81,9 @@ main{
   height:100%;
   flex-direction: column;
   margin-bottom: 5rem;
-  overflow: unset;
+  overflow: hidden;
   margin-top: 100px;
+
 } 
 
 .body2{
@@ -93,3 +94,13 @@ main{
 
 }
 
+
+
+
+
+@media (max-width:446px) {
+  .main2{
+    margin-top: 0;
+  }
+  
+}

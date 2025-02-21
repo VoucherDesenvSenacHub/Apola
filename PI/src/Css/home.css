@@ -1928,6 +1928,10 @@ BANNER PROMOCIONAL FINAL */
     .text_card_cat_2{
         font-size: 14px;
     }
+
+    .item_card_cat_2:hover .text_card_cat_2{
+        font-size: 18px;
+    }
     
     
     
@@ -2010,6 +2014,7 @@ BANNER PROMOCIONAL FINAL */
         width: 100%;
         height:auto;
         position: relative;
+
     }
 
     .swiper_menu .swiper-wrapper{
@@ -2017,6 +2022,7 @@ BANNER PROMOCIONAL FINAL */
         width: 100%;
         object-fit: cover;
         height: 60vh;
+        
     }
 
     .swiper-slide{

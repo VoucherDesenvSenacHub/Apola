@@ -1,9 +1,19 @@
 <?php
 
+$logado = true;
 
-include "navbar_deslogado.php";
+include "head.php";
+
+if($logado){
+    include "navbar_logado.php";
+}
+else{
+    include "navbar_deslogado.php";
+}
+
 
 ?>
+
     <main  class="main2">
         <!-- INICIO BANNER PRINCIPAL -->
              

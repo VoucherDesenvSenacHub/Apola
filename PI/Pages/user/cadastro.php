@@ -43,7 +43,7 @@ if (isset($_POST['nome'],$_POST['email'], $_POST['cep'], $_POST['cpf'],$_POST['s
 </head>
 <body class="body-cad">
     <main class="main-cad">
-        <header class="menu">
+        <header style="  position:unset; z-index: unset;  border-bottom: unset;" class="menu">
             <nav class="container-menu">
                     <div class="img-menu">
                         <a href="./Home.php">

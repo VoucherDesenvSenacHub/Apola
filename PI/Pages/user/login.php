@@ -48,7 +48,7 @@ if (isset($_POST['logar'])){
 </head> 
 <body class="body-log">
     <main>
-        <header class="menu">
+        <header style="  position:unset; z-index: unset;  border-bottom: unset;" class="menu">
             <nav class="container-menu">
                     <div class="img-menu">
                         <a href="./Home.php">

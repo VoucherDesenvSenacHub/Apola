@@ -1,37 +1,4 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="../../src/Css/style.css">
-
-        
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-
-
-    <!-- SCRIPT MENU MOBILE -->
-    <script src="../../src/JS/banner.js" defer></script>
-    <script src="../../src/JS/comprar_produto.js" defer></script>
-    <script src="../../src/JS/drop_cep.js" defer></script>
-    <script src="../../src/JS/drop_pedido.js" defer></script>
-    <script src="../../src/JS/filtro-mobile.js" defer></script>
-    <script src="../../src/JS/list_adm.js" defer></script>
-    <script src="../../src/JS/list_controle_adm.js" defer></script>
-    <script src="../../src/JS/menu-mobile.js" defer></script>
-    <script src="../../src/JS/modal.js" defer></script>
-    <script src="../../src/JS/swiper_sobre.js" defer></script>
-    <script src="../../src/JS/swipper_card.js" defer></script>
-
-
-
-
-    <title>Navbar Logado</title>
-</head>
-<body>
         <!-- INICIO MeENU NAVABAR -->
         <header class="menu">
             <nav class="container-menu">

@@ -1,6 +1,6 @@
 <?php
 
-
+include "head.php";
 include "navbar_logado.php";
 
 ?>
