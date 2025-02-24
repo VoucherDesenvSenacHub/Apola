@@ -14,7 +14,7 @@ include "navbar_logado.php";
                             <i class="fa-solid icon_favorito_content  fa-house"></i><a class="link_favorito_left" href="./perfil.php">Conta</a>
                         </li>
                         <li class="item_favorito_left">
-                            <i class="fa-solid icon_favorito_content fa-heart"></i><a class="link_favorito_left" href="./Favoritos.php">Favoritos</a>
+                            <i class="fa-solid icon_favorito_content fa-heart"></i><a  class="link_favorito_left" href="./Favoritos.php">Favoritos</a>
                         </li>
                         <li class="item_favorito_left">
                             <i class="fa-solid  icon_favorito_content fa-boxes-stacked"></i><a class="link_favorito_left" href="./historico_pedido.php">Histórico de Pedidos</a>

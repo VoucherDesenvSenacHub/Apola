@@ -150,7 +150,7 @@ include "navbar_logado.php";
                           
                             <dialog id="modal-1">
                               <div class="modal_header">
-                                <button class="close-modal" data-modal="modal-1"><i class="fa-solid fa-xmark"></i></button>
+                                <button class="close-modal" style="outline: none; border:none;" data-modal="modal-1"><i class="fa-solid fa-xmark"></i></button>
                               </div>
                               <div class="modal_body">
                                 <h5 class="title_modal_zap">Rastreie sua Ecomenda!</h5>

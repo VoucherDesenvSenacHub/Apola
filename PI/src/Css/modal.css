@@ -22,11 +22,20 @@ dialog{
     width: 100%;
     justify-content: end;
     padding-bottom: 1rem;
+
 }
 
-.modal_header button {
-    background-color: transparent;
+.open-modal{
+    display: flex;
+    outline: none;
     border: none;
+}
+.modal_header button{
+    display: flex;
+    outline: none;
+    text-decoration: none;
+    border: none;
+    background-color: transparent;
 }
 
 .modal_header button i{
@@ -34,6 +43,11 @@ dialog{
     cursor: pointer;
     color: #4A4A4A;
     transition: all 0.2s ease-in-out;
+    outline: none;
+    border: none;
+    display: flex;
+
+
 }
 
 .modal_header button i:hover{

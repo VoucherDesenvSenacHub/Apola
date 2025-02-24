@@ -138,8 +138,8 @@
     align-items: baseline;
     column-gap: 5px;
     text-decoration: none;
-    color: #FA301E;
-    font-weight: 600;
+    color:#FA301E;
+    font-weight: 500;
     transition: 0.3s ;
     font-size: 14px;
 }

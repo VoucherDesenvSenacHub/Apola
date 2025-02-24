@@ -325,6 +325,7 @@
     font-weight: 500;
     cursor: pointer;
     transition: all 0.2s ease-in-out;
+    outline: none;
 }
 .conatiner_btn_finalizar_compra_cart .btn_finalizar:hover{
     background-color: #2b2b2b;
