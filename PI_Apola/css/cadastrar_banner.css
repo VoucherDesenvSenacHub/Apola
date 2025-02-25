@@ -1,0 +1,254 @@
+/* Estilo para o título das categorias de banners */
+.title_banner_categoria {
+    display: flex;
+    font-size: 15px;
+    color: #4A4A4A;
+    font-weight: 500;
+}
+
+/* Contêiner para as imagens de banners */
+.container_banner_wrap {
+    display: flex;
+    width: 80vw;
+    border: 1px solid #e5e5e5;
+    /* box-shadow: 0px 0px 20px rgba(122, 122, 122, 0.8); */
+    border-radius: 5px;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    gap: 1rem;
+}
+.tamanho_banner_adm{
+    text-align: end;
+}
+.container_banner_wrap-promocional{
+    width: 80vw;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #e5e5e5;
+    border-radius: 5px;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    gap: 1rem;
+}
+.quadro-banners-promo{
+    display: flex;
+    height: auto;
+    gap: 1rem;
+    flex-direction: column;
+}
+.banner-item-promocional{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-weight: 500;
+    cursor: pointer;
+    width: 600px;
+    height: 300px;
+}
+.banner-item-promo{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-weight: 500;
+    cursor: pointer;
+    width: 350px;
+    height: 180px;
+}
+
+/* Estilo para os itens de banner */
+.banner-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 380px;
+    height: 200px;
+    border-radius: 5px;
+    font-size: 16px;
+    color: #4A4A4A;
+    font-weight: 500;
+    cursor: pointer;
+    position: relative;
+}
+
+.banner-item img{
+    display: flex;
+    width: 380px;
+    /* background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover; */
+}
+
+/* Estilo da imagem do banner */
+.banner-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 5px;
+    background-color: #e5e5e5;
+}
+
+/* Botão de trocar imagem */
+.trocar-imagem-btn {
+    position: absolute;
+    width: 90px;
+    height: 50px;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 5px 10px;
+    background-color: #FA301E;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.trocar-imagem-btn:hover {
+    background-color: #FA301E;
+}
+
+/* Input de arquivo escondido */
+.file-upload {
+    display: none;
+}
+
+/* Contêiner dos botões de salvar e excluir */
+.container_btn_salvar_excluir_produto_mobile {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    width: 100%;
+    gap: 10px;
+    margin: 20px 0;
+    
+}
+
+/* Botões de salvar e excluir */
+.btn_salvar_produto, .btn_excluir_produto {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.btn_salvar_produto:hover, .btn_excluir_produto:hover {
+    background-color: #45a049;
+}
+
+/* Estilo do título de cada categoria de banners */
+.item_top_produto {
+    margin-bottom: 20px;
+}
+
+/* Ajustes para os elementos na versão mobile */
+@media (max-width: 800px) {
+  
+}
+
+/* Estilo para botões de excluir e salvar em dispositivos móveis */
+@media (max-width: 1000px) {
+    .container_btn_salvar_excluir_produto_mobile {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .btn_salvar_produto, .btn_excluir_produto {
+        width: 80px;
+        margin-bottom: 10px;
+    }
+}
+
+/* Estilo para banners no mobile (ajustes de tamanho) */
+@media (max-width: 440px) {
+    .container_banner_wrap {
+        width: 75vw;
+        padding: 1rem;
+    }
+
+    .banner-item {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 1250px) {
+    .container_banner_wrap {
+        width: 100vw;
+        flex-direction: column;
+        align-items: center;
+        padding: 0.5rem;
+    }
+
+    .container_banner_wrap-promocional{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        /* width: auto; */
+        flex-direction: column;
+        gap:20px;
+        height: auto;
+    }
+
+    .quadro-banners-promo{
+        gap: 22px;
+    }
+    .banner-item-promocional{
+        width: 20%;
+        height: 90px;
+        z-index: 0;
+        /* margin-bottom: 15px; */
+    }
+
+    .banner-item-promocional img{
+        width: 200px;
+        height: 80px;
+        z-index: 0px;
+    }
+
+    .banner-item-promo{
+        width: 150px;
+        height: 80px;
+    }
+
+    .banner-item-promo img{
+        width: 200px;
+        height: 80px;
+    }
+
+
+    .banner-item {
+        width: 100%;
+        height: 90px;
+        margin-bottom: 15px;
+    }
+
+    .banner-item img{
+        width: 200px;
+        height: 80px;
+
+    }
+
+    .trocar-imagem-btn {
+        bottom: 10px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 60px;
+        height: 30px;
+        font-size: 8px;
+        display: flex;
+        align-items: center;
+        text-align: center;
+    }
+    
+}
