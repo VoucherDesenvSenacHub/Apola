@@ -242,6 +242,12 @@ dialog{
     dialog{
         width: 400px;
     }
+    .item_modal_link_zap{
+        font-size: 15px;
+    }
+    .item_modal_link_zap a{
+        font-size: 14px;
+    }
 
     
 }
@@ -249,7 +255,10 @@ dialog{
 
 @media (max-width:500px) {
     dialog{
-        width: 300px;
+        width: 350px;
+    }
+    .item_modal_link_zap a{
+        font-size: 12px;
     }
 
     
@@ -257,8 +266,12 @@ dialog{
 
 @media (max-width:384px) {
     dialog{
-        width: 280px;
+        width: 320px;
     }
+    .item_modal_link_zap a{
+        font-size: 10px;
+    }
+
 
     
 }
