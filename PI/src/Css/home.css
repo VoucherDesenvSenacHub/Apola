@@ -156,7 +156,7 @@
 .list_cards_categoria .item_cards_categoria{
     width: 150px;
     height: 200px;
-    background-color: #6875e8;
+    background-color: #f2f2f2;
     justify-content: center;
     align-items: center;
     display: flex;
@@ -168,6 +168,7 @@
     text-decoration: none;
     list-style: none;
     text-align: center;
+    color: #4A4A4A;
 }
 
 .item_cards_categoria .link_cards_categoria{
@@ -175,18 +176,19 @@
 }
 
 
-    
+.link_cards_categoria .text_cards_categoria{
+    color: #4A4A4A;
+}
+
     
 .list_cards_categoria .item_cards_categoria:hover{
-    background-color: white;
     transform: scale(1.10);
+    background-color: transparent;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
 
 
 }
-.list_cards_categoria .item_cards_categoria:hover .text_cards_categoria{
-    color:#4A4A4A;
-}
+
 
 
 

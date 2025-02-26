@@ -281,8 +281,9 @@
 
 .body_conatiner_final_right{
     display: flex;
-    width: 50%;
+    width: 70%;
     flex-direction: column;
+
 }
 
 .body_conatiner_final_right .item_preco_carrinho{
