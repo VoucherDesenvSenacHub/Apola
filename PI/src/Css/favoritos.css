@@ -80,10 +80,57 @@
     color: #4A4A4A;
 }
 
+  
+
+.checkbox-heart input {
+    display: none;
+} 
+  
+.checkbox-heart  .i {
+    width: 30px;
+    height: 30px;
+    background-color: #ccc;
+    display: inline-block;
+    border-radius: 50%;
+    position: relative;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+  
+.checkbox-heart .i:before, .checkbox-heart .i:after {
+    content: '';
+    width: 20px;
+    height: 20px;
+    background-color: #ccc;
+    position: absolute;
+    top: -10px;
+    border-radius: 50%;
+    transition: background-color 0.3s ease;
+}
+  
+  
+.checkbox-heart input:checked + i {
+    color: red; /* Cor do coração quando marcado */
+}
+  
 
 
+.icon_favorite{
+    display: flex;
+    width: 100% ;
+    justify-content: end;
+    
+} 
 
-
+.icon_favorite i{
+    font-size: 24px;
+    color: rgb(168, 168, 168); 
+    cursor: pointer;
+    padding-right: 0.5rem;
+    padding-top: 0.5rem;
+  
+    
+}  
 
 .right_container_favoritos{
     display: flex;

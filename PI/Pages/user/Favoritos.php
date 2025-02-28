@@ -34,12 +34,69 @@ include "navbar_logado.php";
                     </div>
                     <div class="item_conteudo_favoritos">
                         <div class="card_produto">
-                            <div class="icon_favorite"><i class="fa-solid fa-heart"></i></div>
+                            <div class="icon_favorite">
+                                <label class="checkbox-heart">
+                                    <input type="checkbox">
+                                    <i class="fa-solid fa-heart"></i>
+                                </label> 
+                            </div>
                             <div class="img_content_produto">
-                                <img src="../../src/imagens/card_produto/IMG1-Produto.png" alt="">
+                                <img src=../../src/imagens/imagem/raposa_croche.png alt="">
                             </div>
                             <div class="conteudo_card">
-                                <div class="nome_card_produto">Amigurmi Raposa</div>
+                                <div class="nome_card_produto">Cachepô crochê Raposa</div>
+                                <div class="content_star_icon">
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                </div>
+                                <div class="preco_card_produto">R$ 99,90</div>
+                                <div class="btn_content_card_produto">
+                                    <div class="btn_bag_card"><i class="fa-solid fa-bag-shopping"></i></div>
+                                    <div class="btn_buy_card">Comprar</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card_produto">
+                            <div class="icon_favorite">
+                                <label class="checkbox-heart">
+                                    <input type="checkbox">
+                                    <i class="fa-solid fa-heart"></i>
+                                </label> 
+                            </div>   
+                            <div class="img_content_produto">
+                                <img src="../../src/imagens/imagem/bordado_morango.png" alt="">
+                            </div>
+                            <div class="conteudo_card">
+                                <div class="nome_card_produto">Bordado Morangos</div>
+                                <div class="content_star_icon">
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                </div>
+                                <div class="preco_card_produto">R$ 75,89</div>
+                                <div class="btn_content_card_produto">
+                                    <div class="btn_bag_card"><i class="fa-solid fa-bag-shopping"></i></div>
+                                    <div class="btn_buy_card">Comprar</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card_produto">
+                            <div class="icon_favorite">
+                                <label class="checkbox-heart">
+                                    <input type="checkbox">
+                                    <i class="fa-solid fa-heart"></i>
+                                </label> 
+                            </div>
+                            <div class="img_content_produto">
+                                <img src="../../src/imagens/imagem/cachepot_madei.png" alt="">
+                            </div>
+                            <div class="conteudo_card">
+                                <div class="nome_card_produto">Cachepô de Madeira</div>
                                 <div class="content_star_icon">
                                     <i class="fa-solid fa-star"></i>
                                     <i class="fa-solid fa-star"></i>
@@ -55,12 +112,17 @@ include "navbar_logado.php";
                             </div>
                         </div>
                         <div class="card_produto">
-                            <div class="icon_favorite"><i class="fa-solid fa-heart"></i></div>
+                            <div class="icon_favorite">
+                                <label class="checkbox-heart">
+                                    <input type="checkbox">
+                                    <i class="fa-solid fa-heart"></i>
+                                </label> 
+                            </div>
                             <div class="img_content_produto">
-                                <img src="../../src/imagens/card_produto/IMG1-Produto.png" alt="">
+                                <img src="../../src/imagens/imagem/pato.png" alt="">
                             </div>
                             <div class="conteudo_card">
-                                <div class="nome_card_produto">Amigurmi Raposa</div>
+                                <div class="nome_card_produto">Amigurmi Pato</div>
                                 <div class="content_star_icon">
                                     <i class="fa-solid fa-star"></i>
                                     <i class="fa-solid fa-star"></i>
@@ -68,7 +130,7 @@ include "navbar_logado.php";
                                     <i class="fa-solid fa-star"></i>
                                     <i class="fa-solid fa-star"></i>
                                 </div>
-                                <div class="preco_card_produto">R$ 50,89</div>
+                                <div class="preco_card_produto">R$ 65,90</div>
                                 <div class="btn_content_card_produto">
                                     <div class="btn_bag_card"><i class="fa-solid fa-bag-shopping"></i></div>
                                     <div class="btn_buy_card">Comprar</div>
@@ -76,12 +138,17 @@ include "navbar_logado.php";
                             </div>
                         </div>
                         <div class="card_produto">
-                            <div class="icon_favorite"><i class="fa-solid fa-heart"></i></div>
+                            <div class="icon_favorite">
+                                <label class="checkbox-heart">
+                                    <input type="checkbox">
+                                    <i class="fa-solid fa-heart"></i>
+                                </label> 
+                            </div>
                             <div class="img_content_produto">
-                                <img src="../../src/imagens/card_produto/IMG1-Produto.png" alt="">
+                                <img src="../../src/imagens/imagem/preguiça_cachepo.png" alt="">
                             </div>
                             <div class="conteudo_card">
-                                <div class="nome_card_produto">Amigurmi Raposa</div>
+                                <div class="nome_card_produto">Cachepô crochê Preguiça</div>
                                 <div class="content_star_icon">
                                     <i class="fa-solid fa-star"></i>
                                     <i class="fa-solid fa-star"></i>
@@ -89,7 +156,7 @@ include "navbar_logado.php";
                                     <i class="fa-solid fa-star"></i>
                                     <i class="fa-solid fa-star"></i>
                                 </div>
-                                <div class="preco_card_produto">R$ 50,89</div>
+                                <div class="preco_card_produto">R$ 89,90</div>
                                 <div class="btn_content_card_produto">
                                     <div class="btn_bag_card"><i class="fa-solid fa-bag-shopping"></i></div>
                                     <div class="btn_buy_card">Comprar</div>
@@ -97,12 +164,17 @@ include "navbar_logado.php";
                             </div>
                         </div>
                         <div class="card_produto">
-                            <div class="icon_favorite"><i class="fa-solid fa-heart"></i></div>
+                            <div class="icon_favorite">
+                                <label class="checkbox-heart">
+                                    <input type="checkbox">
+                                    <i class="fa-solid fa-heart"></i>
+                                </label> 
+                            </div>
                             <div class="img_content_produto">
-                                <img src="../../src/imagens/card_produto/IMG1-Produto.png" alt="">
+                                <img src="../../src/imagens/imagem/sticht.png" alt="">
                             </div>
                             <div class="conteudo_card">
-                                <div class="nome_card_produto">Amigurmi Raposa</div>
+                                <div class="nome_card_produto">Amigurmi Sticht</div>
                                 <div class="content_star_icon">
                                     <i class="fa-solid fa-star"></i>
                                     <i class="fa-solid fa-star"></i>
@@ -110,7 +182,7 @@ include "navbar_logado.php";
                                     <i class="fa-solid fa-star"></i>
                                     <i class="fa-solid fa-star"></i>
                                 </div>
-                                <div class="preco_card_produto">R$ 50,89</div>
+                                <div class="preco_card_produto">R$ 130,00</div>
                                 <div class="btn_content_card_produto">
                                     <div class="btn_bag_card"><i class="fa-solid fa-bag-shopping"></i></div>
                                     <div class="btn_buy_card">Comprar</div>
