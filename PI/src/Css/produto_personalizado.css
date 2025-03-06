@@ -62,17 +62,21 @@
     display: flex;
     width: 100%;
     height: 100%;
+    padding: 10px;
     justify-content: center;
     align-items: center;
-    flex-direction: column;
-    gap: 7rem;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    gap: 3rem;
+    margin-top: 8rem;
+    margin-bottom: 4rem;
 
 }
 
 .container_personalizado{
     display: flex;
     width: 90%;
-    height: 100%;
+    height: 400px;
     box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 50px;
     flex-direction: column;
     border-radius: 5px;
@@ -100,7 +104,7 @@
 .insert-text{
     display: flex;
     width: 100%;
-    height: 300px;
+    height: 230px;
     border-radius: 5px;
     border: 1px solid #c2c2c2 ;
     outline: none;
@@ -159,7 +163,8 @@
 }
 .custom-file-upload {
     position: relative;
-    display: inline-block;
+    display: flex;
+    justify-content: center;
 }
 
 .custom-file-upload input[type="file"] {
@@ -200,12 +205,17 @@
 }
 
 .image-container {
-    top: 10px;
+    top: 5px;
     position: relative;
-    width: 60%;
+    width: 100%;
     height: auto;
     display: flex;
-    margin-top: 5rem;
+    margin-top: 3rem;
+    justify-content: center;
+}
+.image-container img{
+    width: 90px;
+    height: 90px;
 }
 
 .preview-image {
@@ -259,14 +269,13 @@
 
 
 
-
-
 .box-button{
     display: flex;
     width: 100%;
     height: 40%;
     justify-content:end;
     padding-right: 5rem;
+    margin: 1rem;
 }
 
 .box-button .btn-finalizar{
@@ -297,6 +306,10 @@
 
 
 @media (max-width: 833px) {
+    .container_form_produto_personalizado{
+        display: flex;
+        flex-direction: column;
+    }
     .container_items_produto_personalizado{
         display: flex;
         justify-content: center;
@@ -336,6 +349,9 @@
         padding-bottom: 2rem;
     }
 
+    .container_personalizado{
+        height: auto;
+    }
 
     .card_produto_personalizado{
         display: flex;
@@ -351,5 +367,13 @@
         box-shadow: rgba(0, 0, 0, 0.04) 0px 3px 5px;
     }
     
+    .image-preview{
+        flex-direction: column;
+    }
+
+    .image-container img{
+        width: 50px;
+        height: 50px;
+    }
     
 }

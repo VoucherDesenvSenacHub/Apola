@@ -1,0 +1,68 @@
+.conatiner_cadastro_adm_items_body_pesquisa{
+    display: flex;
+    margin-top: 2rem;
+    gap: 1rem;
+    align-items: end;
+}
+
+.conatiner_cadastro_adm_items_body_pesquisa .btn_buscar_pesquisa,.conatiner_cadastro_adm_items_body_add .btn_produto_add{
+    display: flex;
+    width: 100px;
+    height: 40px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    border: none;
+    background-color: #c9c9c9;
+    color: #4A4A4A;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.2s ease;
+}
+.conatiner_cadastro_adm_items_body_pesquisa .btn_produto_add,.conatiner_cadastro_adm_items_body_add .btn_produto_add{
+    display: flex;
+    width: 100px;
+    height: 40px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    border: none;
+    background-color: #4A4A4A;
+    color: white;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.conatiner_cadastro_adm_items_body_pesquisa .btn_produto_add:hover, .conatiner_cadastro_adm_items_body_pesquisa .btn_buscar_pesquisa:hover,.conatiner_cadastro_adm_items_body_add .btn_produto_add:hover{
+    background-color: #1b1b1b;
+    color: white;
+}
+
+
+
+.conatiner_cadastro_adm_items_body_list{
+    display: flex;
+    width: 100%;
+    padding: 1rem;
+    border: 1px solid #c9c9c9;
+    margin-top: 2rem;
+    border-radius: 5px;
+
+
+}
+
+.conatiner_cadastro_adm_items_body_list .table_adm_list{
+    margin-top: 0;
+}
+
+
+@media (max-width: 490px){
+
+    .conatiner_cadastro_adm_items_body_list{
+        border: none;
+        flex-direction: column;
+    }
+    
+
+}

@@ -4,16 +4,16 @@ include "head_adm.php";
 include "nav_bar_adm.php";
 
 ?>
+    
     <main class="main_adm">
         <div class="conatiner_dashbord_adm">
             <div class="Title_deafult_adm">
                 <div class="container_title_adm_left">
                     <i class="fa-solid fa-chevron-left"></i>
-                    <span class="title_adm">Pedidos</span>
+                    <span class="title_adm">Produtos</span>
                 </div>
                 <div class="container_title_adm_right">
-                    <!-- <input type="text" placeholder="Pesquisar...">
-                    <i class="fa-solid fa-magnifying-glass"></i> -->
+                    <a style="text-decoration:none;" href="cadastrar_produto_adm.php"><button class="btn_add_item_adm">+ Produto</button></a>
 
                 </div>
                 
@@ -23,32 +23,23 @@ include "nav_bar_adm.php";
                     <i class="fa-solid fa-dolly"></i>
                     <div class="item_dados_adm">
                         <p class="n_item_dados">N° 45</p>
-                        <p class="text_item_dados">Total de Pedidos</p>
+                        <p class="text_item_dados">Total de Produtos</p>
                     </div>
                 </div>
                 <div class="shape_dados"></div>
                 <div class="card_item_dados">
-                    <i class="fa-solid fa-money-bill"></i>
+                    <i class="fa-solid fa-circle-xmark"></i>
                     <div class="item_dados_adm">
                         <p class="n_item_dados">N° 23</p>
-                        <p class="text_item_dados">Total a pagar</p>
+                        <p class="text_item_dados">Total Inativos</p>
                     </div>
                 </div>
                 <div class="shape_dados"></div>
-                <div class="shape_dados_mobile"></div>
                 <div class="card_item_dados">
-                    <i class="fa-solid fa-box"></i>
+                    <i class="fa-solid fa-check"></i>
                     <div class="item_dados_adm">
                         <p class="n_item_dados">N° 34</p>
-                        <p class="text_item_dados">Total Disponivel</p>
-                    </div>
-                </div>
-                <div class="shape_dados"></div>
-                <div class="card_item_dados">
-                    <i class="fa-solid fa-gift"></i>
-                    <div class="item_dados_adm">
-                        <p class="n_item_dados">N° 11</p>
-                        <p class="text_item_dados">Total Personalizado</p>
+                        <p class="text_item_dados">Total Ativos</p>
                     </div>
                 </div>
 
@@ -56,15 +47,13 @@ include "nav_bar_adm.php";
             <div class="conatiner_listar_adm">
                 <div class="container_listar_header_adm">
                     <div class="container_listar_header_adm_left">
-                        <button class="btn_item_listar_adm">A pagar</button>
-                        <button class="btn_item_listar_adm">Produção</button>
-                        <button class="btn_item_listar_adm">Envio</button>
-                        <button class="btn_item_listar_adm">Entregue</button>
-
+                        <button class="btn_item_listar_adm">Todos</button>
+                        <button class="btn_item_listar_adm">Ativo</button>
+                        <button class="btn_item_listar_adm">Inativo</button>
 
                     </div>
                     <div class="container_listar_header_adm_right">
-                        <input placeholder="Pesquisar Nº do pedido" type="search" name="" id="">
+                        <input placeholder="Pesquisar produto" type="search" name="" id="">
                         <i class="fa-solid fa-magnifying-glass"></i>
                         <button class="btn_search_listar">Buscar</button>
                     </div>
@@ -73,52 +62,47 @@ include "nav_bar_adm.php";
                 </div>
                 <div class="container_listar_body_adm">
                     <table class="table_adm_list">
-                        <tr>
-                            <th>numero</th>
-                            <th>total</th>
-                            <th>tipo</th>
-                            <th>estado</th>
+                        <tr z>
+                            <th id="text_alin_item"></th>
+                            <th id="text_alin_item">produto nome</th>
+                            <th>estoque</th>
+                            <th>categoria</th>
+                            <th>status</th>
                             <th>ações</th>
                         </tr>
                         <tr>
-                            <td>
-                                #445333
+                            <td id="text_alin_item" >
+                                <input class="check_box_list" type="checkbox" name="" id="">
+                            </td>
+                            <td class="nome_td">
+                                <div class="conatiner_item_list_nome">
+                                    <img src="" alt="">
+                                    <div class="conatiner_text_nome_list">
+                                        <p>Cachepô de Crochê</p>
+                                        <span>Lorem ipsum dolor sit amet consectetu.</span>
+                                    </div>
+                                    
+                                </div>
+                                
                             </td>
                             <td>
-                                $ 123,54
+                                16
                             </td>
                             <td>
-                                Disponivel
+                                Cachepô
                             </td>
                             <td>
-                                MS
-                            </td>
-                            <td>
-                                <div class="container_item_list_ações">
-                                    <a href="pedido_disponivel_adm.php"><i class="fa-solid fa-eye"></i></a>
-                                    <a href=""><i class="fa-solid fa-trash"></i></a>
-
+                                <div class="container_item_list_status">
+                                    <div class="shape_status"></div>
+                                    ativo
+                                    
                                 </div>
                             </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                #445333
-                            </td>
-                            <td>
-                                $ 123,54
-                            </td>
-                            <td>
-                                Personalizado
-                            </td>
-                            <td>
-                                MS
-                            </td>
                             <td>
                                 <div class="container_item_list_ações">
-                                    <a href="pedido_personalizado_adm.php"><i class="fa-solid fa-eye"></i></a>
+                                    <a href=""><i class="fa-solid fa-pencil"></i></a>
+                                    <input checked="true" type="checkbox" class="switch">
                                     <a href=""><i class="fa-solid fa-trash"></i></a>
-
                                 </div>
                             </td>
                         </tr>

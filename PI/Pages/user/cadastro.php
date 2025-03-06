@@ -41,8 +41,8 @@ if (isset($_POST['nome'],$_POST['email'], $_POST['cep'], $_POST['cpf'],$_POST['s
 
     <link rel="stylesheet" href="../../src/Css/style.css">
 </head>
-<body class="body-cad">
-    <main class="main-cad">
+<body class="body-cad" >
+    <main class ="main3">
         <header style="  position:unset; z-index: unset;  border-bottom: unset;" class="menu">
             <nav class="container-menu">
                     <div class="img-menu">

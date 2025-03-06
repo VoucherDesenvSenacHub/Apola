@@ -4,8 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="../../src/Css/style.css">
-    <link rel="stylesheet" href="../../src/Css/style_adm.css">
+    <link rel="stylesheet" href="../../src/Css/style_adm.css.css">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
@@ -20,7 +19,7 @@
 
 
     <!-- SCRIPT USER -->
-    <script src="../../src/JS/banner.js" defer></script>
+    <!-- <script src="../../src/JS/banner.js" defer></script>
     <script src="../../src/JS/comprar_produto.js" defer></script>
     <script src="../../src/JS/drop_cep.js" defer></script>
     <script src="../../src/JS/drop_pedido.js" defer></script>
@@ -33,16 +32,12 @@
     <script src="../../src/JS/swipper_card.js" defer></script>
     <script src="../../src/JS/drop_footer.js" defer></script>
 
-    
+     -->
     <!-- SCRIPT ADM -->
 
     <script src="../../src/JS/adm_nav.js" defer></script>
     <script src="../../src/JS/btn_listar_adm.js" defer></script>
     <script src="../../src/JS/cadastrar_banner.js" defer></script>
-
-
-
-
 
 
 

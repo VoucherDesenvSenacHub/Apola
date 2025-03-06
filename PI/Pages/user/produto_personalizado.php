@@ -4,7 +4,7 @@ include "head.php";
 include "navbar_deslogado.php";
 
 ?>
-    <main  class="main2">
+      <main  class="main2"> 
        <div class="container_produto_personazalizado">
 
         <section class="Banner_Sobre_Nos">
@@ -12,13 +12,13 @@ include "navbar_deslogado.php";
             <div class="content_banner_sobre_nos">
                 <img class="img_sobre_banner" src="../../src/imagens/SobreMim/Giant Panda – Amigurumi Crochet Pattern.jpg" alt="">
                 <div class="content_coteudo_banner_sobre">
-                    <h4 class="text_top_sobre">Lorem ipsum dolor sit amet consectetur adipisicing elit.</h4>
-                    <h5 class="text_bottom_sobre">Lorem ipsum dolor, sit amet consectetur adipisicing elit. </h4>
-                    <button class="btn_sobre"> <a href="">Conheça</a></button>
+                    <h4 class="text_top_sobre">Bem-vindo!</h4>
+                    <h5 class="text_bottom_sobre">Aqui você personaliza seu produto com exclusividade.</h4>
+                    <button class="btn_sobre"> <a href="#quadro"> Peça aqui</a></button>
                 </div>
             </div>
         </section>
-        <section class="container_items_produto_personalizado">
+        <!-- <section class="container_items_produto_personalizado">
             <div class="card_produto_personalizado">
                 <i class="fa-regular fa-clipboard"></i>
                 <h6 class="name_card_item_personalizado">Pedido</h6>
@@ -35,9 +35,9 @@ include "navbar_deslogado.php";
                 <i class="fa-solid fa-box"></i>
                 <h6 class="name_card_item_personalizado">Entregue</h6>
             </div>
-        </section>
+        </section> -->
 
-        <form class="container_form_produto_personalizado">
+        <form class="container_form_produto_personalizado"  id="quadro">
             <div class="container_personalizado">
                 <h1 class="title-quadro_personalizado">Descriçao</h1>
                 <div class="quadro">
@@ -48,7 +48,7 @@ include "navbar_deslogado.php";
             <div class="container_personalizado">
                 <h1 class="title-quadro_personalizado">Imagens</h1>
                 <div class="quadro">
-                    <p class="descricao-quadro">Forneça imagens de referência que possam ajudar na criação do seu produto personalizado, destaquando detalhes visuais importantes que você deseje incorporar.</p>
+                    <p class="descricao-quadro">Forneça até 4 imagens de referência que possam ajudar na criação do seu produto personalizado, destaquando detalhes visuais importantes que você deseje incorporar.</p>
                     <div class="quadro-ex-img">
                          <div class="box-insert-image">
                             <div class="custom-file-upload">
@@ -116,16 +116,14 @@ include "navbar_deslogado.php";
                     </div>
                 </div>
             </div>
-            <div class="box-button">
-            <div data-modal="modal-1" class="btn-finalizar open-modal"><a href=""></a>Finalizar Pedido</div>
 
             <dialog id="modal-1">
                 <div class="modal_header">
                   <button class="close-modal" data-modal="modal-1"><i class="fa-solid fa-xmark"></i></button>
                 </div>
                 <div class="modal_body">
-                  <h5 class="title_modal_zap">Pedido Realizado!</h5>
-                  <div class="text_modal_zap">Segue o link do nosso WhatsApp para realizar o pagamento. Entraremos em contato em breve.</div>
+                  <h5 class="title_modal_zap">Pedido enviado</h5>
+                  <div class="text_modal_zap">Recebemos seu pedido e ele está em processo de análise. Em breve, você será notificado sobre a aprovação. Fique atento às atualizações no seu e-mail ou painel de pedidos. Dúvidas entre em contato.</div>
                   <div class="conatiner_item_modal_link_zap">
                     <div class="item_modal_link_zap">
                       <i class="fa-brands fa-whatsapp"></i>
@@ -134,11 +132,13 @@ include "navbar_deslogado.php";
                   </div>  
                 </div>
               </dialog>
-              <script src="../../src/JS/modal.js"></script>
+              <script src="../src/JS/modal.js"></script>
             </div>
 
         </form>
-    
+        <div class="box-button">
+            <div data-modal="modal-1" class="btn-finalizar open-modal"><a href=""></a>Enviar Pedido</div>
+        </div>
         
        </div>
     </main>
