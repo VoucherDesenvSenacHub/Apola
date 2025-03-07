@@ -127,6 +127,41 @@
 
 
 
+  
+
+.checkbox-heart input {
+    display: none;
+} 
+  
+.checkbox-heart  .i {
+    width: 30px;
+    height: 30px;
+    background-color: #ccc;
+    display: inline-block;
+    border-radius: 50%;
+    position: relative;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+  
+.checkbox-heart .i:before, .checkbox-heart .i:after {
+    content: '';
+    width: 20px;
+    height: 20px;
+    background-color: #ccc;
+    position: absolute;
+    top: -10px;
+    border-radius: 50%;
+    transition: background-color 0.3s ease;
+}
+  
+  
+.checkbox-heart input:checked + i {
+    color: red; /* Cor do coração quando marcado */
+}
+  
+
+
 @media (max-width: 1020px) {
     .left-container_favoritos{
         display: none;

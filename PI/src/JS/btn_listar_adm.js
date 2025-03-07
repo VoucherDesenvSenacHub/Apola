@@ -1,5 +1,5 @@
 // Seleciona todos os botões pela classe
-const buttons = document.querySelectorAll('.btn_item_listar_adm');
+const buttons = document.querySelectorAll('#btn_item_listar_adm');
 
 // Adiciona o evento de clique a cada botão
 buttons.forEach(button => {

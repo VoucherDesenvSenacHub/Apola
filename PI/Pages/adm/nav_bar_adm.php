@@ -1,5 +1,5 @@
 
-    <header class="header_adm" >
+<header class="header_adm" >
         <nav class="navbar_adm" id="sidebar_adm">
             <div id="sidebar_adm_content">
                 <div class="logo_sidebar">
@@ -19,7 +19,7 @@
                         </a>
                     </li>
                     <li class="side_bar-itens">
-                        <a href="listar_produtos_adm.php">
+                        <a style="text-decoration:none; " href="listar_produtos_adm.php">
                             <i class="fa-solid fa-box"></i>
                             <span class="text_side_item">Produtos</span>
                         </a>
@@ -80,5 +80,5 @@
             </div>
         </nav>
 
-    </header>
+</header>
     

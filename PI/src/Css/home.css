@@ -283,6 +283,7 @@
     display: flex;
     width: 100% ;
     justify-content: end;
+    height: 5.7%;
 }
 
 .icon_favorite i{
@@ -358,6 +359,7 @@
     font-size: 20px;
     color: #4A4A4A;
     cursor: pointer;
+    border-radius: 5px;
 
 }
 
@@ -2103,6 +2105,7 @@ BANNER PROMOCIONAL FINAL */
     display: flex;
     width: 100% ;
     justify-content: end;
+    
 }
 
 .icon_favorite i{

@@ -114,7 +114,12 @@ else{
                 </div>
                 <div class="swiper-wrapper">
                 <div class="swiper-slide card_produto">
-                    <div class="icon_favorite"><i class="fa-solid fa-heart"></i></div>
+                        <div class="icon_favorite">
+                            <label class="checkbox-heart">
+                                <input type="checkbox">
+                                <i class="fa-solid fa-heart"></i>
+                            </label> 
+                        </div>
                     <div class="img_content_produto">
                         <img src="../../src/imagens/card_produto/IMG1-Produto.png" alt="">
                     </div>
@@ -135,7 +140,12 @@ else{
                     </div>
                 </div>
                 <div class="swiper-slide card_produto">
-                    <div class="icon_favorite"><i class="fa-solid fa-heart"></i></div>
+                        <div class="icon_favorite">
+                                <label class="checkbox-heart">
+                                    <input type="checkbox">
+                                    <i class="fa-solid fa-heart"></i>
+                                </label> 
+                        </div>
                     <a  style ="text-decoration:none;"class="link_produto_home" href="./comprar_produto.php">
                         <div class="img_content_produto">
                             <img src="../../src/imagens/card_produto/IMG9-Produto.png" alt="">
@@ -158,7 +168,12 @@ else{
                     </a>
                 </div>
                 <div class="swiper-slide card_produto">
-                    <div class="icon_favorite"><i class="fa-solid fa-heart"></i></div>
+                    <div class="icon_favorite">
+                            <label class="checkbox-heart">
+                                <input type="checkbox">
+                                <i class="fa-solid fa-heart"></i>
+                            </label> 
+                    </div>
                     <div class="img_content_produto">
                         <img src="../../src/imagens/card_produto/IMG5-Produto.png" alt="">
                     </div>
@@ -179,7 +194,12 @@ else{
                     </div>
                 </div>
                 <div class="swiper-slide card_produto">
-                    <div class="icon_favorite"><i class="fa-solid fa-heart"></i></div>
+                    <div class="icon_favorite">
+                            <label class="checkbox-heart">
+                                <input type="checkbox">
+                                <i class="fa-solid fa-heart"></i>
+                            </label> 
+                    </div>
                     <div class="img_content_produto">
                         <img src="../../src/imagens/card_produto/IMG6-Produto.png" alt="">
                     </div>
@@ -200,7 +220,12 @@ else{
                     </div>
                 </div>
                 <div class="swiper-slide card_produto">
-                    <div class="icon_favorite"><i class="fa-solid fa-heart"></i></div>
+                    <div class="icon_favorite">
+                            <label class="checkbox-heart">
+                                <input type="checkbox">
+                                <i class="fa-solid fa-heart"></i>
+                            </label> 
+                    </div>
                     <div class="img_content_produto">
                         <img src="../../src/imagens/card_produto/IMG7-Produto.png" alt="">
                     </div>
@@ -221,7 +246,12 @@ else{
                     </div>
                 </div>
                 <div class="swiper-slide card_produto">
-                    <div class="icon_favorite"><i class="fa-solid fa-heart"></i></div>
+                    <div class="icon_favorite">
+                            <label class="checkbox-heart">
+                                <input type="checkbox">
+                                <i class="fa-solid fa-heart"></i>
+                            </label> 
+                    </div>
                     <div class="img_content_produto">
                         <img src="../../src/imagens/card_produto/IMG8-Produto.png" alt="">
                     </div>
@@ -296,7 +326,12 @@ else{
                 </div>
                 <div class="swiper-wrapper">
                 <div class="swiper-slide card_produto">
-                    <div class="icon_favorite"><i class="fa-solid fa-heart"></i></div>
+                    <div class="icon_favorite">
+                            <label class="checkbox-heart">
+                                <input type="checkbox">
+                                <i class="fa-solid fa-heart"></i>
+                            </label> 
+                    </div>
                     <div class="img_content_produto">
                         <img src="../../src/imagens/card_produto/IMG1-Produto.png" alt="">
                     </div>
@@ -317,7 +352,12 @@ else{
                     </div>
                 </div>
                 <div class="swiper-slide card_produto">
-                    <div class="icon_favorite"><i class="fa-solid fa-heart"></i></div>
+                      <div class="icon_favorite">
+                            <label class="checkbox-heart">
+                                <input type="checkbox">
+                                <i class="fa-solid fa-heart"></i>
+                            </label> 
+                    </div>
                     <div class="img_content_produto">
                         <img src="../../src/imagens/card_produto/IMG1-Produto.png" alt="">
                     </div>
@@ -338,7 +378,12 @@ else{
                     </div>
                 </div>
                 <div class="swiper-slide card_produto">
-                    <div class="icon_favorite"><i class="fa-solid fa-heart"></i></div>
+                      <div class="icon_favorite">
+                            <label class="checkbox-heart">
+                                <input type="checkbox">
+                                <i class="fa-solid fa-heart"></i>
+                            </label> 
+                    </div>
                     <div class="img_content_produto">
                         <img src="../../src/imagens/card_produto/IMG1-Produto.png" alt="">
                     </div>
@@ -359,7 +404,12 @@ else{
                     </div>
                 </div>
                 <div class="swiper-slide card_produto">
-                    <div class="icon_favorite"><i class="fa-solid fa-heart"></i></div>
+                      <div class="icon_favorite">
+                            <label class="checkbox-heart">
+                                <input type="checkbox">
+                                <i class="fa-solid fa-heart"></i>
+                            </label> 
+                    </div>
                     <div class="img_content_produto">
                         <img src="../../src/imagens/card_produto/IMG1-Produto.png" alt="">
                     </div>
@@ -380,7 +430,12 @@ else{
                     </div>
                 </div>
                 <div class="swiper-slide card_produto">
-                    <div class="icon_favorite"><i class="fa-solid fa-heart"></i></div>
+                      <div class="icon_favorite">
+                            <label class="checkbox-heart">
+                                <input type="checkbox">
+                                <i class="fa-solid fa-heart"></i>
+                            </label> 
+                    </div>
                     <div class="img_content_produto">
                         <img src="../../src/imagens/card_produto/IMG1-Produto.png" alt="">
                     </div>
@@ -401,7 +456,12 @@ else{
                     </div>
                 </div>
                 <div class="swiper-slide card_produto">
-                    <div class="icon_favorite"><i class="fa-solid fa-heart"></i></div>
+                      <div class="icon_favorite">
+                            <label class="checkbox-heart">
+                                <input type="checkbox">
+                                <i class="fa-solid fa-heart"></i>
+                            </label> 
+                    </div>
                     <div class="img_content_produto">
                         <img src="../../src/imagens/card_produto/IMG1-Produto.png" alt="">
                     </div>
@@ -422,7 +482,12 @@ else{
                     </div>
                 </div>
                 <div class="swiper-slide card_produto">
-                    <div class="icon_favorite"><i class="fa-solid fa-heart"></i></div>
+                      <div class="icon_favorite">
+                            <label class="checkbox-heart">
+                                <input type="checkbox">
+                                <i class="fa-solid fa-heart"></i>
+                            </label> 
+                    </div>
                     <div class="img_content_produto">
                         <img src="../../src/imagens/card_produto/IMG1-Produto.png" alt="">
                     </div>
@@ -472,7 +537,12 @@ else{
                 </div>
                 <div class="swiper-wrapper">
                 <div class="swiper-slide card_produto">
-                    <div class="icon_favorite"><i class="fa-solid fa-heart"></i></div>
+                      <div class="icon_favorite">
+                            <label class="checkbox-heart">
+                                <input type="checkbox">
+                                <i class="fa-solid fa-heart"></i>
+                            </label> 
+                    </div>
                     <div class="img_content_produto">
                         <img src="../../src/imagens/card_produto/IMG1-Produto.png" alt="">
                     </div>
@@ -493,7 +563,12 @@ else{
                     </div>
                 </div>
                 <div class="swiper-slide card_produto">
-                    <div class="icon_favorite"><i class="fa-solid fa-heart"></i></div>
+                      <div class="icon_favorite">
+                            <label class="checkbox-heart">
+                                <input type="checkbox">
+                                <i class="fa-solid fa-heart"></i>
+                            </label> 
+                    </div>
                     <div class="img_content_produto">
                         <img src="../../src/imagens/card_produto/IMG2-Produto.png" alt="">
                     </div>
@@ -514,7 +589,12 @@ else{
                     </div>
                 </div>
                 <div class="swiper-slide card_produto">
-                    <div class="icon_favorite"><i class="fa-solid fa-heart"></i></div>
+                      <div class="icon_favorite">
+                            <label class="checkbox-heart">
+                                <input type="checkbox">
+                                <i class="fa-solid fa-heart"></i>
+                            </label> 
+                    </div>
                     <div class="img_content_produto">
                         <img src="../../src/imagens/card_produto/IMG5-Produto.png" alt="">
                     </div>
@@ -535,7 +615,12 @@ else{
                     </div>
                 </div>
                 <div class="swiper-slide card_produto">
-                    <div class="icon_favorite"><i class="fa-solid fa-heart"></i></div>
+                      <div class="icon_favorite">
+                            <label class="checkbox-heart">
+                                <input type="checkbox">
+                                <i class="fa-solid fa-heart"></i>
+                            </label> 
+                    </div>
                     <div class="img_content_produto">
                         <img src="../../src/imagens/card_produto/IMG6-Produto.png" alt="">
                     </div>
@@ -556,7 +641,12 @@ else{
                     </div>
                 </div>
                 <div class="swiper-slide card_produto">
-                    <div class="icon_favorite"><i class="fa-solid fa-heart"></i></div>
+                      <div class="icon_favorite">
+                            <label class="checkbox-heart">
+                                <input type="checkbox">
+                                <i class="fa-solid fa-heart"></i>
+                            </label> 
+                    </div>
                     <div class="img_content_produto">
                         <img src="../../src/imagens/card_produto/IMG7-Produto.png" alt="">
                     </div>
@@ -577,7 +667,12 @@ else{
                     </div>
                 </div>
                 <div class="swiper-slide card_produto">
-                    <div class="icon_favorite"><i class="fa-solid fa-heart"></i></div>
+                      <div class="icon_favorite">
+                            <label class="checkbox-heart">
+                                <input type="checkbox">
+                                <i class="fa-solid fa-heart"></i>
+                            </label> 
+                    </div>
                     <div class="img_content_produto">
                         <img src="../../src/imagens/card_produto/IMG8-Produto.png" alt="">
                     </div>
@@ -638,7 +733,12 @@ else{
                 </div>
                 <div class="swiper-wrapper">
                 <div class="swiper-slide card_produto">
-                    <div class="icon_favorite"><i class="fa-solid fa-heart"></i></div>
+                      <div class="icon_favorite">
+                            <label class="checkbox-heart">
+                                <input type="checkbox">
+                                <i class="fa-solid fa-heart"></i>
+                            </label> 
+                    </div>
                     <div class="img_content_produto">
                         <img src="../../src/imagens/card_produto/IMG1-Produto.png" alt="">
                     </div>
@@ -659,7 +759,12 @@ else{
                     </div>
                 </div>
                 <div class="swiper-slide card_produto">
-                    <div class="icon_favorite"><i class="fa-solid fa-heart"></i></div>
+                      <div class="icon_favorite">
+                            <label class="checkbox-heart">
+                                <input type="checkbox">
+                                <i class="fa-solid fa-heart"></i>
+                            </label> 
+                    </div>
                     <div class="img_content_produto">
                         <img src="../../src/imagens/card_produto/IMG2-Produto.png" alt="">
                     </div>
@@ -680,7 +785,12 @@ else{
                     </div>
                 </div>
                 <div class="swiper-slide card_produto">
-                    <div class="icon_favorite"><i class="fa-solid fa-heart"></i></div>
+                      <div class="icon_favorite">
+                            <label class="checkbox-heart">
+                                <input type="checkbox">
+                                <i class="fa-solid fa-heart"></i>
+                            </label> 
+                    </div>
                     <div class="img_content_produto">
                         <img src="../../src/imagens/card_produto/IMG5-Produto.png" alt="">
                     </div>
@@ -701,7 +811,12 @@ else{
                     </div>
                 </div>
                 <div class="swiper-slide card_produto">
-                    <div class="icon_favorite"><i class="fa-solid fa-heart"></i></div>
+                      <div class="icon_favorite">
+                            <label class="checkbox-heart">
+                                <input type="checkbox">
+                                <i class="fa-solid fa-heart"></i>
+                            </label> 
+                    </div>
                     <div class="img_content_produto">
                         <img src="../../src/imagens/card_produto/IMG6-Produto.png" alt="">
                     </div>
@@ -722,7 +837,12 @@ else{
                     </div>
                 </div>
                 <div class="swiper-slide card_produto">
-                    <div class="icon_favorite"><i class="fa-solid fa-heart"></i></div>
+                      <div class="icon_favorite">
+                            <label class="checkbox-heart">
+                                <input type="checkbox">
+                                <i class="fa-solid fa-heart"></i>
+                            </label> 
+                    </div>
                     <div class="img_content_produto">
                         <img src="../../src/imagens/card_produto/IMG7-Produto.png" alt="">
                     </div>
@@ -743,7 +863,12 @@ else{
                     </div>
                 </div>
                 <div class="swiper-slide card_produto">
-                    <div class="icon_favorite"><i class="fa-solid fa-heart"></i></div>
+                      <div class="icon_favorite">
+                            <label class="checkbox-heart">
+                                <input type="checkbox">
+                                <i class="fa-solid fa-heart"></i>
+                            </label> 
+                    </div>
                     <div class="img_content_produto">
                         <img src="../../src/imagens/card_produto/IMG8-Produto.png" alt="">
                     </div>
