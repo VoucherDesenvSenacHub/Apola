@@ -477,226 +477,63 @@
 
 
 
-
-.comprar_produto_medium, .comprar_produto_bottom:last-child{
+.comprar_produto_medium{
     display: flex;
     width: 100%;
     height: 100%;
     justify-content: center;
-    align-items: center;
-    padding-top: 5rem;
-
-}
-
-.comprar_produto_bottom2{
-    display: flex;
-    width: 100%;
-    height: 100%;
-    justify-content: center;
-    align-items: center;
-    padding-top: 3rem;
-
-}
-
-.container_descricao_produto{
-    display: flex;
-    width:90%;
-    height: 50vh;
-    justify-content: center;
+    margin-top: 2rem;
     flex-direction: column;
-    gap: 1rem;
-}
-
-
-
-.name_descricao_produto{
-    display: flex;
-    color: #4A4A4A;
-    font-size: 16px;
-    font-weight: 500;
-    
-
-}
-
-.container_text_descricao_produto{
-    display: flex;
-    padding: 3rem;
-    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
-    background-color: #f5f5f5;
-    color: #4A4A4A;
-    font-size: 15px;
-    text-align: justify;
-    
-
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-.comprar_produto_bottom{
-    display: flex;
-    width: 100%;
-    height: 100%;
-    justify-content: center;
     align-items: center;
-    padding-top: 8rem;
-
+    gap: 2rem;
 }
 
 
-.comprar_produto_bottom .container_avaliacao_produto{
+.descricao_produto_solo_cont{
     display: flex;
-    width: 90%;
-    height: 100%;
+    width: 75%;
     flex-direction: column;
+    position: relative;
 }
 
-.container_cometario_produto{
-    display: flex;
-    border: 1px solid #c2c2c2 ;
-    width: 100%;
-    height: 100%;
-    flex-direction: column;
-    gap: 1rem;
-    padding: 1rem;
-    border-radius: 5px;
-    
 
-}
-
-.name_comentario_produto{
+.descricao_produto_solo_cont_header{
     display: flex;
-    background-color: #f3f3f3;
-    padding: 0.5rem;
-    border-radius: 5px;
+    justify-content: space-between;
     color: #4A4A4A;
-    font-size: 15px;
-    font-weight: 600;
+
 }
 
-
-.container_adicionar_comentario_input{
-    display: flex;
-    background-color: #f3f3f3;
-    width: 100%;
-    padding: 0.5rem;
-    gap: 10px;
-    border-radius: 5px;
-}
-
-.container_adicionar_comentario_input input{
-    display: flex;
-    width: 90%;
-    height: 45px;
-    border-radius: 5px;
-    padding: 10px;
+.icone_produto_solo_item{
     color: #4A4A4A;
-    font-size: 15px;
-    border: none;
-    outline-color: #b1b1b1;
-    
-}
-.container_adicionar_comentario_input .btn_publicar_comentario{
-    display: flex;
-    width: 10%;
-    height: 45px;
-    justify-content: center;
-    align-items: center;
-    border-radius: 5px;
-    background-color: #FA301E;
-    color: white;
     cursor: pointer;
-    border: none;
-    font-weight: 500;
-    outline: none;
+    transition: all 0.2s ease-in-out;
+
+}
+
+
+.descricao_produto_solo_cont_body{
+    flex-direction: column;
+    opacity: 0;
+    height: 0;
+    margin-top: 1rem;
+    overflow: hidden; /* Evitar que conteúdo fique visível durante a animação */
+    visibility: hidden;
+    display: flex;
+    background-color: aqua;
     transition: all 0.2s ease;
 }
-.container_adicionar_comentario_input .btn_publicar_comentario:hover{
-    background-color: #4A4A4A;
-}
 
-
-
-
-
-
-
-
-
-
-.container_comentarios_users{
-    display: flex;
-    flex-direction: column;
-}
-
-.container_comentarios_users .name_user_comentario{
-    display: flex;
-    gap: 0.8rem;
-    color: #777777;
-    font-size: 15px;
-
-}
-
-.stars_user_comentario{
-    display: flex;
-    font-size: 14px;
-    gap: 3px;
-}
-.stars_user_comentario i{
-    color: #ffbd07;
-
-}
-
-
-
-.text_user_comentario{
-    display: flex;
-    padding-top: 1rem;
-    font-size: 15px;
-    color: #777777;
-}
-
-.shape_user_comentario{
-    display: flex;
-    height: 1px;
-    width: 100%;
-    background-color: #cccccc;
-}
-
-
-
-
-
-
-
-
-.container_produto_relacionados{
-    display: flex;
-    width: 100%;
+.active_solo{
     height: 100%;
-    gap: 5rem;
-    justify-content: center;
-    align-items: center;
-    padding-top: 2rem;
+    opacity: 1;
+    visibility: visible;
+
+
 }
 
 
-
-
-
-
-
-
-
+/* 
 /* MEDIA QUERIES  */
 
 

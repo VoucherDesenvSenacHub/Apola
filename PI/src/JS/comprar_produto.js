@@ -38,3 +38,10 @@ mainImage.addEventListener('mousemove', function (e) {
 mainImage.addEventListener('mouseleave', function () {
     zoomResult.style.display = 'none';
 });
+
+
+
+
+
+
+

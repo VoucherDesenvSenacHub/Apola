@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="stylesheet" href="../../src/Css/style.css">
-    <link rel="stylesheet" href="../../src/Css/style_adm.css">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
@@ -25,23 +24,11 @@
     <script src="../../src/JS/drop_cep.js" defer></script>
     <script src="../../src/JS/drop_pedido.js" defer></script>
     <script src="../../src/JS/filtro-mobile.js" defer></script>
-    <script src="../../src/JS/list_adm.js" defer></script>
-    <script src="../../src/JS/list_controle_adm.js" defer></script>
     <script src="../../src/JS/menu-mobile.js" defer></script>
     <script src="../../src/JS/modal.js" defer></script>
     <script src="../../src/JS/swiper_sobre.js" defer></script>
     <script src="../../src/JS/swipper_card.js" defer></script>
-    <script src="../../src/JS/drop_footer.js" defer></script>
-
-    
-    <!-- SCRIPT ADM -->
-
-    <script src="../../src/JS/adm_nav.js" defer></script>
-    <script src="../../src/JS/btn_listar_adm.js" defer></script>
-    <script src="../../src/JS/cadastrar_banner.js" defer></script>
-
-
-
+    <script src="../../src/JS/item_comprar_produto.js" defer></script>
 
 
 
