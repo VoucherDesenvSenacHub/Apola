@@ -13,7 +13,7 @@ include "navbar_deslogado.php";
             <div class="container_body_cart">
                 <ul class="conatiner_list_item_cart">
                     <li>Produto</li>
-                    <li>Preço</li>
+                    <li>Preço Un.</li>
                     <li>Quantidade</li>
                     <li>Total</li>
                 </ul>
@@ -32,24 +32,20 @@ include "navbar_deslogado.php";
                                 <div class="cor_produto_cart">Cor - Preto //</div>
                                 <div class="tamanho_produto_cart">Tamanho - 10 cm</div>
                             </h6>
-                            <h6 class="detalhes_produto_cart_mobile">
-                                <h6 class="desconto_produto_cart">-122.60 R$</h6>
-                                <h6 class="preco_produto_cart">99,60 R$</h6>
-                            </h6>
 
                         </div>
                     </li>
                     <li class="produto_item_cart-2">
                        <h6 class="desconto_produto_cart">- 122.60 R$</h6>
-                       <h6 class="preco_produto_cart">99,60 R$</h6>
+                       <h6 class="preco_produto_cart">99.98 R$</h6>
                     </li>
                     <li class="produto_item_cart-3">
-                       <h6 class="subtrair_produto_cart">-</h6>
-                        <h6 class="quant_produto_cart">1</h6>
-                       <h6 class="adicionar_produto_cart">+</h6>
+                       <h6 id='sub_item_solo' class="subtrair_produto_cart">-</h6>
+                        <h6  id='quant_item_solo' class="quant_produto_cart">1</h6>
+                       <h6   id='sum_item_solo' class="adicionar_produto_cart">+</h6>
                     </li>
                     <li class="produto_item_cart-4 ">
-                        <h6 class="preco_produto_cart">99,60 R$</h6>
+                    <h6 class="preco_produto_cart"><div id="valor_produt">99.98</div> R$</h6>
                         <button class="container_remover_produto_cart">
                             <i class="fa-solid fa-trash"></i>
                         </button>

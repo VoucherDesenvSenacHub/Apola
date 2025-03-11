@@ -13,7 +13,6 @@ buttons.forEach(button => {
             btn.style.color = '';
         });
 
-        // Adiciona os estilos ao botão clicado
         button.style.backgroundColor = '#fafbff';
         button.style.color = '#4A4A4A';
     });

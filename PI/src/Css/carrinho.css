@@ -167,11 +167,18 @@
     width: 20%;
     padding-left: 2rem;
 }
-.produto_item_cart-1 .adicionar_produto_cart, .quant_produto_cart, .subtrair_produto_cart{
+.produto_item_cart-1 .adicionar_produto_cart, .produto_item_cart-1  .quant_produto_cart, .produto_item_cart-1  .subtrair_produto_cart{
     display: flex;
     color: #4A4A4A;
     cursor: pointer;
+    font-size: 17px;
+    cursor: pointer;
+    background-color: aqua;
 
+}
+
+#sub_item_solo, #sum_item_solo{
+    cursor: pointer;
 }
 
 

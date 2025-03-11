@@ -130,14 +130,12 @@ include "navbar_deslogado.php";
 
             <aside class="left_categoria">
                 <div class="container_title_left_categoria">
-                    <h6 class="title_left_categoria">Pagina Inicial</h6>
-                    <h6 class="title_left_categoria">></h6>
-                    <h6 class="title_left_categoria">Amigurmi</h6>
-                </div>
-                <div class="container_title_left_categoria">
-                    <h6 class="title_left_categoria  title_left_categoria_mobile">Faixa de Preço</h6>
+                    <h6 class="title_left_categoria">Home</h6>
+                    <h6 class="title_left_categoria">/</h6>
+                    <h6 class="title_left_categoria">Amigurumi</h6>
                 </div>
                 <div class="conatiner_input_preco">
+                    <h6 class="title_left_categoria  title_left_categoria_mobile">Faixa de Preço</h6>
                     <input type="range" id="preco" name="preco" min="0" max="1000" step="10" oninput="document.getElementById('rangeValue').innerText = this.value">
                     <div class="range-value">R$ <span id="rangeValue">500</span></div>
                 </div>
