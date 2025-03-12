@@ -542,6 +542,7 @@
     width: 75%;
     flex-direction: column;
     position: relative;
+    cursor: pointer;
 }
 
 
@@ -587,7 +588,6 @@
     overflow: hidden; /* Evitar que conteúdo fique visível durante a animação */
     visibility: hidden;
     display: flex;
-
     transition: all 0.2s ease;
 }
 
@@ -627,6 +627,94 @@
 
 
 
+.container_comentarios{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+
+
+}
+
+.conatiner_comentar_btn{
+    display: flex;
+    width: 100%;
+    justify-content: end;
+    padding-bottom:1rem;
+}
+
+
+.conatiner_comentar_btn .btn_comentar{
+    display: flex;
+    width: 120px;
+    justify-content: center;
+    height: 40px;
+    border-radius: 5px;
+    color: white;
+    background-color: #FA301E;
+    align-items: center;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    transition: all 0.2s ease;
+}
+
+.conatiner_comentar_btn .btn_comentar:hover{
+    background-color: #ac2013;
+}
+
+
+.comentario_item{
+    display: flex;
+    gap: 10px;
+    width: 100%;
+    flex-direction: column;
+}
+
+.conatiner_comentario_star{
+    display: flex;
+    width: 100%;
+    
+}
+
+
+.name_comentario{
+    display: flex;
+    color: #4A4A4A;
+    font-weight: 500;
+}
+
+.conatiner_comentario_star{
+    display: flex;
+    gap: 5px;
+}
+
+.conatiner_comentario_star .fa-star{
+    font-size: 14px;
+    display: flex;
+    color: #eeeeee;
+}
+
+#star_active{
+    color: #ff9900;
+}
+
+.comentario_text{
+    display: flex;
+    font-size: 14px;
+    color: #aaaaaa;
+    margin-bottom: 1rem;
+}
+
+
+.shape_comentario{
+    display: flex;
+    width: 100%;
+    height: 1px;
+    background-color: #e7e7e7;
+    margin-bottom: 1rem;
+}
 
 
 

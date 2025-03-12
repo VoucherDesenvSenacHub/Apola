@@ -132,7 +132,72 @@ include "navbar_deslogado.php";
                         </div>
                     </div>
                     <div class="descricao_produto_solo_cont_body">
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsam sequi repudiandae voluptatibus voluptates explicabo soluta magnam sapiente adipisci, id corporis vitae rerum voluptas aperiam harum minima veniam at! Architecto, ratione. Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus omnis eum, nisi magni dolore amet animi expedita debitis quae consequatur autem pariatur accusantium ipsa ipsam laboriosam at, iste, nihil itaque!
+                        <div class="container_comentarios">
+                            <div class="conatiner_comentar_btn">
+                                <button data-modal="modal-1" class ="btn_comentar open-modal">Avaliar</button>
+                            </div>
+                            <dialog id="modal-1">
+                                <div class="modal_header">
+                                <button class="close-modal" data-modal="modal-1"><i class="fa-solid fa-xmark"></i></button>
+                                </div>
+                                <div class="modal_body">
+                                <h5 class="title_modal_zap">Avaliação</h5>
+                                <div class="text_modal_zap">Gostou do produto? Sua opinião é essencial para que possamos continuar oferecendo a melhor experiência para nossos clientes. </div>
+                                <div class="conatiner_item_modal_link_zap">
+                                    <form action="">
+                                        <div class="item_star_modal">
+                                            <div class="conatiner_comentario_star_modal">
+                                                <i class="fa-solid fa-star " ></i>
+                                                <i class="fa-solid fa-star" ></i>
+                                                <i class="fa-solid fa-star" ></i>
+                                                <i class="fa-solid fa-star" ></i>
+                                            </div>
+                                            <textarea name="" id="" cols="30" rows="10"></textarea>
+                                            <div class="container_avalirar_btn">
+                                                <button class="avaliar_btn">Comentar</button>
+                                            </div>
+                                        </div>
+
+                                    </form>
+                                </div>  
+                                </div>
+                            </dialog>
+                            <div class="comentario_item">
+                                <div class="name_comentario">Lucas Nogueira</div>
+                                <div class="conatiner_comentario_star">
+                                    <i class="fa-solid fa-star " id='star_active'></i>
+                                    <i class="fa-solid fa-star" id='star_active'></i>
+                                    <i class="fa-solid fa-star" id='star_active'></i>
+                                    <i class="fa-solid fa-star"></i>
+                                </div>
+                                <div class="comentario_text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus tempore provident animi iusto dignissimos at beatae eum aspernatur doloribus hic deserunt, voluptatibus consectetur! Explicabo incidunt enim neque magni quod quae.
+                                </div>  
+                            </div>
+                            <div class="shape_comentario"></div>
+                            <div class="comentario_item">
+                                <div class="name_comentario">Amanda Neto</div>
+                                <div class="conatiner_comentario_star">
+                                    <i class="fa-solid fa-star " id='star_active'></i>
+                                    <i class="fa-solid fa-star" id='star_active'></i>
+                                    <i class="fa-solid fa-star" id='star_active'></i>
+                                    <i class="fa-solid fa-star"></i>
+                                </div>
+                                <div class="comentario_text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore obcaecati architecto eaque accusantium tempore doloribus saepe ratione fugit sed quisquam libero, ea consequatur, ad nostrum dolores officia repellendus deserunt recusandae.
+                                </div>  
+                            </div>
+                            <div class="shape_comentario"></div>
+                            <div class="comentario_item">
+                                <div class="name_comentario">Larissa Ribeiro</div>
+                                <div class="conatiner_comentario_star">
+                                    <i class="fa-solid fa-star " id='star_active'></i>
+                                    <i class="fa-solid fa-star" id='star_active'></i>
+                                    <i class="fa-solid fa-star" id='star_active'></i>
+                                    <i class="fa-solid fa-star"  id='star_active'></i>
+                                </div>
+                                <div class="comentario_text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore eos natus eius neque sint sed maxime id, quo amet corrupti ipsa ut vitae sunt distinctio quis dolor? Est, distinctio dignissimos?
+                                </div>  
+                            </div>
+                        </div>
                     </div>
                     <div class="shape_solo"></div>
                 </div>

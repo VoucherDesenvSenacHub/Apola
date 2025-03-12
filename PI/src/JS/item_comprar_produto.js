@@ -33,6 +33,7 @@ BtnFecharSolo.forEach(soloFechar => {
 
 
 
+
 let Subtracao = document.getElementById('sub_item_solo');
 let Adicao = document.getElementById('sum_item_solo');
 let Result = document.getElementById("quant_item_solo");
