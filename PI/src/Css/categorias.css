@@ -182,6 +182,7 @@
     outline: none;
     color: #4A4A4A;
     border: 1px solid #c2c2c2 ;
+    font-size: 13px;
 }
 
 .container_filtro_right select option{
@@ -190,12 +191,14 @@
 }
 
 
+
+
 .wrap__filtro_right{
     display: flex;
     flex-wrap: wrap;
     width: 100%;
     gap: 5rem;
-    padding-top: 2rem;
+    padding-top: 3rem;
 }
 
 
@@ -466,7 +469,10 @@ MOBILE */
     outline: none;
     color: #4A4A4A;
     border: 1px solid #c2c2c2 ;
+    font-size: 13px;
 }
+
+
 
 }
 
