@@ -65,7 +65,7 @@ else{
                     <div class="Title_card_produto Title_card_categoria">Categorias</div>
                     <ul class="list_cards_categoria">
                         <li class="item_cards_categoria">
-                            <a class="link_cards_categoria" href="#">
+                            <a class="link_cards_categoria" href="./categorias.php">
                                 <div class="img_content_categoria">
                                     <img src="../../src/imagens/img_categorias/img1.png" alt="">
                                 </div>
@@ -73,7 +73,7 @@ else{
                             </a>
                         </li>
                         <li class="item_cards_categoria">
-                            <a class="link_cards_categoria" href="#">
+                            <a class="link_cards_categoria" href="./categorias.php">
                                 <div class="img_content_categoria">
                                     <img src="../../src/imagens/img_categorias/img2.png" alt="">
                                 </div>
@@ -89,7 +89,7 @@ else{
                             </a>
                         </li>
                         <li class="item_cards_categoria">
-                            <a class="link_cards_categoria" href="#">
+                            <a class="link_cards_categoria" href="./categorias.php">
                                 <div class="img_content_categoria">
                                     <img src="../../src/imagens/img_categorias/img4.png" alt="">
                                 </div>
@@ -120,6 +120,7 @@ else{
                                 <i class="fa-solid fa-heart"></i>
                             </label> 
                         </div>
+                    <a  style ="text-decoration:none;"class="link_produto_home" href="./comprar_produto.php">
                     <div class="img_content_produto">
                         <img src="../../src/imagens/card_produto/IMG1-Produto.png" alt="">
                     </div>
@@ -174,6 +175,7 @@ else{
                                 <i class="fa-solid fa-heart"></i>
                             </label> 
                     </div>
+                    <a  style ="text-decoration:none;"class="link_produto_home" href="./comprar_produto.php">
                     <div class="img_content_produto">
                         <img src="../../src/imagens/card_produto/IMG5-Produto.png" alt="">
                     </div>
@@ -200,6 +202,7 @@ else{
                                 <i class="fa-solid fa-heart"></i>
                             </label> 
                     </div>
+                    <a  style ="text-decoration:none;"class="link_produto_home" href="./comprar_produto.php">
                     <div class="img_content_produto">
                         <img src="../../src/imagens/card_produto/IMG6-Produto.png" alt="">
                     </div>
@@ -706,12 +709,12 @@ else{
                     <div class="overlay_cat_2"></div>
                     <span class="text_card_cat_2">Amigurumi</span>
                 </div>
-                <div class="item_card_cat_2">
+                <div class="item_card_cat_2" href="categorias.php">
                     <img src="../../src/imagens/img_categorias_2/Se adapta à decoração de qualquer ambiente_ seja sala, escritório, varanda, etc - cachepô cimento.jfif" alt="" class="img_card_cat_2">
                     <div class="overlay_cat_2"></div>
                     <span class="text_card_cat_2">Cachepô</span>
                 </div>
-                <div class="item_card_cat_2">
+                <div class="item_card_cat_2" href="./categorias.php">
                     <img src="../../src/imagens/img_categorias_2/Organização de hall de entrada.jfif" alt="" class="img_card_cat_2">
                     <div class="overlay_cat_2"></div>
                     <span class="text_card_cat_2">Porta-Chaves</span>

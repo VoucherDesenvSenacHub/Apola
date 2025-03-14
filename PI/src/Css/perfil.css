@@ -45,6 +45,7 @@
     border-radius: 50%;
     justify-content: center;
     align-items: center;
+    
 }
 
 .shape_perfil img{
@@ -52,6 +53,7 @@
     width: 90%;
     height: 90%;
     object-fit: contain;
+    border-radius: 50%;
 }
 
 

@@ -1,9 +1,10 @@
 <?php
 
 include "head.php";
-include "navbar_logado.php";
+include "navbar_logado.php"; 
 
 ?>
+<link rel="stylesheet" href="../../src/Css/perfil.css">
     <main  class="main2">
         <section class="container_perfil">
             <div class="left-container_favoritos">
@@ -32,7 +33,7 @@ include "navbar_logado.php";
                     <div class="container_banner_perfil">
                         <img src="" alt="">
                         <div class="shape_perfil">
-                            <img src="../../src/imagens/img_categorias/bastidor-de-bordar.png" alt="">
+                            <img src="#" alt="">
                         </div>
                     </div>
                     <form class="inputs_perfil">
@@ -124,8 +125,8 @@ include "navbar_logado.php";
                                     <div class="text_modal_zap">Selecione o endereço padrão de envio desejado.</div>
                                     <form class="container_form_modal_email">
                                       <div class="item_endereco_cadastrados_modal">
-                                          <div class="selection_shape_modal"></div>
-                                          <h6 class="text_endereco_cadatrados_modal">Avenida dos Eucaliptos, 789, Centro, RJ</h6>
+                                            <div class="selection_shape_modal"></div>
+                                            <h6 class="text_endereco_cadatrados_modal">Avenida dos Eucaliptos, 789, Centro, RJ</h6>
                                       </div>
                                       <div class="item_endereco_cadastrados_modal">
                                           <div class=" selection_shape_modal active"></div>
