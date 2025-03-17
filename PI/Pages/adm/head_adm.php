@@ -38,6 +38,7 @@
     <script src="../../src/JS/adm_nav.js" defer></script>
     <script src="../../src/JS/btn_listar_adm.js" defer></script>
     <script src="../../src/JS/cadastrar_banner.js" defer></script>
+    <script src="../../src/JS/deshboard_adm.js" defer></script>
 
 
 

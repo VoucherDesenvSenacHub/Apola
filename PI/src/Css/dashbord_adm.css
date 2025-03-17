@@ -9,16 +9,49 @@
 
 .cont_dados{
     display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    gap: 5rem;
+    text-align: center;
     width: 100%;
-    height:200px;
+    height: 30%;
     background-color: white;
+    color: #4a4a4a;
     border-radius: 10px;
     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
     margin-top: 2rem;
-
-
+    padding: 30px;
+}
+.metric_card{
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 200px;
+    height: 200px;
+    text-align: center;
+    /* border-bottom: 2px solid #FA301E; */
 }
 
+    .metric_card.clics { border-top: 4px solid #008FFB; }
+    .metric_card.view { border-top: 4px solid #00E396; }
+    .metric_card.leads { border-top: 4px solid #FEB019; }
+    .metric_card.sale { border-top: 4px solid #FF4560; }
+/* #grafico_vendas_anos{
+    width: 800px;
+    height: 300px;
+} */
+.metric_card p{
+    font-weight: 600;
+    font-size: 18px;
+}
+
+#graficoClicks, #graficoViews, #graficoLeads, #graficoSales {
+   /* border: 1px solid rgba(0, 0, 0, 0.263);  Cor e espessura da borda */
+   /* border-radius: 5px; Cantos arredondados */
+    padding: 0; /* Espaçamento interno */
+}
 
 .grafico_dados{
     display: flex;
@@ -26,13 +59,20 @@
     gap: 3rem;
     height: 300px;
     margin-top: 3rem;
+    margin-bottom: 5rem;
 
 }
 
-.grafico_dados .grafico_dados_1{
+/* .grafico_dados .grafico_dados_1{
     display: flex;
-    width: 60%;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 33%;
+    height: 500px;
+    padding: 30px;
     background-color: white;
+    color: #4a4a4a;
     border-radius: 10px;
     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 
@@ -40,28 +80,108 @@
 
 .grafico_dados .grafico_dados_2{
     display: flex;
-    width: 40%;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 30px;
+    width: 33%;
+    height: 500px;
     background-color: white;
+    color: #4a4a4a;
     border-radius: 10px;
     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-
-
 }
+
+.grafico_dados .grafico_dados_3{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 30px;
+    width: 33%;
+    height: 500px;
+    background-color: white;
+    color: #4a4a4a;
+    border-radius: 10px;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+} */
+
 
 
  .pesquisa_geral_dados_produtos{
     display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
     width: 100%;
-    height: 100vh;
+    height: 60vh;
+    padding: 50px;
     margin-top: 3rem;
     background-color: white;
+    color: #4a4a4a;
     border-radius: 10px;
     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-
+    gap: 1rem;
 } 
 
+.grafico_geral_produtos{
+    width: 50%;
+    /* background-color: blue; */
+    height: 400px;
+    /* box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    /* background-color: blue; */
+}
+.area_grafico{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 500px;
+    height: 350px;
+    /* background-color: orange; */
+}
 
-@media (max-width: 585px) {
+.grafico_geral_produtos h2{
+    text-align: center;
+    top: 0;
+}
+
+
+#grafico1{
+        width: 90%;
+        height: auto;
+    }
+
+
+@media (max-width: 1318px) {
+    .cont_dados{
+        flex-direction: column;
+        gap: 50px;
+    }
+    .metric_card{
+        width: 200px;
+        height: 100px;
+    }
+    .pesquisa_geral_dados_produtos{
+        flex-direction: column;
+        height: auto;
+        gap: 2rem;
+    }
+    .area_grafico{
+        width: auto;
+    }
+    #grafico1{
+        width: 300px;
+        height: auto;
+    }
+
+}
+
+/* @media (max-width: 585px) {
 
     .grafico_dados{
         flex-direction: column;
@@ -78,7 +198,7 @@
         width: 100%;
         height: 300px;
     }
-}
+} */
 
 @media (max-width: 552px) {
 
@@ -100,18 +220,3 @@
     }
     
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

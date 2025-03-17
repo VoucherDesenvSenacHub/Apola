@@ -92,7 +92,6 @@ include "nav_bar_adm.php";
         <div class="conatiner_dashbord_adm">
             <div class="Title_deafult_adm">
                 <div class="container_title_adm_left">
-                    <i class="fa-solid fa-chevron-left"></i>
                     <span class="title_adm">Produtos</span>
                 </div>
                 <div class="container_title_adm_right">

@@ -34,6 +34,6 @@
 
 
 
-    <title>Navbar</title>
+    <title>Apola</title>
 </head>
 <body>
