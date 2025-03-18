@@ -484,8 +484,10 @@
     font-size: 19px;
     font-weight: 300;
     color: #4A4A4A;
-    text-align: center;
+    text-align: justify;
 }
+
+
 
 
 .btn_card_sobre{
@@ -524,22 +526,6 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /* AREA CONTEUDO SOBRE NÓS */
 
 
@@ -555,6 +541,17 @@
     display: flex;
     width: 100%;
     height: 90%;
+}
+
+.conteudo_text_about{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 90%;
+}
+
+.texto_about{
+    text-align: justify;
 }
 
 
