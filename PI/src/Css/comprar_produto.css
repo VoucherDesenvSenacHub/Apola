@@ -715,6 +715,28 @@
     background-color: #e7e7e7;
     margin-bottom: 1rem;
 }
+/* Estilos para a estrela */
+.star-container {
+    display: inline-block;
+    position: relative;
+    
+  }
+  
+  .star-checkbox {
+    display: none;
+  }
+  
+  .star {
+    font-size: 22px;
+    color: lightgray;
+    cursor: pointer;
+    transition: color 0.3s ease;
+  }
+  
+  /* Quando o checkbox estiver marcado */
+  .star-checkbox:checked + .star {
+    color: #ff9900;
+  }
 
 
 

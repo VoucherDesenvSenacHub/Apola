@@ -132,7 +132,7 @@ else{
                             <i class="fa-solid fa-star"></i>
                             <i class="fa-solid fa-star"></i>
                         </div>
-                        <div class="preco_card_produto">R$ 50,89</div>
+                        <div class="preco_card_produto">R$ 109,89</div>
                         <div class="btn_content_card_produto">
                             <div class="btn_bag_card"><i class="fa-solid fa-bag-shopping"></i></div>
                             <div class="btn_buy_card">Comprar</div>
@@ -151,7 +151,7 @@ else{
                             <img src="../../src/imagens/card_produto/IMG9-Produto.png" alt="">
                         </div>
                         <div class="conteudo_card">
-                            <div class="nome_card_produto">Amigurmi Raposa</div>
+                            <div class="nome_card_produto">Amigurmi urso</div>
                             <div class="content_star_icon">
                                 <i class="fa-solid fa-star"></i>
                                 <i class="fa-solid fa-star"></i>
@@ -159,7 +159,7 @@ else{
                                 <i class="fa-solid fa-star"></i>
                                 <i class="fa-solid fa-star"></i>
                             </div>
-                            <div class="preco_card_produto">R$ 50,89</div>
+                            <div class="preco_card_produto">R$ 125,90</div>
                             <div class="btn_content_card_produto">
                                 <div class="btn_bag_card"><i class="fa-solid fa-bag-shopping"></i></div>
                                 <div class="btn_buy_card">Comprar</div>
@@ -178,7 +178,7 @@ else{
                         <img src="../../src/imagens/card_produto/IMG5-Produto.png" alt="">
                     </div>
                     <div class="conteudo_card">
-                        <div class="nome_card_produto">Amigurmi Raposa</div>
+                        <div class="nome_card_produto">Amigurmi Esquilo</div>
                         <div class="content_star_icon">
                             <i class="fa-solid fa-star"></i>
                             <i class="fa-solid fa-star"></i>
@@ -186,7 +186,7 @@ else{
                             <i class="fa-solid fa-star"></i>
                             <i class="fa-solid fa-star"></i>
                         </div>
-                        <div class="preco_card_produto">R$ 50,89</div>
+                        <div class="preco_card_produto">R$ 80,75</div>
                         <div class="btn_content_card_produto">
                             <div class="btn_bag_card"><i class="fa-solid fa-bag-shopping"></i></div>
                             <div class="btn_buy_card">Comprar</div>
@@ -204,7 +204,7 @@ else{
                         <img src="../../src/imagens/card_produto/IMG6-Produto.png" alt="">
                     </div>
                     <div class="conteudo_card">
-                        <div class="nome_card_produto">Amigurmi Raposa</div>
+                        <div class="nome_card_produto">Cachepô Vaso</div>
                         <div class="content_star_icon">
                             <i class="fa-solid fa-star"></i>
                             <i class="fa-solid fa-star"></i>
