@@ -1,7 +1,7 @@
 <?php
 
 include "head.php";
-include "navbar_deslogado.php";
+include "navbar_logado.php";
 
 ?>
     <main  class="main2">
@@ -109,20 +109,20 @@ include "navbar_deslogado.php";
                         </div>
                         <dialog id="modal-1">
                             <div class="modal_header">
-                              <button class="close-modal" data-modal="modal-1"><i class="fa-solid fa-xmark"></i></button>
+                                <button class="close-modal" data-modal="modal-1"><i class="fa-solid fa-xmark"></i></button>
                             </div>
                             <div class="modal_body">
-                              <h5 class="title_modal_zap">Pedido Realizado!</h5>
-                              <div class="text_modal_zap">Segue o link do nosso WhatsApp para realizar o pagamento. Entraremos em contato em breve.</div>
-                              <div class="conatiner_item_modal_link_zap">
+                                <h5 class="title_modal_zap">Pedido Realizado!</h5>
+                                <div class="text_modal_zap">Segue o link do nosso WhatsApp para realizar o pagamento. Entraremos em contato em breve.</div>
+                                <div class="conatiner_item_modal_link_zap">
                                 <div class="item_modal_link_zap">
-                                  <i class="fa-brands fa-whatsapp"></i>
-                                  <a href="#">67 991924837</a>
+                                    <i class="fa-brands fa-whatsapp"></i>
+                                    <a href="#">67 991924837</a>
                                 </div>
-                              </div>  
+                                </div>  
                             </div>
-                          </dialog>
-                          <script src="../../src/JS/modal.js"></script>
+                            </dialog>
+                            <script src="../../src/JS/modal.js"></script>
                     </div>
 
                 </div>

@@ -1,7 +1,7 @@
 <?php
 
 include "head.php";
-include "navbar_deslogado.php";
+include "navbar_logado.php";
 
 ?>
     <main  class="main2">
@@ -240,6 +240,29 @@ include "navbar_deslogado.php";
                     </select>
                 </div>
                 <div class="wrap__filtro_right">
+                    <a  style ="text-decoration:none;"class="link_produto_home" href="./comprar_produto.php">
+                    <div class="card_produto">
+                        <div class="icon_favorite"><i class="fa-solid fa-heart"></i></div>
+                        <div class="img_content_produto">
+                            <img src="../../src/imagens/card_produto/IMG1-Produto.png" alt="">
+                        </div>
+                        <div class="conteudo_card">
+                            <div class="nome_card_produto">Amigurmi Raposa</div>
+                            <div class="content_star_icon">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                            </div>
+                            <div class="preco_card_produto">R$ 50,89</div>
+                            <div class="btn_content_card_produto">
+                                <div class="btn_bag_card"><i class="fa-solid fa-bag-shopping"></i></div>
+                                <button class="btn_buy_card" href="./comprar_produto.php">Comprar</button>
+                            </div>
+                        </div>
+                    </div>
+                    <a  style ="text-decoration:none;"class="link_produto_home" href="./comprar_produto.php">
                     <div class="card_produto">
                         <div class="icon_favorite"><i class="fa-solid fa-heart"></i></div>
                         <div class="img_content_produto">
@@ -262,6 +285,7 @@ include "navbar_deslogado.php";
                         </div>
                     </div>
                     <div class="card_produto">
+                    <a  style ="text-decoration:none;"class="link_produto_home" href="./comprar_produto.php">
                         <div class="icon_favorite"><i class="fa-solid fa-heart"></i></div>
                         <div class="img_content_produto">
                             <img src="../../src/imagens/card_produto/IMG1-Produto.png" alt="">
@@ -283,27 +307,7 @@ include "navbar_deslogado.php";
                         </div>
                     </div>
                     <div class="card_produto">
-                        <div class="icon_favorite"><i class="fa-solid fa-heart"></i></div>
-                        <div class="img_content_produto">
-                            <img src="../../src/imagens/card_produto/IMG1-Produto.png" alt="">
-                        </div>
-                        <div class="conteudo_card">
-                            <div class="nome_card_produto">Amigurmi Raposa</div>
-                            <div class="content_star_icon">
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                            </div>
-                            <div class="preco_card_produto">R$ 50,89</div>
-                            <div class="btn_content_card_produto">
-                                <div class="btn_bag_card"><i class="fa-solid fa-bag-shopping"></i></div>
-                                <div class="btn_buy_card">Comprar</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card_produto">
+                    <a  style ="text-decoration:none;"class="link_produto_home" href="./comprar_produto.php">
                         <div class="icon_favorite"><i class="fa-solid fa-heart"></i></div>
                         <div class="img_content_produto">
                             <img src="../../src/imagens/card_produto/IMG1-Produto.png" alt="">

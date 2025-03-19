@@ -148,39 +148,39 @@
                                     <div class="mega-menu">
                                         <div class="mega-menu-content">
                                             <div class="row">
-                                                <h3 class="Title-cat"><a href="">Amigurumi</a></h3>
+                                                <h3 class="Title-cat"><a href="./categorias.php">Amigurumi</a></h3>
                                                 <ul class="mega-links">
+                                                    <!-- <li><a href="">Amigurumi Cacto</a></li>
                                                     <li><a href="">Amigurumi Cacto</a></li>
                                                     <li><a href="">Amigurumi Cacto</a></li>
-                                                    <li><a href="">Amigurumi Cacto</a></li>
-                                                    <li><a href="">Amigurumi Cacto</a></li>
+                                                    <li><a href="">Amigurumi Cacto</a></li> -->
                                                 </ul>
                                             </div>
                                             <div class="row">
-                                                <h3 class="Title-cat"><a href="">Cachepô</a></h3>
+                                                <h3 class="Title-cat"><a href="./categorias.php">Cachepô</a></h3>
                                                 <ul class="mega-links">
+                                                    <!-- <li><a href="">Cachepô Cacto</a></li>
                                                     <li><a href="">Cachepô Cacto</a></li>
                                                     <li><a href="">Cachepô Cacto</a></li>
-                                                    <li><a href="">Cachepô Cacto</a></li>
-                                                    <li><a href="">Cachepô Cacto</a></li>
+                                                    <li><a href="">Cachepô Cacto</a></li> -->
                                                 </ul>
                                             </div>
                                             <div class="row">
-                                                <h3 class="Title-cat"><a href="">Porta-Chaves</a></h3>
+                                                <h3 class="Title-cat"><a href="./categorias.php">Porta-Chaves</a></h3>
                                                 <ul class="mega-links">
+                                                    <!-- <li><a href="">Porta-Chaves Cacto</a></li>
                                                     <li><a href="">Porta-Chaves Cacto</a></li>
                                                     <li><a href="">Porta-Chaves Cacto</a></li>
-                                                    <li><a href="">Porta-Chaves Cacto</a></li>
-                                                    <li><a href="">Porta-Chaves Cacto</a></li>
+                                                    <li><a href="">Porta-Chaves Cacto</a></li> -->
                                                 </ul>
                                             </div>
                                             <div class="row">
-                                                <h3 class="Title-cat"><a href="">Bordado</a></h3>
+                                                <h3 class="Title-cat"><a href="./categorias.php">Bordado</a></h3>
                                                 <ul class="mega-links">
+                                                    <!-- <li><a href="">Bordado Cacto</a></li>
                                                     <li><a href="">Bordado Cacto</a></li>
                                                     <li><a href="">Bordado Cacto</a></li>
-                                                    <li><a href="">Bordado Cacto</a></li>
-                                                    <li><a href="">Bordado Cacto</a></li>
+                                                    <li><a href="">Bordado Cacto</a></li> -->
                                                 </ul>
                                         </div>
                                     </div>
@@ -189,7 +189,7 @@
                                     <a id="icon-default" href="./carrinho.php"><i class="fa-solid fa-bag-shopping"></i></a>
                                 </li>
                                 <li class="icon-default-back">
-                                    <a class="conatiner_navbar_perfil_2" href="./perfil.php"><img class="img_navbar_2" src="../../src/imagens/img_categorias/urso-teddy.png" alt=""></a>
+                                    <a class="conatiner_navbar_perfil_2" href="./perfil.php"><img class="img_navbar_2" src="../../src/imagens/image.png" alt=""></a>
             
                 
                                 </li>

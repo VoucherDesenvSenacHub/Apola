@@ -1,7 +1,7 @@
 <?php
 
 include "head.php";
-include "navbar_deslogado.php";
+include "navbar_logado.php";
 
 ?>
 
@@ -80,15 +80,38 @@ include "navbar_deslogado.php";
                                 </div>
                             </div> 
                             <div class="container_buy_produto none_display">
-                                <button class="btn_buy_produto"> Comprar</button>
-                                <button class="btn_bag_produto"><i class="fa-solid fa-bag-shopping"></i></button>
+                                <dialog id="modal-2">
+                                    <div class="modal_header">
+                                        <button class="close-modal" data-modal="modal-2"><i class="fa-solid fa-xmark"></i></button>
+                                    </div>
+                                    <div class="modal_body">
+                                        <h5 class="title_modal_zap">Produto Comprado!
+                                        </h5>
+                                        <div class="text_modal_zap">
+                                            Recebemos seu pedido e ele está em processo de análise. Em breve, você será notificado sobre a aprovação. 
+                                            Fique atento às atualizações no seu e-mail ou painel de pedidos. Dúvidas entre em contato.
+                                        </div>
+                                        <div class="conatiner_item_modal_link_zap">
+                                            <div class="item_modal_link_zap">
+                                                <i class="fa-brands fa-whatsapp"></i>
+                                                <a href="#">67 991924837</a>
+                                            </div>
+                                        </div>  
+                                    </div>
+                                </dialog>
+                                <!-- O botão de compra -->
+                                <button class="btn_buy_produto"  data-modal="modal-2">Comprar</button> <!-- AQUIIIIIII -->
+                                <script src="../src/JS/modal.js" defer></script>
+                                <!-- O botão da bolsa -->
+                                <button class="btn_bag_produto">
+                                    <i class="fa-solid fa-bag-shopping"></i>
+                                </button>
                             </div>
                             <div class="container_buy_quant display_none_solo">
                                 <div id='sub_item_solo' class="menos_cart"><i class="fa-solid fa-minus"></i></div>
                                 <div  id='quant_item_solo' class="quant_cart_solo">1</div>
                                 <div  id='sum_item_solo' class="mais_cart"><i class="fa-solid fa-plus"></i></div>
                             </div>
-                        
                         </div>
         
                     </div>
@@ -225,6 +248,43 @@ include "navbar_deslogado.php";
 
         </div>
     </main>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+    const openButtons = document.querySelectorAll('.open-modal');
+    const closeButtons = document.querySelectorAll('.close-modal');
+
+    openButtons.forEach(button => {
+        button.addEventListener('click', (e) => {
+            const modalId = e.currentTarget.getAttribute('data-modal');
+            const modal = document.getElementById(modalId);
+            if (modal) {
+                modal.showModal();
+            }
+        });
+    });
+
+    closeButtons.forEach(button => {
+        button.addEventListener('click', (e) => {
+            const modalId = e.currentTarget.getAttribute('data-modal');
+            const modal = document.getElementById(modalId);
+            if (modal) {
+                modal.close();
+            }
+        });
+    });
+
+    // Novo código para o botão de "Comprar"
+    const buyButton = document.querySelector('.btn_buy_produto');
+    const modal2 = document.getElementById('modal-2');
+    
+    if (buyButton && modal2) {
+        buyButton.addEventListener('click', () => {
+            modal2.showModal(); // Abre o modal de pedido enviado
+        });
+    }
+});
+
+    </script>
 <?php
 
 include "footer.php";

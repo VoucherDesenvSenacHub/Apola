@@ -1,35 +1,35 @@
 
 <?php
-require '../../App/Entity/Cliente.php';
+// require '../../App/Entity/Cliente.php';
 
-require '../../App/Session/Login.php';
-Login::requireLogout();
-
-
-$alertaLogin ='';
+// require '../../App/Session/Login.php';
+// Login::requireLogout();
 
 
-$alertaCadastro ='';
+// $alertaLogin ='';
 
-if (isset($_POST['logar'])){
-    if(isset($_POST['email'], $_POST['senha'])){
-        $email = $_POST['email'];
-        $senha = $_POST['senha'];
-        $confSenha = $_POST['conf-senha'];
-        // Verificar se exite usuario com esse email no banco
-        $cliente = Cliente::getUsuarioPorEmail($_POST['email']);
+
+// $alertaCadastro ='';
+
+// if (isset($_POST['logar'])){
+//     if(isset($_POST['email'], $_POST['senha'])){
+//         $email = $_POST['email'];
+//         $senha = $_POST['senha'];
+//         // $confSenha = $_POST['conf-senha'];
+//         // Verificar se exite usuario com esse email no banco
+//         $cliente = Cliente::getUsuarioPorEmail($_POST['email']);
         
-        // Verifica se exite usuario com essa senha no banco
-        if(!$cliente instanceof Cliente || !password_verify($_POST['senha'], $cliente->senha)){
-            $alertaLogin = 'Email ou senha Inválidos';
-        }else{
-               // Loga usuario
-               Login::login($cliente);
-        }
+//         // Verifica se exite usuario com essa senha no banco
+//         if(!$cliente instanceof Cliente || !password_verify($_POST['senha'], $cliente->senha)){
+//             $alertaLogin = 'Email ou senha Inválidos';
+//         }else{
+//                // Loga usuario
+//                Login::login($cliente);
+//         }
     
 
-    }
-}
+//     }
+// }
 
 
 
@@ -67,7 +67,7 @@ if (isset($_POST['logar'])){
                 <div class="container-login">
                     <div class="form-container">
                         <div class="text-login">Login</div>
-                        <form  method="POST">
+                        <form action="./home_logado.php" method="POST">
                             <div class="form__group field">
                                 <input type="email" name='email' id="email-login" class="form__field" placeholder="E-mail" required>
                                 <label for="email" class="form__label">E-mail*</label>
@@ -101,10 +101,11 @@ if (isset($_POST['logar'])){
                                 <script src="../../src/JS/modal.js"></script>
                             </div>
                             <div class="btn-login">
-                                <a href=""><button name='logar' type="submit">Entrar</button></a>
+                                <a><button name='logar' href="../adm/dashbord_adm.php" type="submit">Entrar</button></a>
                             </div>
-                            <p id="msnErro-login" class="msnErro-login"> <?=$alertaLogin?> </p>
+                            <p id="msnErro-login" class="msnErro-login"></p>
                             <span class="span-login">Novo na Apola?<a href="./cadastro.php">Cadastra-se</a></span>
+                            <span class="span-login">Entrar como <a href="../adm/dashbord_adm.php">Colaborador</a></span>
                         </form>
                     </div>
                 </div>
