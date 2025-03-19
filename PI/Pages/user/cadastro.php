@@ -3,30 +3,27 @@
 
 
 
-require '../../App/Entity/Cliente.php';
+// require '../../App/Entity/Cliente.php';
+
+// $AlertErr= '';
+
+// if (isset($_POST['nome'],$_POST['email'], $_POST['cep'], $_POST['cpf'],$_POST['senha'])) {
+//     $nome = $_POST["nome"];
+//     $email = $_POST["email"];
+//     $cep = $_POST['cep'];
+//     $senha = password_hash($_POST['senha'], PASSWORD_DEFAULT);
+//     $cpf = $_POST['cpf'];
+
+//     $cliente = new Cliente($nome,$cep,$cpf,$email,$senha);
+//     $result= $cliente->cadastrarCliente();
 
 
 
-
-$AlertErr= '';
-
-if (isset($_POST['nome'],$_POST['email'], $_POST['cep'], $_POST['cpf'],$_POST['senha'])) {
-    $nome = $_POST["nome"];
-    $email = $_POST["email"];
-    $cep = $_POST['cep'];
-    $senha = password_hash($_POST['senha'], PASSWORD_DEFAULT);
-    $cpf = $_POST['cpf'];
-
-    $cliente = new Cliente($nome,$cep,$cpf,$email,$senha);
-    $result= $cliente->cadastrarCliente();
+//     header('location: ./login.php?status=success');
+//     exit;
 
 
-
-    header('location: ./login.php?status=success');
-    exit;
-
-
-}
+// }
 
 
 ?>  -->
@@ -59,7 +56,7 @@ if (isset($_POST['nome'],$_POST['email'], $_POST['cep'], $_POST['cpf'],$_POST['s
                 <div class="container-cadastro">
                     <div class="form-cadastro">
                         <div class="text-cadastro">Cadastro</div>
-                        <form method='POST'>
+                        <form action="./login.php" method='POST'>
                             <div class="form__group field">
                                 <input type="text" name='nome' class="form__field" placeholder="Nome completo" id="nome-cad" required>
                                 <label for="nome" class="form__label">Nome Completo*</label>

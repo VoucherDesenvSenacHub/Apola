@@ -189,7 +189,7 @@
                                     <a id="icon-default" href="./carrinho.php"><i class="fa-solid fa-bag-shopping"></i></a>
                                 </li>
                                 <li class="icon-default-back">
-                                    <a class="conatiner_navbar_perfil_2" href="./perfil.php"><img class="img_navbar_2" src="../../src/imagens/chris.png" alt=""></a>
+                                    <a class="conatiner_navbar_perfil_2" href="./perfil.php"><img class="img_navbar_2" src="../../src/imagens/image.png" alt=""></a>
             
                 
                                 </li>

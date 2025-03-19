@@ -21,4 +21,14 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
+
+    // Novo código para o botão de "Comprar"
+    const buyButton = document.querySelector('.btn_buy_produto');
+    const modal2 = document.getElementById('modal-2');
+    
+    if (buyButton && modal2) {
+        buyButton.addEventListener('click', () => {
+            modal2.showModal(); // Abre o modal de pedido enviado
+        });
+    }
 });

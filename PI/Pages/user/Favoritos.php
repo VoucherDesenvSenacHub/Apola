@@ -87,7 +87,7 @@ include "navbar_logado.php";
                             </div>
                         </div>
                         <div class="card_produto">
-                        <div class="icon_favorite">
+                        <div class="icon_favorite favorite_fav">
                             <label class="checkbox-heart">
                                 <input type="checkbox">
                                 <i class="fa-solid fa-heart"></i>

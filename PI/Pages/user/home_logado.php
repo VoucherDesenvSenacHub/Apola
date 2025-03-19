@@ -5,10 +5,10 @@ $logado = true;
 include "head.php";
 
 if($logado){
-    include "navbar_deslogado.php";
+    include "navbar_logado.php";
 }
 else{
-    include "navbar_logado.php";
+    include "navbar_deslogado.php";
 }
 
 
@@ -105,7 +105,7 @@ else{
 
 
         <!-- INICIO 1* CARDS PRODUTOS -->
-        <section class="card_produtos">
+    <section class="card_produtos">
         <div class="swiper">
             <div class="Title_card_produto">Mais Vendidos</div>
             <div class="btn_card_produto">
@@ -120,7 +120,7 @@ else{
                             <i class="fa-solid fa-heart"></i>
                         </label> 
                     </div>
-                    <!-- <a style="text-decoration:none;" class="link_produto_home" href="./comprar_produto.php"> -->
+                    <a style="text-decoration:none;" class="link_produto_home" href="./comprar_produto.php">
                         <div class="img_content_produto">
                             <img src="../../src/imagens/card_produto/IMG1-Produto.png" alt="">
                         </div>
@@ -139,7 +139,7 @@ else{
                                 <div class="btn_buy_card">Comprar</div>
                             </div>
                         </div>
-                    <!-- </a> -->
+                    </a>
                 </div>
                 <div class="swiper-slide card_produto">
                     <div class="icon_favorite">
@@ -176,7 +176,7 @@ else{
                             <i class="fa-solid fa-heart"></i>
                         </label> 
                     </div>
-                    <!-- <a style="text-decoration:none;" class="link_produto_home" href="./comprar_produto.php"> -->
+                    <a style="text-decoration:none;" class="link_produto_home" href="./comprar_produto.php">
                         <div class="img_content_produto">
                             <img src="../../src/imagens/card_produto/IMG5-Produto.png" alt="">
                         </div>
@@ -195,7 +195,7 @@ else{
                                 <div class="btn_buy_card">Comprar</div>
                             </div>
                         </div>
-                    <!-- </a> -->
+                    </a>
                 </div>
                 <div class="swiper-slide card_produto">
                     <div class="icon_favorite">
@@ -204,7 +204,7 @@ else{
                             <i class="fa-solid fa-heart"></i>
                         </label> 
                     </div>
-                    <!-- <a style="text-decoration:none;" class="link_produto_home" href="./comprar_produto.php"> -->
+                    <a style="text-decoration:none;" class="link_produto_home" href="./comprar_produto.php">
                         <div class="img_content_produto">
                             <img src="../../src/imagens/card_produto/IMG6-Produto.png" alt="">
                         </div>
@@ -223,7 +223,7 @@ else{
                                 <div class="btn_buy_card">Comprar</div>
                             </div>
                         </div>
-                    <!-- </a>     -->
+                    </a>    
                 </div>
                 <div class="swiper-slide card_produto">
                     <div class="icon_favorite">
@@ -280,6 +280,7 @@ else{
             </div>
         </div>
     </section>
+
         <!-- FIM 1* CARDS PRODUTOS -->
 
 
@@ -702,6 +703,7 @@ else{
             </div>
         </section>
         <!-- FIM 3* CARDS PRODUTOS -->
+
 
 
         <!-- INICIO CARDS CATEGORIA 2-->

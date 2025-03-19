@@ -33,7 +33,7 @@ include "navbar_logado.php";
                     <div class="container_banner_perfil">
                         <img src="" alt="">
                         <div class="shape_perfil">
-                            <img src="#" alt="">
+                            <img src="../../src/imagens/image.png" alt="">
                         </div>
                     </div>
                     <form class="inputs_perfil">

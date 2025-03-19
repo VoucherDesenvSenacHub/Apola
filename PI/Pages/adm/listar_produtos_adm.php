@@ -9,7 +9,7 @@ include "nav_bar_adm.php";
             <nav class="navbar_adm" id="sidebar_adm">
                 <div id="sidebar_adm_content">
                     <div class="logo_sidebar">
-                        <img  id="logo_adm" src="OIP.jpeg" alt="">
+                        <img  id="logo_adm" src="../../src/imagens/image.png" alt="">
                     </div>
                     <ul id="side_bar_itens">
                         <li class="side_bar-itens ">
@@ -52,7 +52,7 @@ include "nav_bar_adm.php";
         
                 <div id="logout_adm">
                     <button class="side_bar-itens btn_logout_adm">
-                        <a href="#">
+                        <a href="../user">
                             <i class="fa-solid fa-right-to-bracket"></i>
                             <span class="text_side_item">Sair</span>
                         </a>

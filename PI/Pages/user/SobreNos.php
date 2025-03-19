@@ -1,7 +1,7 @@
 <?php
 
 include "head.php";
-include "navbar_deslogado.php";
+include "navbar_logado.php";
 
 ?>
     <main style=" margin-bottom: unset;"  class="main2">

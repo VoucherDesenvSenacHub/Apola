@@ -1,7 +1,7 @@
 <?php
 
 include "head.php";
-include "navbar_deslogado.php";
+include "navbar_logado.php";
 
 ?>
       <main  class="main2"> 
@@ -117,21 +117,21 @@ include "navbar_deslogado.php";
                 </div>
             </div>
 
-            <dialog id="modal-1">
-                <div class="modal_header">
-                  <button class="close-modal" data-modal="modal-1"><i class="fa-solid fa-xmark"></i></button>
-                </div>
-                <div class="modal_body">
-                  <h5 class="title_modal_zap">Pedido enviado</h5>
-                  <div class="text_modal_zap">Recebemos seu pedido e ele está em processo de análise. Em breve, você será notificado sobre a aprovação. Fique atento às atualizações no seu e-mail ou painel de pedidos. Dúvidas entre em contato.</div>
-                  <div class="conatiner_item_modal_link_zap">
-                    <div class="item_modal_link_zap">
-                      <i class="fa-brands fa-whatsapp"></i>
-                      <a href="#">67 991924837</a>
+                <dialog id="modal-1">
+                    <div class="modal_header">
+                    <button class="close-modal" data-modal="modal-1"><i class="fa-solid fa-xmark"></i></button>
                     </div>
-                  </div>  
-                </div>
-              </dialog>
+                    <div class="modal_body">
+                    <h5 class="title_modal_zap">Pedido enviado</h5>
+                    <div class="text_modal_zap">Recebemos seu pedido e ele está em processo de análise. Em breve, você será notificado sobre a aprovação. Fique atento às atualizações no seu e-mail ou painel de pedidos. Dúvidas entre em contato.</div>
+                    <div class="conatiner_item_modal_link_zap">
+                        <div class="item_modal_link_zap">
+                        <i class="fa-brands fa-whatsapp"></i>
+                        <a href="#">67 991924837</a>
+                        </div>
+                    </div>  
+                    </div>
+                </dialog>
               <script src="../src/JS/modal.js"></script>
             </div>
 
