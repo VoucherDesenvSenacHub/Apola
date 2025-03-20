@@ -153,7 +153,7 @@ else{
                             <img src="../../src/imagens/card_produto/IMG9-Produto.png" alt="">
                         </div>
                         <div class="conteudo_card">
-                            <div class="nome_card_produto">Amigurmi Raposa</div>
+                            <div class="nome_card_produto">Amigurmi urso</div>
                             <div class="content_star_icon">
                                 <i class="fa-solid fa-star"></i>
                                 <i class="fa-solid fa-star"></i>
@@ -161,7 +161,7 @@ else{
                                 <i class="fa-solid fa-star"></i>
                                 <i class="fa-solid fa-star"></i>
                             </div>
-                            <div class="preco_card_produto">R$ 50,89</div>
+                            <div class="preco_card_produto">R$ 125,90</div>
                             <div class="btn_content_card_produto">
                                 <div class="btn_bag_card"><i class="fa-solid fa-bag-shopping"></i></div>
                                 <div class="btn_buy_card">Comprar</div>
@@ -204,6 +204,17 @@ else{
                             <i class="fa-solid fa-heart"></i>
                         </label> 
                     </div>
+                    <div class="img_content_produto">
+                        <img src="../../src/imagens/card_produto/IMG6-Produto.png" alt="">
+                    </div>
+                    <div class="conteudo_card">
+                        <div class="nome_card_produto">Cachepô Vaso</div>
+                        <div class="content_star_icon">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
                     <!-- <a style="text-decoration:none;" class="link_produto_home" href="./comprar_produto.php"> -->
                         <div class="img_content_produto">
                             <img src="../../src/imagens/card_produto/IMG6-Produto.png" alt="">
@@ -910,8 +921,8 @@ else{
                 <div class="item_promocional_final">
                     <div class="text_content_promo_final">
                         <h5 class="text_call_banner_final">Dê vida ao seu ambiente com elegância!</h5>
-                        <!-- <h6 class="text_call_banner_final2">Adquirir o seu</h6> -->
-                        <!-- <div class="content_btn_banner_final"><a href="" class="btn__banner_final">Comprar</a></div> -->
+                        <h6 class="text_call_banner_final2">Adquirir o seu</h6>
+                        <div class="content_btn_banner_final"><a href="" class="btn__banner_final">Comprar</a></div>
                     </div>
                 </div>
                 <div class="content_img_final">

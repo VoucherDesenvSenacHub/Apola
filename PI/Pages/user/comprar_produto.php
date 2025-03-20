@@ -94,7 +94,7 @@ include "navbar_logado.php";
                                         <div class="conatiner_item_modal_link_zap">
                                             <div class="item_modal_link_zap">
                                                 <i class="fa-brands fa-whatsapp"></i>
-                                                <a href="https://wa.me/">67 991924837</a>
+                                                <a href="#">67 991924837</a>
                                             </div>
                                         </div>  
                                     </div>
@@ -117,7 +117,7 @@ include "navbar_logado.php";
                     </div>
                     <div class="container_buy_produto2  ">
                         <div class="container_buy_buy none_display">
-                            <button class="btn_buy_produto" data-modal="modal-2"><i class="fa-solid fa-bag-shopping"></i> Comprar</button>
+                            <button class="btn_buy_produto"><i class="fa-solid fa-bag-shopping"></i> Comprar</button>
                             <button class="btn_bag_produto"><i class="fa-solid fa-bag-shopping"></i></button>
                         </div>
                         <div class="container_buy_quant none_display">
@@ -134,10 +134,10 @@ include "navbar_logado.php";
                 <div class="descricao_produto_solo_cont">
                     <div class="descricao_produto_solo_cont_header">
                         <div class="title_produto_solo_item">
-                            Descrição <i class="fa-solid fa-chevron-down"></i>
+                            Descrição
                         </div>
                         <div  id="icone_produto_solo_item" class="icone_produto_solo_item">
-                            <i class="fa-solid fa-chevron-up"></i>
+                            <i class="fa-solid fa-chevron-down"></i>
                         </div>
                     </div>
                     <div class="descricao_produto_solo_cont_body">
@@ -148,10 +148,10 @@ include "navbar_logado.php";
                 <div class="descricao_produto_solo_cont">
                     <div class="descricao_produto_solo_cont_header">
                         <div class="title_produto_solo_item">
-                            Avaliação <i class="fa-solid fa-chevron-down"></i>
+                            Avaliação
                         </div>
                         <div id="icone_produto_solo_item" class="icone_produto_solo_item">
-                            <i class="fa-solid fa-chevron-up"></i>
+                            <i class="fa-solid fa-chevron-down"></i>
                         </div>
                     </div>
                     <div class="descricao_produto_solo_cont_body">
@@ -170,16 +170,33 @@ include "navbar_logado.php";
                                     <form action="">
                                         <div class="item_star_modal">
                                             <div class="conatiner_comentario_star_modal">
-                                                <i class="fa-solid fa-star " ></i>
+                                                <div class="stars">
+                                                    <input type="checkbox" id="star1" class="star-checkbox">
+                                                    <label for="star1" class="star">&#9733;</label>
+    
+                                                    <input type="checkbox" id="star2" class="star-checkbox">
+                                                    <label for="star2" class="star">&#9733;</label>
+    
+                                                    <input type="checkbox" id="star3" class="star-checkbox">
+                                                    <label for="star3" class="star">&#9733;</label>
+                                                    
+                                                    <input type="checkbox" id="star4" class="star-checkbox">
+                                                    <label for="star4" class="star">&#9733;</label>
+    
+                                                    <input type="checkbox" id="star5" class="star-checkbox">
+                                                    <label for="star5" class="star">&#9733;</label>
+                                                </div>
+                                                <!-- <i class="fa-solid fa-star " ></i>
                                                 <i class="fa-solid fa-star" ></i>
                                                 <i class="fa-solid fa-star" ></i>
-                                                <i class="fa-solid fa-star" ></i>
+                                                <i class="fa-solid fa-star" ></i> -->
                                             </div>
                                             <textarea name="" id="" cols="30" rows="10"></textarea>
                                             <div class="container_avalirar_btn">
                                                 <button class="avaliar_btn">Comentar</button>
                                             </div>
                                         </div>
+
                                     </form>
                                 </div>  
                                 </div>

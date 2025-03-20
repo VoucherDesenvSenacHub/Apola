@@ -7,7 +7,7 @@ include "navbar_logado.php";
     <main  class="main2">
         <div class="container_cart">
             <div class="container_header_cart">
-                <a href="./home_logado.php" style="text-decoration: none;"><i class="fa-solid fa-chevron-left"></i></a>
+                <i class="fa-solid fa-chevron-left"></i>
                 <div class="name_cart">SACOLA</div>
             </div>
             <div class="container_body_cart">
