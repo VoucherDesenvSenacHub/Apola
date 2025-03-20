@@ -92,7 +92,7 @@ include "head_adm.php";
         <div class="conatiner_dashbord_adm">
             <div class="Title_deafult_adm">
                 <div class="container_title_adm_left">
-                    <a href="./listar_categoria_adm.php" style="text-decoration: none;"><i class="fa-solid fa-chevron-left"></i></a>
+                    <i class="fa-solid fa-chevron-left"></i>
                     <span class="title_adm">Nova Categoria</span>
                 </div>
                 <div class="container_title_adm_right">
