@@ -153,7 +153,7 @@ else{
                             <img src="../../src/imagens/card_produto/IMG9-Produto.png" alt="">
                         </div>
                         <div class="conteudo_card">
-                            <div class="nome_card_produto">Amigurmi Raposa</div>
+                            <div class="nome_card_produto">Amigurmi Urso sem Curso</div>
                             <div class="content_star_icon">
                                 <i class="fa-solid fa-star"></i>
                                 <i class="fa-solid fa-star"></i>
@@ -181,7 +181,7 @@ else{
                             <img src="../../src/imagens/card_produto/IMG5-Produto.png" alt="">
                         </div>
                         <div class="conteudo_card">
-                            <div class="nome_card_produto">Amigurmi Raposa</div>
+                            <div class="nome_card_produto">Amigurmi Esquilo</div>
                             <div class="content_star_icon">
                                 <i class="fa-solid fa-star"></i>
                                 <i class="fa-solid fa-star"></i>
@@ -209,7 +209,7 @@ else{
                             <img src="../../src/imagens/card_produto/IMG6-Produto.png" alt="">
                         </div>
                         <div class="conteudo_card">
-                            <div class="nome_card_produto">Amigurmi Raposa</div>
+                            <div class="nome_card_produto">Cachepô Vaso</div>
                             <div class="content_star_icon">
                                 <i class="fa-solid fa-star"></i>
                                 <i class="fa-solid fa-star"></i>
@@ -236,7 +236,7 @@ else{
                         <img src="../../src/imagens/card_produto/IMG7-Produto.png" alt="">
                     </div>
                     <div class="conteudo_card">
-                        <div class="nome_card_produto">Amigurmi Raposa</div>
+                        <div class="nome_card_produto">Cachepôs</div>
                         <div class="content_star_icon">
                             <i class="fa-solid fa-star"></i>
                             <i class="fa-solid fa-star"></i>
@@ -262,7 +262,7 @@ else{
                         <img src="../../src/imagens/card_produto/IMG8-Produto.png" alt="">
                     </div>
                     <div class="conteudo_card">
-                        <div class="nome_card_produto">Amigurmi Raposa</div>
+                        <div class="nome_card_produto">Amigurmi Sticht</div>
                         <div class="content_star_icon">
                             <i class="fa-solid fa-star"></i>
                             <i class="fa-solid fa-star"></i>
@@ -580,7 +580,7 @@ else{
                         <img src="../../src/imagens/card_produto/IMG2-Produto.png" alt="">
                     </div>
                     <div class="conteudo_card">
-                        <div class="nome_card_produto">Amigurmi Raposa</div>
+                        <div class="nome_card_produto">Cachepô Planta</div>
                         <div class="content_star_icon">
                             <i class="fa-solid fa-star"></i>
                             <i class="fa-solid fa-star"></i>
@@ -606,7 +606,7 @@ else{
                         <img src="../../src/imagens/card_produto/IMG5-Produto.png" alt="">
                     </div>
                     <div class="conteudo_card">
-                        <div class="nome_card_produto">Amigurmi Raposa</div>
+                        <div class="nome_card_produto">Amigurmi Esquilo</div>
                         <div class="content_star_icon">
                             <i class="fa-solid fa-star"></i>
                             <i class="fa-solid fa-star"></i>
@@ -632,7 +632,7 @@ else{
                         <img src="../../src/imagens/card_produto/IMG6-Produto.png" alt="">
                     </div>
                     <div class="conteudo_card">
-                        <div class="nome_card_produto">Amigurmi Raposa</div>
+                        <div class="nome_card_produto">Cachepô Vaso</div>
                         <div class="content_star_icon">
                             <i class="fa-solid fa-star"></i>
                             <i class="fa-solid fa-star"></i>
@@ -658,7 +658,7 @@ else{
                         <img src="../../src/imagens/card_produto/IMG7-Produto.png" alt="">
                     </div>
                     <div class="conteudo_card">
-                        <div class="nome_card_produto">Amigurmi Raposa</div>
+                        <div class="nome_card_produto">Cachepôs</div>
                         <div class="content_star_icon">
                             <i class="fa-solid fa-star"></i>
                             <i class="fa-solid fa-star"></i>
@@ -684,7 +684,7 @@ else{
                         <img src="../../src/imagens/card_produto/IMG8-Produto.png" alt="">
                     </div>
                     <div class="conteudo_card">
-                        <div class="nome_card_produto">Amigurmi Raposa</div>
+                        <div class="nome_card_produto">Amigurmi Sticht</div>
                         <div class="content_star_icon">
                             <i class="fa-solid fa-star"></i>
                             <i class="fa-solid fa-star"></i>
@@ -775,7 +775,7 @@ else{
                         <img src="../../src/imagens/card_produto/IMG2-Produto.png" alt="">
                     </div>
                     <div class="conteudo_card">
-                        <div class="nome_card_produto">Amigurmi Raposa</div>
+                        <div class="nome_card_produto">Cachepô Planta</div>
                         <div class="content_star_icon">
                             <i class="fa-solid fa-star"></i>
                             <i class="fa-solid fa-star"></i>
@@ -801,7 +801,7 @@ else{
                         <img src="../../src/imagens/card_produto/IMG5-Produto.png" alt="">
                     </div>
                     <div class="conteudo_card">
-                        <div class="nome_card_produto">Amigurmi Raposa</div>
+                        <div class="nome_card_produto">Amigurmi Esquilo</div>
                         <div class="content_star_icon">
                             <i class="fa-solid fa-star"></i>
                             <i class="fa-solid fa-star"></i>
@@ -827,7 +827,7 @@ else{
                         <img src="../../src/imagens/card_produto/IMG6-Produto.png" alt="">
                     </div>
                     <div class="conteudo_card">
-                        <div class="nome_card_produto">Amigurmi Raposa</div>
+                        <div class="nome_card_produto">Cachepô Vaso</div>
                         <div class="content_star_icon">
                             <i class="fa-solid fa-star"></i>
                             <i class="fa-solid fa-star"></i>
@@ -853,7 +853,7 @@ else{
                         <img src="../../src/imagens/card_produto/IMG7-Produto.png" alt="">
                     </div>
                     <div class="conteudo_card">
-                        <div class="nome_card_produto">Amigurmi Raposa</div>
+                        <div class="nome_card_produto">Cachepôs</div>
                         <div class="content_star_icon">
                             <i class="fa-solid fa-star"></i>
                             <i class="fa-solid fa-star"></i>
@@ -879,7 +879,7 @@ else{
                         <img src="../../src/imagens/card_produto/IMG8-Produto.png" alt="">
                     </div>
                     <div class="conteudo_card">
-                        <div class="nome_card_produto">Amigurmi Raposa</div>
+                        <div class="nome_card_produto">Amigurmi Sticht</div>
                         <div class="content_star_icon">
                             <i class="fa-solid fa-star"></i>
                             <i class="fa-solid fa-star"></i>

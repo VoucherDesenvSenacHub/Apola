@@ -105,138 +105,130 @@ else{
 
 
         <!-- INICIO 1* CARDS PRODUTOS -->
-    <section class="card_produtos">
-        <div class="swiper">
-            <div class="Title_card_produto">Mais Vendidos</div>
-            <div class="btn_card_produto">
-                <div class="btn_prev_card"><i class="fa-solid default_btn_icon_card fa-chevron-left"></i></div>
-                <div class="btn_next_card"><i class="fa-solid default_btn_icon_card fa-chevron-right"></i></div>
-            </div>
-            <div class="swiper-wrapper">
+        <section class="card_produtos">
+            <div class="swiper">
+                <div class="Title_card_produto">Mais Vendidos</div>
+                <div class="btn_card_produto">
+                    <div class="btn_prev_card"><i class="fa-solid default_btn_icon_card fa-chevron-left"></i></div>
+                    <div class="btn_next_card"><i class="fa-solid default_btn_icon_card fa-chevron-right"></i></div>
+                </div>
+                <div class="swiper-wrapper">
                 <div class="swiper-slide card_produto">
-                    <div class="icon_favorite">
-                        <label class="checkbox-heart">
-                            <input type="checkbox">
-                            <i class="fa-solid fa-heart"></i>
-                        </label> 
+                      <div class="icon_favorite">
+                            <label class="checkbox-heart">
+                                <input type="checkbox">
+                                <i class="fa-solid fa-heart"></i>
+                            </label> 
                     </div>
-                    <a style="text-decoration:none;" class="link_produto_home" href="./comprar_produto.php">
-                        <div class="img_content_produto">
-                            <img src="../../src/imagens/card_produto/IMG1-Produto.png" alt="">
+                    <div class="img_content_produto">
+                        <img src="../../src/imagens/card_produto/IMG1-Produto.png" alt="">
+                    </div>
+                    <div class="conteudo_card">
+                        <div class="nome_card_produto">Amigurumi Raposa</div>
+                        <div class="content_star_icon">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
                         </div>
-                        <div class="conteudo_card">
-                            <div class="nome_card_produto">Amigurmi Raposa</div>
-                            <div class="content_star_icon">
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                            </div>
-                            <div class="preco_card_produto">R$ 50,89</div>
-                            <div class="btn_content_card_produto">
-                                <div class="btn_bag_card"><i class="fa-solid fa-bag-shopping"></i></div>
-                                <div class="btn_buy_card">Comprar</div>
-                            </div>
+                        <div class="preco_card_produto">R$ 50,89</div>
+                        <div class="btn_content_card_produto">
+                            <div class="btn_bag_card"><i class="fa-solid fa-bag-shopping"></i></div>
+                            <div class="btn_buy_card">Comprar</div>
                         </div>
-                    </a>
+                    </div>
                 </div>
                 <div class="swiper-slide card_produto">
-                    <div class="icon_favorite">
-                        <label class="checkbox-heart">
-                            <input type="checkbox">
-                            <i class="fa-solid fa-heart"></i>
-                        </label> 
+                      <div class="icon_favorite">
+                            <label class="checkbox-heart">
+                                <input type="checkbox">
+                                <i class="fa-solid fa-heart"></i>
+                            </label> 
                     </div>
-                    <a style="text-decoration:none;" class="link_produto_home" href="./comprar_produto.php">
-                        <div class="img_content_produto">
-                            <img src="../../src/imagens/card_produto/IMG9-Produto.png" alt="">
+                    <div class="img_content_produto">
+                        <img src="../../src/imagens/card_produto/IMG2-Produto.png" alt="">
+                    </div>
+                    <div class="conteudo_card">
+                        <div class="nome_card_produto">Cachepô Planta</div>
+                        <div class="content_star_icon">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
                         </div>
-                        <div class="conteudo_card">
-                            <div class="nome_card_produto">Amigurmi Raposa</div>
-                            <div class="content_star_icon">
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                            </div>
-                            <div class="preco_card_produto">R$ 50,89</div>
-                            <div class="btn_content_card_produto">
-                                <div class="btn_bag_card"><i class="fa-solid fa-bag-shopping"></i></div>
-                                <div class="btn_buy_card">Comprar</div>
-                            </div>
+                        <div class="preco_card_produto">R$ 50,89</div>
+                        <div class="btn_content_card_produto">
+                            <div class="btn_bag_card"><i class="fa-solid fa-bag-shopping"></i></div>
+                            <div class="btn_buy_card">Comprar</div>
                         </div>
-                    </a>
+                    </div>
                 </div>
                 <div class="swiper-slide card_produto">
-                    <div class="icon_favorite">
-                        <label class="checkbox-heart">
-                            <input type="checkbox">
-                            <i class="fa-solid fa-heart"></i>
-                        </label> 
+                      <div class="icon_favorite">
+                            <label class="checkbox-heart">
+                                <input type="checkbox">
+                                <i class="fa-solid fa-heart"></i>
+                            </label> 
                     </div>
-                    <a style="text-decoration:none;" class="link_produto_home" href="./comprar_produto.php">
-                        <div class="img_content_produto">
-                            <img src="../../src/imagens/card_produto/IMG5-Produto.png" alt="">
+                    <div class="img_content_produto">
+                        <img src="../../src/imagens/card_produto/IMG5-Produto.png" alt="">
+                    </div>
+                    <div class="conteudo_card">
+                        <div class="nome_card_produto">Amigurumi Esquilo</div>
+                        <div class="content_star_icon">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
                         </div>
-                        <div class="conteudo_card">
-                            <div class="nome_card_produto">Amigurmi Raposa</div>
-                            <div class="content_star_icon">
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                            </div>
-                            <div class="preco_card_produto">R$ 50,89</div>
-                            <div class="btn_content_card_produto">
-                                <div class="btn_bag_card"><i class="fa-solid fa-bag-shopping"></i></div>
-                                <div class="btn_buy_card">Comprar</div>
-                            </div>
+                        <div class="preco_card_produto">R$ 50,89</div>
+                        <div class="btn_content_card_produto">
+                            <div class="btn_bag_card"><i class="fa-solid fa-bag-shopping"></i></div>
+                            <div class="btn_buy_card">Comprar</div>
                         </div>
-                    </a>
+                    </div>
                 </div>
                 <div class="swiper-slide card_produto">
-                    <div class="icon_favorite">
-                        <label class="checkbox-heart">
-                            <input type="checkbox">
-                            <i class="fa-solid fa-heart"></i>
-                        </label> 
+                      <div class="icon_favorite">
+                            <label class="checkbox-heart">
+                                <input type="checkbox">
+                                <i class="fa-solid fa-heart"></i>
+                            </label> 
                     </div>
-                    <a style="text-decoration:none;" class="link_produto_home" href="./comprar_produto.php">
-                        <div class="img_content_produto">
-                            <img src="../../src/imagens/card_produto/IMG6-Produto.png" alt="">
+                    <div class="img_content_produto">
+                        <img src="../../src/imagens/card_produto/IMG6-Produto.png" alt="">
+                    </div>
+                    <div class="conteudo_card">
+                        <div class="nome_card_produto">Cachepô Vaso</div>
+                        <div class="content_star_icon">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
                         </div>
-                        <div class="conteudo_card">
-                            <div class="nome_card_produto">Amigurmi Raposa</div>
-                            <div class="content_star_icon">
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                            </div>
-                            <div class="preco_card_produto">R$ 50,89</div>
-                            <div class="btn_content_card_produto">
-                                <div class="btn_bag_card"><i class="fa-solid fa-bag-shopping"></i></div>
-                                <div class="btn_buy_card">Comprar</div>
-                            </div>
+                        <div class="preco_card_produto">R$ 50,89</div>
+                        <div class="btn_content_card_produto">
+                            <div class="btn_bag_card"><i class="fa-solid fa-bag-shopping"></i></div>
+                            <div class="btn_buy_card">Comprar</div>
                         </div>
-                    </a>    
+                    </div>
                 </div>
                 <div class="swiper-slide card_produto">
-                    <div class="icon_favorite">
-                        <label class="checkbox-heart">
-                            <input type="checkbox">
-                            <i class="fa-solid fa-heart"></i>
-                        </label> 
+                      <div class="icon_favorite">
+                            <label class="checkbox-heart">
+                                <input type="checkbox">
+                                <i class="fa-solid fa-heart"></i>
+                            </label> 
                     </div>
                     <div class="img_content_produto">
                         <img src="../../src/imagens/card_produto/IMG7-Produto.png" alt="">
                     </div>
                     <div class="conteudo_card">
-                        <div class="nome_card_produto">Amigurmi Raposa</div>
+                        <div class="nome_card_produto">Cachepôs</div>
                         <div class="content_star_icon">
                             <i class="fa-solid fa-star"></i>
                             <i class="fa-solid fa-star"></i>
@@ -252,17 +244,17 @@ else{
                     </div>
                 </div>
                 <div class="swiper-slide card_produto">
-                    <div class="icon_favorite">
-                        <label class="checkbox-heart">
-                            <input type="checkbox">
-                            <i class="fa-solid fa-heart"></i>
-                        </label> 
+                      <div class="icon_favorite">
+                            <label class="checkbox-heart">
+                                <input type="checkbox">
+                                <i class="fa-solid fa-heart"></i>
+                            </label> 
                     </div>
                     <div class="img_content_produto">
                         <img src="../../src/imagens/card_produto/IMG8-Produto.png" alt="">
                     </div>
                     <div class="conteudo_card">
-                        <div class="nome_card_produto">Amigurmi Raposa</div>
+                        <div class="nome_card_produto">Amigurumi Sticht</div>
                         <div class="content_star_icon">
                             <i class="fa-solid fa-star"></i>
                             <i class="fa-solid fa-star"></i>
@@ -278,8 +270,7 @@ else{
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
         <!-- FIM 1* CARDS PRODUTOS -->
 
@@ -344,7 +335,7 @@ else{
                         <img src="../../src/imagens/card_produto/IMG1-Produto.png" alt="">
                     </div>
                     <div class="conteudo_card">
-                        <div class="nome_card_produto">Amigurmi Raposa</div>
+                        <div class="nome_card_produto">Amigurumi Raposa</div>
                         <div class="content_star_icon">
                             <i class="fa-solid fa-star"></i>
                             <i class="fa-solid fa-star"></i>
@@ -370,7 +361,7 @@ else{
                         <img src="../../src/imagens/card_produto/IMG1-Produto.png" alt="">
                     </div>
                     <div class="conteudo_card">
-                        <div class="nome_card_produto">Amigurmi Raposa</div>
+                        <div class="nome_card_produto">Amigurumi Raposa</div>
                         <div class="content_star_icon">
                             <i class="fa-solid fa-star"></i>
                             <i class="fa-solid fa-star"></i>
@@ -396,7 +387,7 @@ else{
                         <img src="../../src/imagens/card_produto/IMG1-Produto.png" alt="">
                     </div>
                     <div class="conteudo_card">
-                        <div class="nome_card_produto">Amigurmi Raposa</div>
+                        <div class="nome_card_produto">Amigurumi Raposa</div>
                         <div class="content_star_icon">
                             <i class="fa-solid fa-star"></i>
                             <i class="fa-solid fa-star"></i>
@@ -422,7 +413,7 @@ else{
                         <img src="../../src/imagens/card_produto/IMG1-Produto.png" alt="">
                     </div>
                     <div class="conteudo_card">
-                        <div class="nome_card_produto">Amigurmi Raposa</div>
+                        <div class="nome_card_produto">Amigurumi Raposa</div>
                         <div class="content_star_icon">
                             <i class="fa-solid fa-star"></i>
                             <i class="fa-solid fa-star"></i>
@@ -448,7 +439,7 @@ else{
                         <img src="../../src/imagens/card_produto/IMG1-Produto.png" alt="">
                     </div>
                     <div class="conteudo_card">
-                        <div class="nome_card_produto">Amigurmi Raposa</div>
+                        <div class="nome_card_produto">Amigurumi Raposa</div>
                         <div class="content_star_icon">
                             <i class="fa-solid fa-star"></i>
                             <i class="fa-solid fa-star"></i>
@@ -474,7 +465,7 @@ else{
                         <img src="../../src/imagens/card_produto/IMG1-Produto.png" alt="">
                     </div>
                     <div class="conteudo_card">
-                        <div class="nome_card_produto">Amigurmi Raposa</div>
+                        <div class="nome_card_produto">Amigurumi Raposa</div>
                         <div class="content_star_icon">
                             <i class="fa-solid fa-star"></i>
                             <i class="fa-solid fa-star"></i>
@@ -500,7 +491,7 @@ else{
                         <img src="../../src/imagens/card_produto/IMG1-Produto.png" alt="">
                     </div>
                     <div class="conteudo_card">
-                        <div class="nome_card_produto">Amigurmi Raposa</div>
+                        <div class="nome_card_produto">Amigurumi Raposa</div>
                         <div class="content_star_icon">
                             <i class="fa-solid fa-star"></i>
                             <i class="fa-solid fa-star"></i>
@@ -555,7 +546,7 @@ else{
                         <img src="../../src/imagens/card_produto/IMG1-Produto.png" alt="">
                     </div>
                     <div class="conteudo_card">
-                        <div class="nome_card_produto">Amigurmi Raposa</div>
+                        <div class="nome_card_produto">Amigurumi Raposa</div>
                         <div class="content_star_icon">
                             <i class="fa-solid fa-star"></i>
                             <i class="fa-solid fa-star"></i>
@@ -581,7 +572,7 @@ else{
                         <img src="../../src/imagens/card_produto/IMG2-Produto.png" alt="">
                     </div>
                     <div class="conteudo_card">
-                        <div class="nome_card_produto">Amigurmi Raposa</div>
+                        <div class="nome_card_produto">Cachepô Planta</div>
                         <div class="content_star_icon">
                             <i class="fa-solid fa-star"></i>
                             <i class="fa-solid fa-star"></i>
@@ -607,7 +598,7 @@ else{
                         <img src="../../src/imagens/card_produto/IMG5-Produto.png" alt="">
                     </div>
                     <div class="conteudo_card">
-                        <div class="nome_card_produto">Amigurmi Raposa</div>
+                        <div class="nome_card_produto">Amigurumi Esquilo</div>
                         <div class="content_star_icon">
                             <i class="fa-solid fa-star"></i>
                             <i class="fa-solid fa-star"></i>
@@ -633,7 +624,7 @@ else{
                         <img src="../../src/imagens/card_produto/IMG6-Produto.png" alt="">
                     </div>
                     <div class="conteudo_card">
-                        <div class="nome_card_produto">Amigurmi Raposa</div>
+                        <div class="nome_card_produto">Cachepô Vaso</div>
                         <div class="content_star_icon">
                             <i class="fa-solid fa-star"></i>
                             <i class="fa-solid fa-star"></i>
@@ -659,7 +650,7 @@ else{
                         <img src="../../src/imagens/card_produto/IMG7-Produto.png" alt="">
                     </div>
                     <div class="conteudo_card">
-                        <div class="nome_card_produto">Amigurmi Raposa</div>
+                        <div class="nome_card_produto">Cachepôs</div>
                         <div class="content_star_icon">
                             <i class="fa-solid fa-star"></i>
                             <i class="fa-solid fa-star"></i>
@@ -685,7 +676,7 @@ else{
                         <img src="../../src/imagens/card_produto/IMG8-Produto.png" alt="">
                     </div>
                     <div class="conteudo_card">
-                        <div class="nome_card_produto">Amigurmi Raposa</div>
+                        <div class="nome_card_produto">Amigurumi Sticht</div>
                         <div class="content_star_icon">
                             <i class="fa-solid fa-star"></i>
                             <i class="fa-solid fa-star"></i>

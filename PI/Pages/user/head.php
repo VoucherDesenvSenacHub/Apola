@@ -31,7 +31,7 @@
     <script src="../../src/JS/item_comprar_produto.js" defer></script>
 
 
-
+    <link rel="shortcut icon" href=../../src/imagens/logoconvertida.png type="imagex/png">
 
 
     <title>Apola</title>
