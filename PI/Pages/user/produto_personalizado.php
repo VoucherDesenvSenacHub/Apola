@@ -127,7 +127,7 @@ include "navbar_logado.php";
                     <div class="conatiner_item_modal_link_zap">
                         <div class="item_modal_link_zap">
                         <i class="fa-brands fa-whatsapp"></i>
-                        <a href="#">67 991924837</a>
+                        <a href="https://wa.me/">67 991924837</a>
                         </div>
                     </div>  
                     </div>
