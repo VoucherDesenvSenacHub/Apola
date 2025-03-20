@@ -910,8 +910,8 @@ else{
                 <div class="item_promocional_final">
                     <div class="text_content_promo_final">
                         <h5 class="text_call_banner_final">Dê vida ao seu ambiente com elegância!</h5>
-                        <h6 class="text_call_banner_final2">Adquirir o seu</h6>
-                        <div class="content_btn_banner_final"><a href="" class="btn__banner_final">Comprar</a></div>
+                        <!-- <h6 class="text_call_banner_final2">Adquirir o seu</h6> -->
+                        <!-- <div class="content_btn_banner_final"><a href="" class="btn__banner_final">Comprar</a></div> -->
                     </div>
                 </div>
                 <div class="content_img_final">
