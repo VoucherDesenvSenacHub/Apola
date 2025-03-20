@@ -84,7 +84,7 @@ include "head_adm.php";
                     </ul>    
                 </div>
             </nav>
-
+    
     </header>
     
     

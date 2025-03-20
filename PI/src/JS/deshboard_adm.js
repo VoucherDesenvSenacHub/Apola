@@ -130,8 +130,8 @@
     //     chart.render();
         // Dados dos produtos e suas vendas
         // Dados dos produtos e suas vendas
-        const produtos = ['Produto A', 'Produto B', 'Produto C', 'Produto D', 'Produto E'];
-        const vendas = [150, 200, 120, 300, 250]; // Quantidade de vendas
+        const produtos = ['Amigurumi Raposa', 'Amigurumi Urso', 'Vaso de Plantas'];
+        const vendas = [150, 300, 250]; // Quantidade de vendas
 
         var optionsProdutosVendidos = {
             chart: {
@@ -186,8 +186,8 @@
         chart1.render();
 
 
-        const categorias = ['Categoria A', 'Categoria B', 'Categoria C', 'Categoria D', 'Categoria E'];
-        const medias = [75, 60, 90, 50, 80]; // Valores em porcentagem
+        const categorias = ['Amigurumi', 'Cachepô', 'Porta-chaves', 'Bordado'];
+        const medias = [75, 60, 90, 50]; // Valores em porcentagem
 
         var optionsMediaCategorias = {
             chart: {
