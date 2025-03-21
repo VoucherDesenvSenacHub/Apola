@@ -50,11 +50,11 @@
                         <ul>
                             <li>
                                 <i class="fa-solid fa-fire"></i>
-                                <a href="">Mais Vendidos</a>
+                                <a href="./home.php">Mais Vendidos</a>
                             </li>
                             <li>
                                 <i class="fa-solid fa-dollar-sign"></i>
-                                <a href="">Ofertas</a>
+                                <a href="./home.php">Ofertas</a>
                             </li>
                             <li>
                                 <i class="fa-solid fa-box"></i>
@@ -68,7 +68,7 @@
                         <h5>Categorias</h5>
                         <ul>
                             <li class="categoria-content-mobile-items">
-                                <a href="#">Amigurumi</a>
+                                <a href="./cate">Amigurumi</a>
                                 <i class="fa-solid fa-chevron-right"></i>
                             </li>
                             <div class="submenu-drop-mobile">

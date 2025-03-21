@@ -26,7 +26,7 @@ include "navbar_deslogado.php";
                     <img src="../../src/imagens/login/asdfghjk.png" alt="">
                 </div>
                 <div class="left_about_text">
-                    <div class="title_text_about"> Sobre nós <span class="title_text_about2"> Apola Ecommerce Artesanatos </span></div>
+                    <div class="title_text_about" style="display: none;"> Sobre nós <span class="title_text_about2"> Apola Ecommerce Artesanatos </span></div>
                     <div class="conteudo_text_about">
 
                         <p class="texto_about">
@@ -41,7 +41,7 @@ include "navbar_deslogado.php";
                         </p>
                     
                     </div>
-                    <div class="content_number_dados_sobre">
+                    <div class="content_number_dados_sobre" style="display: none;">
                         <div class="couteudo_dados_sobre">
                             <div class="number_dados_sobre">28+</div>
                             <div class="text_dados_sobre">Apola Ecommerce Artesanatos</div>
