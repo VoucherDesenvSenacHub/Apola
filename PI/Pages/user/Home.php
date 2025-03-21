@@ -52,7 +52,6 @@ else{
               <div class="swiper-slide"><img src="../../src/imagens/img_banner_menu/1.png" alt=""></div>
               <div class="swiper-slide"><img src="../../src/imagens/img_banner_menu/2.png" alt=""></div>
               <div class="swiper-slide"><img src="../../src/imagens/img_banner_menu/3.png" alt=""></div>
-              <div class="swiper-slide"><img src="../../src/imagens/img_banner_menu/4.png" alt=""></div>
             </div>
             <div class="swiper-pagination" style="--swiper-pagination-color:rgb(255, 255, 255);"></div>
         </div>
