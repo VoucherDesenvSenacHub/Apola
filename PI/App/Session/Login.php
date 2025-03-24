@@ -1,77 +1,106 @@
 <?php
 
+
+
+
 class Login{
 
-    // Inicia a sessão
+
+
     private static function init(){
         if(session_status() !== PHP_SESSION_ACTIVE){
             session_start();
         }
 
+    
     }
 
 
-    // Criar a sessão do usuario
-    public static function login($obCliente){
+    public static function loginCLiente($object){
         self::init();
 
-        // Sessão de usuario
-        $_SESSION['cliente'] =[
-            'id' => $obCliente->id,
-            'nome' => $obCliente->nome,
-            'email' => $obCliente->email,
+        $_SESSION['cliente'] = [
+            'id_cliente' => $object->id_cliente,
+            'email' => $object->email
         ];
 
-        header('location: Perfil.php');
+        header('location: ../../Pages/user/Home.php');
         exit;
+
+    }
+
+    public static function loginAdm($object){
+        self::init();
+
+        $_SESSION['adm'] = [
+            'id_adm' => $object->id_cliente,
+            'email' => $object->email
+        ];
+
+        header('location: ');
+        exit;
+
     }
 
 
-    // Verificar se o usuario está logado
 
-    public static function isLogged(){
+    public static function IsLogedCliente(){
+        self::init();
+        return isset($_SESSION['cliente']['id_cliente']);
+
+
+    }
+    public static function IsLogedAdm(){
+        self::init();
+        return isset($_SESSION['cliente']['id_cliente']);
+
+
+    }
+
+
+    public static function RequireLogin(){
+        self::init();
+  
+        if(!self::IsLogedCliente()){
+            header('location: ../../Pages/user/login.php');
+            exit;
+        }
+
+        if(!self::IsLogedAdm()){
+            header('location: ../../Pages/user/login.php');
+            exit;
+        }
+        
+
+    }
+    
+
+    public static function RequireLogout(){
 
         self::init();
 
-        return isset($_SESSION['cliente']['id']);
-    }
-
-
-    // Obriga o usuario a estar logado para acessar
-    public static function requireLogin(){
-        if (!self::isLogged()){
-            
-            header('location: ../Pages/login.php');
-            exit;
+        if(self::IsLogedCliente()){
+            return true;
+        }else{
+            return false;
         }
 
-    }
 
-
-
-
-    // Obriga o usuario a estar deslogado para acessar
-    public static function requireLogout(){
-        if (self::isLogged()){
-            header('location: ../Pages/Home.html');
+        if(self::IsLogedAdm()){
+            header('location: ../../Pages/adm/dashbord_adm.php');
             exit;
         }
-
     }
 
 
-    public static function lougout(){
-        session_start();
+    public static function Logout(){
+        self::init();
+
         session_unset();
         session_destroy();
         header('location: ../../Pages/user/Home.php');
-        exit();
-
+        exit;
     }
-
-
-
-
 
 
 
@@ -79,13 +108,3 @@ class Login{
 
 
 }
-
-
-
-
-
-
-
-
-
-?>

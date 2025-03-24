@@ -225,13 +225,9 @@ Area Texto Login */
 
 }
 
-.btn-login a{
-    text-decoration: none;
-    display: flex;
-    width:100%;
-}
 
-.btn-login a button{
+
+.btn-login button{
     display: flex;
     width: 100%;
     height: 45px;

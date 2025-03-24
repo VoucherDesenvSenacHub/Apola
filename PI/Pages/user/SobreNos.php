@@ -6,17 +6,17 @@ include "navbar_deslogado.php";
 ?>
     <main style=" margin-bottom: unset;"  class="main2">
 
-        <!-- <section class="Banner_Sobre_Nos"> -->
-            <!-- <div class="shape_sobre"></div> -->
-            <!-- <div class="content_banner_sobre_nos"> -->
-                <!-- <img class="img_sobre_banner" src="../../src/imagens/SobreMim/freepik-export-20241209130412wAw2.jpeg" alt="">
+        <section class="Banner_Sobre_Nos">
+            <div class="shape_sobre"></div> 
+            <div class="content_banner_sobre_nos"> 
+                <img class="img_sobre_banner" src="../../src/imagens/SobreMim/freepik-export-20241209130412wAw2.jpeg" alt="">
                 <div class="content_coteudo_banner_sobre">
                     <h4 class="text_top_sobre">Lorem ipsum dolor sit amet consectetur adipisicing elit.</h4>
                     <h5 class="text_bottom_sobre">Lorem ipsum dolor, sit amet consectetur adipisicing elit. </h4>
                     <button class="btn_sobre"> <a href="">Conheça</a></button>
                 </div>
             </div>
-        </section> -->
+        </section> 
 
 
 
@@ -26,7 +26,7 @@ include "navbar_deslogado.php";
                     <img src="../../src/imagens/login/asdfghjk.png" alt="">
                 </div>
                 <div class="left_about_text">
-                    <div class="title_text_about" style="display: none;"> Sobre nós <span class="title_text_about2"> Apola Ecommerce Artesanatos </span></div>
+                    <div class="title_text_about"> Sobre nós <span class="title_text_about2"> Apola Ecommerce Artesanatos </span></div>
                     <div class="conteudo_text_about">
 
                         <p class="texto_about">
@@ -41,7 +41,7 @@ include "navbar_deslogado.php";
                         </p>
                     
                     </div>
-                    <div class="content_number_dados_sobre" style="display: none;">
+                    <div class="content_number_dados_sobre">
                         <div class="couteudo_dados_sobre">
                             <div class="number_dados_sobre">28+</div>
                             <div class="text_dados_sobre">Apola Ecommerce Artesanatos</div>
@@ -56,9 +56,9 @@ include "navbar_deslogado.php";
                         </div>
 
                     </div>
-                    <!-- <div class="content_btn_about">
+                    <div class="content_btn_about">
                         <button class="btn_about">Confira</button>
-                    </div> -->
+                    </div>
                 </div>
 
             </div>
@@ -67,7 +67,7 @@ include "navbar_deslogado.php";
 
 
 
-        <!-- <section class="cards_service">
+        <section class="cards_service">
             <div class="content_cards_service">
                 <h1 class="title_section_sobre">
                     Lorem ipsum dolor sit <span class="title_section_sobre2">amet consectetur</span>
@@ -97,7 +97,7 @@ include "navbar_deslogado.php";
                     </div>
                 </div>
             </div>
-        </section> -->
+        </section>
 
 
 
@@ -105,7 +105,7 @@ include "navbar_deslogado.php";
         <section class="card_avaliacao_sobre">
             <div class="content_card_avalicao_sobre">
                 <h1 class="title_section_sobre">
-                Avaliação Produtos <span class="title_section_sobre2"> </span>
+                Apola Ecommerce Artesanatos <span class="title_section_sobre2"> </span>
                 </h1>
                 <div class="swiper_sobre">
                     <div class="swiper-wrapper">
@@ -169,12 +169,12 @@ include "navbar_deslogado.php";
                 </div>
             </div>
         </section>
-        <!-- <script src="../../src/JS/swiper_sobre.js"></script> -->
+        <script src="../../src/JS/swiper_sobre.js"></script>
 
 
 
 
-        <!-- <section class="video_sobre">
+        <section class="video_sobre">
             <div class="content_video_sobre">
                 <h1 class="title_section_sobre">
                     Lorem ipsum dolor sit <span class="title_section_sobre2">amet consectetur</span>
@@ -187,17 +187,17 @@ include "navbar_deslogado.php";
                     <button class="btn_video_sobre">Confira</button>
                 </div>
             </div>
-        </section> -->
+        </section> 
 
 
-        <!-- <section class="confira_sobre">
+        <section class="confira_sobre">
             <div class="content_confira_sobre">
                 <div class="text_confira_sobre">Lorem ipsum dolor sit amet</div>
                 <div class="text_confira_sobre">Lorem ipsum dolor sit </div>
                 <div class="content_btn_confira_sobre"><input placeholder="Envie seu e-mail" class="input_confira_sobre" type="email" name="" id=""> <button class="btn_confira_sobre">Enviar</button></div>
 
             </div>
-        </section> -->
+        </section> 
     </main>
 <?php
 

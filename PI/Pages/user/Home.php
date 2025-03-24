@@ -1,15 +1,24 @@
 <?php
 
-$logado = true;
+require '../../App/config.inc.php';
+
+require '../../App/Session/Login.php';
 
 include "head.php";
 
-if($logado){
-    include "navbar_deslogado.php";
+
+$result = Login::RequireLogout();
+
+
+
+if($result){
+    include 'navbar_logado.php';
+
+}else{
+    include 'navbar_deslogado.php';
+
 }
-else{
-    include "navbar_logado.php";
-}
+
 
 
 ?>

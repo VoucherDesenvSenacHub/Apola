@@ -1,32 +1,76 @@
-<!-- 
 <?php
 
 
+require '../../App/config.inc.php';
 
-// require '../../App/Entity/Cliente.php';
+require '../../App/Session/Login.php';
 
-// $AlertErr= '';
-
-// if (isset($_POST['nome'],$_POST['email'], $_POST['cep'], $_POST['cpf'],$_POST['senha'])) {
-//     $nome = $_POST["nome"];
-//     $email = $_POST["email"];
-//     $cep = $_POST['cep'];
-//     $senha = password_hash($_POST['senha'], PASSWORD_DEFAULT);
-//     $cpf = $_POST['cpf'];
-
-//     $cliente = new Cliente($nome,$cep,$cpf,$email,$senha);
-//     $result= $cliente->cadastrarCliente();
+Login::RequireLogout();
 
 
+$erro = '';
+$succes ='';
 
-//     header('location: ./login.php?status=success');
-//     exit;
-
-
-// }
+if(isset($_POST['cadastrar'])){
 
 
-?>  -->
+    if(!empty($_POST['email']) || !empty($_POST['senha']) || !empty($_POST['cpf']) || !empty($_POST['cep']) || !empty($_POST['nome']) || !empty($_POST['sobrenome'])){
+
+        $nome  = $_POST['nome'];
+        $sobrenome  = $_POST['sobrenome'];
+        $email  = $_POST['email'];
+        $senha  = $_POST['senha'];
+        $cpf  = $_POST['cpf'];
+        $cep  = $_POST['cep'];
+
+
+        if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
+            $erro='Email não é válido';
+        }else{
+            if(!filter_var($cpf, FILTER_VALIDATE_INT)){
+                $erro='CPF não é valido';
+            }
+            if(!filter_var($cep, FILTER_VALIDATE_INT)){
+                $erro='CEP não é valido';
+            }else{
+
+
+                $cliente =  new Cliente();
+
+                $cliente->nome = $nome;
+                $cliente->sobrenome = $sobrenome;
+                $cliente->cep = $cep;
+                $cliente->cpf =$cpf;
+                $cliente->email =$email;
+                $cliente->senha = password_hash($senha, PASSWORD_DEFAULT);
+
+
+
+                $cliente->cadastrarCliente();
+
+                if($cliente){
+                    $succes='Cadastro realizado com successo';
+                }else{
+                    $erro='Erro ao cadastrar';
+                }
+
+
+
+
+            }
+
+        }
+
+    }else{
+        $erro='Preencha todos os campos';
+    }
+
+}
+
+
+
+
+?> 
 
 
 <!DOCTYPE html>
@@ -56,29 +100,35 @@
                 <div class="container-cadastro">
                     <div class="form-cadastro">
                         <div class="text-cadastro">Cadastro</div>
-                        <form action="./login.php" method='POST'>
+                        <form  method='post'>
                             <div class="form__group field">
-                                <input type="text" name='nome' class="form__field" placeholder="Nome completo" id="nome-cad" required>
-                                <label for="nome" class="form__label">Nome Completo*</label>
+                                <input autocomplete="off" type="text" name='nome' class="form__field" placeholder="Nome" id="nome-cad" required>
+                                <label for="nome" class="form__label">Nome</label>
                             </div>
                             <div class="form__group field">
-                                <input type="email" name='email' id="email-cad" class="form__field" placeholder="E-mail" required>
+                                <input  autocomplete="off" type="text" name='sobrenome' class="form__field" placeholder="Sobrenome" id="nome-cad" required>
+                                <label for="sobrenome" class="form__label">Sobrenome</label>
+                            </div>
+                            <div class="form__group field">
+                                <input  autocomplete="off" type="text" name='email' id="email-cad" class="form__field" placeholder="E-mail" required>
                                 <label for="email" class="form__label">E-mail*</label>
                             </div>
                             <div class="form__group field">
-                                <input type="number" name='cpf' id="cpf-cad" class="form__field" placeholder="CPF" required>
+                                <input  autocomplete="off" type="number" name='cpf' id="cpf-cad" class="form__field" placeholder="CPF" required>
                                 <label for="cpf" class="form__label">CPF*</label>
                             </div>
                             <div class="form__group field">
-                                <input type="number" name='cep' id="cep-cad" class="form__field" placeholder="CEP" required>
+                                <input  autocomplete="off" type="number" name='cep' id="cep-cad" class="form__field" placeholder="CEP" required>
                                 <label for="cep" class="form__label">CEP*</label>
                             </div>
                             <div class="form__group field">
-                                <input type="password" name='senha' id="senha-cad" class="form__field" placeholder="Senha" required>
+                                <input autocomplete="off" type="password" name='senha' id="senha-cad" class="form__field" placeholder="Senha" required>
                                 <label for="senha" class="form__label">Senha*</label>
                             </div>
+                            <span class='msg_erro'><?php echo $erro; ?></span>
+                            <span class='msg_sucesso'><?php echo $succes; ?></span>
                             <div class="btn-cadastro">
-                                <a href=""><button type="submit" name='cadastrar' >Cadastra-se</button></a>
+                                <button  name='cadastrar' >Cadastra-se</button>
                             </div>
                             <span class="span-cadastro">Já possui conta? <a href="./login.php">Faça login</a></span>
                         </form>

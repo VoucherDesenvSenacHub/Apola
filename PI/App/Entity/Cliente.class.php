@@ -9,28 +9,21 @@ require(__DIR__ . '/../DB/Database.php');
 class Cliente{
 
 
-    public ?int $id_cliente;
-    public ?string $nome;
-    public  ?string $cep;
-    public ?int $cpf;
-    public ?string $email;
-    public ?string $senha;
-    private ?string $telefone = null;
-    public int $num_casa;
-    private ?string $rua = null;
-    private ?string $bairro = null;
-    private ?string $estado = null;
-    private ?string $cidade = null;
-    private ?string $complemento = null;
+    public int $id_cliente;
+    public string $nome;
+    public string $sobrenome;
+    public  int $cep;
+    public int $cpf;
+    public string $email;
+    public string $senha;
+    public ?string $telefone;
+    public ?int $num_casa;
+    public ?string $rua;
+    public ?string $bairro;
+    public ?string $estado;
+    public ?string $cidade;
+    public ?string $complemento;
 
-
-    public function __construct($nome = null, $cep = null, $cpf = null, $email = null, $senha = null) {
-        $this->nome = $nome;
-        $this->email = $email;
-        $this->cpf = $cpf;
-        $this->cep = $cep;
-        $this->senha = $senha;
-    }
 
 
     // Função que cadastra usúario no banco de dados 
@@ -41,6 +34,7 @@ class Cliente{
         $result = $db->insert(
             [
                 'nome'=> $this->nome,
+                'sobrenome'=> $this->sobrenome,
                 'cep' => $this->cep,
                 'cpf' => $this->cpf,
                 'email' => $this->email,
@@ -48,7 +42,8 @@ class Cliente{
             ]
             );
 
-        echo "erro"; 
+        
+        return $result;
     }
 
 
@@ -97,6 +92,3 @@ class Cliente{
 
 }
 
-
-// Debug
-// echo "<prev>"; print_r(); echo "<prev>"; exit;
