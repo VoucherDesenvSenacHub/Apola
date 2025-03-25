@@ -1,7 +1,24 @@
 <?php
 
+
+require '../../App/config.inc.php';
+
+require '../../App/Session/Login.php';
+
 include "head.php";
-include "navbar_logado.php";
+
+
+$result = Login::RequireLogout();
+
+
+if($result){
+    include 'navbar_logado.php';
+
+}else{
+    include 'navbar_deslogado.php';
+
+}
+
 
 ?>
     <main  class="main2">
@@ -21,6 +38,9 @@ include "navbar_logado.php";
                         </li>
                         <li class="item_favorito_left">
                             <i class="fa-solid fa-pencil icon_favorito_content"></i><a class="link_favorito_left" href="./alterar_perfil.php">Alterar Perfil</a>
+                        </li>
+                        <li class="item_favorito_left">
+                            <i class="fa-solid fa-right-from-bracket"></i><a class="link_favorito_left" href="logout.php">Sair</a>
                         </li>
                     </ul>
 

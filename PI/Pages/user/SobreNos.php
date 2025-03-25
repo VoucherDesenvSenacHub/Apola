@@ -1,7 +1,24 @@
 <?php
 
+
+require '../../App/config.inc.php';
+
+require '../../App/Session/Login.php';
+
 include "head.php";
-include "navbar_deslogado.php";
+
+
+$result = Login::RequireLogout();
+
+
+if($result){
+    include 'navbar_logado.php';
+
+}else{
+    include 'navbar_deslogado.php';
+
+}
+
 
 ?>
     <main style=" margin-bottom: unset;"  class="main2">
