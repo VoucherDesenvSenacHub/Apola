@@ -189,8 +189,7 @@ include "head_adm.php";
           
             </div>
             <div  id="conatiner_btn_adm_pc" class="conatiner_btn_adm">
-                <button class="btn_excluir_adm">Excluir</button>
-                <button class="btn_salvar_adm">Salvar</button>
+                <button href="" class="btn_salvar_adm">Salvar</button>
             </div>
             
         

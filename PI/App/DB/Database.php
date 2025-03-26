@@ -4,7 +4,7 @@
 class Database{
 
     public $conection;
-    public string $local = '10.38.0.117';
+    public string $local = '10.38.0.125';
     public string $db = 'pi_artesanato';
     public string $user = 'devweb';
     public string $password = 'suporte@22';
