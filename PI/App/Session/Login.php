@@ -14,19 +14,14 @@ class Login{
 
     
     }
-
-
     public static function loginCLiente($object){
         self::init();
-
         $_SESSION['cliente'] = [
             'id_cliente' => $object->id_cliente,
             'email' => $object->email
         ];
-
         header('location: ../../Pages/user/Home.php');
         exit;
-
     }
 
     public static function loginAdm($object){
