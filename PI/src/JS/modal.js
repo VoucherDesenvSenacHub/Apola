@@ -1,26 +1,41 @@
+// document.addEventListener('DOMContentLoaded', () => {
+//     const openButtons = document.querySelectorAll('.open-modal');
+//     const closeButtons = document.querySelectorAll('.close-modal');
+
+//     openButtons.forEach(button => {
+//         button.addEventListener('click', (e) => {
+//             const modalId = e.currentTarget.getAttribute('data-modal');
+//             const modal = document.getElementById(modalId);
+//             if (modal) {
+//                 modal.showModal();
+//             }
+//         });
+//     });
+
+//     closeButtons.forEach(button => {
+//         button.addEventListener('click', (e) => {
+//             const modalId = e.currentTarget.getAttribute('data-modal');
+//             const modal = document.getElementById(modalId);
+//             if (modal) {
+//                 modal.close();
+//             }
+//         });
+//     });
+
+
 document.addEventListener('DOMContentLoaded', () => {
-    const openButtons = document.querySelectorAll('.open-modal');
-    const closeButtons = document.querySelectorAll('.close-modal');
+    const modal = document.getElementById('modal-1');
+    if (modal) {
+        modal.showModal(); // Abre o modal automaticamente
+    }
 
-    openButtons.forEach(button => {
-        button.addEventListener('click', (e) => {
-            const modalId = e.currentTarget.getAttribute('data-modal');
-            const modal = document.getElementById(modalId);
-            if (modal) {
-                modal.showModal();
-            }
+    const closeButton = modal.querySelector('.close-modal');
+    if (closeButton) {
+        closeButton.addEventListener('click', () => {
+            modal.close();
         });
-    });
-
-    closeButtons.forEach(button => {
-        button.addEventListener('click', (e) => {
-            const modalId = e.currentTarget.getAttribute('data-modal');
-            const modal = document.getElementById(modalId);
-            if (modal) {
-                modal.close();
-            }
-        });
-    });
+    }
+    
 
     // Novo código para o botão de "Comprar"
     const buyButton = document.querySelector('.btn_buy_produto');

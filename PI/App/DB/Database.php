@@ -4,10 +4,10 @@
 class Database{
 
     public $conection;
-    public string $local = '10.38.0.117';
+    public string $local = 'localhost';
     public string $db = 'pi_artesanato';
-    public string $user = 'devweb';
-    public string $password = 'suporte@22';
+    public string $user = 'root';
+    public string $password = '';
     public $table;
 
 
@@ -90,7 +90,7 @@ class Database{
     // Função para deletar dados do banco de dados
 
     public function delete($where){
-        $query = 'DELETE FROM'.this->table.'WHERE'.$where;
+        $query = 'DELETE FROM'.$this->table.'WHERE'.$where;
 
         $this->execute($query);
 
@@ -118,10 +118,5 @@ class Database{
 
 
 
-
-
-
 }
-
-
 ?>
