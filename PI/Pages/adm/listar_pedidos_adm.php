@@ -178,7 +178,6 @@ include "head_adm.php";
                             <td>
                                 <div class="container_item_list_ações">
                                     <a href="pedido_disponivel_adm.php"><i class="fa-solid fa-eye"></i></a>
-                                    <a href="sss"><i class="fa-solid fa-trash"></i></a>
 
                                 </div>
                             </td>
@@ -199,7 +198,6 @@ include "head_adm.php";
                             <td>
                                 <div class="container_item_list_ações">
                                     <a href="pedido_personalizado_adm.php"><i class="fa-solid fa-eye"></i></a>
-                                    <a href=""><i class="fa-solid fa-trash"></i></a>
 
                                 </div>
                             </td>
@@ -220,7 +218,6 @@ include "head_adm.php";
                             <td>
                                 <div class="container_item_list_ações">
                                     <a href="pedido_personalizado_adm.php"><i class="fa-solid fa-eye"></i></a>
-                                    <a href=""><i class="fa-solid fa-trash"></i></a>
 
                                 </div>
                             </td>
@@ -241,7 +238,6 @@ include "head_adm.php";
                             <td>
                                 <div class="container_item_list_ações">
                                     <a href="pedido_personalizado_adm.php"><i class="fa-solid fa-eye"></i></a>
-                                    <a href=""><i class="fa-solid fa-trash"></i></a>
 
                                 </div>
                             </td>
@@ -262,7 +258,6 @@ include "head_adm.php";
                             <td>
                                 <div class="container_item_list_ações">
                                     <a href="pedido_personalizado_adm.php"><i class="fa-solid fa-eye"></i></a>
-                                    <a href=""><i class="fa-solid fa-trash"></i></a>
 
                                 </div>
                             </td>
@@ -283,7 +278,6 @@ include "head_adm.php";
                             <td>
                                 <div class="container_item_list_ações">
                                     <a href="pedido_personalizado_adm.php"><i class="fa-solid fa-eye"></i></a>
-                                    <a href=""><i class="fa-solid fa-trash"></i></a>
 
                                 </div>
                             </td>

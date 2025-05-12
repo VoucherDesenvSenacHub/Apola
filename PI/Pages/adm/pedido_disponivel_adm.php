@@ -98,7 +98,6 @@ include "head_adm.php";
                 </div>
                 <div class="container_title_adm_right">
                     <div class="conatiner_btn_adm mobile_btn_salvar">
-                        <button class="btn_excluir_adm">Excluir</button>
                         <button class="btn_salvar_adm">Salvar</button>
                     </div>
                 </div>
@@ -189,7 +188,6 @@ include "head_adm.php";
           
             </div>
             <div  id="conatiner_btn_adm_pc" class="conatiner_btn_adm">
-                <button class="btn_excluir_adm">Excluir</button>
                 <button class="btn_salvar_adm">Salvar</button>
             </div>
             

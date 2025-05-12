@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Cadastro</title>
+    <link rel="stylesheet" href="../../src/Css/login_adm.css">
+</head>
+<body>
+    <div class="container">
+    <h2>Primeiro Acesso</h2>
+    <input type="text" id="novoNome" placeholder="Seu nome">
+    <input type="password" id="novaSenha" placeholder="Nova senha">
+    <input type="file" id="foto" accept="image/*" onchange="mostrarPreview(this)">
+    <img id="preview" style="display:none;" alt="Foto">
+    <button onclick="salvarCadastro()">Salvar e Voltar</button>
+    </div>
+    <script src="../../src/JS/cadastro_adm.js"></script>
+</body>
+</html>
