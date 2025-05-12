@@ -1,7 +1,9 @@
 <?php
 
 
-require(__DIR__ . '/../DB/Database.php');
+require_once(__DIR__ . '/../DB/Database.php');
+
+require_once 'User.php';
 
 
 
@@ -20,6 +22,7 @@ class Cliente extends User{
     public ?string $estado;
     public ?string $cidade;
     public ?string $complemento;
+    public int $id_usuario;
 
 
     //atributo tipo perfil
@@ -33,25 +36,29 @@ class Cliente extends User{
     // Função que cadastra usúario no banco de dados 
     
     public function cadastrarCliente(){
-        $db = new Database('cliente');
 
-        $result = $db->insert(
+
+        $db = new Database('usuario');
+        $res_id = $db->insert_LastId(
+            [
+                'nome' => $this->nome,
+                'email' => $this->email,
+                'senha' => $this->senha,
+                'id_perfil' => $this->id_perfil
+            ]
+        );
+        $db = new Database('cliente');
+        $res = $db->insert(
             [
                 'sobrenome' => $this->sobrenome,
                 'cep' => $this->cep,
                 'cpf' => $this->cpf,
-                'telefone' => $this->telefone,
-                'numero_casa' => $this->numero_casa,
-                'rua' => $this->rua,
-                'bairro' => $this->bairro,
-                'estado' => $this->estado,
-                'cidade' => $this->cidade,
-                'complemento' => $this->complemento,
+                'id_usuario' => $res_id
             ]
             );
 
         
-        return $result;
+        return $res;
     }
 
 

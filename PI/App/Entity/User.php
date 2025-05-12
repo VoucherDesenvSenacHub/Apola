@@ -1,7 +1,7 @@
 <?php
 
 
-require(__DIR__ . '/../DB/Database.php');
+require_once(__DIR__ . '/../DB/Database.php');
 
 
 
@@ -13,7 +13,7 @@ class User{
     public string $nome;
     public string $email;
     public string $senha;
-    public int $id_perfil;
+    public string $id_perfil;
 
 
 

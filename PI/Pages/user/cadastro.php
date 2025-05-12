@@ -43,6 +43,7 @@ if(isset($_POST['cadastrar'])){
                 $cliente->cpf =$cpf;
                 $cliente->email =$email;
                 $cliente->senha = password_hash($senha, PASSWORD_DEFAULT);
+                $cliente->id_perfil = "cli";
 
 
 

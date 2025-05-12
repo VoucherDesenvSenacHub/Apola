@@ -62,9 +62,35 @@ class Database{
         // die();
 
 
-        $this->execute($query,array_values($values));
+        $result = $this->execute($query,array_values($values));
 
-        return $this->conection->lastInsertId();
+        if($result){
+            return true;
+        }
+        else{
+            return false;
+        }
+
+        
+    }
+
+    public function insert_LastId($values){
+        $fields = array_keys($values);
+        $binds = array_pad([],count($fields),'?');
+
+        $query = 'INSERT INTO ' . $this->table .'  (' .implode(',',$fields). ') VALUES (' .implode(',',$binds).')';
+
+
+        $res = $this->execute($query, array_values($values));   
+
+        $lastId = $this->conection->lastInsertId();  
+
+        if($res){
+            return $lastId;
+        }
+        else{
+            return false;
+        }
         
     }
 
