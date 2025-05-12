@@ -6,23 +6,27 @@ require(__DIR__ . '/../DB/Database.php');
 
 
 
-class Cliente{
+class Cliente extends User{
 
 
     public int $id_cliente;
-    public string $nome;
     public string $sobrenome;
-    public  int $cep;
+    public int $cep;
     public int $cpf;
-    public string $email;
-    public string $senha;
     public ?string $telefone;
-    public ?int $num_casa;
+    public ?int $numero_casa;
     public ?string $rua;
     public ?string $bairro;
     public ?string $estado;
     public ?string $cidade;
     public ?string $complemento;
+
+
+    //atributo tipo perfil
+    // enum cliente e adm.
+
+    
+    
 
 
 
@@ -33,12 +37,16 @@ class Cliente{
 
         $result = $db->insert(
             [
-                'nome'=> $this->nome,
-                'sobrenome'=> $this->sobrenome,
+                'sobrenome' => $this->sobrenome,
                 'cep' => $this->cep,
                 'cpf' => $this->cpf,
-                'email' => $this->email,
-                'senha' => $this->senha,
+                'telefone' => $this->telefone,
+                'numero_casa' => $this->numero_casa,
+                'rua' => $this->rua,
+                'bairro' => $this->bairro,
+                'estado' => $this->estado,
+                'cidade' => $this->cidade,
+                'complemento' => $this->complemento,
             ]
             );
 

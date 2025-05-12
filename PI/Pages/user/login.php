@@ -23,9 +23,9 @@ if(isset($_POST['logar'])){
         }else{
 
             $cliente = Cliente::getUsuarioPorEmail($email);
-
-        
-            if( $cliente instanceof Cliente && password_verify($senha, $cliente->senha)){
+            // $adm = Adm::getAdmPorEmail($email);
+        // 
+            if( $cliente instanceof Cliente && password_verify($senha, $cliente->senha) ){
                 Login::loginCLiente($cliente);
             }elseif($adm instanceof Adm &&  password_verify($senha, $adm->senha)){
                 Login::loginAdm($adm);
