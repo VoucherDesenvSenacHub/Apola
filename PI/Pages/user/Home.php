@@ -7,18 +7,14 @@ require '../../App/Session/Login.php';
 include "head.php";
 
 
-$result = Login::RequireLogout();
 
 
-
-if($result){
+if (Login::IsLogedCliente()) {
     include 'navbar_logado.php';
-
-}else{
+} 
+else {
     include 'navbar_deslogado.php';
-
 }
-
 
 
 ?>

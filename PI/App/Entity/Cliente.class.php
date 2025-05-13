@@ -60,11 +60,13 @@ class Cliente extends User{
         
         return $res;
     }
-
-
     
-    // Função que lista dados da table de clientes do banco de dados
-
+    public static function getClienteByUsuarioId($id_usuario) {
+        $db = new Database('cliente');
+        $result = $db->select("id_usuario = $id_usuario");
+        return $result->fetchObject(self::class);
+    }
+    
     public static function getCliente($where=null, $order =null, $limit = null){
         return (new Database('cliente'))->select($where,$order,$limit)
                                         ->fetchAll(PDO::FETCH_CLASS,self::class);

@@ -1,40 +1,61 @@
-
 <?php
-
 require '../../App/config.inc.php';
+
+require_once '../../App/Entity/User.php';
+require_once '../../App/Entity/Cliente.class.php';
+require_once '../../App/Entity/Adm.class.php';
 
 require '../../App/Session/Login.php';
 
-Login::RequireLogout();
-
+// Login::RequireLogout();
 
 $erro = '';
-$succes ='';
+$succes = '';
 
-if(isset($_POST['logar'])){
 
-    if(!empty($_POST['email']) || !empty($_POST['senha'])){
 
+if (isset($_POST['logar'])) {
+    if (!empty($_POST['email']) && !empty($_POST['senha'])) {
         $email = $_POST['email'];
         $senha = $_POST['senha'];
 
-        if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
-            $erro='Email não é válido';
-        }else{
+        if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+            $erro = 'Email não é válido';
+        } else {
+            // Buscar o usuário na tabela principal
+            $usuario = User::getUsuarioByEmail($email);
 
-            $cliente = Cliente::getUsuarioPorEmail($email);
-            // $adm = Adm::getAdmPorEmail($email);
-        // 
-            if( $cliente instanceof Cliente && password_verify($senha, $cliente->senha) ){
-                Login::loginCLiente($cliente);
-            }elseif($adm instanceof Adm &&  password_verify($senha, $adm->senha)){
-                Login::loginAdm($adm);
-            }else{
-                $erro='Email não exite ou senha está errada';
+            if ($usuario && password_verify($senha, $usuario->senha)) {
+                $idUsuario = $usuario->id_usuario;
+
+                // Verificar se é admin
+                $adm = Adm::getAdmByUsuarioId($idUsuario);
+                if ($adm) {
+                    // Você pode adicionar dados do usuário ao objeto adm, se necessário
+                    $adm->nome = $usuario->nome;
+                    $adm->email = $usuario->email;
+                    Login::loginAdm($adm);
+                    exit;
+                }
+
+                // Verificar se é cliente
+                $cliente = Cliente::getClienteByUsuarioId($idUsuario);
+                if ($cliente) {
+                    $cliente->nome = $usuario->nome;
+                    $cliente->email = $usuario->email;
+                    Login::loginCLiente($cliente);
+                    echo '<script>alert(<?php $_SESSION()?>)</script>';
+                    exit;
+                }
+
+                $erro = 'Usuário não possui perfil (adm ou cliente).';
+            } else {
+                $erro = 'Email ou senha incorretos.';
             }
         }
+    } else {
+        $erro = 'Preencha todos os campos.';
     }
-
 }
 
 

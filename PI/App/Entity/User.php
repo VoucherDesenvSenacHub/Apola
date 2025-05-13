@@ -44,6 +44,11 @@ class User{
 
     
     // Função que lista dados da table de clientes do banco de dados
+    public static function getUsuarioByEmail($email) {
+        $db = new Database('usuario');
+        $result = $db->select("email = '$email'");
+        return $result->fetchObject(self::class); 
+    }
 
     public static function getUser($where=null, $order =null, $limit = null){
         return (new Database('user'))->select($where,$order,$limit)
@@ -55,7 +60,7 @@ class User{
 
     public static function getUserPorEmail($where=null, $order =null, $limit = null){
 
-        return (new Database('user'))->select('email = "'. $where .'"')->fetchObject(self::class);
+        return (new Database('usuario'))->select('email = "'. $where .'"')->fetchObject(self::class);
 
     }
 
@@ -70,7 +75,7 @@ class User{
 
 
     public function updateUser(){
-        return (new Database('user'))->update('id = '.$this->id_user,[
+        return (new Database('usuario'))->update('id = '.$this->id_user,[
                                             'nome'=> $this->nome,
                                             'email' => $this->email,
                                             'senha' => $this->senha,
