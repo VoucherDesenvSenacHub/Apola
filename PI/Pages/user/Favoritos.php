@@ -130,3 +130,21 @@ include "footer.php";
 
 
 ?>
+
+<!-- Lourdes 
+
+Fazer o Front End da Funcionalidade Favoritos funcionar corretamente.
+
+Realizar um SELECT na tabela Produtos relacionada ao Cliente, com base no produto “Costela de Adão”.
+
+Após funcionamento, criar uma Task específica para essa funcionalidade. -->
+
+
+
+<!-- 
+*Vitor Nascimento*
+fazer uma classe de favoritos dentro da pasta Entity, 
+Criar as funções que serão utilizadas nesse arquivo através 
+do "require_once ou require" -->
+
+
