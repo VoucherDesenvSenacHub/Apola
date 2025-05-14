@@ -129,11 +129,11 @@ class Login {
 
     public static function loginAdm($object) {
         self::init();
-        $_SESSION['adm'] = [
-            'id_adm' => $object->id_adm,
+        $_SESSION['administrador'] = [
+            'id_administrador' => $object->id_administrador,
             'email' => $object->email
         ];
-        header('location: ../../Pages/adm/dashboard_adm.php');
+        header('location: ../../Pages/adm/dashbord_adm.php');
         exit;
     }
 

@@ -22,35 +22,51 @@ if (isset($_POST['logar'])) {
         if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
             $erro = 'Email não é válido';
         } else {
-            // Buscar o usuário na tabela principal
             $usuario = User::getUsuarioByEmail($email);
+            print_r($usuario); // debug opcional
 
-            if ($usuario && password_verify($senha, $usuario->senha)) {
+            if ($usuario) {
                 $idUsuario = $usuario->id_usuario;
 
-                // Verificar se é admin
-                $adm = Adm::getAdmByUsuarioId($idUsuario);
-                if ($adm) {
-                    // Você pode adicionar dados do usuário ao objeto adm, se necessário
-                    $adm->nome = $usuario->nome;
-                    $adm->email = $usuario->email;
-                    Login::loginAdm($adm);
-                    exit;
+                // Verificar se é admin e se é o primeiro login
+                if ($usuario->id_perfil == 'adm' && $senha === 'adm') {
+                    $adm = Adm::getAdmByUsuarioId($idUsuario);
+                    if ($adm) {
+                        $adm->id_usuario = $usuario->id_usuario;
+                        $adm->email = $usuario->email;
+                        Login::loginAdm($adm);
+                        exit;
+                    }
                 }
 
-                // Verificar se é cliente
-                $cliente = Cliente::getClienteByUsuarioId($idUsuario);
-                if ($cliente) {
-                    $cliente->nome = $usuario->nome;
-                    $cliente->email = $usuario->email;
-                    Login::loginCLiente($cliente);
-                    echo '<script>alert(<?php $_SESSION()?>)</script>';
-                    exit;
-                }
+                // Verificação padrão com senha criptografada
+                if (password_verify($senha, $usuario->senha)) {
+                    // Verificar se é cliente
+                    $cliente = Cliente::getClienteByUsuarioId($idUsuario);
+                    if ($cliente) {
+                        $cliente->nome = $usuario->nome;
+                        $cliente->email = $usuario->email;
+                        Login::loginCLiente($cliente);
+                        echo '<script>alert("Login bem-sucedido!")</script>';
+                        exit;
+                    }
 
-                $erro = 'Usuário não possui perfil (adm ou cliente).';
+                    // Verificar se é admin com senha já atualizada
+                    if ($usuario->id_perfil == 'adm') {
+                        $adm = Adm::getAdmByUsuarioId($idUsuario);
+                        if ($adm) {
+                            $adm->id_usuario = $usuario->id_usuario;
+                            Login::loginAdm($adm);
+                            exit;
+                        }
+                    }
+
+                    $erro = 'Usuário não possui perfil (adm ou cliente).';
+                } else {
+                    $erro = 'Email ou senha incorretos.';
+                }
             } else {
-                $erro = 'Email ou senha incorretos.';
+                $erro = 'Usuário não encontrado.';
             }
         }
     } else {
@@ -118,7 +134,7 @@ if (isset($_POST['logar'])) {
                                 </div>
                                 <div class="modal_body">
                                     <h5 class="title_modal_zap">Redefinição de Senha!</h5>
-                                    <div class="text_modal_zap">Informe um e-mail para recuperar a senha.</div>
+                                    <div class="text_modal_zap">     um e-mail para recuperar a senha.</div>
                                     <div class="form_modal" action="">
                                         <label class="label_modal" for="">Email</label>
                                         <input class="input_modal" type="email" name="" id="">
