@@ -21,7 +21,7 @@ class Adm extends User{
                 'id_perfil' => $this->id_perfil
             ]
         );
-        $db = new Database('adm');
+        $db = new Database('administrador');
         $res = $db->insert(
             [
                 'id_usuario' => $res_id

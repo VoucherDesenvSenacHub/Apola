@@ -119,7 +119,7 @@ class Login {
 
     public static function loginCLiente($object) {
         self::init();
-        $result = $_SESSION['cliente'] = [
+        $_SESSION['cliente'] = [
             'id_cliente' => $object->id_cliente,
             'email' => $object->email
         ];

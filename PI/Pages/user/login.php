@@ -23,14 +23,18 @@ if (isset($_POST['logar'])) {
             $erro = 'Email não é válido';
         } else {
             $usuario = User::getUsuarioByEmail($email);
-            print_r($usuario); // debug opcional
+            // print_r($usuario);
 
             if ($usuario) {
                 $idUsuario = $usuario->id_usuario;
-
+                // var_dump($usuario);
+                // print_r('Aquii estaa' .$idUsuario);
                 // Verificar se é admin e se é o primeiro login
-                if ($usuario->id_perfil == 'adm' && $senha === 'adm') {
+                if ($usuario->id_perfil == 'adm' && $senha == 'adm') {
+                    $idUsuario = $usuario->id_usuario;
                     $adm = Adm::getAdmByUsuarioId($idUsuario);
+                    // print_r($adm);
+                    // echo 'CAIUUUUU';
                     if ($adm) {
                         $adm->id_usuario = $usuario->id_usuario;
                         $adm->email = $usuario->email;
