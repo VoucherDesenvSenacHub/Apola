@@ -1,8 +1,33 @@
 <?php
 
 include "head_adm.php";
-// include "nav_bar_adm.php";
+include_once('../../App/DB/Database.php');
 
+$db = new Database();
+$conn = $db->getConnection();
+
+$sql = "SELECT 
+            p.id_pedido,
+            p.data_pedido,
+            p.tipo,
+            p.status_pedido,
+            p.codigo_rastreio,
+            s.valor_total,
+            c.estado,
+            u.nome AS cliente_nome
+        FROM pedido p
+        JOIN sacola s ON p.sacola_id_sacola = s.id_sacola
+        JOIN cliente c ON s.cliente_id_cliente = c.id_cliente
+        JOIN usuario u ON c.id_usuario = u.id_usuario
+        ORDER BY p.data_pedido DESC";
+
+$stmt = $conn->prepare($sql);
+
+if ($stmt->execute()) {
+    $pedidos = $stmt->fetchAll(PDO::FETCH_ASSOC);
+} else {
+    $pedidos = []; // fallback para evitar erro no foreach
+}
 ?>
 
 <header class="header_adm" >
@@ -154,7 +179,8 @@ include "head_adm.php";
 
                 </div>
                 <div class="container_listar_body_adm">
-                    <table class="table_adm_list">
+                <table class="table_adm_list">
+                    <thead>
                         <tr>
                             <th>numero</th>
                             <th>total</th>
@@ -162,6 +188,7 @@ include "head_adm.php";
                             <th id="Mob_table_none_th" >estado</th>
                             <th>ações</th>
                         </tr>
+<<<<<<< Updated upstream
                         <tr>
                             <td>
                                 #4453
@@ -290,6 +317,24 @@ include "head_adm.php";
                         </tr>
 
                     </table>
+=======
+                    </thead>
+                    <tbody>
+                    <?php foreach ($pedidos as $pedido): ?>
+    <tr>
+        <td>#<?= $pedido['id_pedido'] ?></td>
+        <td><?= date('d/m/Y H:i', strtotime($pedido['data_pedido'])) ?></td>
+        <td><?= $pedido['tipo'] ?></td>
+        <td><?= $pedido['status_pedido'] ?></td>
+        <td><?= $pedido['codigo_rastreio'] ?></td>
+        <td>R$ <?= number_format($pedido['valor_total'], 2, ',', '.') ?></td>
+        <td><?= $pedido['estado'] ?></td>
+        <td><?= $pedido['cliente_nome'] ?></td>
+    </tr>
+<?php endforeach; ?>
+                    </tbody>
+                </table>
+>>>>>>> Stashed changes
                 </div>
 
 
