@@ -187,10 +187,26 @@ if($result){
                                     <form action="">
                                         <div class="item_star_modal">
                                             <div class="conatiner_comentario_star_modal">
-                                                <i class="fa-solid fa-star " ></i>
+                                                <div class="stars">
+                                                    <input type="checkbox" id="star1" class="star-checkbox">
+                                                    <label for="star1" class="star">&#9733;</label>
+    
+                                                    <input type="checkbox" id="star2" class="star-checkbox">
+                                                    <label for="star2" class="star">&#9733;</label>
+    
+                                                    <input type="checkbox" id="star3" class="star-checkbox">
+                                                    <label for="star3" class="star">&#9733;</label>
+                                                    
+                                                    <input type="checkbox" id="star4" class="star-checkbox">
+                                                    <label for="star4" class="star">&#9733;</label>
+    
+                                                    <input type="checkbox" id="star5" class="star-checkbox">
+                                                    <label for="star5" class="star">&#9733;</label>
+                                                </div>
+                                                <!-- <i class="fa-solid fa-star " ></i>
                                                 <i class="fa-solid fa-star" ></i>
                                                 <i class="fa-solid fa-star" ></i>
-                                                <i class="fa-solid fa-star" ></i>
+                                                <i class="fa-solid fa-star" ></i> -->
                                             </div>
                                             <textarea name="" id="" cols="30" rows="10"></textarea>
                                             <div class="container_avalirar_btn">
