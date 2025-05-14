@@ -9,10 +9,10 @@ include "head.php";
 
 
 
-$result = Login::RequireLogin();
+// $result = Login::RequireLogin();
 
 
-include 'navbar_logado.php';
+// include 'navbar_logado.php';
 
 
 
