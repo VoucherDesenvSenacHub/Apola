@@ -4,7 +4,7 @@
 class Database{
 
     public $conection;
-    public string $local = '10.38.0.125';
+    public string $local = 'localhost';
     public string $db = 'pi_artesanato';
     public string $user = 'root';
     public string $password = '';
@@ -115,17 +115,17 @@ class Database{
 
     // Função para deletar dados do banco de dados
 
-    public function delete($where){
-        $query = 'DELETE FROM'.this->table.'WHERE'.$where;
+    public function delete($where = null) {
 
-        $this->execute($query);
+        // Monta a cláusula WHERE se fornecida
+        $where = strlen($where) ? 'WHERE '.$where : '';
 
-        return true;
+        // Monta a query de DELETE
+        $query = 'DELETE FROM '.$this->table.' '.$where;
 
-
-
+        // Executa a query
+        return $this->execute($query);
     }
-
 
 
     // Função para editar a dados do banco de dados

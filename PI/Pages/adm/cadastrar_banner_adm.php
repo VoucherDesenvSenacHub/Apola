@@ -97,19 +97,17 @@ include "head_adm.php";
                 </div>
                 
             </div>
-            <div class="conatiner_cadastro_adm_items">
+           <div class="conatiner_cadastro_adm_items">
                 <div class="top_container_cadastrar_produto_adm">
                     <!-- Banners Principais -->
-
-                    <?php var_dump($_FILES); ?>
-                    <form method="POST" class="item_top_produto" enctype="multipart/form-data>
+                    <div class="item_top_produto">
                         <h4 class="title_banner_categoria">Banners Principais</h4>
                         <div class="tamanho_banner_adm">Tamanho recomendável (1400x400px)</div>
-                        <div class="container_banner_wrap" id="banner-principal">
+                        <form class="container_banner_wrap" id="banner-principal">
                             <div class="banner-item">
                                 <img src="../src/imagens/banner/1.png" alt="Imagem 1" class="preview-image banner-image">
                                 <button class="trocar-imagem-btn"> <i class="fa-solid fa-plus"></i><i class="fa-solid fa-file-image"></i></button>
-                                <input type="file" name="file1" class="file-upload" accept="image/*" style="display:none;">
+                                <input type="file" class="file-upload" accept="image/*" style="display:none;">
                             </div>
                             <div class="banner-item">
                                 <img src="../src/imagens/banner/2.png" alt="Imagem 2" class="preview-image banner-image">
@@ -123,9 +121,9 @@ include "head_adm.php";
                             </div>
                         </div>
                         <div class="conatiner_btn_adm ">
-                            <button type="submit" name="banners_principais" class="btn_salvar_adm">Salvar</button>
+                            <button class="btn_salvar_adm">Salvar</button>
                         </div>
-                    </form>
+                    </div>
 
                     <!-- Banners Secundários-->
 
@@ -230,10 +228,6 @@ include "head_adm.php";
                         </div>
                     </div>            
                 </div>
-               
-                   
-               
-          
             </div>
             
         
