@@ -3,16 +3,32 @@
 
 require '../../App/config.inc.php';
 
+require_once '../../App/Entity/User.php';
+require_once '../../App/Entity/Cliente.class.php';
+require_once '../../App/Entity/Adm.class.php';
+
 require '../../App/Session/Login.php';
 
 include "head.php";
 
+$result = Login::IsLogedCliente();
+// print_r($result);
+
+print_r($result);
+if($result){
+    include "navbar_logado.php";
+
+    // $cliente = User::getUserPorEmail($result);
+    // print_r($cliente);
+
+}else{
+    header('location: login.php');
+}
 
 
-// $result = Login::RequireLogin();
 
 
-// include 'navbar_logado.php';
+
 
 
 
