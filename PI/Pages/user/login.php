@@ -11,9 +11,13 @@ Login::RequireLogout();
 $erro = '';
 $succes ='';
 
+<<<<<<< Updated upstream
 if(isset($_POST['logar'])){
 
     if(!empty($_POST['email']) || !empty($_POST['senha'])){
+=======
+// var_dump((isset($_POST['logar'])));
+>>>>>>> Stashed changes
 
         $email = $_POST['email'];
         $senha = $_POST['senha'];
@@ -24,6 +28,7 @@ if(isset($_POST['logar'])){
 
             $cliente = Cliente::getUsuarioPorEmail($email);
 
+<<<<<<< Updated upstream
         
             if( $cliente instanceof Cliente && password_verify($senha, $cliente->senha)){
                 Login::loginCLiente($cliente);
@@ -31,6 +36,36 @@ if(isset($_POST['logar'])){
                 Login::loginAdm($adm);
             }else{
                 $erro='Email não exite ou senha está errada';
+=======
+                // Verificação padrão com senha criptografada
+                if (password_verify($senha, $usuario->senha)) {
+                    // Verificar se é cliente
+                    $cliente = Cliente::getClienteByUsuarioId($idUsuario);
+                    if ($cliente) {
+                        $cliente->nome = $usuario->nome;
+                        $cliente->email = $usuario->email;
+                        Login::loginCLiente($cliente);
+                        // echo '<script>alert("Login bem-sucedido!")</script>';
+                        exit;
+                    }
+
+                    // Verificar se é admin com senha já atualizada
+                    if ($usuario->id_perfil == 'adm') {
+                        $adm = Adm::getAdmByUsuarioId($idUsuario);
+                        if ($adm) {
+                            $adm->id_usuario = $usuario->id_usuario;
+                            Login::loginAdm($adm);
+                            exit;
+                        }
+                    }
+
+                    $erro = 'Usuário não possui perfil (adm ou cliente).';
+                } else {
+                    $erro = 'Email ou senha incorretos.';
+                }
+            } else {
+                $erro = 'Usuário não encontrado.';
+>>>>>>> Stashed changes
             }
         }
     }
@@ -51,7 +86,6 @@ if(isset($_POST['logar'])){
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../src/Css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <script src="../JS/validar_form_login.js" defer></script>
 
     <title>Login</title>
 </head> 
@@ -76,7 +110,6 @@ if(isset($_POST['logar'])){
                 <div class="container-login">
                     <div class="form-container">
                         <div class="text-login">Login</div>
-                        <form  method="post">
                             <div class="form__group field">
                                 <input type="text" name='email' id="email-login" class="form__field" placeholder="E-mail" required>
                                 <label for="email" class="form__label">E-mail*</label>
