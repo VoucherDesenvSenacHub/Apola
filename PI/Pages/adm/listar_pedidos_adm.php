@@ -153,139 +153,17 @@ include "head_adm.php";
 
                     </div>
                     <div class="container_listar_body_adm">
-                    <table class="table_adm_list">
+                    <table class="table_adm_list" id='tabela'>
                         <thead>
-                            <tr>
-                                <th>numero</th>
-                                <th>total</th>
-                                <th>tipo</th>
-                                <th id="Mob_table_none_th" >estado</th>
-                                <th>ações</th>
-                            </tr>
-                            <tr>
-                                <td>
-                                    #4453
-                                </td>
-                                <td>
-                                    $ 123,54
-                                </td>
-                                <td>
-                                    Disponivel
-                                </td>
-                                <td id="Mob_table_none_td">
-                                    MS
-                                </td>
-                                <td>
-                                    <div class="container_item_list_ações">
-                                        <a href="pedido_disponivel_adm.php"><i class="fa-solid fa-eye"></i></a>
-
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    #4453
-                                </td>
-                                <td>
-                                    $ 123,54
-                                </td>
-                                <td>
-                                    Personalizado
-                                </td>
-                                <td id="Mob_table_none_td" >
-                                    MS
-                                </td>
-                                <td>
-                                    <div class="container_item_list_ações">
-                                        <a href="pedido_personalizado_adm.php"><i class="fa-solid fa-eye"></i></a>
-
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    #4453
-                                </td>
-                                <td>
-                                    $ 123,54
-                                </td>
-                                <td>
-                                    Personalizado
-                                </td>
-                                <td id="Mob_table_none_td" >
-                                    MS
-                                </td>
-                                <td>
-                                    <div class="container_item_list_ações">
-                                        <a href="pedido_personalizado_adm.php"><i class="fa-solid fa-eye"></i></a>
-
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    #4453
-                                </td>
-                                <td>
-                                    $ 123,54
-                                </td>
-                                <td>
-                                    Personalizado
-                                </td>
-                                <td id="Mob_table_none_td" >
-                                    MS
-                                </td>
-                                <td>
-                                    <div class="container_item_list_ações">
-                                        <a href="pedido_personalizado_adm.php"><i class="fa-solid fa-eye"></i></a>
-
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    #4453
-                                </td>
-                                <td>
-                                    $ 123,54
-                                </td>
-                                <td>
-                                    Personalizado
-                                </td>
-                                <td id="Mob_table_none_td" >
-                                    MS
-                                </td>
-                                <td>
-                                    <div class="container_item_list_ações">
-                                        <a href="pedido_personalizado_adm.php"><i class="fa-solid fa-eye"></i></a>
-
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    #4453
-                                </td>
-                                <td>
-                                    $ 123,54
-                                </td>
-                                <td>
-                                    Personalizado
-                                </td>
-                                <td id="Mob_table_none_td" >
-                                    MS
-                                </td>
-                                <td>
-                                    <div class="container_item_list_ações">
-                                        <a href="pedido_personalizado_adm.php"><i class="fa-solid fa-eye"></i></a>
-
-                                    </div>
-                                </td>
-                            </tr>
-
-                        </table>
+                            <th>numero</th>
+                            <th>total</th>
+                            <th>tipo</th>
+                            <th id="Mob_table_none_th" >estado</th>
+                            <th>ações</th>
                         </thead>
-                        <tbody>
+                        <tbody id="dados">
+                        <div class="container_item_list_ações">
+                            <a href="pedido_personalizado_adm.php"><i class="fa-solid fa-eye"></i></a>
                         </tbody>
                     </table>
                     </div>
@@ -300,7 +178,6 @@ include "head_adm.php";
         </main>
 
 
-        <script src="adm_nav.js"></script>
-        <script src="btn_listar_adm.js"></script>
+        <script src="../../src/JS/load_table.js"></script>
 </body>
 </html>

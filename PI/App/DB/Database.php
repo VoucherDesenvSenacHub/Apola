@@ -1,7 +1,7 @@
 <?php
 
 
-class Database{
+clASs Database{
 
     public $conection;
     public string $local = '10.38.0.125';
@@ -114,7 +114,13 @@ class Database{
 
     }
 
+    public function select_pedido(){
+        $query = "SELECT pedido.id_pedido AS ID, sacola.valor_total AS Valor, pedido.tipo_pedido AS Tipo,  cliente.estado AS UF FROM pedido 
+        JOIN sacola ON pedido.sacola_id_sacola = sacola.id_sacola
+        JOIN cliente ON sacola.cliente_id_cliente = cliente.id_cliente";
 
+        return $result = $this->execute($query)->fetchAll(PDO::FETCH_ASSOC);
+    }
 
 
 
