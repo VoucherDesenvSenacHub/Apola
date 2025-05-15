@@ -3,8 +3,37 @@
 include "head_adm.php";
 
 ?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: sans-serif;
+}
+
+th, td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+.container_item_list_ações{
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 15px;
+  transition: transform 0.2s;
+}
+
+</style>
 <body onload='load_table()'>
-    <header class="header_adm" >
+        <header class="header_adm" >
                 <nav class="navbar_adm" id="sidebar_adm">
                     <div id="sidebar_adm_content">
                         <div class="logo_sidebar">
@@ -162,8 +191,7 @@ include "head_adm.php";
                             <th>ações</th>
                         </thead>
                         <tbody id="dados">
-                        <div class="container_item_list_ações">
-                            <a href="pedido_personalizado_adm.php"><i class="fa-solid fa-eye"></i></a>
+                            
                         </tbody>
                     </table>
                     </div>

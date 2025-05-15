@@ -4,10 +4,10 @@
 clASs Database{
 
     public $conection;
-    public string $local = '10.38.0.125';
+    public string $local = 'localhost';
     public string $db = 'pi_artesanato';
-    public string $user = 'devweb';
-    public string $password = 'suporte@22';
+    public string $user = 'root';
+    public string $password = '';
     public $table;
 
 
@@ -90,7 +90,7 @@ clASs Database{
     // Função para deletar dados do banco de dados
 
     public function delete($where){
-        $query = 'DELETE FROM'.this->table.'WHERE'.$where;
+        $query = 'DELETE FROM'.$this->table.'WHERE'.$where;
 
         $this->execute($query);
 
@@ -115,7 +115,7 @@ clASs Database{
     }
 
     public function select_pedido(){
-        $query = "SELECT pedido.id_pedido AS ID, sacola.valor_total AS Valor, pedido.tipo_pedido AS Tipo,  cliente.estado AS UF FROM pedido 
+        $query = "SELECT pedido.id_pedido AS ID, sacola.valor_total AS Valor, pedido.tipo AS Tipo,  cliente.estado AS UF FROM pedido 
         JOIN sacola ON pedido.sacola_id_sacola = sacola.id_sacola
         JOIN cliente ON sacola.cliente_id_cliente = cliente.id_cliente";
 
