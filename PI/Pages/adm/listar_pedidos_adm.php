@@ -190,8 +190,7 @@ th, td {
                             <th id="Mob_table_none_th" >estado</th>
                             <th>ações</th>
                         </thead>
-                        <tbody id="dados">
-                            
+                        <tbody id="dados">   
                         </tbody>
                     </table>
                     </div>
