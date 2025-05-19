@@ -29,10 +29,12 @@
     <script src="../../src/JS/swiper_sobre.js" defer></script>
     <script src="../../src/JS/swipper_card.js" defer></script>
     <script src="../../src/JS/item_comprar_produto.js" defer></script>
+    <script src="../../src/JS/escolha_endereco.js" defer></script>
+    
+
 
 
     <link rel="shortcut icon" href=../../src/imagens/logoconvertida.png type="imagex/png">
-
 
     <title>Apola</title>
 </head>

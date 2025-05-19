@@ -1,24 +1,7 @@
 <?php
 
-
-require '../../App/config.inc.php';
-
-require '../../App/Session/Login.php';
-
 include "head.php";
-
-
-$result = Login::IsLogedCliente();
-
-// print_r($result);
-if($result){
-    include "navbar_logado.php";
-}else{
-    header('location: login.php');
-}
-
-
-
+include "navbar_logado.php";
 
 ?>
     <main  class="main2">
@@ -39,9 +22,6 @@ if($result){
                         <li class="item_favorito_left">
                             <i class="fa-solid fa-pencil icon_favorito_content"></i><a class="link_favorito_left" href="./alterar_perfil.php">Alterar Perfil</a>
                         </li>
-                        <li class="item_favorito_left">
-                            <i class="fa-solid fa-right-from-bracket"></i><a class="link_favorito_left" href="logout.php">Sair</a>
-                        </li>
                     </ul>
 
 
@@ -55,38 +35,12 @@ if($result){
                     <div class="item_conteudo_favoritos">
                         
                         <div class="card_produto">
-                        <div class="icon_favorite">
-                            <label class="checkbox-heart">
-                                <input type="checkbox">
-                                <i class="fa-solid fa-heart"></i>
-                            </label> 
-                        </div>
-                            <div class="img_content_produto">
-                                <img src="../../src/imagens/card_produto/IMG1-Produto.png" alt="">
+                            <div class="icon_favorite">
+                                <label class="checkbox-heart">
+                                    <input type="checkbox">
+                                    <i class="fa-solid fa-heart"></i>
+                                </label> 
                             </div>
-                            <div class="conteudo_card" >
-                                <div class="nome_card_produto">Amigurmi Raposa</div>
-                                <div class="content_star_icon">
-                                    <i class="fa-solid fa-star"></i>
-                                    <i class="fa-solid fa-star"></i>
-                                    <i class="fa-solid fa-star"></i>
-                                    <i class="fa-solid fa-star"></i>
-                                    <i class="fa-solid fa-star"></i>
-                                </div>
-                                <div class="preco_card_produto">R$ 50,89</div>
-                                <div class="btn_content_card_produto">
-                                    <div class="btn_bag_card"><i class="fa-solid fa-bag-shopping"></i></div>
-                                    <div class="btn_buy_card">Comprar</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card_produto">
-                        <div class="icon_favorite">
-                            <label class="checkbox-heart">
-                                <input type="checkbox">
-                                <i class="fa-solid fa-heart"></i>
-                            </label> 
-                        </div>
                             <div class="img_content_produto">
                                 <img src=../../src/imagens/imagem/raposa_croche.png alt="">
                             </div>
@@ -169,8 +123,7 @@ if($result){
                                 <img src="../../src/imagens/imagem/pato.png" alt="">
                             </div>
                             <div class="conteudo_card">
-                                
-                                <div class="nome_card_produto">Amigurmi Raposa</div>
+                                <div class="nome_card_produto">Amigurmi Pato</div>
                                 <div class="content_star_icon">
                                     <i class="fa-solid fa-star"></i>
                                     <i class="fa-solid fa-star"></i>
@@ -186,12 +139,38 @@ if($result){
                             </div>
                         </div>
                         <div class="card_produto">
-                        <div class="icon_favorite">
-                            <label class="checkbox-heart">
-                                <input type="checkbox">
-                                <i class="fa-solid fa-heart"></i>
-                            </label> 
+                            <div class="icon_favorite">
+                                <label class="checkbox-heart">
+                                    <input type="checkbox">
+                                    <i class="fa-solid fa-heart"></i>
+                                </label> 
+                            </div>
+                            <div class="img_content_produto">
+                                <img src="../../src/imagens/imagem/preguiça_cachepo.png" alt="">
+                            </div>
+                            <div class="conteudo_card">
+                                <div class="nome_card_produto">Cachepô crochê Preguiça</div>
+                                <div class="content_star_icon">
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                </div>
+                                <div class="preco_card_produto">R$ 89,90</div>
+                                <div class="btn_content_card_produto">
+                                    <div class="btn_bag_card"><i class="fa-solid fa-bag-shopping"></i></div>
+                                    <div class="btn_buy_card">Comprar</div>
+                                </div>
+                            </div>
                         </div>
+                        <div class="card_produto">
+                            <div class="icon_favorite">
+                                <label class="checkbox-heart">
+                                    <input type="checkbox">
+                                    <i class="fa-solid fa-heart"></i>
+                                </label> 
+                            </div>
                             <div class="img_content_produto">
                                 <img src="../../src/imagens/imagem/sticht.png" alt="">
                             </div>

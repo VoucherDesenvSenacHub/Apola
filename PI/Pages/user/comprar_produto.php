@@ -1,20 +1,7 @@
 <?php
 
-
-require '../../App/config.inc.php';
-
-require '../../App/Session/Login.php';
-
 include "head.php";
-
-
-if (Login::IsLogedCliente()) {
-    include 'navbar_logado.php';
-} 
-else {
-    include 'navbar_deslogado.php';
-}
-
+include "navbar_logado.php";
 
 ?>
 
@@ -23,7 +10,7 @@ else {
         <div class="comprar_produto">
             <section class="comprar_produto_top">
                 <div class="conatiner_name_produto_cat">
-                    <!-- <h6>Home / Amigurumi / Amigo Urso</h6> -->
+                    <h6>Home / Amigurumi / Amigo Urso</h6>
                 </div>
                 <div class="product-container">
                     <script src="../../src/JS/comprar_produto.js" defer></script>
@@ -93,29 +80,11 @@ else {
                                 </div>
                             </div> 
                             <div class="container_buy_produto none_display">
-                                <dialog id="modal-2">
-                                    <div class="modal_header">
-                                        <button class="close-modal" data-modal="modal-2"><i class="fa-solid fa-xmark"></i></button>
-                                    </div>
-                                    <div class="modal_body">
-                                        <h5 class="title_modal_zap">Produto Comprado!
-                                        </h5>
-                                        <div class="text_modal_zap">
-                                            Recebemos seu pedido e ele está em processo de análise. Em breve, você será notificado sobre a aprovação. 
-                                            Fique atento às atualizações no seu e-mail ou painel de pedidos. Dúvidas entre em contato.
-                                        </div>
-                                        <div class="conatiner_item_modal_link_zap">
-                                            <div class="item_modal_link_zap">
-                                                <i class="fa-brands fa-whatsapp"></i>
-                                                <a href="https://wa.me/">67 991924837</a>
-                                            </div>
-                                        </div>  
-                                    </div>
-                                </dialog>
-                                <!-- O botão de compra -->
-                                <button class="btn_buy_produto"  data-modal="modal-2">Comprar</button> <!-- AQUIIIIIII -->
-                                <script src="../src/JS/modal.js" defer></script>
-                                <!-- O botão da bolsa -->
+                                <a class="btn_buy_produto" href="escolha_endereco.php"  style="text-decoration: none">
+                                    <!-- O botão de compra -->
+                                    <button class="btn_buy_produto">Comprar</button> <!-- AQUIIIIIII -->
+                                    <!-- O botão da bolsa -->
+                                </a>
                                 <button class="btn_bag_produto">
                                     <i class="fa-solid fa-bag-shopping"></i>
                                 </button>
@@ -261,40 +230,40 @@ else {
         </div>
     </main>
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
-    const openButtons = document.querySelectorAll('.open-modal');
-    const closeButtons = document.querySelectorAll('.close-modal');
+//         document.addEventListener('DOMContentLoaded', () => {
+//     const openButtons = document.querySelectorAll('.open-modal');
+//     const closeButtons = document.querySelectorAll('.close-modal');
 
-    openButtons.forEach(button => {
-        button.addEventListener('click', (e) => {
-            const modalId = e.currentTarget.getAttribute('data-modal');
-            const modal = document.getElementById(modalId);
-            if (modal) {
-                modal.showModal();
-            }
-        });
-    });
+//     openButtons.forEach(button => {
+//         button.addEventListener('click', (e) => {
+//             const modalId = e.currentTarget.getAttribute('data-modal');
+//             const modal = document.getElementById(modalId);
+//             if (modal) {
+//                 modal.showModal();
+//             }
+//         });
+//     });
 
-    closeButtons.forEach(button => {
-        button.addEventListener('click', (e) => {
-            const modalId = e.currentTarget.getAttribute('data-modal');
-            const modal = document.getElementById(modalId);
-            if (modal) {
-                modal.close();
-            }
-        });
-    });
+//     closeButtons.forEach(button => {
+//         button.addEventListener('click', (e) => {
+//             const modalId = e.currentTarget.getAttribute('data-modal');
+//             const modal = document.getElementById(modalId);
+//             if (modal) {
+//                 modal.close();
+//             }
+//         });
+//     });
 
-    // Novo código para o botão de "Comprar"
-    const buyButton = document.querySelector('.btn_buy_produto');
-    const modal2 = document.getElementById('modal-2');
+//     // Novo código para o botão de "Comprar"
+//     const buyButton = document.querySelector('.btn_buy_produto');
+//     const modal2 = document.getElementById('modal-2');
     
-    if (buyButton && modal2) {
-        buyButton.addEventListener('click', () => {
-            modal2.showModal(); // Abre o modal de pedido enviado
-        });
-    }
-});
+//     if (buyButton && modal2) {
+//         buyButton.addEventListener('click', () => {
+//             modal2.showModal(); // Abre o modal de pedido enviado
+//         });
+//     }
+// });
 
     </script>
 <?php
