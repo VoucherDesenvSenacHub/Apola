@@ -94,7 +94,7 @@ include "head_adm.php";
             <div class="Title_deafult_adm">
                 <div class="container_title_adm_left">
                 <a href="./listar_pedidos_adm.php" style="text-decoration: none; color: gray"><i class="fa-solid fa-chevron-left"></i></a>
-                    <span class="title_adm">Pedido #4343</span>
+                    <span class="title_adm">Pedido #<?= $_GET['id']; ?></span>
                 </div>
                 <div class="container_title_adm_right">
                     <div class="conatiner_btn_adm mobile_btn_salvar">
@@ -138,9 +138,7 @@ include "head_adm.php";
                         <input readonly id="input_3_pedido" type="text">
                     </div>
                 </div>
-            </form>
-            <div class="shape_pedido"></div>
-            <form action="" method="POST">
+                <div class="shape_pedido"></div>
                 <div class="conatiner_cadastro_adm_pedido_body">
                     <div class="conatiner_cadastro_adm_pedido_body_left">
                         <div class="item_flex_pedido">
@@ -181,7 +179,7 @@ include "head_adm.php";
                         </div>
                     </div>
                 </div>
-            </div>
+                </div>
             </form>
             <div  id="conatiner_btn_adm_pc" class="conatiner_btn_adm">
                 

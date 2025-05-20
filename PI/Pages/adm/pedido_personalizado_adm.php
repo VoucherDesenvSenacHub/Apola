@@ -92,7 +92,7 @@ include "head_adm.php";
             <div class="Title_deafult_adm">
                 <div class="container_title_adm_left">
                 <a href="./listar_pedidos_adm.php" style="text-decoration: none; color: gray"><i class="fa-solid fa-chevron-left"></i></a>
-                    <span class="title_adm">Pedido #2343</span>
+                    <span class="title_adm">Pedido #<?= $_GET['id'];?></span>
                 </div>
                 <div class="container_title_adm_right">
                     <div class="conatiner_btn_adm mobile_btn_salvar">
