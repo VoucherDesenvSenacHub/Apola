@@ -1,5 +1,6 @@
 <?php
 
+// linkar o botao de comprar para a tela de comprar produto php
 
 require '../../App/config.inc.php';
 
