@@ -133,7 +133,6 @@ include "head_adm.php";
                         <div class="item_flex_adm">
                             <label for="">Imagem</label>
                             <div class="conatiner_img_add_adm">
-
                             </div>
                             <p class="text_tamanho_img">Tamanho recomendavel (1700x700px)</p>
                         </div>

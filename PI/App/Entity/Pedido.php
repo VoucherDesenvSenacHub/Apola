@@ -1,26 +1,34 @@
 <?php
-class Pedido {
-    private $conn;
+require_once '../DB/Database.php';
 
-    public function __construct($db) {
-        $this->conn = $db;
+class Pedido {
+    public int $id_pedido;
+
+    public function cadastrar(){
+        $db = new Database('pedido');
+        $result = $db->insert([
+            'data_pedido' => $this->data_pedido,
+        ]);
+
+        return $result ? true : false;
     }
 
-    public function listar() {
-        $query = "
-            SELECT 
-                p.id_pedido AS numero,
-                s.valor_total AS total,
-                p.tipo AS tipo,
-                c.estado AS estado
-            FROM pedido p
-            JOIN sacola s ON p.sacola_id_sacola = s.id_sacola
-            JOIN cliente c ON s.cliente_id_cliente = c.id_cliente
-        ";
+    public function atualizar(){
+        return (new Database('pedido'))->update('sacola_id_sacola = '.$this->sacola_id_sacola,[
+            'data_pedido' => $this->data_pedido,
+        ]);
+    }
 
-        $stmt = $this->conn->prepare($query);
-        $stmt->execute();
+    public static function buscar(){
+        return (new Database('pedido'))->select_pedido();
+        //return (new Database('pedido'))->select_pedido()->fetchAll(PDO::FETCH_ASSOC);
+    }
 
-        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    public static function buscar_by_id($sacola_id){
+        return (new Database('pedido'))->select('sacola_id_sacola = '.$sacola_id)->fetchObject(self::class);
+    }
+
+    public function excluir($sacola_id){
+        return (new Database('pedido'))->delete('sacola_id_sacola = '.$sacola_id);
     }
 }
