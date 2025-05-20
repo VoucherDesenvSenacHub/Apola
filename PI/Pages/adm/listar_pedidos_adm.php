@@ -3,31 +3,6 @@
 include "head_adm.php";
 include_once('../../App/DB/Database.php');
 
-$db = new Database();
-$conn = $db->getConnection();
-
-$sql = "SELECT 
-            p.id_pedido,
-            p.data_pedido,
-            p.tipo,
-            p.status_pedido,
-            p.codigo_rastreio,
-            s.valor_total,
-            c.estado,
-            u.nome AS cliente_nome
-        FROM pedido p
-        JOIN sacola s ON p.sacola_id_sacola = s.id_sacola
-        JOIN cliente c ON s.cliente_id_cliente = c.id_cliente
-        JOIN usuario u ON c.id_usuario = u.id_usuario
-        ORDER BY p.data_pedido DESC";
-
-$stmt = $conn->prepare($sql);
-
-if ($stmt->execute()) {
-    $pedidos = $stmt->fetchAll(PDO::FETCH_ASSOC);
-} else {
-    $pedidos = []; // fallback para evitar erro no foreach
-}
 ?>
 
 <header class="header_adm" >
