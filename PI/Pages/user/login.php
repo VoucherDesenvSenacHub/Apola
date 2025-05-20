@@ -1,40 +1,80 @@
-
 <?php
-
 require '../../App/config.inc.php';
+
+require_once '../../App/Entity/User.php';
+require_once '../../App/Entity/Cliente.class.php';
+require_once '../../App/Entity/Adm.class.php';
 
 require '../../App/Session/Login.php';
 
-Login::RequireLogout();
-
+// Login::RequireLogout();
 
 $erro = '';
-$succes ='';
+$succes = '';
 
-if(isset($_POST['logar'])){
 
-    if(!empty($_POST['email']) || !empty($_POST['senha'])){
-
+if (isset($_POST['logar'])) {
+    if (!empty($_POST['email']) && !empty($_POST['senha'])) {
         $email = $_POST['email'];
         $senha = $_POST['senha'];
 
-        if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
-            $erro='Email não é válido';
-        }else{
+        if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+            $erro = 'Email não é válido';
+        } else {
+            $usuario = User::getUsuarioByEmail($email);
+            // print_r($usuario);
 
-            $cliente = Cliente::getUsuarioPorEmail($email);
+            if ($usuario) {
+                $idUsuario = $usuario->id_usuario;
+                // var_dump($usuario);
+                // print_r('Aquii estaa' .$idUsuario);
+                // Verificar se é admin e se é o primeiro login
+                if ($usuario->id_perfil == 'adm' && $senha == 'adm') {
+                    $idUsuario = $usuario->id_usuario;
+                    $adm = Adm::getAdmByUsuarioId($idUsuario);
+                    // print_r($adm);
+                    // echo 'CAIUUUUU';
+                    if ($adm) {
+                        $adm->id_usuario = $usuario->id_usuario;
+                        $adm->email = $usuario->email;
+                        Login::loginAdm($adm);
+                        exit;
+                    }
+                }
+                // Verificação padrão com senha criptografada
+                if (password_verify($senha, $usuario->senha)) {
+                    // Verificar se é cliente
+                    $cliente = Cliente::getClienteByUsuarioId($idUsuario);
+                    if ($cliente) {
+                        $cliente->nome = $usuario->nome;
+                        $cliente->email = $usuario->email;
+                        Login::loginCLiente($cliente);
+                        echo '<script>alert("Login bem-sucedido!")</script>';
+                        exit;
+                    }
 
-        
-            if( $cliente instanceof Cliente && password_verify($senha, $cliente->senha)){
-                Login::loginCLiente($cliente);
-            }elseif($adm instanceof Adm &&  password_verify($senha, $adm->senha)){
-                Login::loginAdm($adm);
-            }else{
-                $erro='Email não exite ou senha está errada';
+                    // Verificar se é admin com senha já atualizada
+                    if ($usuario->id_perfil == 'adm') {
+                        $adm = Adm::getAdmByUsuarioId($idUsuario);
+                        if ($adm) {
+                            $adm->id_usuario = $usuario->id_usuario;
+                            Login::loginAdm($adm);
+                            exit;
+                        }
+                    }
+
+                    $erro = 'Usuário não possui perfil (adm ou cliente).';
+                } else {
+                    $erro = 'Email ou senha incorretos.';
+                }
+            } else {
+                $erro = 'Usuário não encontrado.';
+
             }
         }
+    } else {
+        $erro = 'Preencha todos os campos.';
     }
-
 }
 
 
@@ -51,7 +91,7 @@ if(isset($_POST['logar'])){
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../src/Css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <script src="../JS/validar_form_login.js" defer></script>
+    <!-- <script src="../JS/validar_form_login.js" defer></script> -->
 
     <title>Login</title>
 </head> 
@@ -76,7 +116,7 @@ if(isset($_POST['logar'])){
                 <div class="container-login">
                     <div class="form-container">
                         <div class="text-login">Login</div>
-                        <form  method="post">
+                        <form action="login.php" method="post">
                             <div class="form__group field">
                                 <input type="text" name='email' id="email-login" class="form__field" placeholder="E-mail" required>
                                 <label for="email" class="form__label">E-mail*</label>
@@ -97,7 +137,7 @@ if(isset($_POST['logar'])){
                                 </div>
                                 <div class="modal_body">
                                     <h5 class="title_modal_zap">Redefinição de Senha!</h5>
-                                    <div class="text_modal_zap">Informe um e-mail para recuperar a senha.</div>
+                                    <div class="text_modal_zap">     um e-mail para recuperar a senha.</div>
                                     <div class="form_modal" action="">
                                         <label class="label_modal" for="">Email</label>
                                         <input class="input_modal" type="email" name="" id="">

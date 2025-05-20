@@ -97,13 +97,13 @@ include "head_adm.php";
                 </div>
                 
             </div>
-            <div class="conatiner_cadastro_adm_items">
+           <div class="conatiner_cadastro_adm_items">
                 <div class="top_container_cadastrar_produto_adm">
                     <!-- Banners Principais -->
                     <div class="item_top_produto">
                         <h4 class="title_banner_categoria">Banners Principais</h4>
                         <div class="tamanho_banner_adm">Tamanho recomendável (1400x400px)</div>
-                        <div class="container_banner_wrap" id="banner-principal">
+                        <form class="container_banner_wrap" id="banner-principal">
                             <div class="banner-item">
                                 <img src="../src/imagens/banner/1.png" alt="Imagem 1" class="preview-image banner-image">
                                 <button class="trocar-imagem-btn"> <i class="fa-solid fa-plus"></i><i class="fa-solid fa-file-image"></i></button>
@@ -228,10 +228,6 @@ include "head_adm.php";
                         </div>
                     </div>            
                 </div>
-               
-                   
-               
-          
             </div>
             
         

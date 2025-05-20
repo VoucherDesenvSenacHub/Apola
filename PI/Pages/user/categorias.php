@@ -8,7 +8,7 @@ require '../../App/Session/Login.php';
 include "head.php";
 
 
-$result = Login::RequireLogout();
+$result = Login::IsLogedCliente();
 
 
 if($result){

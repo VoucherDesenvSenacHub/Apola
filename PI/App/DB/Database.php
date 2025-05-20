@@ -4,10 +4,10 @@
 class Database{
 
     public $conection;
-    public string $local = '10.38.0.125';
+    public string $local = 'localhost';
     public string $db = 'pi_artesanato';
-    public string $user = 'devweb';
-    public string $password = 'suporte@22';
+    public string $user = 'root';
+    public string $password = '';
     public $table;
 
 
@@ -62,9 +62,35 @@ class Database{
         // die();
 
 
-        $this->execute($query,array_values($values));
+        $result = $this->execute($query,array_values($values));
 
-        return $this->conection->lastInsertId();
+        if($result){
+            return true;
+        }
+        else{
+            return false;
+        }
+
+        
+    }
+
+    public function insert_LastId($values){
+        $fields = array_keys($values);
+        $binds = array_pad([],count($fields),'?');
+
+        $query = 'INSERT INTO ' . $this->table .'  (' .implode(',',$fields). ') VALUES (' .implode(',',$binds).')';
+
+
+        $res = $this->execute($query, array_values($values));   
+
+        $lastId = $this->conection->lastInsertId();  
+
+        if($res){
+            return $lastId;
+        }
+        else{
+            return false;
+        }
         
     }
 
@@ -89,17 +115,17 @@ class Database{
 
     // Função para deletar dados do banco de dados
 
-    public function delete($where){
-        $query = 'DELETE FROM'.this->table.'WHERE'.$where;
+    public function delete($where = null) {
 
-        $this->execute($query);
+        // Monta a cláusula WHERE se fornecida
+        $where = strlen($where) ? 'WHERE '.$where : '';
 
-        return true;
+        // Monta a query de DELETE
+        $query = 'DELETE FROM '.$this->table.' '.$where;
 
-
-
+        // Executa a query
+        return $this->execute($query);
     }
-
 
 
     // Função para editar a dados do banco de dados
