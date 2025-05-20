@@ -100,7 +100,7 @@ include "head_adm.php";
            <div class="conatiner_cadastro_adm_items">
                 <div class="top_container_cadastrar_produto_adm">
                     <!-- Banners Principais -->
-                    <div class="item_top_produto">
+                    <form method="POST" class="item_top_produto" enctype="multipart/form-data>
                         <h4 class="title_banner_categoria">Banners Principais</h4>
                         <div class="tamanho_banner_adm">Tamanho recomendável (1400x400px)</div>
                         <form class="container_banner_wrap" id="banner-principal">
