@@ -96,7 +96,6 @@ include "nav_bar_adm.php";
                 </div>
                 <div class="container_title_adm_right">
                     <a style="text-decoration:none;" href="cadastrar_produto_adm.php"><button class="btn_add_item_adm">+ Produto</button></a>
-
                 </div>
                 
             </div>

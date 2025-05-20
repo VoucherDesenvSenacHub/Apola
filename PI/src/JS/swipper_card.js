@@ -1,6 +1,7 @@
 const swiper = new Swiper('.swiper', {
   loop: true,
   grabCursor: true,
+  loop: true,
 
   // If we need pagination
   pagination: {

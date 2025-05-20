@@ -1,7 +1,7 @@
 <?php
 
 
-class Database{
+clASs Database{
 
     public $conection;
     public string $local = '192.168.22.9';
@@ -17,7 +17,7 @@ class Database{
         $this->conecta();
     }
 
-    
+        
     // Função conectar com o banco de dados
 
     private function conecta(){
@@ -114,8 +114,12 @@ class Database{
 
 
     // Função para deletar dados do banco de dados
+    public function delete($where){
+        $query = 'DELETE FROM'.$this->table.'WHERE'.$where;
 
-    public function delete($where = null) {
+        $this->execute($query);
+
+        return true;
 
         // Monta a cláusula WHERE se fornecida
         $where = strlen($where) ? 'WHERE '.$where : '';
@@ -140,7 +144,13 @@ class Database{
 
     }
 
+    public function select_pedido(){
+        $query = "SELECT pedido.id_pedido AS ID, sacola.valor_total AS Valor, pedido.tipo AS Tipo,  cliente.estado AS UF FROM pedido 
+        JOIN sacola ON pedido.sacola_id_sacola = sacola.id_sacola
+        JOIN cliente ON sacola.cliente_id_cliente = cliente.id_cliente";
 
+        return $result = $this->execute($query)->fetchAll(PDO::FETCH_ASSOC);
+    }
 
 
 
