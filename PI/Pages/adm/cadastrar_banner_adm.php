@@ -2,8 +2,53 @@
 
 include "head_adm.php";
 // include "nav_bar_adm.php";
+require '../../App/config.inc.php';
+require '../../App/Session/Login.php';
 
-?>  
+if (isset($_POST['cadastrarPrincipal'])) {
+    $pastaDestino = '../../src/imagens/banner/bannerCadastrado/';
+    $extensoesPermitidas = ['png', 'jpg', 'jpeg'];
+    $nomesInputs = ['bannerPrincipal1', 'bannerPrincipal2', 'bannerPrincipal3'];
+
+    foreach ($nomesInputs as $inputName) {
+        if (isset($_FILES[$inputName]) && $_FILES[$inputName]['error'] === UPLOAD_ERR_OK) {
+            $arquivo = $_FILES[$inputName];
+            $nomeOriginal = $arquivo['name'];
+            $extensao = strtolower(pathinfo($nomeOriginal, PATHINFO_EXTENSION));
+
+            if (!in_array($extensao, $extensoesPermitidas)) {
+                echo "<script>alert('O arquivo \"$nomeOriginal\" não é PNG nem JPG.')</script>";
+                exit;
+            }
+
+            $novoNome = uniqid('banner_', true) . '.' . $extensao;
+            $caminhoFinal = $pastaDestino . $novoNome;
+
+            if (!move_uploaded_file($arquivo['tmp_name'], $caminhoFinal)) {
+                die("Falha ao mover o arquivo: $nomeOriginal");
+            }
+
+            // ✅ Cadastrar no banco dentro do loop
+            $banner = new Banner();
+            $banner->caminho = $caminhoFinal;
+            $resultado = $banner->cadastrarBanner();
+
+            if ($resultado) {
+                echo "<script>console.log('Banner \"$novoNome\" cadastrado no banco com sucesso.');</script>";
+            } else {
+                echo "<script>alert('Erro ao cadastrar \"$nomeOriginal\" no banco.')</script>";
+            }
+
+        } else {
+            echo "<script>alert('Erro ao processar o arquivo \"$inputName\".')</script>";
+        }
+    }
+
+    echo "<script>alert('Todos os banners foram processados!')</script>";
+}
+
+?>
+
     <header class="header_adm" >
             <nav class="navbar_adm" id="sidebar_adm">
                 <div id="sidebar_adm_content">
@@ -100,34 +145,34 @@ include "head_adm.php";
            <div class="conatiner_cadastro_adm_items">
                 <div class="top_container_cadastrar_produto_adm">
                     <!-- Banners Principais -->
-                    <form method="POST" class="item_top_produto" enctype="multipart/form-data>
-                        <h4 class="title_banner_categoria">Banners Principais</h4>
+                    <form method="POST" class="item_top_produto" enctype="multipart/form-data">
+                        <h4 class="title_banner_categoria" >Banners Principais</h4>
                         <div class="tamanho_banner_adm">Tamanho recomendável (1400x400px)</div>
-                        <form class="container_banner_wrap" id="banner-principal">
+                        <div class="container_banner_wrap" id="banner-principal">
                             <div class="banner-item">
                                 <img src="../src/imagens/banner/1.png" alt="Imagem 1" class="preview-image banner-image">
                                 <button class="trocar-imagem-btn"> <i class="fa-solid fa-plus"></i><i class="fa-solid fa-file-image"></i></button>
-                                <input type="file" class="file-upload" accept="image/*" style="display:none;">
+                                <input name="bannerPrincipal1" type="file" class="file-upload" accept="image/*" style="display:none;">
                             </div>
                             <div class="banner-item">
                                 <img src="../src/imagens/banner/2.png" alt="Imagem 2" class="preview-image banner-image">
                                 <button class="trocar-imagem-btn"><i class="fa-solid fa-plus"></i><i class="fa-solid fa-file-image"></i></button>
-                                <input type="file" class="file-upload" accept="image/*" style="display:none;">
+                                <input name="bannerPrincipal2" type="file" class="file-upload" accept="image/*" style="display:none;">
                             </div>
                             <div class="banner-item">
                                 <img src="../src/imagens/banner/3.png" alt="Imagem 3" class="preview-image banner-image">
                                 <button class="trocar-imagem-btn"><i class="fa-solid fa-plus"></i><i class="fa-solid fa-file-image"></i></button>
-                                <input type="file" class="file-upload" accept="image/*" style="display:none;">
+                                <input name="bannerPrincipal3" type="file" class="file-upload" accept="image/*" style="display:none;">
                             </div>
                         </div>
                         <div class="conatiner_btn_adm ">
-                            <button class="btn_salvar_adm">Salvar</button>
+                            <button type="submit" name="cadastrarPrincipal" class="btn_salvar_adm">Salvar</button>
                         </div>
-                    </div>
+                    </form> 
 
                     <!-- Banners Secundários-->
 
-                    <div class="item_top_produto">
+                    <form method="POST" enctype="multipart/form-data" class="item_top_produto">
                         <h4 class="title_banner_categoria">Banners Secundários</h4>
                         <div class="tamanho_banner_adm">Tamanho recomendável (1700x700px)</div>
                         <div class="container_banner_wrap" id="banner-secundario">
@@ -140,10 +185,10 @@ include "head_adm.php";
                         <div class="conatiner_btn_adm ">
                             <button class="btn_salvar_adm">Salvar</button>
                         </div>
-                    </div>
+                    </form>
             
                     <!-- Banners Promocionais -->
-                    <div class="item_top_produto">
+                    <form method="POST" enctype="multipart/form" class="item_top_produto">
                         <h4 class="title_banner_categoria">Banners Promocionais</h4>
                         <div class="tamanho_banner_adm">Tamanho recomendável (1700x700px)</div>
                         <div class="container_banner_wrap-promocional" id="banner-secundario">
@@ -168,17 +213,17 @@ include "head_adm.php";
                         <div  class="conatiner_btn_adm ">
                             <button class="btn_salvar_adm">Salvar</button>
                         </div>
-                    </div>
-            
+                    </form>
+
                     <!-- Banners Mobile -->
-                    <div class="item_top_produto">
+                    <form name="formMobile" method="POST" enctype="multipart/form" class="item_top_produto">
                         <h4 class="title_banner_categoria">Banners Mobile</h4>
                         <div class="tamanho_banner_adm">Tamanho recomendável (1080x1080px)</div>
                         <div class="container_banner_wrap" id="banner-mobile">
                             <div class="banner-item">
                                 <img src="../src/imagens/img_banner_menu/1.png" alt="Imagem 1" class="preview-image banner-image">
                                 <button class="trocar-imagem-btn"><i class="fa-solid fa-plus"></i><i class="fa-solid fa-file-image"></i></button>
-                                <input type="file" class="file-upload" accept="image/*" style="display:none;">
+                                <input type="file" class="file-upload" accept="image/*" style="display:none;" name="mobileImage1">
                             </div>
                             <div class="banner-item">
                                 <img src="../src/imagens/img_banner_menu/1.png" alt="Imagem 1" class="preview-image banner-image">
@@ -194,7 +239,7 @@ include "head_adm.php";
                         <div  class="conatiner_btn_adm ">
                             <button class="btn_salvar_adm">Salvar</button>
                         </div>
-                    </div>
+                    </form>
             
                     <!-- Banners Categoria
                     <div class="item_top_produto">
@@ -213,7 +258,7 @@ include "head_adm.php";
                     </div> -->
             
                     <!-- Banners Sobre Mim -->
-                    <div class="item_top_produto">
+                    <form method="POST" enctype="multipart/form" class="item_top_produto">
                         <h4 class="title_banner_categoria">Banners Sobre Mim</h4>
                         <div class="tamanho_banner_adm">Tamanho recomendável (1000x500px)</div>
                         <div class="container_banner_wrap" id="banner-sobre-mim">
@@ -226,7 +271,7 @@ include "head_adm.php";
                         <div  class="conatiner_btn_adm ">
                             <button class="btn_salvar_adm">Salvar</button>
                         </div>
-                    </div>            
+                    </fomr>            
                 </div>
             </div>
             
