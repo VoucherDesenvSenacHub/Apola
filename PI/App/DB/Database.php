@@ -4,10 +4,10 @@
 clASs Database{
 
     public $conection;
-    public string $local = '192.168.22.9';
-    public string $db = '140p1';
-    public string $user = 'devweb';
-    public string $password = 'voucher140';
+    public string $local = 'localhost';
+    public string $db = 'pi_artesanato';
+    public string $user = 'root';
+    public string $password = '';
     public $table;
 
 
@@ -137,7 +137,7 @@ clASs Database{
     public function update($where, $values){
         $fields = array_keys($values);
 
-        $query = 'UPDATE'.$this->table.'SET'.implode('=?,',$fields).'=? WHERE '.$where;
+        $query = 'UPDATE '.$this->table.' SET '.implode('=?,',$fields).' =? WHERE '.$where;
 
         $this->execute($query,array_values($values));
         return  true;

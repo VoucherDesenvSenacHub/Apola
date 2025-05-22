@@ -6,11 +6,11 @@ require '../../App/config.inc.php';
 require '../../App/Session/Login.php';
 
 if (isset($_POST['cadastrarPrincipal'])) {
-    $pastaDestino = '../../src/imagens/banner/bannerCadastrado/';
+    $pastaDestino = '../../src/imagens/banner/bannerCadastrado/bannersPrincipais/';
     $extensoesPermitidas = ['png', 'jpg', 'jpeg'];
     $nomesInputs = ['bannerPrincipal1', 'bannerPrincipal2', 'bannerPrincipal3'];
 
-    foreach ($nomesInputs as $inputName) {
+    foreach ($nomesInputs as $index => $inputName) {
         if (isset($_FILES[$inputName]) && $_FILES[$inputName]['error'] === UPLOAD_ERR_OK) {
             $arquivo = $_FILES[$inputName];
             $nomeOriginal = $arquivo['name'];
@@ -28,15 +28,21 @@ if (isset($_POST['cadastrarPrincipal'])) {
                 die("Falha ao mover o arquivo: $nomeOriginal");
             }
 
-            // ✅ Cadastrar no banco dentro do loop
+            // ✅ Definir o banner e a posição correspondente
+            $posicao = $index + 1;
+
             $banner = new Banner();
             $banner->caminho = $caminhoFinal;
-            $resultado = $banner->cadastrarBanner();
+            $banner->posicao = $posicao;
 
-            if ($resultado) {
-                echo "<script>console.log('Banner \"$novoNome\" cadastrado no banco com sucesso.');</script>";
+            $bannerExistente = $banner->getBannerForPosicao('banners_principais', $posicao);
+
+            if ($bannerExistente) {
+                // Atualiza se já existe na posição
+                $banner->updateBannersPrincipais();
             } else {
-                echo "<script>alert('Erro ao cadastrar \"$nomeOriginal\" no banco.')</script>";
+                // Cadastra se ainda não tem banner naquela posição
+                $banner->cadastrarBannersPrincipais();
             }
 
         } else {
@@ -44,8 +50,79 @@ if (isset($_POST['cadastrarPrincipal'])) {
         }
     }
 
-    echo "<script>alert('Todos os banners foram processados!')</script>";
+    echo "<script>alert('Todos os banners principais foram processados!')</script>";
 }
+
+if (isset($_POST['cadastrarSecundario'])) {
+    $pastaDestino = '../../src/imagens/banner/bannerCadastrado/bannersSecundarios/';
+    $extensoesPermitidas = ['png', 'jpg', 'jpeg'];
+    $nomesInputs = ['bannerSecundario'];
+
+    foreach ($nomesInputs as $index => $inputName) {
+        if (isset($_FILES[$inputName]) && $_FILES[$inputName]['error'] === UPLOAD_ERR_OK) {
+            $arquivo = $_FILES[$inputName];
+            $nomeOriginal = $arquivo['name'];
+            $extensao = strtolower(pathinfo($nomeOriginal, PATHINFO_EXTENSION));
+
+            if (!in_array($extensao, $extensoesPermitidas)) {
+                echo "<script>alert('O arquivo \"$nomeOriginal\" não é PNG nem JPG.')</script>";
+                exit;
+            }
+
+            $novoNome = uniqid('banner_', true) . '.' . $extensao;
+            $caminhoFinal = $pastaDestino . $novoNome;
+
+            if (!move_uploaded_file($arquivo['tmp_name'], $caminhoFinal)) {
+                die("Falha ao mover o arquivo: $nomeOriginal");
+            }
+
+            // ✅ Definir o banner e a posição correspondente
+            $posicao = 1;
+
+            $banner = new Banner();
+            $banner->caminho = $caminhoFinal;
+            $banner->posicao = $posicao;
+
+            $bannerExistente = $banner->getBannerForPosicao('banners_secundarios', $posicao);
+
+            if ($bannerExistente) {
+                // Atualiza se já existe na posição
+                $banner->updateBannersSecundarios();
+            } else {
+                // Cadastra se ainda não tem banner naquela posição
+                $banner->cadastrarBannersSecundarios();
+            }
+
+        } else {
+            echo "<script>alert('Erro ao processar o arquivo \"$inputName\".')</script>";
+        }
+    }
+
+    echo "<script>alert('Todos os banners principais foram processados!')</script>";
+}
+
+
+$banner = new Banner();
+
+$bannersPrincipais = [];
+for ($i = 1; $i <= 3; $i++) {
+    $bannersPrincipais[$i] = $banner->getBannerForPosicao("banners_principais", $i);
+}
+
+$bannersSecundarios = [];
+for ($i = 1; $i <= 3; $i++) {
+    $bannersSecundarios[$i] = $banner->getBannerForPosicao("banners_secundarios", $i);
+}
+
+$bannersPromocionais = [];
+for ($i = 1; $i <= 3; $i++) {
+    $bannersPromocionais[$i] = $banner->getBannerForPosicao("banners_promocionais", $i);
+}
+
+$bannersMobile = [];
+for ($i = 1; $i <= 3; $i++) {
+    $bannersMobile[$i] = $banner->getBannerForPosicao("banners_mobile", $i);
+}              
 
 ?>
 
@@ -150,17 +227,17 @@ if (isset($_POST['cadastrarPrincipal'])) {
                         <div class="tamanho_banner_adm">Tamanho recomendável (1400x400px)</div>
                         <div class="container_banner_wrap" id="banner-principal">
                             <div class="banner-item">
-                                <img src="../src/imagens/banner/1.png" alt="Imagem 1" class="preview-image banner-image">
+                                <img src= " <?php echo isset($bannersPrincipais[1]) ? $bannersPrincipais[1]->caminho : '../src/imagens/banner/1.png'; ?>" alt="Imagem 1" class="preview-image banner-image">
                                 <button class="trocar-imagem-btn"> <i class="fa-solid fa-plus"></i><i class="fa-solid fa-file-image"></i></button>
                                 <input name="bannerPrincipal1" type="file" class="file-upload" accept="image/*" style="display:none;">
                             </div>
                             <div class="banner-item">
-                                <img src="../src/imagens/banner/2.png" alt="Imagem 2" class="preview-image banner-image">
+                                <img src="<?php echo isset($bannersPrincipais[2]) ? $bannersPrincipais[2]->caminho : '../src/imagens/banner/1.png'; ?>" alt="Imagem 2" class="preview-image banner-image">
                                 <button class="trocar-imagem-btn"><i class="fa-solid fa-plus"></i><i class="fa-solid fa-file-image"></i></button>
                                 <input name="bannerPrincipal2" type="file" class="file-upload" accept="image/*" style="display:none;">
                             </div>
                             <div class="banner-item">
-                                <img src="../src/imagens/banner/3.png" alt="Imagem 3" class="preview-image banner-image">
+                                <img src="<?php echo isset($bannersPrincipais[3]) ? $bannersPrincipais[3]->caminho : '../src/imagens/banner/1.png'; ?>" alt="Imagem 3" class="preview-image banner-image">
                                 <button class="trocar-imagem-btn"><i class="fa-solid fa-plus"></i><i class="fa-solid fa-file-image"></i></button>
                                 <input name="bannerPrincipal3" type="file" class="file-upload" accept="image/*" style="display:none;">
                             </div>
@@ -177,41 +254,41 @@ if (isset($_POST['cadastrarPrincipal'])) {
                         <div class="tamanho_banner_adm">Tamanho recomendável (1700x700px)</div>
                         <div class="container_banner_wrap" id="banner-secundario">
                             <div class="banner-item">
-                                <img src="../src/imagens/banner/3.png" alt="Imagem 1" class="preview-image banner-image">
+                                <img src="<?php echo isset($bannersSecundarios[1]) ? $bannersPrincipais[1]->caminho : '../src/imagens/banner/1.png'; ?>" alt="Imagem 1" class="preview-image banner-image">
                                 <button class="trocar-imagem-btn"><i class="fa-solid fa-plus"></i><i class="fa-solid fa-file-image"></i></button>
-                                <input type="file" class="file-upload" accept="image/*" style="display:none;">
+                                <input name="bannerSecundario" type="file" class="file-upload" accept="image/*" style="display:none;">
                             </div>
                         </div>
                         <div class="conatiner_btn_adm ">
-                            <button class="btn_salvar_adm">Salvar</button>
+                            <button type="submit" name="cadastrarSecundario" class="btn_salvar_adm">Salvar</button>
                         </div>
                     </form>
             
                     <!-- Banners Promocionais -->
-                    <form method="POST" enctype="multipart/form" class="item_top_produto">
+                    <form method="POST" enctype="multipart/form-data" class="item_top_produto">
                         <h4 class="title_banner_categoria">Banners Promocionais</h4>
                         <div class="tamanho_banner_adm">Tamanho recomendável (1700x700px)</div>
                         <div class="container_banner_wrap-promocional" id="banner-secundario">
                             <div class="banner-item-promocional">
                                 <img src="../src/imagens/card_promocional/1.png" alt="Imagem 1" class="preview-image banner-image">
                                 <button class="trocar-imagem-btn"><i class="fa-solid fa-plus"></i><i class="fa-solid fa-file-image"></i></button>
-                                <input type="file" class="file-upload" accept="image/*" style="display: none;">
+                                <input name="bannerPromocional1" type="file" class="file-upload" accept="image/*" style="display: none;">
                             </div>
                             <div class="quadro-banners-promo">
                                 <div class="banner-item-promo">
                                     <img src="../src/imagens/card_promocional/2.png" alt="Imagem 2" class="preview-image banner-image">
                                     <button class="trocar-imagem-btn"><i class="fa-solid fa-plus"></i><i class="fa-solid fa-file-image"></i></button>
-                                    <input type="file" class="file-upload" accept="image/*" style="display: none;">
+                                    <input name="bannerPromocional2" type="file" class="file-upload" accept="image/*" style="display: none;">
                                 </div>
                                 <div class="banner-item-promo">
                                     <img src="../src/imagens/card_promocional/3.png" alt="Image 3" class="preview-image banner-image">
                                     <button class="trocar-imagem-btn"><i class="fa-solid fa-plus"></i><i class="fa-solid fa-file-image"></i></button>
-                                    <input type="file" class="file-upload" accept="image/*" style="display: none;">
+                                    <input name="bannerPromocional3" type="file" class="file-upload" accept="image/*" style="display: none;">
                                 </div>
                             </div>
                         </div>
                         <div  class="conatiner_btn_adm ">
-                            <button class="btn_salvar_adm">Salvar</button>
+                            <button type="submit" name="cadastrarPromocionais" class="btn_salvar_adm">Salvar</button>
                         </div>
                     </form>
 
