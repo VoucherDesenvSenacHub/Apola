@@ -89,10 +89,10 @@ include "head_adm.php";
             <div class="container_title_adm_left">
                 <span class="title_adm">Dashboard</span>
             </div>
-            <div class="container_title_adm_right">
+            <!-- <div class="container_title_adm_right">
                 <input type="text" placeholder="Pesquisar...">
                 <i class="fa-solid fa-magnifying-glass"></i>
-            </div>
+            </div> -->
         </div>
 
         <div class="conatiner_dados_dashbord">

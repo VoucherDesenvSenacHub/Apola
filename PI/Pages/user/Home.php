@@ -7,6 +7,17 @@ require '../../App/Session/Login.php';
 include "head.php";
 
 
+$banner = new Banner();
+
+$bannerPrincipalPosicao1 = $banner->getBannerForPosicao('banners_principais',1);
+$bannerPrincipalPosicao2 = $banner->getBannerForPosicao('banners_principais',2);
+$bannerPrincipalPosicao3 = $banner->getBannerForPosicao('banners_principais',3);
+
+$bannerSecundarioPosicao1 = $banner->getBannerForPosicao('banners_secundarios',1);
+
+$bannerPromocionalPosicao1  = $banner->getBannerForPosicao('banners_promocionais',1);
+$bannerPromocionalPosicao2  = $banner->getBannerForPosicao('banners_promocionais',2);
+$bannerPromocionalPosicao3  = $banner->getBannerForPosicao('banners_promocionais',3);
 
 
 if (Login::IsLogedCliente()) {
@@ -25,13 +36,13 @@ else {
         <section id="carouselExampleControls" class="carousel slide carrosel_pc" data-ride="carousel">
             <div class="carousel-inner">
               <div class="carousel-item active">
-                <img class="d-block w-100" src="../../src/imagens/banner/1.png" alt="First slide">
+                <img class="d-block w-100" src="<?= $bannerPrincipalPosicao1->caminho; ?>" alt="First slide">
               </div>
               <div class="carousel-item">
-                <img class="d-block w-100" src="../../src/imagens/banner/4.png" alt="Second slide">
+                <img class="d-block w-100" src="<?= $bannerPrincipalPosicao2->caminho; ?>" alt="Second slide">
               </div>
               <div class="carousel-item">
-                <img class="d-block w-100" src="../../src/imagens/banner/3.png" alt="Third slide">
+                <img class="d-block w-100" src="<?= $bannerPrincipalPosicao3->caminho; ?>" alt="Third slide">
               </div>
             </div>
             <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
@@ -347,7 +358,7 @@ else {
 
         <!-- INICIO BANNER SECUNDARIO -->
         <section class="banners_secudarios">
-            <img src="../../src/imagens/banner/2.png" alt="">
+            <img src="<?= $bannerSecundarioPosicao1->caminho; ?> " alt="">
         </section>
         <!-- FIM BANNER SECUNDARIO -->
 
@@ -555,9 +566,9 @@ else {
 
         <!-- INICIO BANNERS PROMOCIONAIS -->
         <section class="section banner_card grid grid-banner-areas">
-            <div class="banner_card_1"><img src="../../src/imagens/banner/croche_banner.png" alt=""></div>
-            <div class="banner_card_2"><img src="../../src/imagens/banner/artesanato.png" alt="">
-                <div class="banner_card_3"><img src="../../src/imagens/banner/baner.webp" alt=""></div>
+            <div class="banner_card_1"><img src="<?= $bannerPromocionalPosicao1->caminho; ?>" alt=""></div>
+            <div class="banner_card_2"><img src="<?= $bannerPromocionalPosicao2->caminho; ?>" alt="">
+                <div class="banner_card_3"><img src="<?= $bannerPromocionalPosicao3->caminho; ?>" alt=""></div>
             </div>
         </section>
         <!-- FIM BANNERS PROMOCIONAIS -->

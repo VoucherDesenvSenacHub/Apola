@@ -5,9 +5,26 @@ include "head_adm.php";
 require '../../App/config.inc.php';
 require '../../App/Session/Login.php';
 
+
+
+$banner = new Banner();
+
+$bannerPrincipalPosicao1 = $banner->getBannerForPosicao('banners_principais',1);
+$bannerPrincipalPosicao2 = $banner->getBannerForPosicao('banners_principais',2);
+$bannerPrincipalPosicao3 = $banner->getBannerForPosicao('banners_principais',3);
+
+$bannerSecundarioPosicao1 = $banner->getBannerForPosicao('banners_secundarios',1);
+
+$bannerPromocionalPosicao1  = $banner->getBannerForPosicao('banners_promocionais',1);
+$bannerPromocionalPosicao2  = $banner->getBannerForPosicao('banners_promocionais',2);
+$bannerPromocionalPosicao3  = $banner->getBannerForPosicao('banners_promocionais',3);
+
+
+
 if (isset($_POST['cadastrarPrincipal'])) {
+
     $pastaDestino = '../../src/imagens/banner/bannerCadastrado/bannersPrincipais/';
-    $extensoesPermitidas = ['png', 'jpg', 'jpeg'];
+    $extensoesPermitidas = ['png', 'jpg', 'jpeg','jfif'];
     $nomesInputs = ['bannerPrincipal1', 'bannerPrincipal2', 'bannerPrincipal3'];
 
     foreach ($nomesInputs as $index => $inputName) {
@@ -17,7 +34,7 @@ if (isset($_POST['cadastrarPrincipal'])) {
             $extensao = strtolower(pathinfo($nomeOriginal, PATHINFO_EXTENSION));
 
             if (!in_array($extensao, $extensoesPermitidas)) {
-                echo "<script>alert('O arquivo \"$nomeOriginal\" não é PNG nem JPG.')</script>";
+                echo "<script>alert('O arquivo \"$nomeOriginal\"  não é PNG, JPG e nem jfif.')</script>";
                 exit;
             }
 
@@ -28,7 +45,6 @@ if (isset($_POST['cadastrarPrincipal'])) {
                 die("Falha ao mover o arquivo: $nomeOriginal");
             }
 
-            // ✅ Definir o banner e a posição correspondente
             $posicao = $index + 1;
 
             $banner = new Banner();
@@ -55,7 +71,7 @@ if (isset($_POST['cadastrarPrincipal'])) {
 
 if (isset($_POST['cadastrarSecundario'])) {
     $pastaDestino = '../../src/imagens/banner/bannerCadastrado/bannersSecundarios/';
-    $extensoesPermitidas = ['png', 'jpg', 'jpeg'];
+    $extensoesPermitidas = ['png', 'jpg', 'jpeg','jfif'];
     $nomesInputs = ['bannerSecundario'];
 
     foreach ($nomesInputs as $index => $inputName) {
@@ -65,7 +81,7 @@ if (isset($_POST['cadastrarSecundario'])) {
             $extensao = strtolower(pathinfo($nomeOriginal, PATHINFO_EXTENSION));
 
             if (!in_array($extensao, $extensoesPermitidas)) {
-                echo "<script>alert('O arquivo \"$nomeOriginal\" não é PNG nem JPG.')</script>";
+                echo "<script>alert('O arquivo \"$nomeOriginal\" não é PNG, JPG e nem jfif.')</script>";
                 exit;
             }
 
@@ -76,7 +92,6 @@ if (isset($_POST['cadastrarSecundario'])) {
                 die("Falha ao mover o arquivo: $nomeOriginal");
             }
 
-            // ✅ Definir o banner e a posição correspondente
             $posicao = 1;
 
             $banner = new Banner();
@@ -101,28 +116,52 @@ if (isset($_POST['cadastrarSecundario'])) {
     echo "<script>alert('Todos os banners principais foram processados!')</script>";
 }
 
+if (isset($_POST['cadastrarPromocionais'])) {
+    $pastaDestino = '../../src/imagens/banner/bannerCadastrado/bannersPromocionais/';
+    $extensoesPermitidas = ['png', 'jpg', 'jpeg','jfif'];
+    $nomesInputs = ['bannerPromocional1','bannerPromocional2','bannerPromocional3'];
 
-$banner = new Banner();
+    foreach ($nomesInputs as $index => $inputName) {
+        if (isset($_FILES[$inputName]) && $_FILES[$inputName]['error'] === UPLOAD_ERR_OK) {
+            $arquivo = $_FILES[$inputName];
+            $nomeOriginal = $arquivo['name'];
+            $extensao = strtolower(pathinfo($nomeOriginal, PATHINFO_EXTENSION));
 
-$bannersPrincipais = [];
-for ($i = 1; $i <= 3; $i++) {
-    $bannersPrincipais[$i] = $banner->getBannerForPosicao("banners_principais", $i);
+            if (!in_array($extensao, $extensoesPermitidas)) {
+                echo "<script>alert('O arquivo \"$nomeOriginal\" não é PNG, JPG e nem jfif.')</script>";
+                exit;
+            }
+
+            $novoNome = uniqid('banner_', true) . '.' . $extensao;
+            $caminhoFinal = $pastaDestino . $novoNome;
+
+            if (!move_uploaded_file($arquivo['tmp_name'], $caminhoFinal)) {
+                die("Falha ao mover o arquivo: $nomeOriginal");
+            }
+
+            $posicao = $index + 1;
+
+            $banner = new Banner();
+            $banner->caminho = $caminhoFinal;
+            $banner->posicao = $posicao;
+
+            $bannerExistente = $banner->getBannerForPosicao('banners_promocionais', $posicao);
+
+            if ($bannerExistente) {
+                // Atualiza se já existe na posição
+                $banner->updateBannersPromocionais();
+            } else {
+                // Cadastra se ainda não tem banner naquela posição
+                $banner->cadastrarBannersPromocionais();
+            }
+
+        } else {
+            echo "<script>alert('Erro ao processar o arquivo \"$inputName\".')</script>";
+        }
+    }
+
+    echo "<script>alert('Todos os banners principais foram processados!')</script>";
 }
-
-$bannersSecundarios = [];
-for ($i = 1; $i <= 3; $i++) {
-    $bannersSecundarios[$i] = $banner->getBannerForPosicao("banners_secundarios", $i);
-}
-
-$bannersPromocionais = [];
-for ($i = 1; $i <= 3; $i++) {
-    $bannersPromocionais[$i] = $banner->getBannerForPosicao("banners_promocionais", $i);
-}
-
-$bannersMobile = [];
-for ($i = 1; $i <= 3; $i++) {
-    $bannersMobile[$i] = $banner->getBannerForPosicao("banners_mobile", $i);
-}              
 
 ?>
 
@@ -227,18 +266,18 @@ for ($i = 1; $i <= 3; $i++) {
                         <div class="tamanho_banner_adm">Tamanho recomendável (1400x400px)</div>
                         <div class="container_banner_wrap" id="banner-principal">
                             <div class="banner-item">
-                                <img src= " <?php echo isset($bannersPrincipais[1]) ? $bannersPrincipais[1]->caminho : '../src/imagens/banner/1.png'; ?>" alt="Imagem 1" class="preview-image banner-image">
+                                <img src= "<?=$bannerPrincipalPosicao1->caminho?> "alt="Imagem 1" class="preview-image banner-image">
                                 <button class="trocar-imagem-btn"> <i class="fa-solid fa-plus"></i><i class="fa-solid fa-file-image"></i></button>
                                 <input name="bannerPrincipal1" type="file" class="file-upload" accept="image/*" style="display:none;">
                             </div>
                             <div class="banner-item">
-                                <img src="<?php echo isset($bannersPrincipais[2]) ? $bannersPrincipais[2]->caminho : '../src/imagens/banner/1.png'; ?>" alt="Imagem 2" class="preview-image banner-image">
+                                <img src= "<?=$bannerPrincipalPosicao2->caminho?> "alt="Imagem 2" class="preview-image banner-image">
                                 <button class="trocar-imagem-btn"><i class="fa-solid fa-plus"></i><i class="fa-solid fa-file-image"></i></button>
                                 <input name="bannerPrincipal2" type="file" class="file-upload" accept="image/*" style="display:none;">
                             </div>
                             <div class="banner-item">
-                                <img src="<?php echo isset($bannersPrincipais[3]) ? $bannersPrincipais[3]->caminho : '../src/imagens/banner/1.png'; ?>" alt="Imagem 3" class="preview-image banner-image">
-                                <button class="trocar-imagem-btn"><i class="fa-solid fa-plus"></i><i class="fa-solid fa-file-image"></i></button>
+                                <img src= "<?=$bannerPrincipalPosicao3->caminho?> "alt="Imagem 3" class="preview-image banner-image">
+                                <button class="trocar-imagem-btn"> <i class="fa-solid fa-plus"></i><i class="fa-solid fa-file-image"></i></button>
                                 <input name="bannerPrincipal3" type="file" class="file-upload" accept="image/*" style="display:none;">
                             </div>
                         </div>
@@ -254,7 +293,7 @@ for ($i = 1; $i <= 3; $i++) {
                         <div class="tamanho_banner_adm">Tamanho recomendável (1700x700px)</div>
                         <div class="container_banner_wrap" id="banner-secundario">
                             <div class="banner-item">
-                                <img src="<?php echo isset($bannersSecundarios[1]) ? $bannersPrincipais[1]->caminho : '../src/imagens/banner/1.png'; ?>" alt="Imagem 1" class="preview-image banner-image">
+                                <img src="<?=$bannerSecundarioPosicao1->caminho?>" alt="Imagem 1" class="preview-image banner-image">
                                 <button class="trocar-imagem-btn"><i class="fa-solid fa-plus"></i><i class="fa-solid fa-file-image"></i></button>
                                 <input name="bannerSecundario" type="file" class="file-upload" accept="image/*" style="display:none;">
                             </div>
@@ -270,18 +309,18 @@ for ($i = 1; $i <= 3; $i++) {
                         <div class="tamanho_banner_adm">Tamanho recomendável (1700x700px)</div>
                         <div class="container_banner_wrap-promocional" id="banner-secundario">
                             <div class="banner-item-promocional">
-                                <img src="../src/imagens/card_promocional/1.png" alt="Imagem 1" class="preview-image banner-image">
+                                <img src="<?= $bannerPromocionalPosicao1->caminho; ?>" alt="Imagem 1" class="preview-image banner-image">
                                 <button class="trocar-imagem-btn"><i class="fa-solid fa-plus"></i><i class="fa-solid fa-file-image"></i></button>
                                 <input name="bannerPromocional1" type="file" class="file-upload" accept="image/*" style="display: none;">
                             </div>
                             <div class="quadro-banners-promo">
                                 <div class="banner-item-promo">
-                                    <img src="../src/imagens/card_promocional/2.png" alt="Imagem 2" class="preview-image banner-image">
+                                    <img src="<?= $bannerPromocionalPosicao2->caminho; ?>" alt="Imagem 2" class="preview-image banner-image">
                                     <button class="trocar-imagem-btn"><i class="fa-solid fa-plus"></i><i class="fa-solid fa-file-image"></i></button>
                                     <input name="bannerPromocional2" type="file" class="file-upload" accept="image/*" style="display: none;">
                                 </div>
                                 <div class="banner-item-promo">
-                                    <img src="../src/imagens/card_promocional/3.png" alt="Image 3" class="preview-image banner-image">
+                                    <img src="<?= $bannerPromocionalPosicao3->caminho; ?>" alt="Image 3" class="preview-image banner-image">
                                     <button class="trocar-imagem-btn"><i class="fa-solid fa-plus"></i><i class="fa-solid fa-file-image"></i></button>
                                     <input name="bannerPromocional3" type="file" class="file-upload" accept="image/*" style="display: none;">
                                 </div>
