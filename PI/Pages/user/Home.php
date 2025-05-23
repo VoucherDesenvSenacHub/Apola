@@ -110,8 +110,7 @@ if($result){
         <!-- FIM CARDS CATEGORIA -->  
         
     
-
-
+<!-- Tarefa Lourdes: linkar o botao de comprar para a tela de comprar produto.php -INICIEI AQUI ###################################-->
         <!-- INICIO 1* CARDS PRODUTOS -->
         <section class="card_produtos">
         <div class="swiper">
@@ -123,12 +122,14 @@ if($result){
             <div class="swiper-wrapper">
                 <div class="swiper-slide card_produto">
                     <div class="icon_favorite">
-                        <label class="checkbox-heart">
-                            <input type="checkbox">
-                            <i class="fa-solid fa-heart"></i>
-                        </label> 
+                        <button class="favoritar">
+                        <i class="fa-solid fa-heart"></i> 
+                        </button>   
                     </div>
-                    <!-- <a style="text-decoration:none;" class="link_produto_home" href="./comprar_produto.php"> -->
+                </div>
+
+                    <a style="text-decoration:none;" class="link_produto_home" href="./comprar_produto.php">
+
                         <div class="img_content_produto">
                             <img src="../../src/imagens/card_produto/IMG1-Produto.png" alt="">
                         </div>
@@ -142,6 +143,12 @@ if($result){
                                 <i class="fa-solid fa-star"></i>
                             </div>
                             <div class="preco_card_produto">R$ 50,89</div>
+
+                            <div class="card_Produto">
+                                <p class="nome-produto">Amigurmi Raposa</p>
+                                <button class="favoritar">Favoritar</button>
+                            </div>
+
                             <div class="btn_content_card_produto">
                                 <div class="btn_bag_card"><i class="fa-solid fa-bag-shopping"></i></div>
                                 <div class="btn_buy_card">Comprar</div>
@@ -151,11 +158,12 @@ if($result){
                 </div>
                 <div class="swiper-slide card_produto">
                     <div class="icon_favorite">
-                        <label class="checkbox-heart">
-                            <input type="checkbox">
-                            <i class="fa-solid fa-heart"></i>
-                        </label> 
+                        <button class="favoritar">
+                        <i class="fa-solid fa-heart"></i> 
+                        </button>   
                     </div>
+                </div>
+
                     <a style="text-decoration:none;" class="link_produto_home" href="./comprar_produto.php">
                         <div class="img_content_produto">
                             <img src="../../src/imagens/card_produto/IMG9-Produto.png" alt="">
@@ -170,6 +178,12 @@ if($result){
                                 <i class="fa-solid fa-star"></i>
                             </div>
                             <div class="preco_card_produto">R$ 125,90</div>
+
+                            <div class="card_Produto">
+                                <p class="nome-produto">Amigurmi Urso sem curso</p>
+                                <button class="favoritar">Favoritar</button>
+                            </div>
+
                             <div class="btn_content_card_produto">
                                 <div class="btn_bag_card"><i class="fa-solid fa-bag-shopping"></i></div>
                                 <div class="btn_buy_card">Comprar</div>
@@ -179,12 +193,14 @@ if($result){
                 </div>
                 <div class="swiper-slide card_produto">
                     <div class="icon_favorite">
-                        <label class="checkbox-heart">
-                            <input type="checkbox">
-                            <i class="fa-solid fa-heart"></i>
-                        </label> 
+                        <button class="favoritar">
+                        <i class="fa-solid fa-heart"></i> 
+                        </button>   
                     </div>
-                    <!-- <a style="text-decoration:none;" class="link_produto_home" href="./comprar_produto.php"> -->
+                </div>
+
+                    <a style="text-decoration:none;" class="link_produto_home" href="./comprar_produto.php">
+
                         <div class="img_content_produto">
                             <img src="../../src/imagens/card_produto/IMG5-Produto.png" alt="">
                         </div>
@@ -198,6 +214,12 @@ if($result){
                                 <i class="fa-solid fa-star"></i>
                             </div>
                             <div class="preco_card_produto">R$ 50,89</div>
+
+                            <div class="card_Produto">
+                                <p class="nome-produto">Amigurmi Esquilo</p>
+                                <button class="favoritar">Favoritar</button>
+                            </div>
+
                             <div class="btn_content_card_produto">
                                 <div class="btn_bag_card"><i class="fa-solid fa-bag-shopping"></i></div>
                                 <div class="btn_buy_card">Comprar</div>
@@ -246,11 +268,74 @@ if($result){
                 </div>
                 <div class="swiper-slide card_produto">
                     <div class="icon_favorite">
-                        <label class="checkbox-heart">
-                            <input type="checkbox">
-                            <i class="fa-solid fa-heart"></i>
-                        </label> 
+                        <button class="favoritar">
+                        <i class="fa-solid fa-heart"></i> 
+                        </button>   
                     </div>
+                </div>
+
+                    <a style="text-decoration:none;" class="link_produto_home" href="./comprar_produto.php">
+
+                        <div class="img_content_produto">
+                            <img src="../../src/imagens/card_produto/IMG6-Produto.png" alt="">
+                        </div>
+
+                        <div class="conteudo_card">
+
+                            <div class="nome_card_produto">Cachepô Vaso</div>
+
+                            <div class="content_star_icon">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                        </div>
+
+                        <div class="img_content_produto">
+                            <img src="../../src/imagens/card_produto/IMG6-Produto.png" alt="">
+                        </div>
+
+                        <div class="conteudo_card">
+
+                            <div class="nome_card_produto">Cachepô Vaso</div>
+
+                            <div class="content_star_icon">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                            </div>
+
+                            <div class="preco_card_produto">R$ 50,89</div>
+
+                            <div class="card_Produto">
+                                <p class="nome-produto">Cachepô Vaso</p>
+                                <button class="favoritar">Favoritar</button>
+                            </div>
+
+                            <div class="btn_content_card_produto">
+
+                                <div class="btn_bag_card"><i class="fa-solid fa-bag-shopping"></i></div>
+
+                                <div class="btn_buy_card">Comprar</div>
+
+                            </div>
+                        </div>
+                    </a>    
+                </div>
+
+                <div class="swiper-slide card_produto">
+                    <div class="icon_favorite">
+                        <button class="favoritar">
+                        <i class="fa-solid fa-heart"></i> 
+                        </button>   
+                    </div>
+                </div>
+  
+                    <a style="text-decoration:none;" class="link_produto_home" href="./comprar_produto.php">
+
                     <div class="img_content_produto">
                         <img src="../../src/imagens/card_produto/IMG7-Produto.png" alt="">
                     </div>
@@ -264,19 +349,29 @@ if($result){
                             <i class="fa-solid fa-star"></i>
                         </div>
                         <div class="preco_card_produto">R$ 50,89</div>
+
+                        <div class="card_Produto">
+                            <p class="nome-produto">Cachepôs</p>
+                            <button class="favoritar">Favoritar</button>
+                        </div>
+
                         <div class="btn_content_card_produto">
                             <div class="btn_bag_card"><i class="fa-solid fa-bag-shopping"></i></div>
                             <div class="btn_buy_card">Comprar</div>
                         </div>
                     </div>
+                    </a>
                 </div>
                 <div class="swiper-slide card_produto">
                     <div class="icon_favorite">
-                        <label class="checkbox-heart">
-                            <input type="checkbox">
-                            <i class="fa-solid fa-heart"></i>
-                        </label> 
+                        <button class="favoritar">
+                        <i class="fa-solid fa-heart"></i> 
+                        </button>   
                     </div>
+                </div>
+
+                    <a style="text-decoration:none;" class="link_produto_home" href="./comprar_produto.php">
+
                     <div class="img_content_produto">
                         <img src="../../src/imagens/card_produto/IMG8-Produto.png" alt="">
                     </div>
@@ -290,17 +385,24 @@ if($result){
                             <i class="fa-solid fa-star"></i>
                         </div>
                         <div class="preco_card_produto">R$ 50,89</div>
+
+                        <div class="card_Produto">
+                            <p class="nome-produto">Amigurmi Sticht</p>
+                            <button class="favoritar">Favoritar</button>
+                        </div>
+
                         <div class="btn_content_card_produto">
                             <div class="btn_bag_card"><i class="fa-solid fa-bag-shopping"></i></div>
                             <div class="btn_buy_card">Comprar</div>
                         </div>
                     </div>
+                    </a>
                 </div>
             </div>
         </div>
     </section>
         <!-- FIM 1* CARDS PRODUTOS -->
-
+<!-- PAREI AQUI - Lourdes  ###################################################################################################### -->
 
 
 
@@ -350,14 +452,16 @@ if($result){
                     <div class="btn_prev_card"><i class="fa-solid default_btn_icon_card fa-chevron-left"></i></div>
                     <div class="btn_next_card"><i class="fa-solid default_btn_icon_card fa-chevron-right"></i></div>
                 </div>
+
                 <div class="swiper-wrapper">
                 <div class="swiper-slide card_produto">
                     <div class="icon_favorite">
-                            <label class="checkbox-heart">
-                                <input type="checkbox">
-                                <i class="fa-solid fa-heart"></i>
-                            </label> 
+                        <button class="favoritar">
+                        <i class="fa-solid fa-heart"></i> 
+                        </button>   
                     </div>
+                </div>
+
                     <div class="img_content_produto">
                         <img src="../../src/imagens/card_produto/IMG1-Produto.png" alt="">
                     </div>
@@ -377,13 +481,15 @@ if($result){
                         </div>
                     </div>
                 </div>
+
                 <div class="swiper-slide card_produto">
-                      <div class="icon_favorite">
-                            <label class="checkbox-heart">
-                                <input type="checkbox">
-                                <i class="fa-solid fa-heart"></i>
-                            </label> 
+                    <div class="icon_favorite">
+                        <button class="favoritar">
+                        <i class="fa-solid fa-heart"></i> 
+                        </button>   
                     </div>
+                </div>
+
                     <div class="img_content_produto">
                         <img src="../../src/imagens/card_produto/IMG1-Produto.png" alt="">
                     </div>
@@ -403,13 +509,15 @@ if($result){
                         </div>
                     </div>
                 </div>
+
                 <div class="swiper-slide card_produto">
-                      <div class="icon_favorite">
-                            <label class="checkbox-heart">
-                                <input type="checkbox">
-                                <i class="fa-solid fa-heart"></i>
-                            </label> 
+                    <div class="icon_favorite">
+                        <button class="favoritar">
+                        <i class="fa-solid fa-heart"></i> 
+                        </button>   
                     </div>
+                </div>
+
                     <div class="img_content_produto">
                         <img src="../../src/imagens/card_produto/IMG1-Produto.png" alt="">
                     </div>
@@ -429,13 +537,15 @@ if($result){
                         </div>
                     </div>
                 </div>
+
                 <div class="swiper-slide card_produto">
-                      <div class="icon_favorite">
-                            <label class="checkbox-heart">
-                                <input type="checkbox">
-                                <i class="fa-solid fa-heart"></i>
-                            </label> 
+                    <div class="icon_favorite">
+                        <button class="favoritar">
+                        <i class="fa-solid fa-heart"></i> 
+                        </button>   
                     </div>
+                </div>
+
                     <div class="img_content_produto">
                         <img src="../../src/imagens/card_produto/IMG1-Produto.png" alt="">
                     </div>
@@ -455,13 +565,15 @@ if($result){
                         </div>
                     </div>
                 </div>
+
                 <div class="swiper-slide card_produto">
-                      <div class="icon_favorite">
-                            <label class="checkbox-heart">
-                                <input type="checkbox">
-                                <i class="fa-solid fa-heart"></i>
-                            </label> 
+                    <div class="icon_favorite">
+                        <button class="favoritar">
+                        <i class="fa-solid fa-heart"></i> 
+                        </button>   
                     </div>
+                </div>
+
                     <div class="img_content_produto">
                         <img src="../../src/imagens/card_produto/IMG1-Produto.png" alt="">
                     </div>
@@ -481,13 +593,15 @@ if($result){
                         </div>
                     </div>
                 </div>
+
                 <div class="swiper-slide card_produto">
-                      <div class="icon_favorite">
-                            <label class="checkbox-heart">
-                                <input type="checkbox">
-                                <i class="fa-solid fa-heart"></i>
-                            </label> 
+                    <div class="icon_favorite">
+                        <button class="favoritar">
+                        <i class="fa-solid fa-heart"></i> 
+                        </button>   
                     </div>
+                </div>
+
                     <div class="img_content_produto">
                         <img src="../../src/imagens/card_produto/IMG1-Produto.png" alt="">
                     </div>
@@ -507,13 +621,15 @@ if($result){
                         </div>
                     </div>
                 </div>
+
                 <div class="swiper-slide card_produto">
-                      <div class="icon_favorite">
-                            <label class="checkbox-heart">
-                                <input type="checkbox">
-                                <i class="fa-solid fa-heart"></i>
-                            </label> 
+                    <div class="icon_favorite">
+                        <button class="favoritar">
+                        <i class="fa-solid fa-heart"></i> 
+                        </button>   
                     </div>
+                </div>
+
                     <div class="img_content_produto">
                         <img src="../../src/imagens/card_produto/IMG1-Produto.png" alt="">
                     </div>
@@ -562,13 +678,15 @@ if($result){
                     <div class="btn_next_card"><i class="fa-solid default_btn_icon_card fa-chevron-right"></i></div>
                 </div>
                 <div class="swiper-wrapper">
+                    
                 <div class="swiper-slide card_produto">
-                      <div class="icon_favorite">
-                            <label class="checkbox-heart">
-                                <input type="checkbox">
-                                <i class="fa-solid fa-heart"></i>
-                            </label> 
+                    <div class="icon_favorite">
+                        <button class="favoritar">
+                        <i class="fa-solid fa-heart"></i> 
+                        </button>   
                     </div>
+                </div>
+
                     <div class="img_content_produto">
                         <img src="../../src/imagens/card_produto/IMG1-Produto.png" alt="">
                     </div>
@@ -588,13 +706,15 @@ if($result){
                         </div>
                     </div>
                 </div>
+
                 <div class="swiper-slide card_produto">
-                      <div class="icon_favorite">
-                            <label class="checkbox-heart">
-                                <input type="checkbox">
-                                <i class="fa-solid fa-heart"></i>
-                            </label> 
+                    <div class="icon_favorite">
+                        <button class="favoritar">
+                        <i class="fa-solid fa-heart"></i> 
+                        </button>   
                     </div>
+                </div>
+
                     <div class="img_content_produto">
                         <img src="../../src/imagens/card_produto/IMG2-Produto.png" alt="">
                     </div>
@@ -614,13 +734,15 @@ if($result){
                         </div>
                     </div>
                 </div>
+
                 <div class="swiper-slide card_produto">
-                      <div class="icon_favorite">
-                            <label class="checkbox-heart">
-                                <input type="checkbox">
-                                <i class="fa-solid fa-heart"></i>
-                            </label> 
+                    <div class="icon_favorite">
+                        <button class="favoritar">
+                        <i class="fa-solid fa-heart"></i> 
+                        </button>   
                     </div>
+                </div>
+
                     <div class="img_content_produto">
                         <img src="../../src/imagens/card_produto/IMG5-Produto.png" alt="">
                     </div>
@@ -640,13 +762,15 @@ if($result){
                         </div>
                     </div>
                 </div>
+
                 <div class="swiper-slide card_produto">
-                      <div class="icon_favorite">
-                            <label class="checkbox-heart">
-                                <input type="checkbox">
-                                <i class="fa-solid fa-heart"></i>
-                            </label> 
+                    <div class="icon_favorite">
+                        <button class="favoritar">
+                        <i class="fa-solid fa-heart"></i> 
+                        </button>   
                     </div>
+                </div>
+
                     <div class="img_content_produto">
                         <img src="../../src/imagens/card_produto/IMG6-Produto.png" alt="">
                     </div>
@@ -666,13 +790,15 @@ if($result){
                         </div>
                     </div>
                 </div>
+
                 <div class="swiper-slide card_produto">
-                      <div class="icon_favorite">
-                            <label class="checkbox-heart">
-                                <input type="checkbox">
-                                <i class="fa-solid fa-heart"></i>
-                            </label> 
+                    <div class="icon_favorite">
+                        <button class="favoritar">
+                        <i class="fa-solid fa-heart"></i> 
+                        </button>   
                     </div>
+                </div>
+
                     <div class="img_content_produto">
                         <img src="../../src/imagens/card_produto/IMG7-Produto.png" alt="">
                     </div>
@@ -692,13 +818,15 @@ if($result){
                         </div>
                     </div>
                 </div>
+
                 <div class="swiper-slide card_produto">
-                      <div class="icon_favorite">
-                            <label class="checkbox-heart">
-                                <input type="checkbox">
-                                <i class="fa-solid fa-heart"></i>
-                            </label> 
+                    <div class="icon_favorite">
+                        <button class="favoritar">
+                        <i class="fa-solid fa-heart"></i> 
+                        </button>   
                     </div>
+                </div>
+
                     <div class="img_content_produto">
                         <img src="../../src/imagens/card_produto/IMG8-Produto.png" alt="">
                     </div>
@@ -783,13 +911,15 @@ if($result){
                         </div>
                     </div>
                 </div>
+
                 <div class="swiper-slide card_produto">
-                      <div class="icon_favorite">
-                            <label class="checkbox-heart">
-                                <input type="checkbox">
-                                <i class="fa-solid fa-heart"></i>
-                            </label> 
+                    <div class="icon_favorite">
+                        <button class="favoritar">
+                        <i class="fa-solid fa-heart"></i> 
+                        </button>   
                     </div>
+                </div>
+
                     <div class="img_content_produto">
                         <img src="../../src/imagens/card_produto/IMG2-Produto.png" alt="">
                     </div>
@@ -809,13 +939,15 @@ if($result){
                         </div>
                     </div>
                 </div>
+
                 <div class="swiper-slide card_produto">
-                      <div class="icon_favorite">
-                            <label class="checkbox-heart">
-                                <input type="checkbox">
-                                <i class="fa-solid fa-heart"></i>
-                            </label> 
+                    <div class="icon_favorite">
+                        <button class="favoritar">
+                        <i class="fa-solid fa-heart"></i> 
+                        </button>   
                     </div>
+                </div>
+
                     <div class="img_content_produto">
                         <img src="../../src/imagens/card_produto/IMG5-Produto.png" alt="">
                     </div>
@@ -835,13 +967,15 @@ if($result){
                         </div>
                     </div>
                 </div>
+
                 <div class="swiper-slide card_produto">
-                      <div class="icon_favorite">
-                            <label class="checkbox-heart">
-                                <input type="checkbox">
-                                <i class="fa-solid fa-heart"></i>
-                            </label> 
+                    <div class="icon_favorite">
+                        <button class="favoritar">
+                        <i class="fa-solid fa-heart"></i> 
+                        </button>   
                     </div>
+                </div>
+
                     <div class="img_content_produto">
                         <img src="../../src/imagens/card_produto/IMG6-Produto.png" alt="">
                     </div>
@@ -861,13 +995,17 @@ if($result){
                         </div>
                     </div>
                 </div>
+
+<!-- Agora estou aqui ############################################################################################################ -->
                 <div class="swiper-slide card_produto">
-                      <div class="icon_favorite">
-                            <label class="checkbox-heart">
-                                <input type="checkbox">
-                                <i class="fa-solid fa-heart"></i>
-                            </label> 
+                    <div class="icon_favorite">
+                        <button class="favoritar">
+                        <i class="fa-solid fa-heart"></i> 
+                        </button>   
                     </div>
+                </div>
+<!-- Agora estou aqui ############################################################################################################ -->
+
                     <div class="img_content_produto">
                         <img src="../../src/imagens/card_produto/IMG7-Produto.png" alt="">
                     </div>
@@ -887,13 +1025,16 @@ if($result){
                         </div>
                     </div>
                 </div>
+
                 <div class="swiper-slide card_produto">
-                      <div class="icon_favorite">
-                            <label class="checkbox-heart">
-                                <input type="checkbox">
-                                <i class="fa-solid fa-heart"></i>
-                            </label> 
+                    <div class="icon_favorite">
+                        <button class="favoritar">
+                        <i class="fa-solid fa-heart"></i> 
+                        </button>   
                     </div>
+                </div>
+<!-- Agora estou aqui ############################################################################################################ -->
+
                     <div class="img_content_produto">
                         <img src="../../src/imagens/card_produto/IMG8-Produto.png" alt="">
                     </div>

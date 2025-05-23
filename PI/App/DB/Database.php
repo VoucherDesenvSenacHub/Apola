@@ -4,10 +4,10 @@
 class Database{
 
     public $conection;
-    public string $local = '10.38.0.125';
-    public string $db = 'pi_artesanato';
+    public string $local = '192.168.22.9';
+    public string $db = '140p1';
     public string $user = 'devweb';
-    public string $password = 'suporte@22';
+    public string $password = 'voucher140';
     public $table;
 
 
