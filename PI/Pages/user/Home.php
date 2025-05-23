@@ -16,8 +16,11 @@ else {
     include 'navbar_deslogado.php';
 }
 
-// Tarefa Lourdes: linkar o botao de comprar para a tela de comprar produto.php
+// Tarefas Lourdes: Deixar os produtos da aba de favoritos com o coração e quando o usuário for desligar o coração, 
+//                  tirar da aba de   favoritos. Task 26 entregue em 23/05/2025
 
+//                  Linkar o botao de comprar para a tela de comprar produto.php. Task 27
+                    
 ?>
 
     <main  class="main2">
@@ -106,8 +109,11 @@ else {
         </section>
         <!-- FIM CARDS CATEGORIA -->  
         
-    
-        <!-- Tarefa Lourdes: linkar o botao de comprar para a tela de comprar produto.php -->
+        <!-- Tarefas Lourdes:   Deixar os produtos da aba de favoritos com o coração e quando o usuário for desligar o coração, 
+                                tirar  da aba de   favoritos. Task 26 entregue em 23/05/2025 -->
+                   
+        <!-- Linkar o botao de comprar para a tela de comprar produto.php. Task 27  -->
+        
 
         <!-- INICIO 1* CARDS PRODUTOS -->
         <section class="card_produtos">
@@ -298,7 +304,7 @@ else {
                         </div>
                     </a>    
                 </div>
-<!-- PAREI AQUI ##################################################################################################################### -->
+
                 <div class="swiper-slide card_produto">
 
                     <div class="icon_favorite">

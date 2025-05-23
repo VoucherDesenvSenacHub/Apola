@@ -1,6 +1,8 @@
 <?php
 
-// linkar o botao de comprar para a tela de comprar produto php
+// Tarefa Lourdes: Linkar o botao de comprar para a tela de comprar produto.php. Task 27 entregue em 23/05/2025
+// ###############################################################################################################################
+
 
 require '../../App/config.inc.php';
 
@@ -285,6 +287,9 @@ else {
             }
         });
     });
+
+// Tarefa Lourdes: Linkar o botao de comprar para a tela de comprar produto.php. Task 27 entregue em 23/05/2025  
+// ###############################################################################################################################
 
     // Novo código para o botão de "Comprar"
     const buyButton = document.querySelector('.btn_buy_produto');
