@@ -9,7 +9,7 @@ require(__DIR__ . '/../DB/Database.php');
 class Cliente{
 
 
-    public int $id_cliente;
+    public ?int $id_cliente = null;
     public string $nome;
     public string $sobrenome;
     public  int $cep;

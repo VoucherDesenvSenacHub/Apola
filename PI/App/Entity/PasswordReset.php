@@ -1,12 +1,15 @@
 <?php
-require_once 'Database.php';
+require_once __DIR__ . '/../DB/Database.php';
+
+// rest of your PasswordReset class/code
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 use Dotenv\Dotenv;
 
-require_once __DIR__ . '/../vendor/autoload.php';
+require_once __DIR__ . '/../../../vendor/autoload.php';
 
-$root = realpath(__DIR__ . '/../'); 
+
+$root = realpath(__DIR__ . '/../../../'); // goes from App/Entity to Apola/
 if ($root === false) {
     throw new Exception("Could not find the root path for .env");
 }
@@ -20,7 +23,7 @@ class PasswordReset {
     private ?string $key;  // renamed to match your table column
 
     public function __construct(Database $db, string $email, ?string $key = null) {
-        $this->pdo = $db->getConnection();
+        $this->pdo = $db->conecta();  // now this will be PDO object
         $this->email = $email;
         $this->key = $key;
     }
