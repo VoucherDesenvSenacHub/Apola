@@ -1,7 +1,10 @@
 <?php
+require '../../App/config.inc.php';
+
+require '../../App/Session/Login.php';
+
 
 include "head.php";
-
 
 if (Login::IsLogedCliente()) {
     include 'navbar_logado.php';
@@ -33,7 +36,7 @@ else {
                     <img src="../../src/imagens/login/asdfghjk.png" alt="">
                 </div>
                 <div class="left_about_text">
-                    <div class="title_text_about"> Sobre nós <span class="title_text_about2"> Apola Ecommerce Artesanatos </span></div>
+                    <div class="title_text_about"> Sobre nós <span class="title_text_about2"> Apola Artesanatos </span></div>
                     <div class="conteudo_text_about">  
 
                         <p class="texto_about">  
