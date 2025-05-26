@@ -1,4 +1,3 @@
-
 @import url('https://fonts.googleapis.com/css2?family=MuseoModerno:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
  
 
@@ -12,7 +11,6 @@
 @import url(cadastrar_banner_adm.css); 
  */
 
-
  @import url(adm_default.css);
  @import url(dashbord_adm.css);
  @import url(cadastrar_banner_adm.css);
@@ -23,7 +21,6 @@
  
 
 
-
 *{
     margin: 0;
     padding: 0;
@@ -31,7 +28,6 @@
     font-family: "Poppins", serif;
 
 }
-
 
 
 .body_adm{
@@ -61,7 +57,6 @@
     display: flex;
 }
 
-
 #sidebar_adm{
     display: flex;
     flex-direction: column;
@@ -78,7 +73,6 @@
 #sidebar_adm_content{
     padding: 12px;
 }
-
 
 .logo_sidebar{
     display: flex;
@@ -123,7 +117,6 @@
 }
 
 
-
 .side_bar-itens a{
     display: flex;
     align-items: center;
@@ -132,7 +125,6 @@
     transition: all 0.2s ease-in-out;
     text-decoration: none;
 }
-
 
 
 
@@ -153,7 +145,6 @@
     color: #898989;
 }
 
-
 #logout_adm{
     border-top:  1px solid  rgb(78, 78, 78);
     padding: 12px;
@@ -171,7 +162,6 @@
 
 
 
-
 #open_btn_adm{
     position: absolute;
     top: 30px;
@@ -184,7 +174,6 @@
     border: none;
     cursor: pointer;
     outline: none;
-
 
 }
 
@@ -201,7 +190,6 @@
 
 
 
-
 .text_side_item{
     width: 0px;
     overflow: hidden;
@@ -211,7 +199,6 @@
     transition: width 0.3s ;
     height: 0px;
     font-weight: 500;
-
 
 }
 
@@ -237,11 +224,9 @@
     display: none;
 }
 
-
 .navbar_adm{
     display: flex;
 }
-
 
 
 
@@ -266,7 +251,7 @@
     }
 
     .nav_mobile_adm{
-        display: flex;
+        /* display: flex; */
         position: absolute;
         width: 100%;
         bottom:20px;
@@ -275,7 +260,7 @@
         z-index: 3;
         justify-content: center;
         align-items: center;
-
+        display: none;
 
     }
 
@@ -316,12 +301,10 @@
         text-decoration: none;
     }
 
-
     .nav_mobile_adm .nav_bar_content_mobile_adm ul li .active_mob{
         color: white;
         text-decoration: none;
     }
-
 
 
     
@@ -336,7 +319,6 @@
       
     }
 
-
 }
 
 @media (max-width: 532px) {
@@ -348,7 +330,6 @@
       
     }
 
-
 }
 @media (max-width: 468px) {
 
@@ -358,7 +339,6 @@
         height:70px;
       
     }
-
 
 }
 @media (max-width: 408px) {
@@ -373,5 +353,36 @@
 
 
 
-
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
