@@ -122,7 +122,37 @@ clASs Database{
         return $result = $this->execute($query)->fetchAll(PDO::FETCH_ASSOC);
     }
 
-
+    public function select_by_id($id){
+        $query = "SELECT 
+                    produto.nome AS nome_produto, 
+                    produto.quantidade AS quantidade, 
+                    produto.cor AS cor, 
+                    produto.imagem AS imagem,
+                    sacola.valor_total AS valor_total, 
+                    pedido.codigo_rastreio AS rastreio, 
+                    pedido.status_pedido AS status_pedido,
+                    cliente.telefone AS contato, 
+                    cliente.cep AS cep, 
+                    cliente.rua AS rua, 
+                    cliente.numero_casa AS numero, 
+                    cliente.bairro AS bairro,
+                    cliente.cidade AS cidade, 
+                    cliente.estado AS estado, 
+                    usuario.nome AS nome_cliente, 
+                    cliente.sobrenome AS sobrenome
+                FROM produto 
+                JOIN sacola ON produto.id_produto = sacola.produto_id_produto 
+                JOIN pedido ON sacola.produto_id_produto = pedido.sacola_produto_id_produto 
+                JOIN cliente ON pedido.sacola_cliente_id_cliente = cliente.id_cliente 
+                JOIN usuario ON cliente.id_usuario = usuario.id_usuario
+                WHERE pedido.id_pedido = ?";
+    
+        // Usa o execute passando a query e o array com o parâmetro
+        $stmt = $this->execute($query, [$id]);
+    
+        // Retorna os dados como array associativo
+        return $stmt;
+    }
 
 
 

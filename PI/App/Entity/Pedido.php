@@ -1,5 +1,5 @@
 <?php
-require_once '../DB/Database.php';
+require_once '../../App/DB/Database.php';
 
 class Pedido {
     public int $id_pedido;
@@ -24,11 +24,12 @@ class Pedido {
         //return (new Database('pedido'))->select_pedido()->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    public static function buscar_by_id($sacola_id){
-        return (new Database('pedido'))->select('sacola_id_sacola = '.$sacola_id)->fetchObject(self::class);
+    public static function buscar_by_id($id){
+        return (new Database('pedido'))->select_by_id($id)->fetchObject(self::class);
     }
 
     public function excluir($sacola_id){
         return (new Database('pedido'))->delete('sacola_id_sacola = '.$sacola_id);
     }
 }
+?>
