@@ -11,7 +11,8 @@ require_once 'User.php';
 class Cliente extends User{
 
 
-    public int $id_cliente;
+    public ?int $id_cliente = null;
+    public string $nome;
     public string $sobrenome;
     public int $cep;
     public int $cpf;
