@@ -358,7 +358,7 @@ else {
 
         <!-- INICIO BANNER SECUNDARIO -->
         <section class="banners_secudarios">
-            <img src="<?= $bannerSecundarioPosicao1->caminho; ?> " alt="">
+            <img src="<?= $bannerSecundarioPosicao1->caminho;?> " alt="">
         </section>
         <!-- FIM BANNER SECUNDARIO -->
 
@@ -567,9 +567,9 @@ else {
         <!-- INICIO BANNERS PROMOCIONAIS -->
         <section class="section banner_card grid grid-banner-areas">
             <div class="banner_card_1"><img src="<?= $bannerPromocionalPosicao1->caminho; ?>" alt=""></div>
-            <div class="banner_card_2"><img src="<?= $bannerPromocionalPosicao2->caminho; ?>" alt="">
-                <div class="banner_card_3"><img src="<?= $bannerPromocionalPosicao3->caminho; ?>" alt=""></div>
-            </div>
+            <div class="banner_card_2"><img src="<?= $bannerPromocionalPosicao2->caminho; ?>" alt=""></div>
+            <div class="banner_card_3"><img src="<?= $bannerPromocionalPosicao3->caminho; ?>" alt=""></div>
+            
         </section>
         <!-- FIM BANNERS PROMOCIONAIS -->
 
