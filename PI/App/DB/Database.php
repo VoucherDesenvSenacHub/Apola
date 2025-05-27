@@ -1,5 +1,10 @@
 <?php
 
+require_once __DIR__ . '/../../../vendor/autoload.php';
+
+$dotenv = Dotenv\Dotenv::createImmutable(__DIR__ . '/../../../');
+$dotenv->load();
+
 
 clASs Database{
 
@@ -11,13 +16,14 @@ clASs Database{
     // public $table;
     
     public $conection;
-    public string $local = '192.168.22.9';
-    public string $db = '140p1';
-    public string $user = 'devweb';
-    public string $password = 'voucher140';
+    public string $local;
+    public string $db;
+    public string $user;
+    public string $password;
     public $table;
 
 
+    
 
     public function __construct($table = null) {
         $this->local = $_ENV['DB_HOST'] ?? 'localhost';
@@ -27,7 +33,6 @@ clASs Database{
         $this->table = $table;
         $this->conecta();
     }
-
         
     // Função conectar com o banco de dados
 

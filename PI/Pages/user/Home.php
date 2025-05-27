@@ -6,7 +6,6 @@ require '../../App/Session/Login.php';
 
 include "head.php";
 
-
 $banner = new Banner();
 
 $bannerPrincipalPosicao1 = $banner->getBannerForPosicao('banners_principais',1);

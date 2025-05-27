@@ -12,7 +12,6 @@ require '../../App/Session/Login.php';
 $erro = '';
 $succes = '';
 
-
 if (isset($_POST['logar'])) {
     if (!empty($_POST['email']) && !empty($_POST['senha'])) {
         $email = $_POST['email'];
@@ -23,6 +22,8 @@ if (isset($_POST['logar'])) {
         } else {
             $usuario = User::getUsuarioByEmail($email);
             // print_r($usuario);
+
+
 
             if ($usuario) {
                 $idUsuario = $usuario->id_usuario;

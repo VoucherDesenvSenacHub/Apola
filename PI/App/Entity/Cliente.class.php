@@ -29,11 +29,6 @@ class Cliente extends User{
     //atributo tipo perfil
     // enum cliente e adm.
 
-    
-    
-
-
-
     // Função que cadastra usúario no banco de dados 
     
     public function cadastrarCliente(){
