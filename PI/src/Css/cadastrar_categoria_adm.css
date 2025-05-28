@@ -55,7 +55,22 @@
 .conatiner_cadastro_adm_items_body_list .table_adm_list{
     margin-top: 0;
 }
-
+.add_img_categoria{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.imagemCategoria{
+    position: absolute;
+    background-color: orange;
+    width: 100% !important;
+    height: 100% !important;
+    inset: 1;
+    cursor: pointer;
+    display: flex;
+    opacity: 0;
+}
 
 @media (max-width: 490px){
 

@@ -5,7 +5,7 @@ require_once(__DIR__ . '/../DB/Database.php');
 
 require_once 'User.php';
 
-
+    
 
 
 class Cliente extends User{

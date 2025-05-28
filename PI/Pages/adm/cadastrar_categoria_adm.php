@@ -2,21 +2,76 @@
 
 include "head_adm.php";
 include "nav_bar_adm.php";
+require '../../App/config.inc.php';
+require '../../App/Session/Login.php';
+
+
+$err = '';
+$errImg = '';
+
+if(isset($_POST['carregarDadosCategoria'])){
+    $tituloCategoria = $_POST['tituloCategoria'];
+    $status = $_POST['selectStatus'];
+
+    if(empty($tituloCategoria)){
+        $err = "Insira um titulo";
+    }
+
+    if (isset($_FILES['imagemCategoria']) && $_FILES['imagemCategoria']['error'] === UPLOAD_ERR_OK) {
+        $extensoesPermitidas = ['png', 'jpg', 'jpeg', 'jfif'];
+        $pastaDestino = '../../src/imagens/categorias/';
+
+        $imagem = $_FILES['imagemCategoria'];
+        $nomeOriginal = $imagem['name'];
+        $extensao = strtolower(pathinfo($nomeOriginal, PATHINFO_EXTENSION));
+
+        if (!in_array($extensao, $extensoesPermitidas)) {
+            $errImg = "A extensão do arquivo \"$nomeOriginal\" não é permitida.";
+        } else {
+            $novoNome = uniqid('ImagemCategoria_', true) . '.' . $extensao;
+            $caminhoFinal = $pastaDestino . $novoNome;
+
+            if (!move_uploaded_file($imagem['tmp_name'], $caminhoFinal)) {
+                $errImg = "Falha ao mover a imagem para o destino.";
+            }
+        }
+    } else {
+        $errImg = "Insira uma imagem.";
+    }
+
+    if (!empty($err) || !empty($errImg)) {
+        echo "<script>alert(`\\n$err\\n$errImg`)</script>";
+    } else {
+        // Tudo certo, pode cadastrar
+        $categoria = new Categoria();
+        $categoria->nome = $tituloCategoria;
+        $categoria->status_categoria = $status;
+        $categoria->imagem = $caminhoFinal;
+
+        $result = $categoria->cadastrarCategoria();
+
+        if ($result) {
+            echo '<script>alert("Cadastrado com sucesso!")</script>';
+        } else {
+            echo '<script>alert("Erro ao cadastrar no banco de dados.")</script>';
+        }
+    }
+}
 
 ?>
     
     <main class="main_adm">
-        <div class="conatiner_dashbord_adm">
+        <form method="POST" enctype="multipart/form-data" class="conatiner_dashbord_adm">
             <div class="Title_deafult_adm">
                 <div class="container_title_adm_left">
                     <a href="./listar_categoria_adm.php" style="text-decoration: none; color: #ccc"><i class="fa-solid fa-chevron-left"></i></a>
                     <span class="title_adm">Nova Categoria</span>
                 </div>
                 <div class="container_title_adm_right">
-                    <div class="conatiner_btn_adm mobile_btn_salvar">
+                    <!-- <div class="conatiner_btn_adm mobile_btn_salvar">
                         <button class="btn_excluir_adm">Excluir</button>
                         <button class="btn_salvar_adm">Salvar</button>
-                    </div>
+                    </div> -->
                 </div>
                 
             </div>
@@ -25,28 +80,31 @@ include "nav_bar_adm.php";
                     <div class="conatiner_cadastro_adm_items_header_left">
                         <div class="item_flex_adm">
                             <label for="">Titulo</label>
-                            <input type="text">
+                            <input type="text" id="tituloCategoria" name="tituloCategoria">
+                            <p class="text_tamanho_img" style="color:red;"> <?= $err; ?> </p>
                         </div>
                         <div class="item_flex_adm">
                             <label for="">Status</label>
-                            <select name="" id="">
-                                <option value="">Ativo</option>
-                                <option value="">Inativo</option>
+                            <select name="selectStatus" id="selectStatus">
+                                <option value="ativo">Ativo</option>
+                                <option value="inativo">Inativo</option>
                             </select>
                         </div>
-                        <div class="item_flex_adm">
+                        <!-- <div class="item_flex_adm">
                             <label for="">Descrição</label>
                             <textarea name="" id=""></textarea>
-                        </div>
+                        </div> -->
                         
                     </div>
                     <div class="conatiner_cadastro_adm_items_header_right">
                         <div class="item_flex_adm">
                             <label for="">Imagem</label>
-                            <div class="conatiner_img_add_adm">
-
+                            <div class="conatiner_img_add_adm add_img_categoria">
+                                <input type="file" name="imagemCategoria" class="imagemCategoria" >
+                                <p> +  Adicionar Imagem</p>
                             </div>
                             <p class="text_tamanho_img">Tamanho recomendavel (1700x700px)</p>
+                            <p class="text_tamanho_img" style="color:red;"> <?= $errImg; ?> </p>
                         </div>
 
                     </div>
@@ -147,12 +205,12 @@ include "nav_bar_adm.php";
 
             </div>
             <div id="conatiner_btn_adm_pc" class="conatiner_btn_adm">
-                <button class="btn_excluir_adm">Excluir</button>
-                <button class="btn_salvar_adm">Salvar</button>
+                <button onclick="window.location.reload()" class="btn_excluir_adm">Excluir</button>
+                <button type="submit" name="carregarDadosCategoria" class="btn_salvar_adm">Salvar</button>
             </div>
             
         
-        </div>
+        </form>
     
 
     </main>
