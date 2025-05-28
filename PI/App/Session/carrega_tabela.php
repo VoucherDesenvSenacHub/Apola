@@ -1,6 +1,6 @@
 <?php
 
-require '../Entity/Pedido.php';
+require '../Entity/Pedido.class.php';
 
 $objProd = new Pedido();
 

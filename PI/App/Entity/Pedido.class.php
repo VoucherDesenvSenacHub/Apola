@@ -31,5 +31,6 @@ class Pedido {
     public function excluir($sacola_id){
         return (new Database('pedido'))->delete('sacola_id_sacola = '.$sacola_id);
     }
+    
 }
 ?>

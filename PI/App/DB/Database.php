@@ -147,10 +147,8 @@ clASs Database{
                 JOIN usuario ON cliente.id_usuario = usuario.id_usuario
                 WHERE pedido.id_pedido = ?";
     
-        // Usa o execute passando a query e o array com o parâmetro
         $stmt = $this->execute($query, [$id]);
     
-        // Retorna os dados como array associativo
         return $stmt;
     }
 
