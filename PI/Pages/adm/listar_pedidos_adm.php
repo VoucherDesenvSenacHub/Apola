@@ -201,6 +201,6 @@ th, td {
         </main>
 
 
-        <script src="../../src/JS/load_table.js"></script>
+        <script src="../../src/JS/btn_listar_adm.js"></script>
 </body>
 </html>
