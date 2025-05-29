@@ -14,9 +14,6 @@ $result = Login::RequireLogin();
 
 include 'navbar_logado.php';
 
-
-
-
 ?>
 
     <main class="main2">
@@ -56,13 +53,6 @@ include 'navbar_logado.php';
                     <form class="inputs_perfil">
                         <div class="input_perfil_container">
                             <div class="input_item_perfil">
-                                <label for="">Nome Usuário</label>
-                                <div class="container_edit_perfil">
-                                    <input type="text" name="nome_user" id="">
-                                   
-                                </div>
-                            </div>
-                            <div class="input_item_perfil">
                                 <label for="">Nome Completo</label>
                                 <div class="container_edit_perfil">
                                     <input type="text" name="nome" id="">
@@ -80,37 +70,8 @@ include 'navbar_logado.php';
                                 <label for="">Senha</label>
                                 <div class="container_edit_perfil">
                                     <input type="senha" name="senha" id="">
-                              
                                 </div>
-                            </div>
-                            <div class="input_item_perfil">
-                                <label for="">CEP</label>
-                                <div class="container_edit_perfil">
-                                    <input type="text" name="cep" id="">
-                              
-                                </div>
-                            </div>
-                            <div class="input_item_perfil">
-                                <label for="">N°</label>
-                                <div class="container_edit_perfil">
-                                    <input class="input_esp_num" type="text" name="num_casa" id="">
-                              
-                                </div>
-                            </div>
-                            <div class="input_item_perfil">
-                                <label for="">Telefone</label>
-                                <div class="container_edit_perfil">
-                                    <input type="tel" name="telefone" id="">
-                              
-                                </div>
-                            </div>
-                            <div class="input_item_perfil">
-                                <label for="">Rua</label>
-                                <div class="container_edit_perfil">
-                                    <input type="text" name="rua" id="">
-                              
-                                </div>
-                            </div>
+                        </div>
                             <div class="input_item_perfil">
                                 <label for="">CPF</label>
                                 <div class="container_edit_perfil">

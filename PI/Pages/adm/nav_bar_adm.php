@@ -1,4 +1,9 @@
+<?php
 
+include "head_adm.php";
+// print_r($result)
+// include "nav_bar_adm.php";
+?>
 <header class="header_adm" >
         <nav class="navbar_adm" id="sidebar_adm">
             <div id="sidebar_adm_content">
@@ -7,8 +12,8 @@
                 </div> -->
                 <ul id="side_bar_itens">
                     <li class="side_bar-itens">
-                        <a style="text-decoration:none;" href="#">
-                            <i class="fa-solid fa-user-tie"></i>
+                        <a style="text-decoration:none;" href="perfil_adm.php">
+                            <i class="fa-solid fa-user"></i>
                             <span class="text_side_item">Perfil</span>
                         </a>
                     </li>

@@ -31,7 +31,7 @@ document.addEventListener("DOMContentLoaded", function () {
             input.click();
         });
 
-        // // Quando um arquivo é selecionado, troca a imagem
+        //  Quando um arquivo é selecionado, troca a imagem
         input.addEventListener('change', (event) => {
             handleFileChange(event, img);
         });
