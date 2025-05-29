@@ -28,9 +28,6 @@ include 'nav_bar_adm.php';
                         <li class="item_favorito_left">
                             <i class="fa-solid fa-pencil icon_favorito_content"></i><a class="link_favorito_left" href="./alterar_perfil_adm.php">Alterar Perfil</a>
                         </li>
-                        <li class="item_favorito_left">
-                            <i class="fa-solid fa-right-from-bracket"></i><a class="link_favorito_left" href="logout.php">Sair</a>
-                        </li>
                     </ul>
 
 
