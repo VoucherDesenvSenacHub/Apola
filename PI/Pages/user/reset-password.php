@@ -2,9 +2,12 @@
 require_once __DIR__ . '/../../App/DB/Database.php';
 require_once __DIR__ . '/../../App/Entity/PasswordReset.php';
 
-// Get params & default
-$email = $_REQUEST['email'] ?? '';
-$key   = $_REQUEST['key']   ?? '';
+
+if(isset($_GET['email']) && isset($_GET['key']) ){
+  $email = $_GET['email'];
+  $key   = $_GET['key'];
+}
+
 $error = '';
 $success = '';
 
@@ -36,7 +39,9 @@ if (!$email || !$key) {
         }
     }
 }
-?><!DOCTYPE html>
+?>
+
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">

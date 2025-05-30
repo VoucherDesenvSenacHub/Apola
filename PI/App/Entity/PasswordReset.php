@@ -71,7 +71,7 @@ class PasswordReset {
 
     // Check if email exists in users table
     public function isEmailValid(): bool {
-        $stmt = $this->pdo->prepare("SELECT id FROM users WHERE email = ?");
+        $stmt = $this->pdo->prepare("SELECT id FROM usuario WHERE email = ?");
         $stmt->execute([$this->email]);
         return $stmt->fetch() !== false;
     }
@@ -92,7 +92,7 @@ class PasswordReset {
         }
 
         // Update password
-        $stmt = $this->pdo->prepare("UPDATE users SET password = ? WHERE email = ?");
+        $stmt = $this->pdo->prepare("UPDATE usuario SET senha = ? WHERE email = ?");
         $stmt->execute([$hashedPassword, $this->email]);
         if ($stmt->rowCount() === 0) {
             $this->pdo->rollBack();
