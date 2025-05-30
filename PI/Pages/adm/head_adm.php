@@ -40,6 +40,7 @@
     <script src="../../src/JS/cadastrar_banner.js" defer></script>
     <script src="../../src/JS/deshboard_adm.js" defer></script>
     <script src="../../src/JS/nav_bar_active.js" defer></script>
+    <script src="../../src/JS/load_table_categorias.js" defer></script>
 
 
 
