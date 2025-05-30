@@ -12,9 +12,14 @@ require '../../App/Session/Login.php';
 include "head.php";
 
 $result = Login::IsLogedCliente();
-// print_r($result);
+if($result){
+    $id_cliente = $_SESSION['cliente']['id_cliente'];
 
-print_r($result);
+    $objCliente = new Cliente();
+    
+    $cli = $objCliente->getClienteById($id_cliente);
+}
+
 if($result){
     include "navbar_logado.php";
 
@@ -24,14 +29,6 @@ if($result){
 }else{
     header('location: login.php');
 }
-
-
-
-
-
-
-
-
 
 ?>
 <link rel="stylesheet" href="../../src/Css/perfil.css">
@@ -66,117 +63,86 @@ if($result){
                     <div class="container_banner_perfil">
                         <img src="" alt="">
                         <div class="shape_perfil">
-                            <img src="../../src/imagens/image.png" alt="">
+                            <img src="<?=$cli['foto_perfil'];?>" alt="">
                         </div>
                     </div>
                     <form class="inputs_perfil">
                         <div class="input_perfil_container">
                             <div class="input_item_perfil">
-                                <label for="">Nome Usuário</label>
+                                <label for="">Nome</label>
                                 <div class="container_edit_perfil">
-                                    <input disabled="" type="text" name="nome_user" id="">
-                                   
+                                    <input disabled="" type="text" name="nome_user" id="" value="<?=$cli['nome'];?>">
                                 </div>
                             </div>
                             <div class="input_item_perfil">
-                                <label for="">Nome Completo</label>
+                                <label for="">Sobrenome</label>
                                 <div class="container_edit_perfil">
-                                    <input disabled="" type="text" name="nome" id="">
+                                    <input disabled="" type="text" name="nome" id="" value="<?=$cli['sobrenome'];?>">
                                    
                                 </div>
                             </div>
                             <div class="input_item_perfil">
                                 <label for="">Email</label>
                                 <div class="container_edit_perfil">
-                                    <input disabled="" type="email" name="email" id="">
+                                    <input disabled="" type="email" name="email" id="" value="<?=$cli['email'];?>">
                                    
                                 </div>
                             </div>
                             <div class="input_item_perfil">
-                                <label for="">Senha</label>
+                            <label for="">CPF</label>
                                 <div class="container_edit_perfil">
-                                    <input disabled="" type="senha" name="senha" id="">
+                                    <input disabled="" type="text" name="cpf" id=""  value="<?=$cli['cpf'];?>">
                               
                                 </div>
                             </div>
                             <div class="input_item_perfil">
                                 <label for="">CEP</label>
                                 <div class="container_edit_perfil">
-                                    <input disabled="" type="text" name="cep" id="">
+                                    <input disabled="" type="text" name="cep" id=""  value="<?=$cli['cep'];?>">
                               
                                 </div>
                             </div>
                             <div class="input_item_perfil">
                                 <label for="">N°</label>
                                 <div class="container_edit_perfil">
-                                    <input disabled="" class="input_esp_num" type="text" name="num_casa" id="">
+                                    <input disabled="" class="input_esp_num" type="text" name="num_casa" id=""  value="<?=$cli['numero_casa'];?>">
                               
                                 </div>
                             </div>
                             <div class="input_item_perfil">
                                 <label for="">Telefone</label>
                                 <div class="container_edit_perfil">
-                                    <input disabled="" type="tel" name="telefone" id="">
+                                    <input disabled="" type="tel" name="telefone" id=""  value="<?=$cli['telefone'];?>">
                               
                                 </div>
                             </div>
                             <div class="input_item_perfil">
                                 <label for="">Rua</label>
                                 <div class="container_edit_perfil">
-                                    <input disabled="" type="text" name="rua" id="">
+                                    <input disabled="" type="text" name="rua" id=""  value="<?=$cli['rua'];?>">
                               
                                 </div>
                             </div>
-                            <div class="input_item_perfil">
-                                <label for="">CPF</label>
-                                <div class="container_edit_perfil">
-                                    <input disabled="" type="text" name="cpf" id="">
-                              
-                                </div>
-                            </div>
+                            
                             <div class="input_item_perfil">
                                 <label for="">Bairro</label>
                                 <div class="container_edit_perfil">
-                                    <input disabled="" type="text" name="bairro" id="">
+                                    <input disabled="" type="text" name="bairro" id=""  value="<?=$cli['bairro'];?>">
                               
                                 </div>
                             </div>
                             <div class="input_item_perfil">
                                 <label for="">Cidade</label>
                                 <div class="container_edit_perfil">
-                                    <input disabled="" type="text" name="cidade" id="">
+                                    <input disabled="" type="text" name="cidade" id=""  value="<?=$cli['cidade'];?>">
                               
                                 </div>
-                                <div data-modal="modal-1" class="endereco_cadastrados open-modal">Endereços Cadastrados</div>
-                                <!-- MODAL QUE APOS CLICAR NO ENDEREÇOSCADATARDOS MOSTRA TODOS OS ENDEREÇOS JA CADATRADOS PARA SELECIONAR UM PADRÃO -->
-                                <dialog id="modal-1">
-                                  <div class="modal_header">
-                                    <button class="close-modal" data-modal="modal-1"><i class="fa-solid fa-xmark"></i></button>
-                                  </div>
-                                  <div class="modal_body">
-                                    <h5 class="title_modal_zap">Endereços Cadatrados</h5>
-                                    <div class="text_modal_zap">Selecione o endereço padrão de envio desejado.</div>
-                                    <form class="container_form_modal_email">
-                                      <div class="item_endereco_cadastrados_modal">
-                                            <div class="selection_shape_modal"></div>
-                                            <h6 class="text_endereco_cadatrados_modal">Avenida dos Eucaliptos, 789, Centro, RJ</h6>
-                                      </div>
-                                      <div class="item_endereco_cadastrados_modal">
-                                          <div class=" selection_shape_modal active"></div>
-                                          <h6 class="text_endereco_cadatrados_modal">Avenida dos Eucaliptos, 789, Centro, RJ</h6>
-                                      </div>
-                                      <div class="container_btn_modal_email">
-                                        <button class="btn_enviar_modal_email">Salvar</button>
-                                      </div>
-                                    </form>  
-                                  </div>
-                                </dialog>
-                                <script src="../../src/JS/modal.js"></script>
+                       
                             </div>
                             <div class="input_item_perfil">
                                 <label for="">Estado:</label>
                                 <div class="container_edit_perfil">
-                                    <input disabled="" class="input_esp_num" type="text" name="num_casa" id="">
+                                    <input disabled="" class="input_esp_num" type="text" name="num_casa" id="" value="<?=$cli['estado'];?>">
                                    
                                 </div>
                             </div>
@@ -199,7 +165,5 @@ if($result){
 <?php
 
 include "footer.php";
-
-
 
 ?>

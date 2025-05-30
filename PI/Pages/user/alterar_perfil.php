@@ -7,16 +7,94 @@ require '../../App/Session/Login.php';
 
 include "head.php";
 
+$result = Login::IsLogedCliente();
+if($result){
+    $id_cliente = $_SESSION['cliente']['id_cliente'];
+
+    $objCliente = new Cliente();
+    
+    $cli = $objCliente->getClienteById($id_cliente);
+   
+}
 
 
-$result = Login::RequireLogin();
+if($result){
+    include "navbar_logado.php";
+
+    
+}else{
+    header('location: login.php');
+}
 
 
-include 'navbar_logado.php';
+if (isset($_POST['carregarNovosDados'])) {
+
+    
+    $id_cliente = $id_cliente;
+    $id_usuario = $cli['id_usuario'];
+    $nome = $_POST['nome'];
+    $sobrenome = $_POST['sobrenome'];
+    $cpf = $_POST['cpf'];
+    $cep = $_POST['cep'];
+    $telefone = $_POST['telefone'];
+    $rua = $_POST['rua'];
+    $num_casa = (int) $_POST['num_casa'];
+    $bairro = $_POST['bairro'];
+    $estado = $_POST['estado'];
+    $cidade = $_POST['cidade'];
+    $email = $_POST['email'];
+
+    $arquivo = $_FILES['foto_perfil'];
+    if ($arquivo['error']) die("falha ao enviar a foto");
+    $pasta = '../../src/imagens/cadastro/perfil/';
+    $nome_foto = $arquivo['name'];
+    $novo_nome = uniqid();
+   
+    $extensao = strtolower(pathinfo($nome_foto, PATHINFO_EXTENSION));
+
+    if ($extensao != 'png' && $extensao != 'jpg') die("Falha ao enviar a foto");
+
+    $caminho = $pasta . $novo_nome . '.' .$extensao;
+
+    $foto = move_uploaded_file($arquivo['tmp_name'], $caminho);
+    
+    $cliente = new Cliente();
+    
+    $cliente->id_cliente = $id_cliente;
+    $cliente->nome = $nome;
+    $cliente->sobrenome = $sobrenome;
+    $cliente->cpf = $cpf;
+    $cliente->cep = $cep;
+    $cliente->telefone = $telefone;
+    $cliente->numero_casa = $num_casa;
+    $cliente->foto_perfil = $caminho;
+    $cliente->rua = $rua;
+    $cliente->bairro = $bairro;
+    $cliente->estado = $estado;
+    $cliente->cidade = $cidade;
+    $cliente->email = $email;
+    $cliente->id_usuario = $id_usuario;
+
+
+    $resultado = $cliente->atualizarCliente();
+    if ($resultado) {
+        echo '<script>
+                alert("Atualizado com sucesso!!");
+                window.location.href = "./perfil.php";
+              </script>';
+    } else {
+        echo '<script>
+                alert("Erro ao atualizar!");
+              </script>';
+    }
+
+}
+
+
 
 ?>
-
-    <main class="main2">
+<link rel="stylesheet" href="../../src/Css/perfil.css">
+    <main  class="main2">
         <section class="container_perfil">
             <div class="left-container_favoritos">
                 <div class="container_favoritos_left">
@@ -44,90 +122,97 @@ include 'navbar_logado.php';
             </div>
             <div class="right_container_perfil">
                 <div class="container_right_perfil">
+                    
+                <form method="POST" class="inputs_perfil"  enctype="multipart/form-data">
+
                     <div class="container_banner_perfil">
                         <img src="" alt="">
+                        <div> <input id="foto_perfil" name="foto_perfil" type="file"> </div>
                         <div class="shape_perfil">
-                            <img src="../../src/imagens/image.png" alt="">
+                           <img src="../../src/imagens/image.png" alt="">
                         </div>
                     </div>
-                    <form class="inputs_perfil">
+                    
                         <div class="input_perfil_container">
                             <div class="input_item_perfil">
-                                <label for="">Nome Completo</label>
+                                <label for="">Nome</label>
                                 <div class="container_edit_perfil">
-                                    <input type="text" name="nome" id="">
+                                    <input type="text" name="nome" id="" value="<?=$cli['nome'];?>">
+                                </div>
+                            </div>
+                            <div class="input_item_perfil">
+                                <label for="">Sobrenome</label>
+                                <div class="container_edit_perfil">
+                                    <input type="text" name="sobrenome" id="" value="<?=$cli['sobrenome'];?>">
                                    
                                 </div>
                             </div>
                             <div class="input_item_perfil">
                                 <label for="">Email</label>
                                 <div class="container_edit_perfil">
-                                    <input type="email" name="email" id="">
+                                    <input type="email" name="email" id="" value="<?=$cli['email'];?>">
                                    
                                 </div>
                             </div>
                             <div class="input_item_perfil">
-                                <label for="">Senha</label>
+                            <label for="">CPF</label>
                                 <div class="container_edit_perfil">
-                                    <input type="senha" name="senha" id="">
-                                </div>
-                        </div>
-                            <div class="input_item_perfil">
-                                <label for="">CPF</label>
-                                <div class="container_edit_perfil">
-                                    <input type="text" name="cpf" id="">
+                                    <input type="text" name="cpf" id=""  value="<?=$cli['cpf'];?>">
                               
                                 </div>
                             </div>
                             <div class="input_item_perfil">
+                                <label for="">CEP</label>
+                                <div class="container_edit_perfil">
+                                    <input  type="text" name="cep" id=""  value="<?=$cli['cep'];?>">
+                              
+                                </div>
+                            </div>
+                            <div class="input_item_perfil">
+                                <label for="">N°</label>
+                                <div class="container_edit_perfil">
+                                    <input class="input_esp_num" type="text" name="num_casa" id=""  value="<?=$cli['numero_casa'];?>">
+                              
+                                </div>
+                            </div>
+                            <div class="input_item_perfil">
+                                <label for="">Telefone</label>
+                                <div class="container_edit_perfil">
+                                    <input type="tel" name="telefone" id=""  value="<?=$cli['telefone'];?>">
+                              
+                                </div>
+                            </div>
+                            <div class="input_item_perfil">
+                                <label for="">Rua</label>
+                                <div class="container_edit_perfil">
+                                    <input type="text" name="rua" id=""  value="<?=$cli['rua'];?>">
+                              
+                                </div>
+                            </div>
+                            
+                            <div class="input_item_perfil">
                                 <label for="">Bairro</label>
                                 <div class="container_edit_perfil">
-                                    <input type="text" name="bairro" id="">
+                                    <input type="text" name="bairro" id=""  value="<?=$cli['bairro'];?>">
                               
                                 </div>
                             </div>
                             <div class="input_item_perfil">
                                 <label for="">Cidade</label>
                                 <div class="container_edit_perfil">
-                                    <input type="text" name="cidade" id="">
+                                    <input type="text" name="cidade" id=""  value="<?=$cli['cidade'];?>">
                               
                                 </div>
-                                <div data-modal="modal-1" class="endereco_cadastrados open-modal">Endereços Cadastrados</div>
-                                <!-- MODAL QUE APOS CLICAR NO ENDEREÇOSCADATARDOS MOSTRA TODOS OS ENDEREÇOS JA CADATRADOS PARA SELECIONAR UM PADRÃO -->
-                                <dialog id="modal-1">
-                                  <div class="modal_header">
-                                    <button class="close-modal" data-modal="modal-1"><i class="fa-solid fa-xmark"></i></button>
-                                  </div>
-                                  <div class="modal_body">
-                                    <h5 class="title_modal_zap">Endereços Cadatrados</h5>
-                                    <div class="text_modal_zap">Selecione o endereço padrão de envio desejado.</div>
-                                    <form class="container_form_modal_email">
-                                      <div class="item_endereco_cadastrados_modal">
-                                          <div class="selection_shape_modal"></div>
-                                          <h6 class="text_endereco_cadatrados_modal">Avenida dos Eucaliptos, 789, Centro, RJ</h6>
-                                      </div>
-                                      <div class="item_endereco_cadastrados_modal">
-                                          <div class=" selection_shape_modal active"></div>
-                                          <h6 class="text_endereco_cadatrados_modal">Avenida dos Eucaliptos, 789, Centro, RJ</h6>
-                                      </div>
-                                      <div class="container_btn_modal_email">
-                                        <button class="btn_enviar_modal_email">Salvar</button>
-                                      </div>
-                                    </form>  
-                                  </div>
-                                </dialog>
-                                <script src="../../src/JS/modal.js"></script>
                             </div>
                             <div class="input_item_perfil">
                                 <label for="">Estado:</label>
                                 <div class="container_edit_perfil">
-                                    <input class="input_esp_num" type="text" name="num_casa" id="">
-                                   
+                                    <input class="input_esp_num" name="estado" type="text" value="<?=$cli['estado'];?>">
                                 </div>
                             </div>
                             <div class="container_btn_perfil">
                                 <button class="btn_cancelar">Cancelar</button>
-                                <button class="btn_salvar">Salvar</button>
+                                <button type="submit" name="carregarNovosDados" class="btn_salvar">Salvar</button>
                             </div>
 
                         </div>
@@ -141,11 +226,7 @@ include 'navbar_logado.php';
 
 
     </main>
-    
 <?php
 
 include "footer.php";
-
-
-
 ?>

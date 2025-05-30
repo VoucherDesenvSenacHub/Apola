@@ -1,38 +1,27 @@
 <?php
 
-
 require_once(__DIR__ . '/../DB/Database.php');
 
 require_once 'User.php';
 
-
-
-
 class Cliente extends User{
-
 
     public int $id_cliente;
     public string $sobrenome;
-    public int $cep;
+    public ?string $foto_perfil;
     public int $cpf;
     public ?string $telefone;
-    public ?int $numero_casa;
+    public ?string $cep;
     public ?string $rua;
+    public ?int $numero_casa;
     public ?string $bairro;
     public ?string $estado;
     public ?string $cidade;
-    public ?string $complemento;
     public int $id_usuario;
 
 
     //atributo tipo perfil
     // enum cliente e adm.
-
-    
-    
-
-
-
     // Função que cadastra usúario no banco de dados 
     
     public function cadastrarCliente(){
@@ -60,12 +49,20 @@ class Cliente extends User{
         
         return $res;
     }
+
+    public static function getClienteById($id_cliente) {
+        $db = new Database('cliente');
+        $result = $db->select_perfil($id_cliente);
+        return $result->fetch(PDO::FETCH_ASSOC); 
+    }
     
     public static function getClienteByUsuarioId($id_usuario) {
         $db = new Database('cliente');
         $result = $db->select("id_usuario = $id_usuario");
         return $result->fetchObject(self::class);
     }
+
+
     
     public static function getCliente($where=null, $order =null, $limit = null){
         return (new Database('cliente'))->select($where,$order,$limit)
@@ -91,21 +88,34 @@ class Cliente extends User{
 
 
 
-    public function atualizarCliente(){
-        return (new Database('cliente'))->update('id = '.$this->id_cliente,[
-                                            'nome'=> $this->nome,
-                                            'cep' => $this->cep,
-                                            'cpf' => $this->cpf,
-                                            'email' => $this->email,
-                                            'senha' => $this->senha,
+
+
+    public function atualizarCliente() {
+        // Atualizar tabela 'usuario'
+        $db = new Database('usuario');
+        $resUsuario = $db->update('id_usuario = ' . $this->id_usuario, [
+            'nome' => $this->nome,
+            'email' => $this->email,
+            // senha se quiser atualizar
         ]);
-        
+    
+        // Atualizar tabela 'cliente'
+        $dbCliente = new Database('cliente');
+        $resCliente = $dbCliente->update('id_cliente = ' . $this->id_cliente, [
+            'sobrenome' => $this->sobrenome,
+            'cep' => $this->cep,
+            'foto_perfil' => $this->foto_perfil,
+            'cpf' => $this->cpf,
+            'telefone' => $this->telefone,
+            'numero_casa' => $this->numero_casa,
+            'rua' => $this->rua,
+            'bairro' => $this->bairro,
+            'estado' => $this->estado,
+            'cidade' => $this->cidade,
+            
+        ]);
+    
+        return ($resUsuario && $resCliente);
     }
-
-
-
-
-
-
+    
 }
-

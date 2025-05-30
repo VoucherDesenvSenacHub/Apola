@@ -144,6 +144,18 @@ clASs Database{
 
     }
 
+    public function select_perfil($id_cli){
+
+        // COM FIELDS NA FUNÇÃO SELECT COMO PARAMENTRO = "$fields = '*'
+        $query = 'SELECT usuario.nome,cliente.sobrenome,usuario.email,cliente.cpf,cliente.foto_perfil,cliente.cep,cliente.telefone,cliente.numero_casa,cliente.rua,cliente.bairro,cliente.cidade,cliente.estado, usuario.id_usuario
+        from cliente inner join usuario
+        on usuario.id_usuario = cliente.id_usuario
+        and cliente.id_cliente = '.$id_cli;
+
+        return $this->execute($query);
+        
+    }
+
     public function select_pedido(){
         $query = "SELECT pedido.id_pedido AS ID, sacola.valor_total AS Valor, pedido.tipo AS Tipo,  cliente.estado AS UF FROM pedido 
         JOIN sacola ON pedido.sacola_id_sacola = sacola.id_sacola
@@ -151,11 +163,6 @@ clASs Database{
 
         return $result = $this->execute($query)->fetchAll(PDO::FETCH_ASSOC);
     }
-
-
-
-
-
 
 }
 
