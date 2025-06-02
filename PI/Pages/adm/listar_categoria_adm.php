@@ -63,6 +63,7 @@ include "nav_bar_adm.php";
                 <table class="table_adm_list" id="dados_categoria">
                     <thead>
                         <tr>
+                            <th>Imagem</th>
                             <th>Nome</th>
                             <th>Status</th>
                             <th>Ações</th>

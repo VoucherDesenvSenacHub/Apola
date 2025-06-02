@@ -1,7 +1,7 @@
 <?php
 
 include "head_adm.php";
-include "nav_bar_adm.php";
+// include "nav_bar_adm.php";
 require '../../App/config.inc.php';
 require '../../App/Session/Login.php';
 
@@ -12,6 +12,8 @@ $errImg = '';
 if(isset($_POST['carregarDadosCategoria'])){
     $tituloCategoria = $_POST['tituloCategoria'];
     $status = $_POST['selectStatus'];
+    // print_r($status);
+    // exit;
 
     if(empty($tituloCategoria)){
         $err = "Insira um titulo";
@@ -100,8 +102,9 @@ if(isset($_POST['carregarDadosCategoria'])){
                         <div class="item_flex_adm">
                             <label for="">Imagem</label>
                             <div class="conatiner_img_add_adm add_img_categoria">
-                                <input type="file" name="imagemCategoria" class="imagemCategoria" >
-                                <p> +  Adicionar Imagem</p>
+                                <input type="file" name="imagemCategoria" id="imgInput" class="imagemCategoria" >
+                                <img class= "imagemCategoria-active" id="preview_img" src="" alt="">
+                                <p> + Adicionar Imagem</p>  
                             </div>
                             <p class="text_tamanho_img">Tamanho recomendavel (1700x700px)</p>
                             <p class="text_tamanho_img" style="color:red;"> <?= $errImg; ?> </p>
@@ -120,7 +123,7 @@ if(isset($_POST['carregarDadosCategoria'])){
 
                     </div>
                     <div class="conatiner_cadastro_adm_items_body_list">
-                        <table class="table_adm_list">
+                        <!-- <table class="table_adm_list">
                             <tr z>
                                 <th id="text_alin_item">ID</th>
                                 <th id="text_alin_item">produto</th>
@@ -195,7 +198,7 @@ if(isset($_POST['carregarDadosCategoria'])){
                                 </td>
                             </tr>
     
-                        </table>
+                        </table> -->
 
                     </div>
 
@@ -205,7 +208,7 @@ if(isset($_POST['carregarDadosCategoria'])){
 
             </div>
             <div id="conatiner_btn_adm_pc" class="conatiner_btn_adm">
-                <button onclick="window.location.reload()" class="btn_excluir_adm">Excluir</button>
+                <!-- <button onclick="window.location.reload()" class="btn_excluir_adm">Excluir</button> -->
                 <button type="submit" name="carregarDadosCategoria" class="btn_salvar_adm">Salvar</button>
             </div>
             

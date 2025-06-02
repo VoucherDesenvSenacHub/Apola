@@ -17,15 +17,18 @@ class Categoria{
                 'imagem' => $this->imagem
             ]
             );
-
             return $res;
     }
 
-    public function mudarStatus($id_categoria, $status_categoria){
+    public function atualizarCategoria($id_categoria){
         $db = new Database('categoria');
-        $res = $db->updade('id_categoria = '.$this->id_categoria,[
-            'status_categoria' => $this->categoria,
+        $res = $db->update('id_categoria = '.$id_categoria, [
+            'status_categoria' => $this->status_categoria,
+            'nome' => $this->nome,
+            'imagem' => $this->imagem,
         ]);
+    
+        return $res;
     }
 
     public static function SelectCategoriaPorId($where=null, $order =null, $limit = null){

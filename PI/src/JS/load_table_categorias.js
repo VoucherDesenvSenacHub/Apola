@@ -11,7 +11,8 @@ async function load_table() {
 
         for (let i = 0; i < response.length; i++) {
             html += '<tr>';
-            html += `<td>${response[i].nome}</td>`;
+            html += `<td>  <img src= '${response[i].imagem}' alt="Imagem"  style="max-width:100px; max-height:50px;"></td>`
+            html += `<td> ${response[i].nome}</td>`;
             if (response[i].status_categoria == "a"){
                 html += `<td>${"Ativado"}</td>`;
                 

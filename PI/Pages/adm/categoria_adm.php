@@ -10,12 +10,70 @@ $err = '';
 $errImg = '';
 if(isset($_GET)){
     $id_categoria = $_GET['id'];
-    print_r($id_categoria);
+    // print_r($id_categoria);
 }
 
-$categoria = new Categoria();
-$select = $categoria->SelectCategoriaPorId($id_categoria);
-// print_r($select);
+$entity = new Categoria();
+$categoria = $entity->SelectCategoriaPorId($id_categoria);
+// print_r($categoria);
+
+
+if(isset($_POST['carregarDadosCategoria'])){
+    $titulo = $_POST['tituloCategoria'];
+    $status = $_POST['selectStatus'];
+    // print_r("nome: " .$titulo);
+    // print_r("status: " .$status);
+    // print_r("imagem: " .$categoria->imagem);
+    // exit;
+    if (isset($_FILES['imagemCategoria']) && $_FILES['imagemCategoria']['error'] === UPLOAD_ERR_OK) {
+        $extensoesPermitidas = ['png', 'jpg', 'jpeg', 'jfif'];
+        $pastaDestino = '../../src/imagens/categorias/';
+
+        $imagem = $_FILES['imagemCategoria'];
+        $nomeOriginal = $imagem['name'];
+        $extensao = strtolower(pathinfo($nomeOriginal, PATHINFO_EXTENSION));
+
+        if (!in_array($extensao, $extensoesPermitidas)) {
+            $errImg = "A extensão do arquivo \"$nomeOriginal\" não é permitida.";
+        } else {
+            $novoNome = uniqid('ImagemCategoria_', true) . '.' . $extensao;
+            $caminhoFinal = $pastaDestino . $novoNome;
+
+            if (!move_uploaded_file($imagem['tmp_name'], $caminhoFinal)) {
+                $errImg = "Falha ao mover a imagem para o destino.";
+            }
+        }
+
+        $entity->nome = $titulo;
+        $entity->status_categoria = $status;
+        $entity->imagem = $caminhoFinal;
+        $resultado = $entity->atualizarCategoria($id_categoria);
+        if($resultado){
+            echo '<script>alert("Atualizado")</script>';
+            echo '<meta http-equiv="refresh" content="0.8;">';
+        }
+    }
+
+    else if(!isset($imagem)){
+        $entity->nome = $titulo;
+        $entity->status_categoria = $status;
+        $entity->imagem = $categoria->imagem;
+        $resultado = $entity->atualizarCategoria($id_categoria);
+
+        if($resultado){
+            echo '<script>alert("Atualizado")</script>';
+            echo '<meta http-equiv="refresh" content="0.8;">';
+            // echo '<script src="../../src/JS/atualizar_pagina.js"></script>';
+        }
+
+
+    }
+
+    else{
+        $errImg = 'Insira uma imagem!';
+    }
+}
+
 
 ?>
     
@@ -38,13 +96,13 @@ $select = $categoria->SelectCategoriaPorId($id_categoria);
                     <div class="conatiner_cadastro_adm_items_header_left">
                         <div class="item_flex_adm">
                             <label for="">Titulo</label>
-                            <input type="text" id="tituloCategoria" name="tituloCategoria" value="<?= $select->nome; ?>">
+                            <input type="text" id="tituloCategoria" name="tituloCategoria" value="<?= $categoria->nome; ?>">
                             <p class="text_tamanho_img" style="color:red;"> <?= $err; ?> </p>
                         </div>
                         <div class="item_flex_adm">
                             <label for="">Status</label>
                             <select name="selectStatus" id="selectStatus">
-                                <?php if($select->status_categoria == "A"): ?>
+                                <?php if($categoria->status_categoria === "a"): ?>
                                     <option value="ativo" selected>Ativo</option>
                                     <option value="inativo">Inativo</option>
                                 <?php else: ?>
@@ -63,10 +121,11 @@ $select = $categoria->SelectCategoriaPorId($id_categoria);
                         <div class="item_flex_adm">
                             <label for="">Imagem</label>
                             <div class="conatiner_img_add_adm add_img_categoria">
-                                <img src="" alt="">
-                                <input type="file" name="imagemCategoria" class="imagemCategoria" >
+                                <img  class="imagemCategoria-active" src="<?= $categoria->imagem; ?>" alt="" id="preview_img">
+                                <input type="file" name="imagemCategoria" id="imgInput"  class="imagemCategoria" >
                             </div>
-                            <p> Trocar Imagem   <i class="fa-solid fa-pencil"></i></p>
+                            <p>Clique na Imagem para Trocar <i class="fa-solid fa-pencil"></i></p>
+                            <p><?= $errImg;?></p>
                             <p class="text_tamanho_img">Tamanho recomendavel (1700x700px)</p>
                             <p class="text_tamanho_img" style="color:red;"> <?= $errImg; ?> </p>
                         </div>

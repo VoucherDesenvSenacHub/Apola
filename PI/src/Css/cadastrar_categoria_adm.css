@@ -57,6 +57,7 @@
 }
 .add_img_categoria{
     position: relative;
+    flex-direction: column  ;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -71,6 +72,10 @@
     display: flex;
     opacity: 0;
 }
+.imagemCategoria-active{
+    max-width: 400px;
+    max-height: 200px;
+}
 
 @media (max-width: 490px){
 
@@ -80,4 +85,11 @@
     }
     
 
+}
+@media(max-width: 860px){
+
+    .imagemCategoria-active{
+        max-width: 100px;
+        max-height: 50px;
+    }
 }
