@@ -61,7 +61,7 @@ if(isset($_POST['carregarDadosCategoria'])){
 }
 
 ?>
-    
+<body>    
     <main class="main_adm">
         <form method="POST" enctype="multipart/form-data" class="conatiner_dashbord_adm">
             <div class="Title_deafult_adm">
@@ -201,11 +201,7 @@ if(isset($_POST['carregarDadosCategoria'])){
                         </table> -->
 
                     </div>
-
-
-
                 </div>
-
             </div>
             <div id="conatiner_btn_adm_pc" class="conatiner_btn_adm">
                 <!-- <button onclick="window.location.reload()" class="btn_excluir_adm">Excluir</button> -->

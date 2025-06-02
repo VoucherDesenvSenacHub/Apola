@@ -42,6 +42,8 @@
     <script src="../../src/JS/nav_bar_active.js" defer></script>
     <script src="../../src/JS/load_table_categorias.js" defer></script>
     <script src="../../src/JS/carregar_imagem.js" defer></script>
+    <script src="../../src/JS/carregar_categorias_produto.js" defer></script>
+    <script src="../../src/JS/load_table_produtos.js" defer></script>
 
 
 

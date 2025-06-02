@@ -60,7 +60,7 @@ include "nav_bar_adm.php";
                 </div>
                 <!-- <script src="../../src/JS/load_table_categorias.php" defer></script> -->
                 <div class="container_listar_body_adm">
-                <table class="table_adm_list" id="dados_categoria">
+                <table class="table_adm_list">
                     <thead>
                         <tr>
                             <th>Imagem</th>
@@ -69,7 +69,7 @@ include "nav_bar_adm.php";
                             <th>Ações</th>
                         </tr>
                     </thead>
-                    <tbody id="dados">
+                    <tbody id="dados_categoria">
                         <!-- Dados dinâmicos serão inseridos aqui via JavaScript -->
                     </tbody>
                 </table>

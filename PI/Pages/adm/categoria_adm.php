@@ -82,7 +82,7 @@ if(isset($_POST['carregarDadosCategoria'])){
             <div class="Title_deafult_adm">
                 <div class="container_title_adm_left">
                     <a href="./listar_categoria_adm.php" style="text-decoration: none; color: #ccc"><i class="fa-solid fa-chevron-left"></i></a>
-                    <span class="title_adm">Categoria</span>
+                    <span class="title_adm">Categoria N°<?= $id_categoria; ?> </span>
                 </div>
                 <div class="container_title_adm_right">
                     <!-- <div class="conatiner_btn_adm mobile_btn_salvar">

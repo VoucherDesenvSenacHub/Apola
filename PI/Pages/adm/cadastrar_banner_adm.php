@@ -14,7 +14,6 @@ $bannerPrincipalPosicao2 = $banner->getBannerForPosicao('banners_principais',2);
 $bannerPrincipalPosicao3 = $banner->getBannerForPosicao('banners_principais',3);
 
 $bannerSecundarioPosicao1 = $banner->getBannerForPosicao('banners_secundarios',1);
-
 $bannerPromocionalPosicao1  = $banner->getBannerForPosicao('banners_promocionais',1);
 $bannerPromocionalPosicao2  = $banner->getBannerForPosicao('banners_promocionais',2);
 $bannerPromocionalPosicao3  = $banner->getBannerForPosicao('banners_promocionais',3);
@@ -116,7 +115,7 @@ if (isset($_POST['cadastrarSecundario'])) {
         }
     }
 
-    echo "<script>alert('Todos os banners principais foram processados!')</script>";
+    echo "<script>alert('Todos os banners secundarios foram processados!')</script>";
     echo '<meta http-equiv="refresh" content="0.8;">';
 }
 
@@ -165,7 +164,7 @@ if (isset($_POST['cadastrarPromocionais'])) {
         }
     }
 
-    echo "<script>alert('Todos os banners principais foram processados!')</script>";
+    echo "<script>alert('Todos os banners promocionais foram processados!')</script>";
     echo '<meta http-equiv="refresh" content="0.8;">';
 }
 
