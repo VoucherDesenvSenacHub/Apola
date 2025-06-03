@@ -93,7 +93,15 @@ body{
   margin-top: 100px;
 
 } 
+.input-erro {
+  border-bottom: 1px solid red !important;
+}
 
+.erro-input {
+  font-size: 12px;
+  color: red;
+  margin-left: 4px;
+}
 
 
 
