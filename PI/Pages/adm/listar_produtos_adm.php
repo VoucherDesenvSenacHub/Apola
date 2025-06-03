@@ -59,22 +59,22 @@ include "nav_bar_adm.php";
                     
 
                 </div>
-                <div class="container_listar_body_adm">
+                <div class="container_listar_body_adm" style = "overflow: auto;">
                     <table class="table_adm_list">
-                    <thead>
-                        <tr>
-                            <th>Imagem</th>
-                            <th>ID</th>
-                            <th>Nome</th>
-                            <th>Preço</th>
-                            <th>Tipo</th>
-                            <th>Cor</th>
-                            <th>Tamanho</th>
-                            <th>Estoque</th>
-                            <th>Status</th>
-                            <th>Ações</th>
-                        </tr>
-                    </thead>
+                        <thead>
+                            <tr>
+                                <th>Imagem</th>
+                                <th>ID</th>
+                                <th>Nome</th>
+                                <th>Preço</th>
+                                <th>Tipo</th>
+                                <th>Cor</th>
+                                <th>Tamanho</th>
+                                <th>Estoque</th>
+                                <th>Status</th>
+                                <th>Ações</th>
+                            </tr>
+                        </thead>
                     <tbody id="dados_produtos">
                         <!-- Dados dinâmicos serão inseridos aqui via JavaScript -->
                     </tbody>

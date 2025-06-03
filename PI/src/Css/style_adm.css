@@ -101,7 +101,6 @@
 
 .side_bar-itens{
     border-radius: 5px;
-    padding: 10px;
     cursor: pointer;
     list-style: none;
     outline: none;
@@ -122,6 +121,7 @@
 .side_bar-itens a{
     display: flex;
     align-items: center;
+    padding: 10px;
     justify-content: center;
     color:#898989 ;
     transition: all 0.2s ease-in-out;
@@ -253,7 +253,7 @@
     }
 
     .nav_mobile_adm{
-        /* display: flex; */
+        display: flex;
         position: absolute;
         width: 100%;
         bottom:20px;
@@ -262,14 +262,13 @@
         z-index: 3;
         justify-content: center;
         align-items: center;
-        display: none;
 
     }
 
     .nav_mobile_adm .nav_bar_content_mobile_adm{
         display: flex;
         background-color:#252525;
-        width: 55%;
+        width: 80%;
         justify-content: center;
         align-items: center;
         list-style: none;
@@ -280,7 +279,7 @@
     .nav_mobile_adm .nav_bar_content_mobile_adm ul{
         display: flex;
         list-style: none;
-        gap: 3rem;
+        gap: 2rem;
         justify-content: center;
         align-items: center;
     }
@@ -316,9 +315,12 @@
 
     .nav_mobile_adm .nav_bar_content_mobile_adm{
         display: flex;
-        width: 65%;
+        width: 55%;
         height:70px;
       
+    }
+    .nav_mobile_adm .nav_bar_content_mobile_adm ul{
+        gap: 20px;
     }
 
 }
@@ -347,9 +349,9 @@
 
     .nav_mobile_adm .nav_bar_content_mobile_adm{
         display: flex;
-        width: 98%;
+        width: 99%;
         height:65px;
-      
+        margin: 20px;
     }
 
 

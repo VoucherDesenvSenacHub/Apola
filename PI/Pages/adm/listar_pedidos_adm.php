@@ -97,18 +97,18 @@ th, td {
                             <button id="btn_search_listar">Buscar</button>
                         </div>
                     </div>
-                    <div class="container_listar_body_adm">
-                    <table class="table_adm_list" id='tabela'>
-                        <thead>
-                            <th>numero</th>
-                            <th>total</th>
-                            <th>tipo</th>
-                            <th id="Mob_table_none_th" >estado</th>
-                            <th>ações</th>
-                        </thead>
-                        <tbody id="dados">   
-                        </tbody>
-                    </table>
+                    <div class="container_listar_body_adm" style = "overflow: auto;">
+                        <table class="table_adm_list" id='tabela'>
+                            <thead>
+                                <th>numero</th>
+                                <th>total</th>
+                                <th>tipo</th>
+                                <th id="Mob_table_none_th" >estado</th>
+                                <th>ações</th>
+                            </thead>
+                            <tbody id="dados">   
+                            </tbody>
+                        </table>
                     </div>
 
 

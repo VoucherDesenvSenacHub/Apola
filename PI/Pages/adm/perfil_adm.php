@@ -8,8 +8,10 @@ require '../../App/Session/Login.php';
 include "nav_bar_adm.php";   
 include "head_adm.php";
 
+
 ?>
-    
+<link rel="stylesheet" href="../../src/Css/favoritos_adm.css">    
+<link rel="stylesheet" href="../../src/Css/perfil_adm.css">    
  <main  class="main2">
         <section class="container_perfil">
             <div class="left-container_favoritos">

@@ -9,7 +9,7 @@ include "head_adm.php";
 
 
 
-$result = Login::RequireLogin();
+// $result = Login::RequireLogin();
 
 
 include 'nav_bar_adm.php';

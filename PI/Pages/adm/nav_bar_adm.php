@@ -70,6 +70,9 @@ include "head_adm.php";
             <div class="nav_bar_content_mobile_adm">
                 <ul>
                     <li>
+                        <a href="perfil_adm.php"><i class="fa-solid fa-user-tie"></i></a>
+                    </li>
+                    <li>
                         <a href="dashbord_adm.php"><i class="fa-solid fa-chart-simple"></i></a>
                     </li>
                     <li>
@@ -85,7 +88,7 @@ include "head_adm.php";
                         <a href="cadastrar_banner_adm.php"><i class="fa-solid fa-bookmark"></i></a>
                     </li>
                     <li>
-                        <a href=""><i class="fa-solid fa-right-to-bracket"></i></a>
+                        <a href="../user/home.php"><i class="fa-solid fa-right-to-bracket"></i></a>
                     </li>
                 </ul>    
             </div>
