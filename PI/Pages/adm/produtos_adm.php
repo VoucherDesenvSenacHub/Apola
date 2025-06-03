@@ -32,6 +32,7 @@ if(isset($_POST['carregarDadosProduto'])){
         $errStatus = "Escolha o status";
     }
     $categoria = $_POST['selectCategoria'];
+    var_dump($categoria);
     if(empty($categoria)){
         $errCategoria = "Escolha uma categoria";
     }
@@ -119,7 +120,7 @@ if(isset($_POST['carregarDadosProduto'])){
         if($resultado){
             echo '<script>alert("Atualizado")</script>';
             echo '<meta http-equiv="refresh" content="0.8;">';
-            // echo '<script src="../../src/JS/atualizar_pagina.js"></script>';
+            echo '<script src="../../src/JS/atualizar_pagina.js"></script>';
         }else {
             $errImg = "Insira uma imagem.";
         }

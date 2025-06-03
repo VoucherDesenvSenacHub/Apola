@@ -64,6 +64,7 @@ include "nav_bar_adm.php";
                     <thead>
                         <tr>
                             <th>Imagem</th>
+                            <th>ID</th>
                             <th>Nome</th>
                             <th>Status</th>
                             <th>Ações</th>

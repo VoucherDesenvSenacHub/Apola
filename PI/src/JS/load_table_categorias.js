@@ -13,6 +13,7 @@ document.addEventListener('DOMContentLoaded', function () {
             for (let i = 0; i < response.length; i++) {
                 html += '<tr>';
                 html += `<td>  <img src= '${response[i].imagem}' alt="Imagem"  style="max-width:100px; max-height:50px;"></td>`
+                html += `<td>${response[i].id_categoria}</td>`
                 html += `<td> ${response[i].nome}</td>`;
                 if (response[i].status_categoria == "a"){
                     html += `<td>${"Ativado"}</td>`;
@@ -22,19 +23,16 @@ document.addEventListener('DOMContentLoaded', function () {
                     html += `<td>${"Inativado"}</td>`;
                 }
                 
-                html += '<td>';
+                html += `<td>
+                    <div class="container_item_list_ações">
+                        <a href="categoria_adm.php?id=${response[i].id_categoria}"><i class="fa-solid fa-eye"></i></a>
+                    </div>
+                </td>`;
 
-                html += '<div class="container_item_list_ações">';
-                html += `<a href="categoria_adm.php?id=${response[i].id_categoria}"><i class="fa-solid fa-eye"></i></a>`;
-                // if (response[i].Tipo === "disponivel") {
-                //     html += `<a href="pedido_disponivel_adm.php?id=${response[i].ID}"><i class="fa-solid fa-eye"></i></a>`;
-                // } else if (response[i].Tipo === "personalizado") {
-                //     html += `<a href="pedido_personalizado_adm.php?id=${response[i].ID}"><i class="fa-solid fa-eye"></i></a>`;
-                // }
-                html += '</div>';
 
-                html += '</td>';
-                html += '</tr>';
+
+            //     html += '<div class="container_item_list_ações">';
+            //     html += `<a href="categoria_adm.php?id=${response[i].categoria_id_categoria}`
             }
 
             dados_tabela.innerHTML = html;
