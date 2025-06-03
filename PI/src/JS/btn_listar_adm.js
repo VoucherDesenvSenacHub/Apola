@@ -4,7 +4,7 @@ let html = "";
 
 async function load_table(){
     
-    let dados_php = await fetch('../../App/Session/carrega_tabela.php');
+    let dados_php = await fetch('../../App/Session/Carrega.tabela.php');
     let response = await dados_php.json();
 
     for(var i = 0; i < response.length; i++){
@@ -48,3 +48,14 @@ buttons.forEach(button => {
         button.style.color = '#4A4A4A';
     });
 });
+
+let buscar_pedido = document.getElementById('input_search');
+
+buscar_pedido.addEventListener('keypress', function(evento){
+
+    console.log(evento.target.value);
+    let xhr = new XMLHttpRequest()
+    xhr.open('GET','../../Pages/adm/listar_pedido_adm.php', true)
+    console.log(xhr)
+    
+})

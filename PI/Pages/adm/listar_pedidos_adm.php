@@ -201,6 +201,6 @@ th, td {
         </main>
 
 
-        <script src="../../src/JS/btn_listar_adm.js"></script>
+        <script src="../../src/JS/btn_listar_adm.js" defer></script>
 </body>
 </html>
