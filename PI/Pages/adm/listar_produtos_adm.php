@@ -5,7 +5,7 @@ include "nav_bar_adm.php";
 
 ?>
 
-
+<body onload='load_table()'>  
     <main class="main_adm">
         <div class="conatiner_dashbord_adm">
             <div class="Title_deafult_adm">
@@ -61,52 +61,24 @@ include "nav_bar_adm.php";
                 </div>
                 <div class="container_listar_body_adm">
                     <table class="table_adm_list">
-                        <tr z>
-                            <th class="none_mob" id="text_alin_item"></th>
-                            <th id="text_alin_item">produto nome</th>
-                            <th>estoque</th>
-                            <th>categoria</th>
-                            <th>status</th>
-                            <th>ações</th>
-                        </tr>
+                    <thead>
                         <tr>
-                            <td class="none_mob" id="text_alin_item" >
-                                <input class="check_box_list" type="checkbox" name="" id="">
-                            </td>
-                            <td class="nome_td">
-                                <div class="conatiner_item_list_nome">
-                                    <img src="" alt="">
-                                    <div class="conatiner_text_nome_list">
-                                        <p>Cachepô de Crochê</p>
-                                        <span>Lorem ipsum dolor sit amet consectetu.</span>
-                                    </div>
-                                    
-                                </div>
-                                
-                            </td>
-                            <td>
-                                16
-                            </td>
-                            <td>
-                                Cachepô
-                            </td>
-                            <td>
-                                <div class="container_item_list_status">
-                                    <div class="shape_status"></div>
-                                    ativo
-                                    
-                                </div>
-                            </td>
-                            <td>
-                                <div class="container_item_list_ações">
-                                    <a href=""><i class="fa-solid fa-pencil"></i></a>
-                                    <input checked="true" type="checkbox" class="switch">
-                                    <a href=""><i class="fa-solid fa-trash"></i></a>
-                                </div>
-                            </td>
+                            <th>Imagem</th>
+                            <th>ID</th>
+                            <th>Nome</th>
+                            <th>Preço</th>
+                            <th>Tipo</th>
+                            <th>Cor</th>
+                            <th>Tamanho</th>
+                            <th>Estoque</th>
+                            <th>Status</th>
+                            <th>Ações</th>
                         </tr>
-
-                    </table>
+                    </thead>
+                    <tbody id="dados_produtos">
+                        <!-- Dados dinâmicos serão inseridos aqui via JavaScript -->
+                    </tbody>
+                </table>
                 </div>
 
 

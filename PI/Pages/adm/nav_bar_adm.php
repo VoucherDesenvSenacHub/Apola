@@ -13,7 +13,7 @@ include "head_adm.php";
                 <ul id="side_bar_itens">
                     <li class="side_bar-itens">
                         <a style="text-decoration:none;" href="perfil_adm.php">
-                            <i class="fa-solid fa-user"></i>
+                            <i class="fa-solid fa-user-tie"></i>
                             <span class="text_side_item">Perfil</span>
                         </a>
                     </li>
