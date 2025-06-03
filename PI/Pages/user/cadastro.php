@@ -23,18 +23,6 @@ if(isset($_POST['cadastrar'])){
         $cpf  = $_POST['cpf'];
         $cep  = $_POST['cep'];
 
-
-        if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
-            $erro='Email não é válido';
-        }else{
-            if(!filter_var($cpf, FILTER_VALIDATE_INT)){
-                $erro='CPF não é valido';
-            }
-            if(!filter_var($cep, FILTER_VALIDATE_INT)){
-                $erro='CEP não é valido';
-            }else{
-
-
                 $cliente =  new Cliente();
 
                 $cliente->nome = $nome;
@@ -54,18 +42,7 @@ if(isset($_POST['cadastrar'])){
                 }else{
                     $erro='Erro ao cadastrar';
                 }
-
-
-
-
-            }
-
-        }
-
-    }else{
-        $erro='Preencha todos os campos';
-    }
-
+    };
 }
 
 
@@ -101,35 +78,48 @@ if(isset($_POST['cadastrar'])){
                 <div class="container-cadastro">
                     <div class="form-cadastro">
                         <div class="text-cadastro">Cadastro</div>
-                        <form  method='post'>
+                        <form method='post'>
                             <div class="form__group field">
-                                <input autocomplete="off" type="text" name='nome' class="form__field" placeholder="Nome" id="nome-cad" required>
-                                <label for="nome" class="form__label">Nome</label>
+                                <input autocomplete="off" type="text" name="nome" class="form__field" placeholder="Nome" id="nome-cad" required>
+                                <label for="nome-cad" class="form__label">Nome</label>
+                                <div class="erro-input" id="erro-nome"></div>
                             </div>
+
                             <div class="form__group field">
-                                <input  autocomplete="off" type="text" name='sobrenome' class="form__field" placeholder="Sobrenome" id="nome-cad" required>
-                                <label for="sobrenome" class="form__label">Sobrenome</label>
+                                <input autocomplete="off" type="text" name="sobrenome" class="form__field" placeholder="Sobrenome" id="sobrenome-cad" required>
+                                <label for="sobrenome-cad" class="form__label">Sobrenome</label>
+                                <div class="erro-input" id="erro-sobrenome"></div>
                             </div>
+
                             <div class="form__group field">
-                                <input  autocomplete="off" type="text" name='email' id="email-cad" class="form__field" placeholder="E-mail" required>
-                                <label for="email" class="form__label">E-mail*</label>
+                                <input autocomplete="off" type="text" name="email" id="email-cad" class="form__field" placeholder="E-mail" required>
+                                <label for="email-cad" class="form__label">E-mail*</label>
+                                <div class="erro-input" id="erro-email"></div>
                             </div>
+
                             <div class="form__group field">
-                                <input  autocomplete="off" type="number" name='cpf' id="cpf-cad" class="form__field" placeholder="CPF" required>
-                                <label for="cpf" class="form__label">CPF*</label>
+                                <input autocomplete="off" type="text" name="cpf" id="cpf-cad" class="form__field" placeholder="CPF" required>
+                                <label for="cpf-cad" class="form__label">CPF*</label>
+                                <div class="erro-input" id="erro-cpf"></div>
                             </div>
+
                             <div class="form__group field">
-                                <input  autocomplete="off" type="number" name='cep' id="cep-cad" class="form__field" placeholder="CEP" required>
-                                <label for="cep" class="form__label">CEP*</label>
+                                <input autocomplete="off" type="text" name="cep" id="cep-cad" class="form__field" placeholder="CEP" required>
+                                <label for="cep-cad" class="form__label">CEP*</label>
+                                <div class="erro-input" id="erro-cep"></div>
                             </div>
+
                             <div class="form__group field">
-                                <input autocomplete="off" type="password" name='senha' id="senha-cad" class="form__field" placeholder="Senha" required>
-                                <label for="senha" class="form__label">Senha*</label>
+                                <input autocomplete="off" type="password" name="senha" id="senha-cad" class="form__field" placeholder="Senha" required>
+                                <label for="senha-cad" class="form__label">Senha*</label>
+                                <div class="erro-input" id="erro-senha"></div>
                             </div>
+
                             <span class='msg_erro'><?php echo $erro; ?></span>
                             <span class='msg_sucesso'><?php echo $succes; ?></span>
+
                             <div class="btn-cadastro">
-                                <button  name='cadastrar' >Cadastra-se</button>
+                                <button name="cadastrar">Cadastra-se</button>
                             </div>
                             <span class="span-cadastro">Já possui conta? <a href="./login.php">Faça login</a></span>
                         </form>
@@ -140,6 +130,7 @@ if(isset($_POST['cadastrar'])){
                 </div>
             </div>
         </section>
+        <script src="../../src/JS/validacao_cadastro.js"></script>
     </main>
 </body>
 </html>
