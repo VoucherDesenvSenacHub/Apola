@@ -1,13 +1,10 @@
 <?php
-require_once '../DB/Database.php';
+require_once '../../App/DB/Database.php';
 
 class Pedido {
-    public int $id_pedido;
-
     public function cadastrar(){
         $db = new Database('pedido');
         $result = $db->insert([
-            'data_pedido' => $this->data_pedido,
         ]);
 
         return $result ? true : false;
@@ -15,7 +12,6 @@ class Pedido {
 
     public function atualizar(){
         return (new Database('pedido'))->update('sacola_id_sacola = '.$this->sacola_id_sacola,[
-            'data_pedido' => $this->data_pedido,
         ]);
     }
 
@@ -24,11 +20,13 @@ class Pedido {
         //return (new Database('pedido'))->select_pedido()->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    public static function buscar_by_id($sacola_id){
-        return (new Database('pedido'))->select('sacola_id_sacola = '.$sacola_id)->fetchObject(self::class);
+    public static function buscar_by_id($id){
+        return (new Database('pedido'))->select_by_id($id)->fetchObject(self::class);
     }
 
     public function excluir($sacola_id){
         return (new Database('pedido'))->delete('sacola_id_sacola = '.$sacola_id);
     }
+    
 }
+?>

@@ -1,11 +1,10 @@
 <?php
 
-require_once '../Entity/Pedido.php';
+require '../Entity/Pedido.class.php';
 
 $objProd = new Pedido();
 
 $dados = $objProd->buscar();
-
 if($dados){
     echo json_encode($dados);
 }

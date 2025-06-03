@@ -3,14 +3,21 @@
 include "head_adm.php";
 include "nav_bar_adm.php";
 
+include "../../App/Entity/Pedido.class.php";
+$id = $_GET['id'];
+$buscar = new Pedido();
+$pedido_cliente = $buscar->buscar_by_id($id);
+
+// print_r($pedido_cliente);
+
 ?>
     
 <main class="main_adm">
         <div class="conatiner_dashbord_adm">
             <div class="Title_deafult_adm">
                 <div class="container_title_adm_left">
-                <a href="./listar_pedidos_adm.php" style="text-decoration: none; color: #ccc"><i class="fa-solid fa-chevron-left"></i></a>
-                    <span class="title_adm">Pedido #4343</span>
+                <a href="./listar_pedidos_adm.php" style="text-decoration: none; color: gray"><i class="fa-solid fa-chevron-left"></i></a>
+                    <span class="title_adm">Pedido #<?= $_GET['id']; ?></span>
                 </div>
                 <div class="container_title_adm_right">
                     <div class="conatiner_btn_adm mobile_btn_salvar">
@@ -23,70 +30,68 @@ include "nav_bar_adm.php";
                 <div class="conatiner_cadastro_adm_pedido_header">
                     <div class="item_flex_pedido">
                         <label for="">Cliente</label>
-                        <input readonly type="text">
+                        <input readonly type="text" value="<?= $pedido_cliente->nome_cliente .' '. $pedido_cliente->sobrenome ; ?>">
                     </div>
                     <div class="item_flex_pedido">
                         <label for="">Contato</label>
-                        <input readonly id="input_2_pedido" type="text">
+                        <input readonly id="input_2_pedido" type="text" value="<?= $pedido_cliente->contato; ?>">
                     </div>
                     <div class="item_flex_pedido">
                         <label for="">CEP</label>
-                        <input readonly id="input_2_pedido"  type="text">
+                        <input readonly id="input_2_pedido"  type="text" value="<?= $pedido_cliente->cep; ?>">
                     </div>
                     <div class="item_flex_pedido">
                         <label for="">Rua</label>
-                        <input readonly type="text">
+                        <input readonly type="text" value="<?= $pedido_cliente->rua; ?>">
                     </div>
                     <div class="item_flex_pedido">
                         <label for="">N°</label>
-                        <input readonly id="input_3_pedido"  type="text">
+                        <input readonly id="input_3_pedido" type="text" value="<?= $pedido_cliente->numero; ?>">
                     </div>
                     <div class="item_flex_pedido">
                         <label for="">Bairro</label>
-                        <input readonly type="text">
+                        <input readonly type="text" value="<?= $pedido_cliente->bairro; ?>">
                     </div>
                     <div class="item_flex_pedido">
                         <label for="">Cidade</label>
-                        <input readonly type="text">
+                        <input readonly type="text" value="<?= $pedido_cliente->cidade; ?>">
                     </div>
                     <div class="item_flex_pedido">
                         <label for="">Estado</label>
-                        <input readonly id="input_3_pedido" type="text">
+                        <input readonly id="input_3_pedido" type="text" value="<?= $pedido_cliente->estado; ?>">
                     </div>
                 </div>
-            </form>
-            <div class="shape_pedido"></div>
-            <form action="" method="POST">
+                <div class="shape_pedido"></div>
                 <div class="conatiner_cadastro_adm_pedido_body">
                     <div class="conatiner_cadastro_adm_pedido_body_left">
                         <div class="item_flex_pedido">
                             <label for="">Produto</label>
-                            <input readonly type="text">
+                            <input readonly type="text" value="<?= $pedido_cliente->nome_produto; ?>">
                         </div>
                         <div class="item_flex_pedido">
                             <label for="">Quant.</label>
-                            <input id="input_3_pedido" readonly type="text">
+                            <input id="input_3_pedido" readonly type="text" value="<?= $pedido_cliente->quantidade; ?>">
                         </div>
                         <div class="item_flex_pedido">
                             <label for="">Cor</label>
-                            <input id="input_2_pedido" readonly type="text">
+                            <input id="input_2_pedido" readonly type="text" value="<?= $pedido_cliente->cor; ?>">
                         </div>
                         <div class="item_flex_pedido">
                             <label for="">Preço Total</label>
-                            <input id="input_2_pedido" readonly type="text">
+                            <input id="input_2_pedido" readonly type="text" value="<?= $pedido_cliente->valor_total; ?>">
                         </div>
                         <div class="item_flex_pedido">
                             <label for="">Status Pedido</label>
                             <select name="" id="">
-                                <option value="">A pagar</option>
-                                <option value="">Produção</option>
-                                <option value="">Envio</option>
-                                <option value="">Entregue</option>
+                                <option <?= $pedido_cliente->status_pedido == 'A pagar' ? 'selected' : '' ?>>A pagar</option>
+                                <option <?= $pedido_cliente->status_pedido == 'Produção' ? 'selected' : '' ?>>Produção</option>
+                                <option <?= $pedido_cliente->status_pedido == 'Envio' ? 'selected' : '' ?>>Envio</option>
+                                <option <?= $pedido_cliente->status_pedido == 'Entregue' ? 'selected' : '' ?>>Entregue</option>
                             </select>
                         </div>
                         <div class="item_flex_pedido">
                             <label for="">Código de Rastreio</label>
-                            <input type="text">
+                            <input type="text" value="<?= $pedido_cliente->rastreio ?>">
                         </div>
                     </div>
                     <div class="conatiner_cadastro_adm_pedido_body_right">
@@ -97,7 +102,7 @@ include "nav_bar_adm.php";
                         </div>
                     </div>
                 </div>
-            </div>
+                </div>
             </form>
             <div  id="conatiner_btn_adm_pc" class="conatiner_btn_adm">
                 

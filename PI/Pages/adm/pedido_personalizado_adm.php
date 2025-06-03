@@ -9,8 +9,8 @@ include "nav_bar_adm.php";
         <div class="conatiner_dashbord_adm">
             <div class="Title_deafult_adm">
                 <div class="container_title_adm_left">
-                <a href="./listar_pedidos_adm.php" style="text-decoration: none; color: #ccc"><i class="fa-solid fa-chevron-left"></i></a>
-                    <span class="title_adm">Pedido #2343</span>
+                <a href="./listar_pedidos_adm.php" style="text-decoration: none; color: gray"><i class="fa-solid fa-chevron-left"></i></a>
+                    <span class="title_adm">Pedido #<?= $_GET['id'];?></span>
                 </div>
                 <div class="container_title_adm_right">
                     <div class="conatiner_btn_adm mobile_btn_salvar">
