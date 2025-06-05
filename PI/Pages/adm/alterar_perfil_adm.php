@@ -23,7 +23,6 @@ $id_usuario = $adm->id_usuario;
 $entityUsuario = new User();
 
 $usuario = $entityUsuario->getUsuarioById($id_usuario);
-print_r($usuario);
 
 if(isset($_POST['enviarDados'])){
     $nome = $_POST['nome'];
@@ -110,6 +109,7 @@ if(isset($_POST['enviarDados'])){
                                 <button onclick="reload()" class="btn_cancelar">Cancelar</button>
                                 <button type = "submit" name="enviarDados" class="btn_salvar">Salvar</button>
                             </div>
+                            
 
                         </div>
 
