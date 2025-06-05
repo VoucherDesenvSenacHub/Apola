@@ -162,7 +162,7 @@ if(isset($_POST['carregarDadosProduto'])){
                         </div>
                         <div class="item_flex_adm">
                             <label for="">Adicionar Cor</label>
-                            <input name="corProduto" class="input_adcionar_produto" type="text">
+                            <input type="color" name="corProduto" class="input_adcionar_produto" >
                             <p class="text_tamanho_img" style="color:red;"> <?= $errCor; ?> </p>
                         </div>
                         <!-- <button class="btn_produto_add">Adicionar</button> -->
