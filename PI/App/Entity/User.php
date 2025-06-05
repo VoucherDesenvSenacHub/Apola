@@ -50,6 +50,12 @@ class User{
         return $result->fetchObject(self::class); 
     }
 
+    public static function getUsuarioById($id_usuario) {
+        $db = new Database('usuario');
+        $result = $db->select("id_usuario = '$id_usuario'");
+        return $result->fetchObject(self::class); 
+    }
+
     public static function getUser($where=null, $order =null, $limit = null){
         return (new Database('user'))->select($where,$order,$limit)
                                         ->fetchAll(PDO::FETCH_CLASS,self::class);
@@ -57,12 +63,6 @@ class User{
     }
 
     // Função que retorna uma instâcia de usuario com base no email
-
-    public static function getUserPorEmail($where=null, $order =null, $limit = null){
-
-        return (new Database('usuario'))->select('email = "'. $where .'"')->fetchObject(self::class);
-
-    }
 
 
     // QUANDO EU QUERO RETORNAR UM OBJETO "CLASSE" PARA INSTANCIAR 
@@ -75,7 +75,7 @@ class User{
 
 
     public function updateUser(){
-        return (new Database('usuario'))->update('id = '.$this->id_user,[
+        return (new Database('usuario'))->update('id_usuario = '.$this->id_user,[
                                             'nome'=> $this->nome,
                                             'email' => $this->email,
                                             'senha' => $this->senha,

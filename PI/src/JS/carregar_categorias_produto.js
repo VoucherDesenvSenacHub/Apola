@@ -4,11 +4,11 @@ document.addEventListener('DOMContentLoaded', function () {
 
     async function load_categorias() {
         try {
-            let dados_php = await fetch('../../App/Session/carrega_tabela_categorias.php');
+            let dados_php = await fetch('../../App/Session/carregar_categorias_ativadas.php');
             let dados_produto_php = await fetch('../../App/Session/carrega_tabela_produtos.php');
             let response = await dados_php.json();
             let responseProduto = await dados_produto_php.json();
-
+            
             const produto = responseProduto[0]; 
             const categoriaSelecionada = produto.categoria_id_categoria;
             console.log(categoriaSelecionada);

@@ -46,15 +46,15 @@ include "nav_bar_adm.php";
             <div class="conatiner_listar_adm">
                 <div class="container_listar_header_adm">
                     <div class="container_listar_header_adm_left">
-                        <button id="btn_item_listar_adm">Todos</button>
-                        <button id="btn_item_listar_adm">Ativo</button>
-                        <button id="btn_item_listar_adm">Inativo</button>
+                        <button id="btn_todos" class="btn_item_listar_adm">Todos</button>
+                        <button id="btn_ativos" class="btn_item_listar_adm">Ativo</button>
+                        <button id="btn_inativos" class="btn_item_listar_adm">Inativo</button>
 
                     </div>
                     <div class="container_listar_header_adm_right">
                         <input id="input_search" placeholder="Pesquisar produto" type="search" name="" id="">
                         <i class="fa-solid fa-magnifying-glass"></i>
-                        <button id="btn_search_listar">Buscar</button>
+                        <button class="btn_search_listar">Buscar</button>
                     </div>
                     
 
@@ -64,13 +64,9 @@ include "nav_bar_adm.php";
                         <thead>
                             <tr>
                                 <th>Imagem</th>
-                                <th>ID</th>
                                 <th>Nome</th>
                                 <th>Preço</th>
                                 <th>Tipo</th>
-                                <th>Cor</th>
-                                <th>Tamanho</th>
-                                <th>Estoque</th>
                                 <th>Status</th>
                                 <th>Ações</th>
                             </tr>

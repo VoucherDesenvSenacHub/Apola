@@ -30,17 +30,18 @@ async function load_table(){
     dados_tabela.innerHTML = html;
 }
 // Seleciona todos os botões pela classe
-const buttons = document.querySelectorAll('#btn_item_listar_adm');
-
+const buttons = document.querySelectorAll('.btn_item_listar_adm');
 // Adiciona o evento de clique a cada botão
 buttons.forEach(button => {
     button.addEventListener('click', () => {
         console.log(`Botão "${button.textContent}" clicado`);
-
+        // alert("olá")
         // Remove os estilos dos outros botões
         buttons.forEach(btn => {
-            btn.style.backgroundColor = '';
-            btn.style.color = '';
+            if(btn != button){
+                btn.style.color = '';
+                btn.style.backgroundColor = '';
+            }
         });
 
         // Adiciona os estilos ao botão clicado

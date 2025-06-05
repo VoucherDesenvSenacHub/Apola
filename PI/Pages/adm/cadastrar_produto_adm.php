@@ -73,28 +73,30 @@ if(isset($_POST['carregarDadosProduto'])){
                     $errImg = "Falha ao mover a imagem para o destino.";
                 }
             }
+
+            $produto = new Produto();
+            $produto->nome = $titulo;
+            $produto->preco = $preco;
+            $produto->avaliacao = "";
+            $produto->quantidade = $estoque;
+            $produto->cor = $cor;
+            $produto->tamanho = $tamanho;
+            $produto->imagem = $caminhoFinal;
+            $produto->descricao = $descricao;
+            $produto->tipo = "Da loja";
+            $produto->status_produto = $status;
+            $produto->categoria_id_categoria = $categoria;
+    
+            $resultado = $produto->cadastrarProduto();
+            if($resultado){
+                echo '<script>alert("Cadastrado com Sucesso!")</script>';
+            }
         }   
         else {
             $errImg = "Insira uma imagem.";
         }
 
-        $produto = new Produto();
-        $produto->nome = $titulo;
-        $produto->preco = $preco;
-        $produto->avaliacao = "";
-        $produto->quantidade = $estoque;
-        $produto->cor = $cor;
-        $produto->tamanho = $tamanho;
-        $produto->imagem = $caminhoFinal;
-        $produto->descricao = $descricao;
-        $produto->tipo = "Da loja";
-        $produto->status_produto = $status;
-        $produto->categoria_id_categoria = $categoria;
 
-        $resultado = $produto->cadastrarProduto();
-        if($resultado){
-            echo '<script>alert("Cadastrado com Sucesso!")</script>';
-        }
 
     }
 

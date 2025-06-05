@@ -45,15 +45,15 @@ include "nav_bar_adm.php";
             <div class="conatiner_listar_adm">
                 <div class="container_listar_header_adm">
                     <div class="container_listar_header_adm_left">
-                        <button id="btn_item_listar_adm">Todos</button>
-                        <button id="btn_item_listar_adm">Ativo</button>
-                        <button id="btn_item_listar_adm">Inativo</button>
+                        <button class="btn_item_listar_adm">Todos</button>
+                        <button class="btn_item_listar_adm">Ativo</button>
+                        <button class="btn_item_listar_adm">Inativo</button>
 
                     </div>
                     <div class="container_listar_header_adm_right">
                         <input id="input_search" placeholder="Pesquisar categorias" type="search" name="" id="">
                         <i class="fa-solid fa-magnifying-glass"></i>
-                        <button id="btn_search_listar">Buscar</button>
+                        <button class="btn_search_listar">Buscar</button>
                     </div>
                     
 

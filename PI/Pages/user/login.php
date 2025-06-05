@@ -9,6 +9,8 @@ require '../../App/Session/Login.php';
 
 // Login::RequireLogout();
 
+session_start();
+
 $erro = '';
 $succes = '';
 
@@ -17,7 +19,7 @@ if (isset($_POST['logar'])) {
     if (!empty($_POST['email']) && !empty($_POST['senha'])) {
         $email = $_POST['email'];
         $senha = $_POST['senha'];
-
+        var_dump([$email, $senha]);
         if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
             $erro = 'Email não é válido';
         } else {
@@ -26,16 +28,10 @@ if (isset($_POST['logar'])) {
 
             if ($usuario) {
                 $idUsuario = $usuario->id_usuario;
-                // var_dump($usuario);
-                // print_r('Aquii estaa' .$idUsuario);
-                // Verificar se é admin e se é o primeiro login
                 if ($usuario->id_perfil == 'adm' && $senha == 'adm') {
-                    $idUsuario = $usuario->id_usuario;
                     $adm = Adm::getAdmByUsuarioId($idUsuario);
-                    // print_r($adm);
-                    // echo 'CAIUUUUU';
                     if ($adm) {
-                        $adm->id_usuario = $usuario->id_usuario;
+                        $adm->id_usuario = $idUsuario;
                         $adm->email = $usuario->email;
                         Login::loginAdm($adm);
                         exit;
@@ -58,6 +54,7 @@ if (isset($_POST['logar'])) {
                         $adm = Adm::getAdmByUsuarioId($idUsuario);
                         if ($adm) {
                             $adm->id_usuario = $usuario->id_usuario;
+                            $_SESSION["id_usuario"] = $idUsuario;
                             Login::loginAdm($adm);
                             exit;
                         }

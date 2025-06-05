@@ -131,10 +131,11 @@ class Login {
         self::init();
         $_SESSION['administrador'] = [
             'id_administrador' => $object->id_administrador,
-            'email' => $object->email
+            'email' => $object->id_usuario,
         ];
-        header('location: ../../Pages/adm/dashbord_adm.php');
+        header('location: ../../Pages/adm/perfil_adm.php');
         exit;
+        
     }
 
     public static function IsLogedCliente() {
@@ -144,7 +145,7 @@ class Login {
 
     public static function IsLogedAdm() {
         self::init();
-        return isset($_SESSION['adm']['id_adm']);
+        return isset($_SESSION['administrador']['id_administrador']);
     }
 
     public static function RequireLogin() {
@@ -163,7 +164,7 @@ class Login {
         }
 
         if (self::IsLogedAdm()) {
-            header('location: ../../Pages/adm/dashboard_adm.php');
+            header('location: ../../Pages/adm/perfil_adm.php');
             exit;
         }
     }

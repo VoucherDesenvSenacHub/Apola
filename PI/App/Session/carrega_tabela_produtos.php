@@ -4,7 +4,18 @@ require_once '../Entity/Produto.class.php';
 
 $objProd = new Produto();
 
-$dados = $objProd->buscarProduto();
+if(!isset($_GET['status'])){
+    $dados = $objProd->buscarProduto();
+}
+else if(isset($_GET['status']) && $_GET['status'] == 'inativo'){
+
+    $dados = $objProd->buscarProduto('status_produto = "i" ');
+
+}
+else if(isset($_GET['status']) && $_GET['status'] == 'ativo'){
+
+    $dados = $objProd->buscarProduto('status_produto = "a" ');
+}
 
 if($dados){
     echo json_encode($dados);

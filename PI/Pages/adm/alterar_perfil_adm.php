@@ -1,18 +1,54 @@
 <?php
-
+session_start();
 
 require '../../App/config.inc.php';
 
 require '../../App/Session/Login.php';
 
 include "head_adm.php";
-
-
-
-// $result = Login::RequireLogin();
-
-
 include 'nav_bar_adm.php';
+
+// print_r($_SESSION['id_usuario']);
+$result = Login::IsLogedAdm();
+if($result){
+    $id_administrador = $_SESSION['administrador']['id_administrador'];
+}
+
+// $id_adm = ($sessao);
+// print_r($id_administrador);
+
+$entityAdm = new Adm();
+$adm = $entityAdm->getAdmById($id_administrador);
+$id_usuario = $adm->id_usuario;
+$entityUsuario = new User();
+
+$usuario = $entityUsuario->getUsuarioById($id_usuario);
+print_r($usuario);
+
+if(isset($_POST['enviarDados'])){
+    $nome = $_POST['nome'];
+    $email = $_POST['email'];
+    $senha = $_POST['senha'];
+
+    $senhaCript = password_hash($senha, PASSWORD_DEFAULT);
+
+    $entityUsuario->id_user = $id_usuario;
+    $entityUsuario->nome = $nome;
+    $entityUsuario->email = $email;
+    $entityUsuario->senha = $senhaCript;
+    $entityUsuario->id_perfil = "adm";
+
+    $entityAdm->id_usuario = $id_usuario;
+    $resultadoUpdadeUser = $entityUsuario->updateUser();
+    $resultadoUpdadeAdm = $entityAdm->updateAdm($id_administrador);
+
+    if($resultadoUpdadeAdm && $resultadoUpdadeUser){
+        echo '<script>alert("Atualizado")</script>';
+        echo '<meta http-equiv="refresh" content="0.8;">';
+    }
+}
+
+
 
 ?>
 
@@ -41,38 +77,38 @@ include 'nav_bar_adm.php';
                             <img src="../../src/imagens/image.png" alt="">
                         </div>
                     </div>
-                    <form class="inputs_perfil">
+                    <form method="POST" class="inputs_perfil">
                         <div class="input_perfil_container">
                             <div class="input_item_perfil">
                                 <label for="">Nome Completo</label>
                                 <div class="container_edit_perfil">
-                                    <input type="text" name="nome" id="">
+                                    <input type="text" name="nome" id="" value="<?= $usuario->nome; ?>">
                                    
                                 </div>
                             </div>
                             <div class="input_item_perfil">
                                 <label for="">Email</label>
                                 <div class="container_edit_perfil">
-                                    <input type="email" name="email" id="">
+                                    <input type="email" name="email" id="" value="<?= $usuario->email; ?>">
                                    
                                 </div>
                             </div>
                             <div class="input_item_perfil">
-                                <label for="">Senha</label>
+                                <label for="">Alterar Senha</label>
                                 <div class="container_edit_perfil">
-                                    <input type="senha" name="senha" id="">
+                                    <input type="password"  name="senha" id="" placeholder="insira a nova senha">
                                 </div>
                             </div>
-                            <div class="input_item_perfil">
+                            <!-- <div class="input_item_perfil">
                                 <label for="">CPF</label>
                                 <div class="container_edit_perfil">
                                     <input type="text" name="cpf" id="">
                               
                                 </div>
-                            </div>
+                            </div> -->
                             <div class="container_btn_perfil">
-                                <button class="btn_cancelar">Cancelar</button>
-                                <button class="btn_salvar">Salvar</button>
+                                <button onclick="reload()" class="btn_cancelar">Cancelar</button>
+                                <button type = "submit" name="enviarDados" class="btn_salvar">Salvar</button>
                             </div>
 
                         </div>

@@ -1,12 +1,34 @@
 <?php
+
+session_start();
 require '../../App/config.inc.php';
 require '../../App/Session/Login.php';
 
-
-// $result = Login::RequireLogin();
-
 include "nav_bar_adm.php";   
 include "head_adm.php";
+
+// print_r($_SESSION['id_usuario']);
+$result = Login::IsLogedAdm();
+if($result){
+    $id_administrador = $_SESSION['administrador']['id_administrador'];
+}
+else{
+    header('location: ../user/login.php');
+}
+
+// $id_adm = ($sessao);
+// print_r($id_administrador);
+
+$entityAdm = new Adm();
+$adm = $entityAdm->getAdmById($id_administrador);
+$id_usuario = $adm->id_usuario;
+$entityUsuario = new User();
+
+$usuario = $entityUsuario->getUsuarioById($id_usuario);
+print_r($usuario);
+
+
+
 
 
 ?>
@@ -42,32 +64,32 @@ include "head_adm.php";
                             <div class="input_item_perfil">
                                 <label for="">Nome Completo</label>
                                 <div class="container_edit_perfil">
-                                    <input disabled="" type="text" name="nome" id="">
+                                    <input disabled="" type="text" name="nome" id="" value="<?=$usuario->nome; ?>">
                                    
                                 </div>
                             </div>
                             <div class="input_item_perfil">
                                 <label for="">Email</label>
                                 <div class="container_edit_perfil">
-                                    <input disabled="" type="email" name="email" id="">
+                                    <input disabled="" type="email" name="email" id="" value="<?= $usuario->email; ?>">
                                    
                                 </div>
                             </div>
-                            <div class="input_item_perfil">
+                            <!-- <div class="input_item_perfil">
                                 <label for="">Senha</label>
                                 <div class="container_edit_perfil">
                                     <input disabled="" type="senha" name="senha" id="">
                               
                                 </div>
-                            </div>
+                            </div> -->
                             
-                            <div class="input_item_perfil">
+                            <!-- <div class="input_item_perfil">
                                 <label for="">CPF</label>
                                 <div class="container_edit_perfil">
                                     <input disabled="" type="text" name="cpf" id="">
                               
                                 </div>
-                            </div>
+                            </div> -->
                             <!-- <div class="container_btn_perfil">
                                 <button class="btn_cancelar">Cancelar</button>
                                 <button class="btn_salvar">Salvar</button>

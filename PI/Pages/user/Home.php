@@ -747,7 +747,7 @@ else {
 
 
         <!-- INICIO CARDS CATEGORIA 2-->
-        <section class="card_cat_2">
+        <section class="card_cat_2">    
             <div class="content_card_cat_2">
                 <a href="./categorias.php" class="item_card_cat_2" style="text-decoration: none; color: inherit;">
                     <img src="../../src/imagens/img_categorias_2/7 Tiny Crochet Animal Ideas List - Fabricerie.jfif" alt="" class="img_card_cat_2">

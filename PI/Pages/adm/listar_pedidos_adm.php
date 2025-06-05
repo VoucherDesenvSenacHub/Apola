@@ -86,15 +86,15 @@ th, td {
                 <div class="conatiner_listar_adm">
                     <div class="container_listar_header_adm">
                         <div class="container_listar_header_adm_left">
-                            <button id="btn_item_listar_adm">A pagar</button>
-                            <button id="btn_item_listar_adm">Produção</button>
-                            <button id="btn_item_listar_adm">Envio</button>
-                            <button id="btn_item_listar_adm">Entregue</button>
+                            <button class="btn_item_listar_adm">A pagar</button>
+                            <button class="btn_item_listar_adm">Produção</button>
+                            <button class="btn_item_listar_adm">Envio</button>
+                            <button class="btn_item_listar_adm">Entregue</button>
                         </div>
                         <div class="container_listar_header_adm_right">
                             <input id="input_search" placeholder="Pesquisar Nº do pedido" type="search" name="" id="">
                             <i class="fa-solid fa-magnifying-glass"></i>
-                            <button id="btn_search_listar">Buscar</button>
+                            <button class="btn_search_listar">Buscar</button>
                         </div>
                     </div>
                     <div class="container_listar_body_adm" style = "overflow: auto;">

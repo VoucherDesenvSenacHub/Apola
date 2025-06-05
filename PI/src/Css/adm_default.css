@@ -121,7 +121,7 @@
     
 }
 
-#btn_item_listar_adm{
+.btn_item_listar_adm{
     display: flex;
     width: 100px;
     height: 40px;
@@ -136,16 +136,18 @@
     transition: all 0.2s ease-in-out;
     cursor: pointer;
     font-size: 13px;
-
 }
 
 
 
 
-#btn_item_listar_adm:hover{
+.btn_item_listar_adm:hover{
     color: #9c9c9c;
 }
-
+.btn_item_listar_adm:focus{
+    border: none;
+    outline: none !important;
+}
 
 .container_listar_header_adm .container_listar_header_adm_right{
     display: flex;
@@ -180,7 +182,7 @@
 }
 
 
-.container_listar_header_adm .container_listar_header_adm_right #btn_search_listar{
+.container_listar_header_adm .container_listar_header_adm_right .btn_search_listar{
     display: flex;
     width: 100px;
     height: 40px;
@@ -197,7 +199,7 @@
 
 }
 
-.container_listar_header_adm .container_listar_header_adm_right #btn_search_listar:hover{
+.container_listar_header_adm .container_listar_header_adm_right .btn_search_listar:hover{
     background-color: rgb(161, 161, 161);
 }
 
@@ -723,7 +725,7 @@
     }
 
 
-    .container_listar_header_adm .container_listar_header_adm_right #btn_search_listar{
+    .container_listar_header_adm .container_listar_header_adm_right .btn_search_listar{
         font-size: 14px;
     }
 }
@@ -773,7 +775,7 @@
         font-size: 11px;
     }
 
-    #btn_item_listar_adm{
+    .btn_item_listar_adm{
         width: 90px;
         height: 35px;
         font-size: 11px;
@@ -792,14 +794,14 @@
     }
 
 
-    .container_listar_header_adm .container_listar_header_adm_right #btn_search_listar{
+    .container_listar_header_adm .container_listar_header_adm_right .btn_search_listar{
         font-size: 12px;
     }
 
 }
 
 @media (max-width:628px) {
-    #btn_item_listar_adm{
+    .btn_item_listar_adm{
         height: 30px;
         width: 60px;
     }
@@ -818,7 +820,7 @@
         font-size: 11px;
     }
 
-    .container_listar_header_adm .container_listar_header_adm_right #btn_search_listar{
+    .container_listar_header_adm .container_listar_header_adm_right .btn_search_listar{
         width: 70px;
         height: 35px;
     }
@@ -889,7 +891,7 @@
         font-size: 13px;
     }
 
-    .container_listar_header_adm .container_listar_header_adm_right #btn_search_listar{
+    .container_listar_header_adm .container_listar_header_adm_right .btn_search_listar{
         height: 30px;
         font-size: 10px;
         width: 100px;
