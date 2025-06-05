@@ -21,7 +21,7 @@ include "nav_bar_adm.php";
                 <div class="card_item_dados">
                     <i class="fa-solid fa-dolly"></i>
                     <div class="item_dados_adm">
-                        <p class="n_item_dados">N° 45</p>
+                        <p class="n_item_dados n_item_dados_produto"></p>
                         <p class="text_item_dados">Total de Produtos</p>
                     </div>
                 </div>
@@ -29,7 +29,7 @@ include "nav_bar_adm.php";
                 <div class="card_item_dados">
                     <i class="fa-solid fa-circle-xmark"></i>
                     <div class="item_dados_adm">
-                        <p class="n_item_dados">N° 23</p>
+                        <p class="n_item_dados n_item_dados_produto"></p>
                         <p class="text_item_dados">Total Inativos</p>
                     </div>
                 </div>
@@ -37,7 +37,7 @@ include "nav_bar_adm.php";
                 <div class="card_item_dados">
                     <i class="fa-solid fa-check"></i>
                     <div class="item_dados_adm">
-                        <p class="n_item_dados">N° 34</p>
+                        <p class="n_item_dados n_item_dados_produto"></p>
                         <p class="text_item_dados">Total Ativos</p>
                     </div>
                 </div>

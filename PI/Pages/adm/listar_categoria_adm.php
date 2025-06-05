@@ -45,9 +45,9 @@ include "nav_bar_adm.php";
             <div class="conatiner_listar_adm">
                 <div class="container_listar_header_adm">
                     <div class="container_listar_header_adm_left">
-                        <button class="btn_item_listar_adm">Todos</button>
-                        <button class="btn_item_listar_adm">Ativo</button>
-                        <button class="btn_item_listar_adm">Inativo</button>
+                        <button class="btn_item_listar_adm" id="btn_todos">Todos</button>
+                        <button class="btn_item_listar_adm" id="btn_ativos">Ativo</button>
+                        <button class="btn_item_listar_adm" id="btn_inativos">Inativo</button>
 
                     </div>
                     <div class="container_listar_header_adm_right">

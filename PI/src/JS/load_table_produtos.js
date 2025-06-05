@@ -5,6 +5,7 @@ let btn_inativos = document.getElementById('btn_inativos');
 
 document.addEventListener('DOMContentLoaded', function () {
     let dados_tabela = document.getElementById('dados_produtos');
+    
     let html = "";
 
     async function load_table() {
@@ -14,7 +15,14 @@ document.addEventListener('DOMContentLoaded', function () {
             let dados_php = await fetch('../../App/Session/carrega_tabela_produtos.php');
             let response = await dados_php.json();
             console.log(response);
-
+            const total_produtos = response.length
+            const produtos_inativos = response.filter(p =>p.status_produto === "i").length
+            const produtos_ativos = response.filter(p => p.status_produto === "a").length
+            console.log(produtos_ativos)
+            let dados_media = document.querySelectorAll('.n_item_dados_produto');
+            dados_media[0].innerText= `Nº ${total_produtos}`;
+            dados_media[1].innerText= `Nº ${produtos_inativos}`;
+            dados_media[2].innerText= `Nº ${produtos_ativos}`;
             for (let i = 0; i < response.length; i++) {
                 html += '<tr>';
                 html += `<td><img src='${response[i].imagem}' alt="Imagem" style="max-width:100px; max-height:50px;"></td>`;
