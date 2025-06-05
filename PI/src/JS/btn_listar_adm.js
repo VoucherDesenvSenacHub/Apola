@@ -54,9 +54,10 @@ let buscar_pedido = document.getElementById('input_search');
 
 buscar_pedido.addEventListener('keypress', function(evento){
 
-    console.log(evento.target.value);
     let xhr = new XMLHttpRequest()
-    xhr.open('GET','../../Pages/adm/listar_pedido_adm.php', true)
-    console.log(xhr)
-    
+    xhr.onload = function() {
+        console.log(this.responseText)
+    }
+    xhr.open("GET", "../../App/Session/Carrega.tabela.php", true);
+    xhr.send();
 })
