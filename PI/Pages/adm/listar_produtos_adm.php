@@ -1,6 +1,5 @@
 <?php
 
-include "head_adm.php";
 include "nav_bar_adm.php";
 
 ?>
@@ -46,9 +45,9 @@ include "nav_bar_adm.php";
             <div class="conatiner_listar_adm">
                 <div class="container_listar_header_adm">
                     <div class="container_listar_header_adm_left">
-                        <button id="btn_todos" class="btn_item_listar_adm">Todos</button>
-                        <button id="btn_ativos" class="btn_item_listar_adm">Ativo</button>
-                        <button id="btn_inativos" class="btn_item_listar_adm">Inativo</button>
+                        <button id="btn_todos" class="btn_item_listar_adm btn_item_listar_produtos" data-status="">Todos</button>
+                        <button id="btn_ativos" class="btn_item_listar_adm btn_item_listar_produtos" data-status="ativo">Ativo</button>
+                        <button id="btn_inativos" class="btn_item_listar_adm btn_item_listar_produtos" data-status="inativo">Inativo</button>
 
                     </div>
                     <div class="container_listar_header_adm_right">

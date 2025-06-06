@@ -1,6 +1,6 @@
 <?php
 
-include "head_adm.php";
+// include "head_adm.php";
 include "nav_bar_adm.php";
 
 require '../../App/config.inc.php';
@@ -88,7 +88,7 @@ if(isset($_POST['carregarDadosProduto'])){
             $entity->quantidade = $estoque;
             $entity->cor = $cor;
             $entity->tamanho = $tamanho;
-            $entity->imagem = $produto->imagem;
+            $entity->imagem = $caminhoFinal;
             $entity->descricao = $descricao;
             $entity->tipo = "Da loja";
             $entity->status_produto = $status;
@@ -101,7 +101,7 @@ if(isset($_POST['carregarDadosProduto'])){
             }
         }
 
-        else if(!isset($imagem)){
+        else if(empty($imagem)){
             $entity = new Produto();
             $entity->nome = $titulo;
             $entity->preco = $preco;
@@ -116,32 +116,14 @@ if(isset($_POST['carregarDadosProduto'])){
             $entity->categoria_id_categoria = $categoria;
 
             $resultado = $entity->atualizarProduto($id_produto);
+            if($resultado){
+                echo '<script>alert("Atualizado")</script>';
+                echo '<meta http-equiv="refresh" content="0.8;">';
+            }else {
+                $errImg = "Insira uma imagem.";
+            }
         }
-        if($resultado){
-            echo '<script>alert("Atualizado")</script>';
-            echo '<meta http-equiv="refresh" content="0.8;">';
-            echo '<script src="../../src/JS/atualizar_pagina.js"></script>';
-        }else {
-            $errImg = "Insira uma imagem.";
-        }
-
-        // $produto = new Produto();
-        // $produto->nome = $titulo;
-        // $produto->preco = $preco;
-        // $produto->avaliacao = "";
-        // $produto->quantidade = $estoque;
-        // $produto->cor = $cor;
-        // $produto->tamanho = $tamanho;
-        // $produto->imagem = $caminhoFinal;
-        // $produto->descricao = $descricao;
-        // $produto->tipo = "Da loja";
-        // $produto->categoria_id_categoria = $categoria;
-
-        // $resultado = $produto->cadastrarProduto();
-        // if($resultado){
-        //     echo '<script>alert("Cadastrado com Sucesso!")</script>';
-        // }
-
+        
     }
 
 
