@@ -45,6 +45,10 @@ if(isset($_POST['enviarDados'])){
 
     if($resultadoUpdadeAdm && $resultadoUpdadeUser){
         $mostrarModal = true; // ativa o modal verdinho
+        if($mostrarModal == true){
+            echo '<meta http-equiv="refresh" content="1.9">'; //
+        } 
+        
     } else {
         echo "<script>
             Swal.fire({
@@ -55,6 +59,7 @@ if(isset($_POST['enviarDados'])){
             });
         </script>";
     }
+
 }
 
 
@@ -182,7 +187,8 @@ function mostrarModal() {
 
     // Fecha automaticamente após 3 segundos
     setTimeout(() => {
-        modal.style.display = "none";
+       modal.style.display = "none";
+       
     }, 1);
 }
 
@@ -196,7 +202,7 @@ function fecharModal() {
     <!-- SweetAlert2 -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script>
-        window.onload = function () {
+        window.onload = function  () {
             // Mostra o modal verdinho simples
             mostrarModal();
 
@@ -208,12 +214,10 @@ function fecharModal() {
                 timer: 1000
             });
         };
+
+         
+        
     </script>
 <?php endif; ?>
-
-    
-<?php
-
-
 
 ?>
