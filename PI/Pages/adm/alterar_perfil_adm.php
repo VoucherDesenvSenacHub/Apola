@@ -1,18 +1,10 @@
 <?php
-session_start();
 
-require '../../App/config.inc.php';
 
-require '../../App/Session/Login.php';
-
-include "head_adm.php";
 include 'nav_bar_adm.php';
 
 // print_r($_SESSION['id_usuario']);
-$result = Login::IsLogedAdm();
-if($result){
-    $id_administrador = $_SESSION['administrador']['id_administrador'];
-}
+
 
 // $id_adm = ($sessao);
 // print_r($id_administrador);
@@ -23,7 +15,7 @@ $id_usuario = $adm->id_usuario;
 $entityUsuario = new User();
 
 $usuario = $entityUsuario->getUsuarioById($id_usuario);
-print_r($usuario);
+// print_r($usuario);
 
 if(isset($_POST['enviarDados'])){
     $nome = $_POST['nome'];

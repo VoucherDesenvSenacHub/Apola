@@ -1,10 +1,17 @@
 <?php
+session_start();
 
-// include "head_adm.php";
 include "nav_bar_adm.php";
 
-require '../../App/config.inc.php';
-require '../../App/Session/Login.php';
+require_once '../../App/config.inc.php';
+require_once '../../App/Session/Login.php';
+$result = Login::IsLogedAdm();
+if($result){
+    $id_administrador = $_SESSION['administrador']['id_administrador'];
+}
+else{
+    header('location: ../user/login.php');
+}
 
 $errTitulo = "";
 $errStatus = "";

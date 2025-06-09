@@ -1,6 +1,7 @@
 <?php
-include "head_adm.php";
+
 include "nav_bar_adm.php";
+
 ?>
 
 

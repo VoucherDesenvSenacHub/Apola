@@ -1,7 +1,8 @@
 <?php
+session_start();
 
-include "head_adm.php";
 include "nav_bar_adm.php";
+
 
 ?>
 

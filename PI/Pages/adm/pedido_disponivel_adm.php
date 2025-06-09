@@ -1,9 +1,9 @@
 <?php
+session_start();
 
-include "head_adm.php";
 include "nav_bar_adm.php";
 
-include "../../App/Entity/Pedido.class.php";
+
 $id = $_GET['id'];
 $buscar = new Pedido();
 $pedido_cliente = $buscar->buscar_by_id($id);

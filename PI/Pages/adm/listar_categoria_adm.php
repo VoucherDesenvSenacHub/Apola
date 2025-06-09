@@ -1,6 +1,5 @@
 <?php
 
-
 include "nav_bar_adm.php";
 
 ?>

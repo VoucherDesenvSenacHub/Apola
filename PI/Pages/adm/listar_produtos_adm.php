@@ -1,7 +1,16 @@
 <?php
-
+session_start();
 include "nav_bar_adm.php";
+require_once '../../App/config.inc.php';
+require_once '../../App/Session/Login.php';
 
+$result = Login::IsLogedAdm();
+if($result){
+    $id_administrador = $_SESSION['administrador']['id_administrador'];
+}
+else{
+    header('location: ../user/login.php');
+}
 ?>
 
 <body onload='load_table()'>  
