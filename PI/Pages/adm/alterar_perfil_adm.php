@@ -24,6 +24,8 @@ $entityUsuario = new User();
 
 $usuario = $entityUsuario->getUsuarioById($id_usuario);
 
+// Tarefa Lourdes: Criar modal verdinho de correto na tela de perfil do adm - Taslk 41
+
 if(isset($_POST['enviarDados'])){
     $nome = $_POST['nome'];
     $email = $_POST['email'];
@@ -42,12 +44,47 @@ if(isset($_POST['enviarDados'])){
     $resultadoUpdadeAdm = $entityAdm->updateAdm($id_administrador);
 
     if($resultadoUpdadeAdm && $resultadoUpdadeUser){
-        echo '<script>alert("Atualizado")</script>';
-        echo '<meta http-equiv="refresh" content="0.8;">';
+        $mostrarModal = true; // ativa o modal verdinho
+    } else {
+        echo "<script>
+            Swal.fire({
+                icon: 'error',
+                title: 'Erro!',
+                text: 'Não foi possível atualizar as informações.',
+                confirmButtonColor: '#d33'
+            });
+        </script>";
     }
 }
 
 
+
+################################################################
+
+// if(isset($_POST['enviarDados'])){
+//     $nome = $_POST['nome'];
+//     $email = $_POST['email'];
+//     $senha = $_POST['senha'];
+
+//     $senhaCript = password_hash($senha, PASSWORD_DEFAULT);
+
+//     $entityUsuario->id_user = $id_usuario;
+//     $entityUsuario->nome = $nome;
+//     $entityUsuario->email = $email;
+//     $entityUsuario->senha = $senhaCript;
+//     $entityUsuario->id_perfil = "adm";
+
+//     $entityAdm->id_usuario = $id_usuario;
+//     $resultadoUpdadeUser = $entityUsuario->updateUser();
+//     $resultadoUpdadeAdm = $entityAdm->updateAdm($id_administrador);
+
+//     if($resultadoUpdadeAdm && $resultadoUpdadeUser){
+//         echo '<script>alert("Atualizado")</script>';
+//         echo '<meta http-equiv="refresh" content="0.8;">';
+//     }
+// }
+
+##############################################################
 
 ?>
 
@@ -109,9 +146,20 @@ if(isset($_POST['enviarDados'])){
                                 <button onclick="reload()" class="btn_cancelar">Cancelar</button>
                                 <button type = "submit" name="enviarDados" class="btn_salvar">Salvar</button>
                             </div>
-                            
 
+                           
                         </div>
+
+                        <!-- Tarefa Lourdes: Criar modal verdinho de correto na tela de perfil do adm - Taslk 41  -->
+
+                        <!-- Modal de sucesso -->
+                        <div id="modalSucesso" class="modal-sucesso">
+                            <div class="modal-conteudo">
+                                <span class="fechar" onclick="fecharModal()">&times;</span>
+                                <p><strong>✔ Sucesso!</strong> A operação foi realizada corretamente.</p>
+                            </div>
+                        </div>                      
+
 
                     </form>
 
@@ -122,6 +170,47 @@ if(isset($_POST['enviarDados'])){
 
 
     </main>
+    
+    
+    <!-- Tarefa Lourdes: Criar modal verdinho de correto na tela de perfil do adm - Taslk 41  -->
+
+    <!-- Funções JS para o modal -->
+<script>
+function mostrarModal() {
+    const modal = document.getElementById("modalSucesso");
+    modal.style.display = "block";
+
+    // Fecha automaticamente após 3 segundos
+    setTimeout(() => {
+        modal.style.display = "none";
+    }, 1);
+}
+
+function fecharModal() {
+    document.getElementById("modalSucesso").style.display = "none";
+}
+</script>
+
+<!-- PHP ativa o modal se operação for bem-sucedida -->
+<?php if (isset($mostrarModal) && $mostrarModal === true): ?>
+    <!-- SweetAlert2 -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        window.onload = function () {
+            // Mostra o modal verdinho simples
+            mostrarModal();
+
+            // E também mostra o SweetAlert como reforço visual
+            Swal.fire({
+                icon: 'success',
+                title: 'Perfil atualizado com sucesso!',
+                showConfirmButton: false,
+                timer: 1000
+            });
+        };
+    </script>
+<?php endif; ?>
+
     
 <?php
 

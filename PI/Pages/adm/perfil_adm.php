@@ -25,7 +25,6 @@ $id_usuario = $adm->id_usuario;
 $entityUsuario = new User();
 
 $usuario = $entityUsuario->getUsuarioById($id_usuario);
-print_r($usuario);
 
 
 
@@ -104,11 +103,29 @@ print_r($usuario);
             </div>
         </section>
 
+<!-- Tarefa Lourdes: Criar modal verdinho de correto na tela de perfil do adm - Taslk 41  -->
 
     </main>
 
 <?php
 
-// include "footer.php";
+if (isset($_GET['sucesso']) && $_GET['sucesso'] == '1'): ?>
+  <dialog id="modal_sucesso" style="padding: 20px; border-radius: 10px; border: none;">
+    <p style="font-size: 18px; color: green;">Perfil atualizado com sucesso!</p>
+  </dialog>
+  <script>
+    const modal = document.getElementById('modal_sucesso');
+    if (modal) {
+      modal.showModal();
+      setTimeout(() => {
+        modal.close();
+      }, 3000); // fecha após 3 segundos
+    }
+  </script>
+<?php endif; ?>
 
+<?php
+// include "footer.php";
 ?>
+
+
