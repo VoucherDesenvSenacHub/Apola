@@ -520,6 +520,13 @@
     flex-direction: column;
     gap: 10px;
 }
+.item_flex_adm2{
+    display: flex;
+    flex-direction: column;
+    margin-left: 75px;
+    gap: 10px;
+    
+}
 
 .item_flex_adm label{
     display: flex;
@@ -527,8 +534,26 @@
     font-weight: 400;
     font-size: 15px;
 }
+.item_flex_adm2 label{
+    display: flex;
+    color: #4A4A4A;
+    font-weight: 400;
+    font-size: 15px;
+}
 .item_flex_adm input{
     width: 430px;
+    height: 39px;
+    display: flex;
+    border-radius: 5px;
+    border: none;
+    border: 1px solid #c9c9c9;
+    outline: none;
+    padding: 10px;
+    color: #707070;
+    
+}
+.item_flex_adm2 input{
+    width: 250px;
     height: 39px;
     display: flex;
     border-radius: 5px;

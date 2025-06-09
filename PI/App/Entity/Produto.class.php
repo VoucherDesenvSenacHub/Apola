@@ -8,7 +8,8 @@ class Produto{
     public ?string $avaliacao;
     public int $quantidade;
     public string $cor;
-    public int $tamanho;
+    public float $largura;
+    public float $altura;
     public string $imagem;
     public string $descricao;
     public string $tipo;
@@ -24,7 +25,8 @@ class Produto{
                 'avaliacao' => $this->avaliacao,
                 'quantidade' => $this->quantidade,
                 'cor' => $this->cor,
-                'tamanho' => $this->tamanho,
+                'largura' => $this->largura,
+                'altura' => $this->altura,
                 'imagem' => $this->imagem,
                 'descricao' => $this->descricao,
                 'tipo' => $this->tipo,
@@ -44,7 +46,8 @@ class Produto{
             'avaliacao' => $this->avaliacao,
             'quantidade' => $this->quantidade,
             'cor' => $this->cor,
-            'tamanho' => $this->tamanho,
+            'largura' => $this->largura,
+            'altura' => $this->altura,
             'imagem' => $this->imagem,
             'descricao' => $this->descricao,
             'tipo' => $this->tipo,

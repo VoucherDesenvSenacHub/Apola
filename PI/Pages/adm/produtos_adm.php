@@ -13,14 +13,15 @@ $errDescricao = "";
 $errImagem = "";
 $errPreco = "";
 $errCor = "";
-$errTamanho = "";
+$errAltura = "";
+$errLargura = "";
 $errEstoque = "";
 if(isset($_GET['id'])){
     $id_produto = $_GET['id'];
 }
 $entity = new Produto();
 $produto = $entity->buscarProdutoPorId($id_produto);
-// print_r($produto);
+// print_r($produto)
 
 if(isset($_POST['carregarDadosProduto'])){
     $titulo = $_POST['tituloProduto'];
@@ -44,9 +45,13 @@ if(isset($_POST['carregarDadosProduto'])){
     if(empty($cor)){
         $errCor = "Adicione uma cor";
     }
-    $tamanho = $_POST['tamanhoProduto'];
-    if(empty($tamanho)){
-        $errTamanho = "Adicione um tamanho";
+    $altura = $_POST['alturaProduto'];
+    if(empty($altura)){
+        $errAltura = "Adicione uma Altura";
+    }
+    $largura = $_POST['larguraProduto'];
+    if(empty($largura)){
+        $errLargura = "Adicione uma Largura";
     }
     $estoque = $_POST['estoqueProduto'];
     if(empty($estoque)){
@@ -57,7 +62,7 @@ if(isset($_POST['carregarDadosProduto'])){
         $errPreco = "Adicione um preço";
     }
 
-    if(empty($titulo) || empty($status) || empty($categoria) || empty($descricao) || empty($cor) || empty($tamanho) || empty($estoque)){
+    if(empty($titulo) || empty($status) || empty($categoria) || empty($descricao) || empty($cor) || empty($altura) || empty($largura) || empty($estoque)){
        
     }
     else{
@@ -87,12 +92,15 @@ if(isset($_POST['carregarDadosProduto'])){
             $entity->avaliacao = "";
             $entity->quantidade = $estoque;
             $entity->cor = $cor;
-            $entity->tamanho = $tamanho;
+            $entity->altura = $altura;
+            $entity->largura = $largura;
             $entity->imagem = $produto->imagem;
             $entity->descricao = $descricao;
             $entity->tipo = "Da loja";
             $entity->status_produto = $status;
             $entity->categoria_id_categoria = $categoria;
+
+       
 
             $resultado = $entity->atualizarProduto($id_produto);
             if($resultado){
@@ -108,7 +116,8 @@ if(isset($_POST['carregarDadosProduto'])){
             $entity->avaliacao = "";
             $entity->quantidade = $estoque;
             $entity->cor = $cor;
-            $entity->tamanho = $tamanho;
+            $entity->altura = $altura;
+            $entity->largura = $largura;
             $entity->imagem = $produto->imagem;
             $entity->descricao = $descricao;
             $entity->tipo = "Da loja";
@@ -211,23 +220,29 @@ if(isset($_POST['carregarDadosProduto'])){
                         </div>
                         <div class="item_flex_adm">
                             <label for="">Adicionar Cor</label>
-                            <input name="corProduto" class="input_adcionar_produto" type="text" value="<?= $produto->cor; ?>">
+                            <input name="corProduto" class="input_adcionar_produto" type="color" value="<?= $produto->cor; ?>">
                             <p class="text_tamanho_img" style="color:red;"> <?= $errCor; ?> </p>
                         </div>
                         <!-- <button class="btn_produto_add">Adicionar</button> -->
                         <div class="item_flex_adm">
-                            <label for="">Adicionar Tamanho</label>
-                            <input name="tamanhoProduto" class="input_adcionar_produto" type="text" value="<?=$produto->tamanho; ?>">
-                            <p class="text_tamanho_img" style="color:red;"> <?= $errTamanho; ?> </p>
-                        </div>
-                        <!-- <button class="btn_produto_add">Adicionar</button> -->
+                            <label for="">Adicionar Altura</label>
+                            <input name="alturaProduto" placeholder="cm" class="input_adcionar_produto" type="text" value="<?=$produto->altura; ?>">
+                            <p class="text_tamanho_img" style="color:red;"> <?= $errAltura; ?> </p>
+                        </div> 
                         <div class="item_flex_adm">
+                            <label for="">Adicionar Largura</label>
+                            <input name="larguraProduto" placeholder="cm"class="input_adcionar_produto" type="text" value="<?=$produto->largura; ?>" >
+                            <p class="text_tamanho_img" style="color:red;"> <?= $errLargura; ?> </p>
+                        </div>
+                    </div>
+                    <div class="conatiner_cadastro_adm_items_body_2">
+                        <!-- <button class="btn_produto_add">Adicionar</button> -->
+                        <div class="item_flex_adm2">
                             <label for="">Adicionar Estoque</label>
-                            <input name="estoqueProduto" class="input_adcionar_produto" type="text" value="<?=$produto->quantidade; ?>">
+                            <input name="estoqueProduto" class="input_adcionar_produto" type="number" value="<?=$produto->quantidade; ?>">
                             <p class="text_tamanho_img" style="color:red;"> <?= $errEstoque; ?> </p>
                         </div>
                         <!-- <button class="btn_produto_add">Adicionar</button> -->
-
                     </div>
                 </div>
             </div>
