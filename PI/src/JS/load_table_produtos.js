@@ -223,7 +223,7 @@ document.addEventListener('DOMContentLoaded', async function () {
     let botoesStatus = document.querySelectorAll('.btn_item_listar_produtos')
     
     let quantValue = document.querySelectorAll('.n_item_dados_produto');
-    let quantytotal = Array.from(quantValue).find(el => el.getAttribute('data-status') === 'total');
+    let quantytotal = Array.from(quantValue).find(el => el.getAttribute('data-status') === 'todos');
     let quantyAtivos = Array.from(quantValue).find(el => el.getAttribute('data-status') === 'ativos');
     let quantyinativos = Array.from(quantValue).find(el => el.getAttribute('data-status') === 'inativos');
     
@@ -232,13 +232,13 @@ document.addEventListener('DOMContentLoaded', async function () {
             const returns = await handleTablesProdutos(event);
             argumento = returns.argumento
             
-            console.log(argumento)
+            console.log("Opaa: " +argumento)
 
 
-            quantValue.forEach(e => e.style.color = '#000')
+            quantValue.forEach(e => e.style.color = '#ccc')
             Array.from(quantValue)
             .find(elemento => elemento.getAttribute("data-status") === argumento)
-            .style.color = "#ccc";
+            .style.color = "#000";
 
             
             // console.log(returns.argumento.includes(1).getAttribute('data-status'))

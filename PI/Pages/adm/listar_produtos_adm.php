@@ -29,16 +29,8 @@ else{
                 <div class="card_item_dados">
                     <i class="fa-solid fa-dolly"></i>
                     <div class="item_dados_adm">
-                        <p class="n_item_dados n_item_dados_produto" data-status="total"></p>
+                        <p class="n_item_dados n_item_dados_produto" data-status="todos"></p>
                         <p class="text_item_dados">Total de Produtos</p>
-                    </div>
-                </div>
-                <div class="shape_dados"></div>
-                <div class="card_item_dados">
-                    <i class="fa-solid fa-circle-xmark"></i>
-                    <div class="item_dados_adm">
-                        <p class="n_item_dados n_item_dados_produto" data-status="inativos"></p>
-                        <p class="text_item_dados">Total Inativos</p>
                     </div>
                 </div>
                 <div class="shape_dados"></div>
@@ -49,12 +41,20 @@ else{
                         <p class="text_item_dados">Total Ativos</p>
                     </div>
                 </div>
+                <div class="shape_dados"></div>
+                <div class="card_item_dados">
+                    <i class="fa-solid fa-circle-xmark"></i>
+                    <div class="item_dados_adm">
+                        <p class="n_item_dados n_item_dados_produto" data-status="inativos"></p>
+                        <p class="text_item_dados">Total Inativos</p>
+                    </div>
+                </div>
 
             </div>
             <div class="conatiner_listar_adm">
                 <div class="container_listar_header_adm">
                     <div class="container_listar_header_adm_left">
-                        <button id="btn_todos" class="btn_item_listar_adm btn_item_listar_produtos" data-status="ativos">Todos</button>
+                        <button id="btn_todos" class="btn_item_listar_adm btn_item_listar_produtos" data-status="todos">Todos</button>
                         <button id="btn_ativos" class="btn_item_listar_adm btn_item_listar_produtos" data-status="ativos">Ativo</button>
                         <button id="btn_inativos" class="btn_item_listar_adm btn_item_listar_produtos" data-status="inativos">Inativo</button>
 

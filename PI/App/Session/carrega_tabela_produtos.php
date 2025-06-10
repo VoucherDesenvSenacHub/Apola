@@ -4,7 +4,7 @@ require_once '../Entity/Produto.class.php';
 
 $objProd = new Produto();
 
-if(!isset($_GET['status']) || $_GET['status'] == ''){
+if(!isset($_GET['status']) || $_GET['status'] == '' || $_GET['status'] == 'todos'){
     $dados = $objProd->buscarProduto();
 }
 else if(isset($_GET['status']) && $_GET['status'] == 'inativos'){
