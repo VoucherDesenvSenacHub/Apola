@@ -29,7 +29,7 @@ else{
                 <div class="card_item_dados">
                     <i class="fa-solid fa-dolly"></i>
                     <div class="item_dados_adm">
-                        <p class="n_item_dados n_item_dados_produto"></p>
+                        <p class="n_item_dados n_item_dados_produto" data-status="total"></p>
                         <p class="text_item_dados">Total de Produtos</p>
                     </div>
                 </div>
@@ -37,7 +37,7 @@ else{
                 <div class="card_item_dados">
                     <i class="fa-solid fa-circle-xmark"></i>
                     <div class="item_dados_adm">
-                        <p class="n_item_dados n_item_dados_produto"></p>
+                        <p class="n_item_dados n_item_dados_produto" data-status="inativos"></p>
                         <p class="text_item_dados">Total Inativos</p>
                     </div>
                 </div>
@@ -45,7 +45,7 @@ else{
                 <div class="card_item_dados">
                     <i class="fa-solid fa-check"></i>
                     <div class="item_dados_adm">
-                        <p class="n_item_dados n_item_dados_produto"></p>
+                        <p class="n_item_dados n_item_dados_produto" data-status="ativos"></p>
                         <p class="text_item_dados">Total Ativos</p>
                     </div>
                 </div>
@@ -54,9 +54,9 @@ else{
             <div class="conatiner_listar_adm">
                 <div class="container_listar_header_adm">
                     <div class="container_listar_header_adm_left">
-                        <button id="btn_todos" class="btn_item_listar_adm btn_item_listar_produtos" data-status="">Todos</button>
-                        <button id="btn_ativos" class="btn_item_listar_adm btn_item_listar_produtos" data-status="ativo">Ativo</button>
-                        <button id="btn_inativos" class="btn_item_listar_adm btn_item_listar_produtos" data-status="inativo">Inativo</button>
+                        <button id="btn_todos" class="btn_item_listar_adm btn_item_listar_produtos" data-status="ativos">Todos</button>
+                        <button id="btn_ativos" class="btn_item_listar_adm btn_item_listar_produtos" data-status="ativos">Ativo</button>
+                        <button id="btn_inativos" class="btn_item_listar_adm btn_item_listar_produtos" data-status="inativos">Inativo</button>
 
                     </div>
                     <div class="container_listar_header_adm_right">

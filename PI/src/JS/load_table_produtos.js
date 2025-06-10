@@ -218,30 +218,58 @@
 
 
 
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', async function () {
     
     let botoesStatus = document.querySelectorAll('.btn_item_listar_produtos')
-    botoesStatus.forEach(elemento =>{
-        elemento.addEventListener('click', handleTablesProdutos)
-    })
-    handleTablesProdutos();
     
+    let quantValue = document.querySelectorAll('.n_item_dados_produto');
+    let quantytotal = Array.from(quantValue).find(el => el.getAttribute('data-status') === 'total');
+    let quantyAtivos = Array.from(quantValue).find(el => el.getAttribute('data-status') === 'ativos');
+    let quantyinativos = Array.from(quantValue).find(el => el.getAttribute('data-status') === 'inativos');
+    
+    botoesStatus.forEach(elemento =>{
+        elemento.addEventListener('click',async (event) => {
+            const returns = await handleTablesProdutos(event);
+            argumento = returns.argumento
+            
+            console.log(argumento)
+
+
+            quantValue.forEach(e => e.style.color = '#000')
+            Array.from(quantValue)
+            .find(elemento => elemento.getAttribute("data-status") === argumento)
+            .style.color = "#ccc";
+
+            
+            // console.log(returns.argumento.includes(1).getAttribute('data-status'))
+            // quantValue.find(e => returns.argumento.includes().getAttribute ).style.fontWeight = 'bold'
+        })
+    })
+
+    const quantidades = await handleTablesProdutos();
+    quantytotal.innerText = quantidades.total;
+    quantyinativos.innerText = quantidades.inativo;
+    quantyAtivos.innerText = quantidades.ativo;
+
 });
 
 async function handleTablesProdutos(event=null){
+    if(event){
+        
+    }
 
     let table = document.getElementById('dados_produtos')
-    table.innerHTML = ""
-    let args = event && event.target.getAttribute("data-status") != '' ?  'status=' + event.target.getAttribute("data-status") : null;
+    if(table){
 
-    console.log(args)
+        table.innerHTML = ""
+    }
+
+    let args = event && event.target.getAttribute("data-status") != '' ?   event.target.getAttribute("data-status") : null;
+    // console.log(args)
     try{
-        let dados_php = await fetch(`../../App/Session/carrega_tabela_produtos.php?${args ? args : ""}`);
+        let dados_php = await fetch(`../../App/Session/carrega_tabela_produtos.php?status=${args ? args : ""}`);
         let response = await dados_php.json();
-
         
-        console.log(response)
-
         response.forEach(e =>{
             table.innerHTML +=`<td><img src='${e.imagem}' alt="Imagem" style="max-width:100px; max-height:50px;"></td>
             <td>${e.nome}</td>
@@ -254,15 +282,22 @@ async function handleTablesProdutos(event=null){
                     </div>
             </td>
             `;
-
         })
-        i
+        
+        
+        return {
+            total: response.length,
+            inativo: response.filter(e => e.status_produto === 'i').length,
+            ativo: response.filter(e => e.status_produto === 'a').length,
+
+            argumento: args
+        }
         
     }
     catch(erro){
 
     }
-    
+   
 }
 
 

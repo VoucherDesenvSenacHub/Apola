@@ -7,22 +7,20 @@ document.addEventListener('DOMContentLoaded', function () {
         elemento.addEventListener('click', handleTablesCategorias)
     })
     handleTablesCategorias();
-    
 });
 
 async function handleTablesCategorias(event=null){
 
     let table = document.getElementById('dados_categoria')
-    table.innerHTML = ""
+    if(table){
+
+        table.innerHTML = ""
+    }
     let args = event && event.target.getAttribute("data-status") != '' ?  'status=' + event.target.getAttribute("data-status") : null;
 
-    console.log(args)
     try{
         let dados_php = await fetch(`../../App/Session/carrega_tabela_categorias.php?${args ? args : ""}`);
         let response = await dados_php.json();
-
-        
-        // console.log(table)
 
         response.forEach(e =>{
             table.innerHTML +=`<td><img src='${e.imagem}' alt="Imagem" style="max-width:100px; max-height:50px;"></td>
