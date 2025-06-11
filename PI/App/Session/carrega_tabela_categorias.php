@@ -3,15 +3,15 @@
 require_once '../Entity/Categoria.class.php';
 
 $objProd = new Categoria();
-if(!isset($_GET['status'])){
+if(!isset($_GET['status']) || $_GET['status'] == '' || $_GET['status'] == 'todos'){
     $dados = $objProd->buscarCategoria();
 }
-else if(isset($_GET['status']) && $_GET['status'] == 'inativo'){
+else if(isset($_GET['status']) && $_GET['status'] == 'inativos'){
 
     $dados = $objProd->buscarCategoria('status_categoria = "i" ');
 
 }
-else if(isset($_GET['status']) && $_GET['status'] == 'ativo'){
+else if(isset($_GET['status']) && $_GET['status'] == 'ativos'){
 
     $dados = $objProd->buscarCategoria('status_categoria = "a" ');
 }

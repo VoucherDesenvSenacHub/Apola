@@ -231,9 +231,6 @@ document.addEventListener('DOMContentLoaded', async function () {
         elemento.addEventListener('click',async (event) => {
             const returns = await handleTablesProdutos(event);
             argumento = returns.argumento
-            
-            console.log("Opaa: " +argumento)
-
 
             quantValue.forEach(e => e.style.color = '#ccc')
             Array.from(quantValue)

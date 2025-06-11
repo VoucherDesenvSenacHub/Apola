@@ -1,25 +1,52 @@
 
 
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', async function () {
     
     let botoesStatus = document.querySelectorAll('.btn_item_listar_categorias')
+
+    let quantValue = document.querySelectorAll('.n_item_dados_categoria');
+    let quantytotal = Array.from(quantValue).find(el => el.getAttribute('data-status') === 'todos');
+    let quantyAtivos = Array.from(quantValue).find(el => el.getAttribute('data-status') === 'ativos');
+    let quantyinativos = Array.from(quantValue).find(el => el.getAttribute('data-status') === 'inativos');
+    
     botoesStatus.forEach(elemento =>{
-        elemento.addEventListener('click', handleTablesCategorias)
+        elemento.addEventListener('click',async (event) => {
+            const returns = await handleTablesCategorias(event);
+            argumento = returns.argumento
+            
+
+
+            quantValue.forEach(e => e.style.color = '#ccc')
+            Array.from(quantValue)
+            .find(elemento => elemento.getAttribute("data-status") === argumento)
+            .style.color = "#000";
+
+            
+            // console.log(returns.argumento.includes(1).getAttribute('data-status'))
+            // quantValue.find(e => returns.argumento.includes().getAttribute ).style.fontWeight = 'bold'
+        })
     })
-    handleTablesCategorias();
+    const quantidades = await handleTablesCategorias();
+    console.log(quantidades)
+    quantytotal.innerText = quantidades.total;
+    quantyinativos.innerText = quantidades.inativo;
+    quantyAtivos.innerText = quantidades.ativo;
 });
 
 async function handleTablesCategorias(event=null){
+    if(event){
+
+    }
 
     let table = document.getElementById('dados_categoria')
     if(table){
 
         table.innerHTML = ""
     }
-    let args = event && event.target.getAttribute("data-status") != '' ?  'status=' + event.target.getAttribute("data-status") : null;
+    let args = event && event.target.getAttribute("data-status") != '' ?  event.target.getAttribute("data-status") : null;
 
     try{
-        let dados_php = await fetch(`../../App/Session/carrega_tabela_categorias.php?${args ? args : ""}`);
+        let dados_php = await fetch(`../../App/Session/carrega_tabela_categorias.php?status=${args ? args : ""}`);
         let response = await dados_php.json();
 
         response.forEach(e =>{
@@ -35,7 +62,14 @@ async function handleTablesCategorias(event=null){
             `;
 
         })
-        i
+        
+        return{
+            total: response.length,
+            inativo: response.filter(e => e.status_categoria === 'i').length,
+            ativo: response.filter(e => e.status_categoria === 'a').length,
+
+            argumento: args
+        }
         
     }
     catch(erro){
