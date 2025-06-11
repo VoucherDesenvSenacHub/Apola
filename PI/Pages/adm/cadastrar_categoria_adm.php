@@ -38,7 +38,7 @@ if(isset($_POST['carregarDadosCategoria'])){
     }
 
     if (!empty($err) || !empty($errImg)) {
-        echo "<script>alert(`\\n$err\\n$errImg`)</script>";
+
     } else {
         // Tudo certo, pode cadastrar
         $categoria = new Categoria();
@@ -48,10 +48,21 @@ if(isset($_POST['carregarDadosCategoria'])){
 
         $result = $categoria->cadastrarCategoria();
 
-        if ($result) {
-            echo '<script>alert("Cadastrado com sucesso!")</script>';
+        if($result){
+            $mostrarModal = true; // ativa o modal verdinho
+            if($mostrarModal == true){
+                echo '<meta http-equiv="refresh" content="1.9">'; //
+            } 
+        
         } else {
-            echo '<script>alert("Erro ao cadastrar no banco de dados.")</script>';
+            echo "<script>
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Erro!',
+                    text: 'Não foi possível atualizar as informações.',
+                    confirmButtonColor: '#d33'
+                });
+            </script>";
         }
     }
 }
@@ -203,14 +214,55 @@ if(isset($_POST['carregarDadosCategoria'])){
                 <!-- <button onclick="window.location.reload()" class="btn_excluir_adm">Excluir</button> -->
                 <button type="submit" name="carregarDadosCategoria" class="btn_salvar_adm">Salvar</button>
             </div>
-            
-        
+            <div id="modalSucesso" class="modal-sucesso">
+                <div class="modal-conteudo">
+                    <span class="fechar" onclick="fecharModal()">&times;</span>
+                    <p><strong>✔ Sucesso!</strong> A operação foi realizada corretamente.</p>
+                </div>
+            </div>
         </form>
     
 
     </main>
+<script>
+function mostrarModal() {
+    const modal = document.getElementById("modalSucesso");
+    modal.style.display = "block";
 
+    // Fecha automaticamente após 3 segundos
+    setTimeout(() => {
+        modal.style.display = "none";
+        
+    }, 1);
+}
 
+function fecharModal() {
+
+    document.getElementById("modalSucesso").style.display = "none";
+
+}
+</script>
+
+<!-- PHP ativa o modal se operação for bem-sucedida -->
+<?php if (isset($mostrarModal) && $mostrarModal === true): ?>
+    <!-- SweetAlert2 -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        window.onload = function  () {
+            // Mostra o modal verdinho simples
+            mostrarModal();
+
+            // E também mostra o SweetAlert como reforço visual
+            Swal.fire({
+                icon: 'success',
+                title: 'Cadastrado com Sucesso',
+                showConfirmButton: false,
+                timer: 1000
+            });
+        };
+
+    </script>
+<?php endif; ?>
     <script src="adm_nav.js"></script>
     <script src="btn_listar_adm.js"></script>
 </body>

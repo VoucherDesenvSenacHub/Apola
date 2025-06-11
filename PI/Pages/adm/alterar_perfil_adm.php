@@ -157,8 +157,6 @@ if(isset($_POST['enviarDados'])){
                                 <p><strong>✔ Sucesso!</strong> A operação foi realizada corretamente.</p>
                             </div>
                         </div>                      
-
-
                     </form>
 
                 </div>

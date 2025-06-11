@@ -70,7 +70,6 @@ if(isset($_POST['carregarDadosProduto'])){
     }
 
     if(empty($titulo) || empty($status) || empty($categoria) || empty($descricao) || empty($cor) || empty($altura) || empty($largura) || empty($estoque)){
-       
     }
     else{
 
@@ -101,7 +100,7 @@ if(isset($_POST['carregarDadosProduto'])){
             $entity->cor = $cor;
             $entity->altura = $altura;
             $entity->largura = $largura;
-            $entity->imagem = $produto->imagem;
+            $entity->imagem = $caminhoFinal;
             $entity->descricao = $descricao;
             $entity->tipo = "Da loja";
             $entity->status_produto = $status;
@@ -111,8 +110,10 @@ if(isset($_POST['carregarDadosProduto'])){
 
             $resultado = $entity->atualizarProduto($id_produto);
             if($resultado){
-                echo '<script>alert("Atualizado")</script>';
-                echo '<meta http-equiv="refresh" content="0.8;">';
+                $mostrarModal = true; // ativa o modal verdinho
+                if($mostrarModal == true){
+                    echo '<meta http-equiv="refresh" content="1.9">'; //
+                }
             }
         }
 
@@ -144,6 +145,39 @@ if(isset($_POST['carregarDadosProduto'])){
 
 
 }
+        if($resultado){
+            $mostrarModal = true; // ativa o modal verdinho
+            if($mostrarModal == true){
+                echo '<meta http-equiv="refresh" content="1.9">'; //
+            } 
+        
+        } else {
+            echo "<script>
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Erro!',
+                    text: 'Não foi possível atualizar as informações.',
+                    confirmButtonColor: '#d33'
+                });
+            </script>";
+        }
+        // $produto = new Produto();
+        // $produto->nome = $titulo;
+        // $produto->preco = $preco;
+        // $produto->avaliacao = "";
+        // $produto->quantidade = $estoque;
+        // $produto->cor = $cor;
+        // $produto->tamanho = $tamanho;
+        // $produto->imagem = $caminhoFinal;
+        // $produto->descricao = $descricao;
+        // $produto->tipo = "Da loja";
+        // $produto->categoria_id_categoria = $categoria;
+
+        // $resultado = $produto->cadastrarProduto();
+        // if($resultado){
+        //     echo '<script>alert("Cadastrado com Sucesso!")</script>';
+        // }
+
 ?>
 <body>   
     <main class="main_adm">
@@ -238,9 +272,54 @@ if(isset($_POST['carregarDadosProduto'])){
             <div id="conatiner_btn_adm_pc"  class="conatiner_btn_adm">
                 <!-- <button class="btn_excluir_adm">Excluir</button> -->
                 <button type="submit" name="carregarDadosProduto" class="btn_salvar_adm">Salvar</button>
-            </div>     
+            </div>
+            <div id="modalSucesso" class="modal-sucesso">
+                <div class="modal-conteudo">
+                    <span class="fechar" onclick="fecharModal()">&times;</span>
+                    <p><strong>✔ Sucesso!</strong> A operação foi realizada corretamente.</p>
+                </div>
+            </div>
     </form>   
     </main>
+<script>
+function mostrarModal() {
+    const modal = document.getElementById("modalSucesso");
+    modal.style.display = "block";
+
+    // Fecha automaticamente após 3 segundos
+    setTimeout(() => {
+       modal.style.display = "none";
+       
+    }, 1);
+}
+
+function fecharModal() {
+
+    document.getElementById("modalSucesso").style.display = "none";
+
+}
+</script>
+
+<!-- PHP ativa o modal se operação for bem-sucedida -->
+<?php if (isset($mostrarModal) && $mostrarModal === true): ?>
+    <!-- SweetAlert2 -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        window.onload = function  () {
+            // Mostra o modal verdinho simples
+            mostrarModal();
+
+            // E também mostra o SweetAlert como reforço visual
+            Swal.fire({
+                icon: 'success',
+                title: 'Salvo com sucesso!',
+                showConfirmButton: false,
+                timer: 1000
+            });
+        };
+
+    </script>
+<?php endif; ?>
     <!-- <script src="adm_nav.js"></script>
     <script src="btn_listar_adm.js"></script> -->
 </body>

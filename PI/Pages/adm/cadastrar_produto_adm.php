@@ -12,7 +12,8 @@ $errDescricao = "";
 $errImagem = "";
 $errPreco = "";
 $errCor = "";
-$errTamanho = "";
+$errAltura = "";
+$errLargura = "";
 $errEstoque = "";
 
 if(isset($_POST['carregarDadosProduto'])){
@@ -36,9 +37,13 @@ if(isset($_POST['carregarDadosProduto'])){
     if(empty($cor)){
         $errCor = "Adicione uma cor";
     }
-    $tamanho = $_POST['tamanhoProduto'];
-    if(empty($tamanho)){
-        $errTamanho = "Adicione um tamanho";
+    $altura = $_POST['alturaProduto'];
+    if(empty($altura)){
+        $errAltura = "Adicione uma Altura";
+    }
+    $largura = $_POST['larguraProduto'];
+    if(empty($largura)){
+        $errLargura = "Adicione uma Largura";
     }
     $estoque = $_POST['estoqueProduto'];
     if(empty($estoque)){
@@ -49,8 +54,7 @@ if(isset($_POST['carregarDadosProduto'])){
         $errPreco = "Adicione um preço";
     }
 
-    if(empty($titulo) || empty($status) || empty($categoria) || empty($descricao) || empty($cor) || empty($tamanho) || empty($estoque)){
-       
+    if(empty($titulo) || empty($status) || empty($categoria) || empty($descricao) || empty($cor) || empty($altura) || empty($largura) || empty($estoque)){
     }
     else{
 
@@ -79,7 +83,8 @@ if(isset($_POST['carregarDadosProduto'])){
             $produto->avaliacao = "";
             $produto->quantidade = $estoque;
             $produto->cor = $cor;
-            $produto->tamanho = $tamanho;
+            $produto->altura = $altura;
+            $produto->largura = $largura;
             $produto->imagem = $caminhoFinal;
             $produto->descricao = $descricao;
             $produto->tipo = "Da loja";
@@ -88,15 +93,25 @@ if(isset($_POST['carregarDadosProduto'])){
     
             $resultado = $produto->cadastrarProduto();
             if($resultado){
-                echo '<script>alert("Cadastrado com Sucesso!")</script>';
+                $mostrarModal = true; // ativa o modal verdinho
+                if($mostrarModal == true){
+                    echo '<meta http-equiv="refresh" content="1.9">'; //
+                } 
+            
+            } else {
+                echo "<script>
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Erro!',
+                        text: 'Não foi possível atualizar as informações.',
+                        confirmButtonColor: '#d33'
+                    });
+                </script>";
             }
         }   
         else {
             $errImg = "Insira uma imagem.";
         }
-
-
-
     }
 
 
@@ -166,27 +181,75 @@ if(isset($_POST['carregarDadosProduto'])){
                         </div>
                         <!-- <button class="btn_produto_add">Adicionar</button> -->
                         <div class="item_flex_adm">
-                            <label for="">Adicionar Tamanho</label>
-                            <input name="tamanhoProduto" class="input_adcionar_produto" type="text">
-                            <p class="text_tamanho_img" style="color:red;"> <?= $errTamanho; ?> </p>
-                        </div>
-                        <!-- <button class="btn_produto_add">Adicionar</button> -->
+                            <label for="">Adicionar Altura</label>
+                            <input name="alturaProduto" placeholder="cm" class="input_adcionar_produto" type="text">
+                            <p class="text_tamanho_img" style="color:red;"> <?= $errAltura; ?> </p>
+                        </div> 
                         <div class="item_flex_adm">
+                            <label for="">Adicionar Largura</label>
+                            <input name="larguraProduto" placeholder="cm"class="input_adcionar_produto" type="text">
+                            <p class="text_tamanho_img" style="color:red;"> <?= $errLargura; ?> </p>
+                        </div>
+                    </div>
+                    <div class="conatiner_cadastro_adm_items_body_2">
+                        <div class="item_flex_adm2">
                             <label for="">Adicionar Estoque</label>
                             <input name="estoqueProduto" class="input_adcionar_produto" type="text">
-                            <p class="text_tamanho_img" style="color:red;"> <?= $errEstoque; ?> </p>
                         </div>
                         <!-- <button class="btn_produto_add">Adicionar</button> -->
-
                     </div>
                 </div>
             </div>
             <div id="conatiner_btn_adm_pc"  class="conatiner_btn_adm">
                 <!-- <button class="btn_excluir_adm">Excluir</button> -->
                 <button type="submit" name="carregarDadosProduto" class="btn_salvar_adm">Salvar</button>
+            </div>
+            <div id="modalSucesso" class="modal-sucesso">
+                <div class="modal-conteudo">
+                    <span class="fechar" onclick="fecharModal()">&times;</span>
+                    <p><strong>✔ Sucesso!</strong> A operação foi realizada corretamente.</p>
+                </div>
             </div>     
     </form>   
     </main>
+<script>
+function mostrarModal() {
+    const modal = document.getElementById("modalSucesso");
+    modal.style.display = "block";
+
+    // Fecha automaticamente após 3 segundos
+    setTimeout(() => {
+        modal.style.display = "none";
+        
+    }, 1);
+}
+
+function fecharModal() {
+
+    document.getElementById("modalSucesso").style.display = "none";
+
+}
+</script>
+
+<!-- PHP ativa o modal se operação for bem-sucedida -->
+<?php if (isset($mostrarModal) && $mostrarModal === true): ?>
+    <!-- SweetAlert2 -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        window.onload = function  () {
+            // Mostra o modal verdinho simples
+            mostrarModal();
+
+            // E também mostra o SweetAlert como reforço visual
+            Swal.fire({
+                icon: 'success',
+                title: 'Cadastrado com Sucesso',
+                showConfirmButton: false,
+                timer: 1000
+            });
+        };
+    </script>
+<?php endif; ?>
     <!-- <script src="adm_nav.js"></script>
     <script src="btn_listar_adm.js"></script> -->
 </body>
