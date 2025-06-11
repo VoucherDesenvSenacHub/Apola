@@ -134,13 +134,22 @@ if(isset($_POST['carregarDadosProduto'])){
 
             $resultado = $entity->atualizarProduto($id_produto);
             if($resultado){
-                echo '<script>alert("Atualizado")</script>';
-                echo '<meta http-equiv="refresh" content="0.8;">';
-            }else {
-                $errImg = "Insira uma imagem.";
+                $mostrarModal = true; // ativa o modal verdinho
+                if($mostrarModal == true){
+                    echo '<meta http-equiv="refresh" content="1.9">'; //
+                } 
+            
+            } else {
+                echo "<script>
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Erro!',
+                        text: 'Não foi possível atualizar as informações.',
+                        confirmButtonColor: '#d33'
+                    });
+                </script>";
             }
         }
-        
     }
         if($resultado){
             $mostrarModal = true; // ativa o modal verdinho
