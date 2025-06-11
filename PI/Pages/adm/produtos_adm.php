@@ -63,7 +63,6 @@ if(isset($_POST['carregarDadosProduto'])){
     }
 
     if(empty($titulo) || empty($status) || empty($categoria) || empty($descricao) || empty($cor) || empty($altura) || empty($largura) || empty($estoque)){
-       
     }
     else{
 
@@ -94,7 +93,7 @@ if(isset($_POST['carregarDadosProduto'])){
             $entity->cor = $cor;
             $entity->altura = $altura;
             $entity->largura = $largura;
-            $entity->imagem = $produto->imagem;
+            $entity->imagem = $caminhoFinal;
             $entity->descricao = $descricao;
             $entity->tipo = "Da loja";
             $entity->status_produto = $status;
@@ -104,8 +103,10 @@ if(isset($_POST['carregarDadosProduto'])){
 
             $resultado = $entity->atualizarProduto($id_produto);
             if($resultado){
-                echo '<script>alert("Atualizado")</script>';
-                echo '<meta http-equiv="refresh" content="0.8;">';
+                $mostrarModal = true; // ativa o modal verdinho
+                if($mostrarModal == true){
+                    echo '<meta http-equiv="refresh" content="1.9">'; //
+                }
             }
         }
 
@@ -277,8 +278,9 @@ function mostrarModal() {
 }
 
 function fecharModal() {
+
     document.getElementById("modalSucesso").style.display = "none";
-    window.location.href = "listar_produtos_adm.html";
+
 }
 </script>
 
