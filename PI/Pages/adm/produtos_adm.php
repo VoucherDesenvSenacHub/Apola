@@ -142,9 +142,6 @@ if(isset($_POST['carregarDadosProduto'])){
         }
         
     }
-
-
-}
         if($resultado){
             $mostrarModal = true; // ativa o modal verdinho
             if($mostrarModal == true){
@@ -177,6 +174,7 @@ if(isset($_POST['carregarDadosProduto'])){
         // if($resultado){
         //     echo '<script>alert("Cadastrado com Sucesso!")</script>';
         // }
+}
 
 ?>
 <body>   
