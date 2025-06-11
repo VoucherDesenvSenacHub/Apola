@@ -1,10 +1,9 @@
 <?php
 
-include "head_adm.php"; 
 include "nav_bar_adm.php";
 
 ?>
-<body onload='load_table()'>    
+<body >    
     <main class="main_adm">
         <div class="conatiner_dashbord_adm">
             <div class="Title_deafult_adm">
@@ -20,34 +19,33 @@ include "nav_bar_adm.php";
                 <div class="card_item_dados">
                     <i class="fa-solid fa-boxes-stacked"></i>
                     <div class="item_dados_adm">
-                        <p class="n_item_dados">N° 45</p>
+                        <p class="n_item_dados n_item_dados_categoria" data-status="todos"></p>
                         <p class="text_item_dados">Total de Categorias</p>
-                    </div>
-                </div>
-                <div class="shape_dados"></div>
-                <div class="card_item_dados">
-                    <i class="fa-solid fa-circle-xmark"></i>
-                    <div class="item_dados_adm">
-                        <p class="n_item_dados">N° 23</p>
-                        <p class="text_item_dados">Total Inativos</p>
                     </div>
                 </div>
                 <div class="shape_dados"></div>
                 <div class="card_item_dados">
                     <i class="fa-solid fa-check"></i>
                     <div class="item_dados_adm">
-                        <p class="n_item_dados">N° 34</p>
+                        <p class="n_item_dados n_item_dados_categoria" data-status="ativos"></p>
                         <p class="text_item_dados">Total Ativos</p>
                     </div>
                 </div>
-
+                <div class="shape_dados"></div>
+                <div class="card_item_dados">
+                    <i class="fa-solid fa-circle-xmark"></i>
+                    <div class="item_dados_adm">
+                        <p class="n_item_dados n_item_dados_categoria" data-status="inativos"></p>
+                        <p class="text_item_dados">Total Inativos</p>
+                    </div>
+                </div>
             </div>
             <div class="conatiner_listar_adm">
                 <div class="container_listar_header_adm">
                     <div class="container_listar_header_adm_left">
-                        <button class="btn_item_listar_adm">Todos</button>
-                        <button class="btn_item_listar_adm">Ativo</button>
-                        <button class="btn_item_listar_adm">Inativo</button>
+                        <button class="btn_item_listar_adm btn_item_listar_categorias" id="btn_todos" data-status='todos'>Todos</button>
+                        <button class="btn_item_listar_adm btn_item_listar_categorias" id="btn_ativos" data-status='ativos'>Ativo</button>
+                        <button class="btn_item_listar_adm btn_item_listar_categorias" id="btn_inativos" data-status='inativos'>Inativo</button>
 
                     </div>
                     <div class="container_listar_header_adm_right">

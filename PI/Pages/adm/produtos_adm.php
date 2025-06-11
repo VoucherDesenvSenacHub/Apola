@@ -1,10 +1,17 @@
 <?php
+session_start();
 
-include "head_adm.php";
 include "nav_bar_adm.php";
 
-require '../../App/config.inc.php';
-require '../../App/Session/Login.php';
+require_once '../../App/config.inc.php';
+require_once '../../App/Session/Login.php';
+$result = Login::IsLogedAdm();
+if($result){
+    $id_administrador = $_SESSION['administrador']['id_administrador'];
+}
+else{
+    header('location: ../user/login.php');
+}
 
 $errTitulo = "";
 $errStatus = "";
@@ -109,7 +116,7 @@ if(isset($_POST['carregarDadosProduto'])){
             }
         }
 
-        else if(!isset($imagem)){
+        else if(empty($imagem)){
             $entity = new Produto();
             $entity->nome = $titulo;
             $entity->preco = $preco;
@@ -125,32 +132,14 @@ if(isset($_POST['carregarDadosProduto'])){
             $entity->categoria_id_categoria = $categoria;
 
             $resultado = $entity->atualizarProduto($id_produto);
+            if($resultado){
+                echo '<script>alert("Atualizado")</script>';
+                echo '<meta http-equiv="refresh" content="0.8;">';
+            }else {
+                $errImg = "Insira uma imagem.";
+            }
         }
-        if($resultado){
-            echo '<script>alert("Atualizado")</script>';
-            echo '<meta http-equiv="refresh" content="0.8;">';
-            echo '<script src="../../src/JS/atualizar_pagina.js"></script>';
-        }else {
-            $errImg = "Insira uma imagem.";
-        }
-
-        // $produto = new Produto();
-        // $produto->nome = $titulo;
-        // $produto->preco = $preco;
-        // $produto->avaliacao = "";
-        // $produto->quantidade = $estoque;
-        // $produto->cor = $cor;
-        // $produto->tamanho = $tamanho;
-        // $produto->imagem = $caminhoFinal;
-        // $produto->descricao = $descricao;
-        // $produto->tipo = "Da loja";
-        // $produto->categoria_id_categoria = $categoria;
-
-        // $resultado = $produto->cadastrarProduto();
-        // if($resultado){
-        //     echo '<script>alert("Cadastrado com Sucesso!")</script>';
-        // }
-
+        
     }
 
 

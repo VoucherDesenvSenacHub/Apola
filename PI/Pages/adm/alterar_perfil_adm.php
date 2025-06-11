@@ -1,18 +1,10 @@
 <?php
-session_start();
 
-require '../../App/config.inc.php';
 
-require '../../App/Session/Login.php';
-
-include "head_adm.php";
 include 'nav_bar_adm.php';
 
 // print_r($_SESSION['id_usuario']);
-$result = Login::IsLogedAdm();
-if($result){
-    $id_administrador = $_SESSION['administrador']['id_administrador'];
-}
+
 
 // $id_adm = ($sessao);
 // print_r($id_administrador);
@@ -25,6 +17,7 @@ $entityUsuario = new User();
 $usuario = $entityUsuario->getUsuarioById($id_usuario);
 
 // Tarefa Lourdes: Criar modal verdinho de correto na tela de perfil do adm - Taslk 41
+// print_r($usuario);
 
 if(isset($_POST['enviarDados'])){
     $nome = $_POST['nome'];

@@ -1,46 +1,79 @@
-document.addEventListener('DOMContentLoaded', function () {
-    let dados_tabela = document.getElementById('dados_categoria');
-    let html = "";
-
-    async function load_table() {
-        html = ""; // Limpa conteúdo antigo
-
-        try {
-            let dados_php = await fetch('../../App/Session/carrega_tabela_categorias.php');
-            let response = await dados_php.json();
-            console.log(response);
-
-            for (let i = 0; i < response.length; i++) {
-                html += '<tr>';
-                html += `<td>  <img src= '${response[i].imagem}' alt="Imagem"  style="max-width:100px; max-height:50px;"></td>`
-                html += `<td>${response[i].id_categoria}</td>`
-                html += `<td> ${response[i].nome}</td>`;
-                if (response[i].status_categoria == "a"){
-                    html += `<td>${"Ativado"}</td>`;
-                    
-                }
-                else{
-                    html += `<td>${"Inativado"}</td>`;
-                }
-                
-                html += `<td>
-                    <div class="container_item_list_ações">
-                        <a href="categoria_adm.php?id=${response[i].id_categoria}"><i class="fa-solid fa-eye"></i></a>
-                    </div>
-                </td>`;
 
 
+document.addEventListener('DOMContentLoaded', async function () {
+    
+    let botoesStatus = document.querySelectorAll('.btn_item_listar_categorias')
 
-            //     html += '<div class="container_item_list_ações">';
-            //     html += `<a href="categoria_adm.php?id=${response[i].categoria_id_categoria}`
-            }
+    let quantValue = document.querySelectorAll('.n_item_dados_categoria');
+    let quantytotal = Array.from(quantValue).find(el => el.getAttribute('data-status') === 'todos');
+    let quantyAtivos = Array.from(quantValue).find(el => el.getAttribute('data-status') === 'ativos');
+    let quantyinativos = Array.from(quantValue).find(el => el.getAttribute('data-status') === 'inativos');
+    
+    botoesStatus.forEach(elemento =>{
+        elemento.addEventListener('click',async (event) => {
+            const returns = await handleTablesCategorias(event);
+            argumento = returns.argumento
+            
 
-            dados_tabela.innerHTML = html;
 
-        } catch (error) {
-            console.error("Erro ao carregar a tabela:", error);
-            dados_tabela.innerHTML = "<tr><td colspan='3'>Erro ao carregar dados</td></tr>";
-        }
+            quantValue.forEach(e => e.style.color = '#ccc')
+            Array.from(quantValue)
+            .find(elemento => elemento.getAttribute("data-status") === argumento)
+            .style.color = "#000";
+
+            
+            // console.log(returns.argumento.includes(1).getAttribute('data-status'))
+            // quantValue.find(e => returns.argumento.includes().getAttribute ).style.fontWeight = 'bold'
+        })
+    })
+    const quantidades = await handleTablesCategorias();
+    console.log(quantidades)
+    quantytotal.innerText = quantidades.total;
+    quantyinativos.innerText = quantidades.inativo;
+    quantyAtivos.innerText = quantidades.ativo;
+});
+
+async function handleTablesCategorias(event=null){
+    if(event){
+
     }
-    load_table();
-})
+
+    let table = document.getElementById('dados_categoria')
+    if(table){
+
+        table.innerHTML = ""
+    }
+    let args = event && event.target.getAttribute("data-status") != '' ?  event.target.getAttribute("data-status") : null;
+
+    try{
+        let dados_php = await fetch(`../../App/Session/carrega_tabela_categorias.php?status=${args ? args : ""}`);
+        let response = await dados_php.json();
+
+        response.forEach(e =>{
+            table.innerHTML +=`<td><img src='${e.imagem}' alt="Imagem" style="max-width:100px; max-height:50px;"></td>
+            <td>${e.id_categoria}</td>
+            <td>${e.nome}</td>
+            <td>${e.status_categoria == "a" ? "ativado" : "inativado"}</td>
+            <td>
+                   <div class="container_item_list_ações">
+                        <a href="categoria_adm.php?id=${e.id_categoria}"><i class="fa-solid fa-eye"></i></a>
+                    </div>
+            </td>
+            `;
+
+        })
+        
+        return{
+            total: response.length,
+            inativo: response.filter(e => e.status_categoria === 'i').length,
+            ativo: response.filter(e => e.status_categoria === 'a').length,
+
+            argumento: args
+        }
+        
+    }
+    catch(erro){
+
+    }
+    
+}

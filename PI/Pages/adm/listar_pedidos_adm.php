@@ -1,7 +1,8 @@
 <?php
-
-include "head_adm.php";
 include "nav_bar_adm.php";
+require_once '../../App/config.inc.php';
+require_once '../../App/Session/Login.php';
+
 
 ?>
 <!DOCTYPE html>

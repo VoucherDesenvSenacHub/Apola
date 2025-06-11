@@ -1,10 +1,6 @@
 <?php
 
-include "head_adm.php";
-// include "nav_bar_adm.php";
-require '../../App/config.inc.php';
-require '../../App/Session/Login.php';
-
+include "nav_bar_adm.php";
 
 $err = '';
 $errImg = '';

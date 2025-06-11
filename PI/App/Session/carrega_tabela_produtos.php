@@ -4,15 +4,15 @@ require_once '../Entity/Produto.class.php';
 
 $objProd = new Produto();
 
-if(!isset($_GET['status'])){
+if(!isset($_GET['status']) || $_GET['status'] == '' || $_GET['status'] == 'todos'){
     $dados = $objProd->buscarProduto();
 }
-else if(isset($_GET['status']) && $_GET['status'] == 'inativo'){
+else if(isset($_GET['status']) && $_GET['status'] == 'inativos'){
 
     $dados = $objProd->buscarProduto('status_produto = "i" ');
 
 }
-else if(isset($_GET['status']) && $_GET['status'] == 'ativo'){
+else if(isset($_GET['status']) && $_GET['status'] == 'ativos'){
 
     $dados = $objProd->buscarProduto('status_produto = "a" ');
 }

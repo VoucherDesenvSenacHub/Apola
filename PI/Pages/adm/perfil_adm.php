@@ -1,20 +1,6 @@
 <?php
 
-session_start();
-require '../../App/config.inc.php';
-require '../../App/Session/Login.php';
-
 include "nav_bar_adm.php";   
-include "head_adm.php";
-
-// print_r($_SESSION['id_usuario']);
-$result = Login::IsLogedAdm();
-if($result){
-    $id_administrador = $_SESSION['administrador']['id_administrador'];
-}
-else{
-    header('location: ../user/login.php');
-}
 
 // $id_adm = ($sessao);
 // print_r($id_administrador);
