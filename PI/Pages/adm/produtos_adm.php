@@ -324,7 +324,6 @@ function fecharModal() {
                 timer: 1000
             });
         };
-
     </script>
 <?php endif; ?>
     <!-- <script src="adm_nav.js"></script>

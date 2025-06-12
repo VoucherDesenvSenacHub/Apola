@@ -19,7 +19,6 @@ if (isset($_POST['logar'])) {
     if (!empty($_POST['email']) && !empty($_POST['senha'])) {
         $email = $_POST['email'];
         $senha = $_POST['senha'];
-        var_dump([$email, $senha]);
         if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
             $erro = 'Email não é válido';
         } else {

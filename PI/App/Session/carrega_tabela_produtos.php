@@ -4,6 +4,13 @@ require_once '../Entity/Produto.class.php';
 
 $objProd = new Produto();
 
+if (isset($_GET['search']) && !empty($_GET['search'])) {
+    $searchTerm = $_GET['search'];
+    $dados = $objProd->buscarProduto('nome LIKE "%' . addslashes($searchTerm) . '%"');
+    
+    echo json_encode($dados ? $dados : []);
+    exit;
+}
 if(!isset($_GET['status']) || $_GET['status'] == '' || $_GET['status'] == 'todos'){
     $dados = $objProd->buscarProduto();
 }

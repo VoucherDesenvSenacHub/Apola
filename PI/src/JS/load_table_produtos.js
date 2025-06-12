@@ -297,8 +297,38 @@ async function handleTablesProdutos(event=null){
    
 }
 
+var  pesquisa = document.getElementById('input_search')
+pesquisa.addEventListener('input', function () {
+    const searchInput = this.value.trim();
 
+    const xhr = new XMLHttpRequest();
+    xhr.open("GET", `../../App/Session/carrega_tabela_produtos.php?search=${encodeURIComponent(searchInput)}`, true);
 
+    xhr.onload = function () {
+        if (xhr.status === 200) {
+            const dados = JSON.parse(xhr.responseText);
+            const table = document.getElementById('dados_produtos');
+            table.innerHTML = '';
 
-
-
+            if (Array.isArray(dados) && dados.length > 0) {
+                dados.forEach(e => {
+                    table.innerHTML += `<tr>
+                        <td><img src='${e.imagem}' alt="Imagem" style="max-width:100px; max-height:50px;"></td>
+                        <td>${e.nome}</td>
+                        <td>${e.preco}</td>
+                        <td>${e.tipo}</td>
+                        <td>${e.status_produto == "a" ? "ativado" : "inativado"}</td>
+                        <td>
+                            <div class="container_item_list_ações">
+                                <a href="produtos_adm.php?id=${e.id_produto}"><i class="fa-solid fa-eye"></i></a>
+                            </div>
+                        </td>
+                    </tr>`;
+                });
+            } else {
+                table.innerHTML = '<br><tr><td colspan="6">Nenhum resultado encontrado</td></tr></br>';
+            }
+        }
+    };
+    xhr.send();
+});
