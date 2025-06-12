@@ -1,5 +1,23 @@
+<?php
 
-        <!-- INICIO MeENU NAVABAR -->
+// require '../../App/config.inc.php';
+
+require_once '../../App/Entity/Cliente.class.php';
+
+
+$result = Login::IsLogedCliente();
+if($result){
+    $id_cliente = $_SESSION['cliente']['id_cliente'];
+
+    $objCliente = new Cliente();
+    
+    $cli = $objCliente->getClienteById($id_cliente);
+}
+?>
+ 
+
+
+ <!-- INICIO MeENU NAVABAR -->
         <header class="menu">
             <nav class="container-menu">
                     <div class="img-menu">
@@ -189,7 +207,7 @@
                                     <a id="icon-default" href="./carrinho.php"><i class="fa-solid fa-bag-shopping"></i></a>
                                 </li>
                                 <li class="icon-default-back">
-                                    <a class="conatiner_navbar_perfil_2" href="./perfil.php"><img class="img_navbar_2" src="../../src/imagens/image.png" alt=""></a>
+                                    <a class="conatiner_navbar_perfil_2" href="./perfil.php"><img class="img_navbar_2" src="<?= $cli['foto_perfil']; ?>" alt=""></a>
             
                 
                                 </li>

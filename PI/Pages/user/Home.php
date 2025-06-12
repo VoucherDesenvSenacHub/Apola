@@ -82,6 +82,14 @@ else {
                         <li class="item_cards_categoria">
                             <a class="link_cards_categoria" href="./categorias.php">
                                 <div class="img_content_categoria">
+                                    <img src="../../src/imagens/img_categorias/img3.png" alt="">
+                                </div>
+                                <div class="text_cards_categoria">Amigurumi</div>
+                            </a>
+                        </li>
+                        <li class="item_cards_categoria">
+                            <a class="link_cards_categoria" href="./categorias.php">
+                                <div class="img_content_categoria">
                                     <img src="../../src/imagens/img_categorias/img1.png" alt="">
                                 </div>
                                 <div class="text_cards_categoria">Cachepô</div>
@@ -98,17 +106,9 @@ else {
                         <li class="item_cards_categoria">
                             <a class="link_cards_categoria" href="./categorias.php">
                                 <div class="img_content_categoria">
-                                    <img src="../../src/imagens/img_categorias/img3.png" alt="">
+                                    <img src="../../src/imagens/img_categorias/key.png" alt="">
                                 </div>
-                                <div class="text_cards_categoria">Amigurumi</div>
-                            </a>
-                        </li>
-                        <li class="item_cards_categoria">
-                            <a class="link_cards_categoria" href="./categorias.php">
-                                <div class="img_content_categoria">
-                                    <img src="../../src/imagens/img_categorias/img4.png" alt="">
-                                </div>
-                                <div class="text_cards_categoria">Caneca</div>
+                                <div class="text_cards_categoria">Porta-Chaves</div>
                             </a>
                         </li>       
                     </ul>

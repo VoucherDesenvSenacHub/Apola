@@ -31,7 +31,14 @@
     border-radius: 100px 5px 5px 5px;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
     position: relative;
+    
 }
+.banner-img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover; 
+    border-radius: 100px 5px 5px 5px;
+} 
 
 
 .shape_perfil{
@@ -41,7 +48,7 @@
     height: 200px;
     position: absolute;
     bottom: -70px;
-    left: 40px;
+    left: 10px;
     border-radius: 50%;
     justify-content: center;
     align-items: center;
@@ -54,8 +61,52 @@
     height: auto;
     object-fit: contain;
     border-radius: 50%;
-}
+}  
 
+
+/* .shape_perfil {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    overflow: hidden; /* para esconder partes da imagem fora do círculo */
+    /* box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .shape_perfil img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* mantém a proporção e preenche o círculo */
+    /* border-radius: 50%;
+  } */ 
+input[type="file"] {
+    display: none;
+  }
+  
+  .custom-upload {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    background-color: #FA301E; 
+    color: white;
+    font-size: 24px;
+    border-radius: 50%;
+    cursor: pointer;
+    position: absolute;
+    bottom: -40px;
+    right: 735px;
+    z-index: 10;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  }
+  
+  .custom-upload:hover {
+    background-color: #FA301E;
+  }
 
 
 
@@ -105,17 +156,21 @@
 }
 
 .btn_salvar{
-    background-color: #4A4A4A;
+    background-color:blue;
+    color: white;
+} 
+
+.btn_cancelar{
+    background-color: #FA301E;
     color: white;
 }
-
 
 .btn_cancelar:hover{
     color: #252525;
 }
 
 .btn_salvar:hover{
-    background-color: #252525;
+    color: #252525;
 }
 
 
@@ -190,6 +245,10 @@
 
 .container_edit_perfil .input_esp_num{
     width: 80px;
+}
+
+.container_edit_perfil .input_tel{
+    width: 188px;
 }
 
 .endereco_cadastrados{
