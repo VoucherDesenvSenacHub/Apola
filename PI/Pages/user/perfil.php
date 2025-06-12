@@ -2,11 +2,6 @@
 
 
 require '../../App/config.inc.php';
-
-require_once '../../App/Entity/User.php';
-require_once '../../App/Entity/Cliente.class.php';
-require_once '../../App/Entity/Adm.class.php';
-
 require '../../App/Session/Login.php';
 
 include "head.php";
@@ -60,12 +55,17 @@ if($result){
             </div>
             <div class="right_container_perfil">
                 <div class="container_right_perfil">
+                    
+                <form method="POST" class="inputs_perfil"  enctype="multipart/form-data">
+
                     <div class="container_banner_perfil">
-                        <img src="" alt="">
+                    <img src="../../src/imagens/cadastro/perfil/banner-perfil2.png" alt="" class="banner-img">
+                        <div> <input id="foto_perfil" name="foto_perfil" type="file"> </div>
                         <div class="shape_perfil">
-                            <img src="<?=$cli['foto_perfil'];?>" alt="">
+                           <img src="<?=$cli['foto_perfil']; ?>" alt="">
                         </div>
                     </div>
+                     
                     <form class="inputs_perfil">
                         <div class="input_perfil_container">
                             <div class="input_item_perfil">
@@ -112,7 +112,7 @@ if($result){
                             <div class="input_item_perfil">
                                 <label for="">Telefone</label>
                                 <div class="container_edit_perfil">
-                                    <input disabled="" type="tel" name="telefone" id=""  value="<?=$cli['telefone'];?>">
+                                    <input disabled="" class="input_tel" type="tel" name="telefone" id=""  value="<?=$cli['telefone'];?>">
                               
                                 </div>
                             </div>

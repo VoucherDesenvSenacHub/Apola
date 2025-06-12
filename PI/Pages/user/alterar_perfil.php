@@ -17,10 +17,8 @@ if($result){
    
 }
 
-
 if($result){
     include "navbar_logado.php";
-
     
 }else{
     header('location: login.php');
@@ -126,13 +124,23 @@ if (isset($_POST['carregarNovosDados'])) {
                 <form method="POST" class="inputs_perfil"  enctype="multipart/form-data">
 
                     <div class="container_banner_perfil">
-                        <img src="" alt="">
+                        <img src="../../src/imagens/cadastro/perfil/banner-perfil2.png" alt="" class="banner-img">
+                        <label for="foto_perfil" class="custom-upload">
+                            <span>+</span>
+                        </label>
                         <div> <input id="foto_perfil" name="foto_perfil" type="file"> </div>
-                        <div class="shape_perfil">
-                           <img src="../../src/imagens/image.png" alt="">
+                            <div class="shape_perfil">
+                            <?php if ($cli['foto_perfil']): ?>
+                                <img src="<?= $cli['foto_perfil'] ?>" alt="Foto de Perfil">
+                                <?php else: ?>
+                                    <svg width="100" height="100" viewBox="0 0 24 24" fill="#ccc" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/> </svg>
+                                         <?php endif; ?>
+                            </div>
+
                         </div>
-                    </div>
-                    
+
+                     
                         <div class="input_perfil_container">
                             <div class="input_item_perfil">
                                 <label for="">Nome</label>
@@ -178,7 +186,7 @@ if (isset($_POST['carregarNovosDados'])) {
                             <div class="input_item_perfil">
                                 <label for="">Telefone</label>
                                 <div class="container_edit_perfil">
-                                    <input type="tel" name="telefone" id=""  value="<?=$cli['telefone'];?>">
+                                    <input type="tel" class="input_tel" name="telefone" id=""  value="<?=$cli['telefone'];?>">
                               
                                 </div>
                             </div>

@@ -148,7 +148,8 @@ if (isset($_POST['logar'])) {
                             <span class='msg_erro'><?php echo $erro; ?></span>
                             <span class='msg_sucesso'><?php echo $succes; ?></span>
                             <div class="btn-login">
-                                <button name='logar' href="../adm/dashbord_adm.php" type="submit">Entrar</button>
+                            <button id="botao-login" name="logar" type="submit">Entrar</button>
+
                             </div>
                             <p id="msnErro-login" class="msnErro-login"></p>
                             <span class="span-login">Novo na Apola?<a href="./cadastro.php">Cadastra-se</a></span>
@@ -159,6 +160,23 @@ if (isset($_POST['logar'])) {
         </section>
             
     </main>
+    <script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const form = document.querySelector('form');
+    const inputs = form.querySelectorAll('input');
+    const botaoLogin = document.getElementById('botao-login');
+
+    inputs.forEach(input => {
+      input.addEventListener('keydown', function (event) {
+        if (event.key === 'Enter') {
+          event.preventDefault(); // impede comportamento padrão
+          botaoLogin.click(); // simula clique no botão de login
+        }
+      });
+    });
+  });
+</script>
+
     
 </body>
 </html>
