@@ -1,14 +1,14 @@
 <?php
 
-require '../Entity/Pedido.class.php';
+require_once '../Entity/Pedido.class.php';
 
-$objProd = new Pedido();
+$objPedido = new Pedido();
+$dados = $objPedido->buscar();
 
-$dados = $objProd->buscar();
-if($dados){
+if ($dados) {
     echo json_encode($dados);
-}
-else{
+} else {
     $array = ['status' => 400, 'msg' => 'Ocorreu algum erro!!'];
     echo json_encode($array);
 }
+?>
