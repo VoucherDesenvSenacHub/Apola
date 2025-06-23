@@ -151,22 +151,22 @@ if(isset($_POST['carregarDadosProduto'])){
             }
         }
     }
-        if($resultado){
-            $mostrarModal = true; // ativa o modal verdinho
-            if($mostrarModal == true){
-                echo '<meta http-equiv="refresh" content="1.9">'; //
-            } 
+        // if($resultado){
+        //     $mostrarModal = true; // ativa o modal verdinho
+        //     if($mostrarModal == true){
+        //         echo '<meta http-equiv="refresh" content="1.9">'; //
+        //     } 
         
-        } else {
-            echo "<script>
-                Swal.fire({
-                    icon: 'error',
-                    title: 'Erro!',
-                    text: 'Não foi possível atualizar as informações.',
-                    confirmButtonColor: '#d33'
-                });
-            </script>";
-        }
+        // } else {
+        //     echo "<script>
+        //         Swal.fire({
+        //             icon: 'error',
+        //             title: 'Erro!',
+        //             text: 'Não foi possível atualizar as informações.',
+        //             confirmButtonColor: '#d33'
+        //         });
+        //     </script>";
+        // }
         // $produto = new Produto();
         // $produto->nome = $titulo;
         // $produto->preco = $preco;
@@ -226,7 +226,7 @@ if(isset($_POST['carregarDadosProduto'])){
                         </div>
                         <div class="item_flex_adm">
                             <label for="">Descrição</label>
-                            <input style="width: 400px; height: 400px" name="descricaoProduto" id="" value="<?= $produto->descricao ?>"></input>
+                            <textarea name="descricaoProduto" id="" value=""><?= $produto->descricao ?></textarea>
                             <p class="text_tamanho_img" style="color:red;"> <?= $errDescricao; ?> </p>
                         </div>
                         

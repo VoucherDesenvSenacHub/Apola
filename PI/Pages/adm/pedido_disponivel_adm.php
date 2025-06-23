@@ -1,6 +1,6 @@
 <?php
 session_start();
-
+// include "head_adm.php";
 include "nav_bar_adm.php";
 
 
@@ -9,7 +9,15 @@ $buscar = new Pedido();
 $pedido_cliente = $buscar->buscar_by_id($id);
 
 // print_r($pedido_cliente);
+if(isset($_POST['salvarPedido'])){
+    // echo '<script>alert("Opa!")</script>';
+    $status = $_POST['status_pedido'];
+    $codigo = $_POST['rastreio_pedido'];
 
+    $pedido_cliente->atualizar($id[
+        $status
+    ]);
+}   
 ?>
     
 <main class="main_adm">
@@ -82,7 +90,7 @@ $pedido_cliente = $buscar->buscar_by_id($id);
                         </div>
                         <div class="item_flex_pedido">
                             <label for="">Status Pedido</label>
-                            <select name="" id="">
+                            <select name="status_pedido" id="">
                                 <option <?= $pedido_cliente->status_pedido == 'A pagar' ? 'selected' : '' ?>>A pagar</option>
                                 <option <?= $pedido_cliente->status_pedido == 'Produção' ? 'selected' : '' ?>>Produção</option>
                                 <option <?= $pedido_cliente->status_pedido == 'Envio' ? 'selected' : '' ?>>Envio</option>
@@ -91,7 +99,7 @@ $pedido_cliente = $buscar->buscar_by_id($id);
                         </div>
                         <div class="item_flex_pedido">
                             <label for="">Código de Rastreio</label>
-                            <input type="text" value="<?= $pedido_cliente->rastreio ?>">
+                            <input name="rastreio_pedido" type="text" value="<?= $pedido_cliente->rastreio ?>">
                         </div>
                     </div>
                     <div class="conatiner_cadastro_adm_pedido_body_right">
@@ -103,11 +111,11 @@ $pedido_cliente = $buscar->buscar_by_id($id);
                     </div>
                 </div>
                 </div>
+                <div  id="conatiner_btn_adm_pc" class="conatiner_btn_adm">
+                    <button type="submit" name="salvarPedido" class="btn_salvar_adm">Salvar</button>
+                </div>
             </form>
-            <div  id="conatiner_btn_adm_pc" class="conatiner_btn_adm">
-                
-                <button class="btn_salvar_adm">Salvar</button>
-            </div>
+            
             
         
         </div>

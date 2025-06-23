@@ -243,7 +243,8 @@ document.addEventListener('DOMContentLoaded', async function () {
         })
     })
 
-    const quantidades = await handleTablesProdutos();
+    const quantidades = await handleTablesProdutos();   
+    console.log(quantidades)
     quantytotal.innerText = quantidades.total;
     quantyinativos.innerText = quantidades.inativo;
     quantyAtivos.innerText = quantidades.ativo;

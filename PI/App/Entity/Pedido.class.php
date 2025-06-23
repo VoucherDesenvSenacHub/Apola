@@ -2,6 +2,7 @@
 require_once '../../App/DB/Database.php';
 
 class Pedido {
+
     public function cadastrar(){
         $db = new Database('pedido');
         $result = $db->insert([
@@ -10,8 +11,9 @@ class Pedido {
         return $result ? true : false;
     }
 
-    public function atualizar(){
-        return (new Database('pedido'))->update('sacola_id_sacola = '.$this->sacola_id_sacola,[
+    public function atualizar($id_pedido){
+        return (new Database('pedido'))->update('id_pedido = ' .$id_pedido  ,[
+            $status_pedido =
         ]);
     }
 
