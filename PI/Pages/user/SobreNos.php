@@ -14,6 +14,14 @@ else {
     include 'navbar_deslogado.php';
 }
 
+if(isset($_SESSION)){
+    // print_r($_SESSION);
+    $id_cliente = $_SESSION['cliente']['id_cliente'];
+    
+
+
+}
+
 
 
 ?>

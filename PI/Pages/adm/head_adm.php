@@ -45,6 +45,7 @@
     <script src="../../src/JS/carregar_categorias_produto.js" defer></script>
     <script src="../../src/JS/load_table_produtos.js" defer></script>
     <script src="../../src/JS/btn_listar_adm.js" defer></script>
+    
 
 
 

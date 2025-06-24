@@ -6,6 +6,14 @@ require '../../App/Session/Login.php';
 
 include "head.php";
 
+if (Login::IsLogedCliente()) {
+    include 'navbar_logado.php';
+} 
+else {
+    include 'navbar_deslogado.php';
+}
+
+echo '<script>sessionStorage.setItem("idcliente",'. $_SESSION['cliente']['id_cliente'] .')</script>';
 
 $banner = new Banner();
 
@@ -18,14 +26,6 @@ $bannerSecundarioPosicao1 = $banner->getBannerForPosicao('banners_secundarios',1
 $bannerPromocionalPosicao1  = $banner->getBannerForPosicao('banners_promocionais',1);
 $bannerPromocionalPosicao2  = $banner->getBannerForPosicao('banners_promocionais',2);
 $bannerPromocionalPosicao3  = $banner->getBannerForPosicao('banners_promocionais',3);
-
-
-if (Login::IsLogedCliente()) {
-    include 'navbar_logado.php';
-} 
-else {
-    include 'navbar_deslogado.php';
-}
 
 
 ?>

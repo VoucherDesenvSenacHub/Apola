@@ -14,6 +14,8 @@ class Login {
             'id_cliente' => $object->id_cliente,
             'email' => $object->email
         ];
+
+
         header('location: ../../Pages/user/Home.php');
         exit;
     }
