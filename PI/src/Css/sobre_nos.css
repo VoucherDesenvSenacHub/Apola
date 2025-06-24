@@ -772,7 +772,7 @@
 /* 
 MEDIA QUERIES SOBRE */
 
-@media (max-width:430px) {
+@media (max-width: 550px) {
     /* AREA BANNER SOBRE NÓS */
 
 
@@ -1330,7 +1330,7 @@ MEDIA QUERIES SOBRE */
 
 }
 
-@media (min-width: 768px) and (max-width: 991px) {
+@media (min-width: 768px) and (max-width: 1190px) {
     .avatar {
         width: 80px;
         height: 80px;
@@ -1343,7 +1343,7 @@ MEDIA QUERIES SOBRE */
     }
 }
 
-@media (min-width: 991px) and (max-width:1199px) {
+@media (min-width: 1191px) and (max-width:1199px) {
     .comentarios-container {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
