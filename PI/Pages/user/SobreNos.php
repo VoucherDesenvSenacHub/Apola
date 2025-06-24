@@ -122,23 +122,7 @@ else {
                 <div class="swiper-wrapper">
 
                     <!-- Card dos Comentários -->
-                    <div class="comentario swiper-slide">
-                        <!-- Foto da Lourdes -->
-                        <img src="../../src/imagens/sobre_nos/lourdes.jpg" alt="Foto de Lourdes Rodrigues" class="avatar">
-                        <p class="nome">Lourdes Rodrigues</p>
-                        <div class="comentario-texto">
-                            <p class="justificar-texto">Apola Artesanatos é onde a arte e a criatividade se encontram. Cada peça é feita com dedicação e carinho, trazendo beleza e exclusividade. Um verdadeiro testemunho de talento e tradição. <br> Simplesmente encantada com os produtos! A delicadeza de cada peça me emocionou. A entrega foi rápida, e o atendimento, impecável. Super recomendo! Venha conhecer e se encantar!</p>
-                        </div>
-
-                        <div class="content_star_sobre">
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                        </div>
-                    </div>
-
+   
                     <div class="comentario swiper-slide">
                         <!-- Avatar fictício -->
                         <img class="avatar" src="../../src/imagens/sobre_nos/avatar_carlos.png" alt="Carlos Henrique"/>
@@ -173,6 +157,21 @@ else {
                             <i class="fa-solid fa-star"></i>
                         </div>
                     </div>
+                    <div class="comentario swiper-slide">
+                        <!-- Avatar fictício -->
+                        <img src="../../src/imagens/sobre_nos/lourdes.jpg" alt="Ana Luiza" class="avatar">
+                        <p class="nome">Lourdes Rodrigues</p>
+                        <div class="comentario-texto">
+                        <p class="justificar-texto">Sou consumidora Apola, estou feliz com as minhas aquisições. <br> E indico para quem prioriza um trabalho personalizado e de qualidade!!</p>
+                        </div>
+                        <div class="content_star_sobre">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -183,146 +182,65 @@ else {
                 <div class="btn_next_card_avaliacao"><i class="fa-solid default_btn_icon_card fa-chevron-right"></i></div>
             </div>
         </section>
+
+        <!-- ################################################################################################################## -->
+
+        <!-- Tarefa Lourdes: Fazer uma estrutura completa para o cliente deixar sua avaliação sobre a loja - Taslk 45  -->
+
+        <!-- Formulário horizontal - Avaliação -->
+
+        <p class="avaliacao-titulo">Deixe sua Avaliação</p>
+
+        <!-- Container da avaliação -->
+        <section class="avaliacao-container">
+            <form class="avaliacao-form" method="POST" action="salvar_avaliacao.php">
+                <div class="form-row">
+                    
+                    <div class="form-group nota">
+                        <label for="nota">Nota:</label>
+                        <div class="estrelas-avaliacao">
+                            <input type="radio" id="estrela5" name="nota" value="5"><label for="estrela5"><i class="fas fa-star"></i></label>
+                            <input type="radio" id="estrela4" name="nota" value="4"><label for="estrela4"><i class="fas fa-star"></i></label>
+                            <input type="radio" id="estrela3" name="nota" value="3"><label for="estrela3"><i class="fas fa-star"></i></label>
+                            <input type="radio" id="estrela2" name="nota" value="2"><label for="estrela2"><i class="fas fa-star"></i></label>
+                            <input type="radio" id="estrela1" name="nota" value="1"><label for="estrela1"><i class="fas fa-star"></i></label>
+                        </div>
+                    </div>
+
+
+
+                    <!-- Campo Mensagem ao centro -->
+                    <div class="form-group mensagem">
+                        <label for="mensagem">Mensagem:</label>
+                        <textarea id="mensagem" name="mensagem" placeholder="Como foi sua experiência?" required></textarea>
+                    </div>
+
+                    <!-- Botão ao lado -->
+                    <div class="form-group botao">
+                        <button type="submit" class="botao-enviar">Enviar Avaliação</button>
+                    </div>
+
+                </div>
+            </form>
+        </section>
+
     </main>
+
 <?php
 include "footer.php";
 ?>
 
+        <!-- ################################################################################################################## -->
 
 
 
 
-
-        <!-- <script src="../../src/JS/swiper_sobre.js"></script> -->
-
-        <!-- <section class="video_sobre">
-            <div class="content_video_sobre">
-                <h1 class="title_section_sobre">
-                    Lorem ipsum dolor sit <span class="title_section_sobre2">amet consectetur</span>
-                </h1>
-                <video  controls class="video_content">
-                    <source autoplay src="https://www.youtube.com/watch?v=kM8crupu9DM"> 
-                </video>
-                <div class="item_conteudo_sobre">
-                    <p class="text_sobre_video">Lorem ipsum dolor sit amet consectetur adipisicing elit. At quas fuga optio aspernatur laudantium minus, doloribus dolor dolore nihil nemo totam corrupti facilis beatae illo eum, excepturi atque nam rem?</p>
-                    <button class="btn_video_sobre">Confira</button>
-                </div>
-            </div>
-        </section> -->
-
-        <!-- <section class="confira_sobre">
-            <div class="content_confira_sobre">
-                <div class="text_confira_sobre">Lorem ipsum dolor sit amet</div>
-                <div class="text_confira_sobre">Lorem ipsum dolor sit </div>
-                <div class="content_btn_confira_sobre"><input placeholder="Envie seu e-mail" class="input_confira_sobre" type="email" name="" id=""> <button class="btn_confira_sobre">Enviar</button></div>
-
-            </div>
-        </section> -->
-    <!-- </main>
-
-            
+        
+ 
 
 
 
 
 
 
-            <!-- <div class="content_card_avalicao_sobre">
-                <h1 class="title_section_sobre">
-                Apola Ecommerce Artesanatos <span class="title_section_sobre2"> </span>
-                </h1>
-                <div class="swiper_sobre">
-                    <div class="swiper-wrapper">
-
-                        <div class="swiper-slide">
-                            <div class="content_img_perfil_sobre">
-                                <img src="../../src/imagens/cadastro/mulher-plana-cuidando-de-plantas.png" alt="">
-                            </div>
-                            <div class="content_star_sobre">
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                            </div>
-                            <div class="text_area_sobre_avaliacao">
-                                <div class="nome_perfil_sobre">Lourdes Rodrigues</div>
-                                <div class="testemunho_perfil_sobre">Apola Artesanatos é onde a arte e a criatividade se encontram. Cada peça é feita com dedicação e carinho, trazendo beleza e exclusividade. Um verdadeiro testemunho de talento e tradição. Venha conhecer e se encantar!</div>
-
-                            </div>
-                        </div>
-
-                        <div class="swiper-slide">
-                            <div class="content_img_perfil_sobre">
-                                <img src="../../src/imagens/cadastro/mulher-plana-cuidando-de-plantas.png" alt="">
-                            </div>
-                            <div class="content_star_sobre">
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                            </div>
-                            <div class="text_area_sobre_avaliacao">
-                                <div class="nome_perfil_sobre">Amanda Gomes</div>
-                                <div class="testemunho_perfil_sobre">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Laudantium illo ad voluptate sequi tenetur saepe commodi quidem iusto, vero tempore unde in aliquid, explicabo temporibus. Doloribus sit laudantium veniam earum!</div>
-
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="content_img_perfil_sobre">
-                                <img src="../../src/imagens/cadastro/mulher-plana-cuidando-de-plantas.png" alt="">
-                            </div>
-                            <div class="content_star_sobre">
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                            </div>
-                            <div class="text_area_sobre_avaliacao">
-                                <div class="nome_perfil_sobre">Amanda Gomes</div>
-                                <div class="testemunho_perfil_sobre">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Laudantium illo ad voluptate sequi tenetur saepe commodi quidem iusto, vero tempore unde in aliquid, explicabo temporibus. Doloribus sit laudantium veniam earum!</div>
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="swiper-pagination-sobre"></div>
-                <div class="btn_card_sobre">
-                    <div class="btn_prev_card_avaliacao"><i class="fa-solid default_btn_icon_card fa-chevron-left"></i></div>
-                    <div class="btn_next_card_avaliacao"><i class="fa-solid default_btn_icon_card fa-chevron-right"></i></div>
-                </div>
-            </div> -->
-        <!-- </section> -->
-
-
-
-
-
-        <!-- <script src="../../src/JS/swiper_sobre.js"></script> -->
-
-        <!-- <section class="video_sobre">
-            <div class="content_video_sobre">
-                <h1 class="title_section_sobre">
-                    Lorem ipsum dolor sit <span class="title_section_sobre2">amet consectetur</span>
-                </h1>
-                <video  controls class="video_content">
-                    <source autoplay src="https://www.youtube.com/watch?v=kM8crupu9DM"> 
-                </video>
-                <div class="item_conteudo_sobre">
-                    <p class="text_sobre_video">Lorem ipsum dolor sit amet consectetur adipisicing elit. At quas fuga optio aspernatur laudantium minus, doloribus dolor dolore nihil nemo totam corrupti facilis beatae illo eum, excepturi atque nam rem?</p>
-                    <button class="btn_video_sobre">Confira</button>
-                </div>
-            </div>
-        </section> -->
-
-        <!-- <section class="confira_sobre">
-            <div class="content_confira_sobre">
-                <div class="text_confira_sobre">Lorem ipsum dolor sit amet</div>
-                <div class="text_confira_sobre">Lorem ipsum dolor sit </div>
-                <div class="content_btn_confira_sobre"><input placeholder="Envie seu e-mail" class="input_confira_sobre" type="email" name="" id=""> <button class="btn_confira_sobre">Enviar</button></div>
-
-            </div>
-        </section> -->
-    <!-- </main>-->
+        

@@ -376,10 +376,9 @@
 .swiper_sobre {
     display: flex;
     width: 700px;
-    height: 400px;
+    height: auto;
     border-radius: 5px;
     padding: 10px;
-
 }
 
 
@@ -532,7 +531,7 @@
 .about_text {
     display: flex;
     width: 100%;
-    height: 100vh;
+    height: 900px;
     justify-content: center;
     align-items: center;
 }
@@ -540,14 +539,16 @@
 .content_about_text {
     display: flex;
     width: 100%;
-    height: 90%;
+    height: 100%;
+    /* background-color: #4200db; */
+    margin: 0;
 }
 
 .conteudo_text_about {
     display: flex;
     flex-direction: column;
     width: 100%;
-    height: 90%;
+    height: 100%;
 }
 
 .texto_about {
@@ -558,18 +559,21 @@
 .right_about_text {
     display: flex;
     width: 40%;
+    height: 80%;
     justify-content: center;
     align-items: center;
     position: relative;
+    /* background-color: gainsboro; */
 }
 
 .right_about_text img {
     display: flex;
     width: 100%;
-    height: 90%;
+    height: 50%;
     object-fit: cover;
     transform: rotateY(180deg);
     position: absolute;
+    /* background-color: #cc9933; */
 
 }
 
@@ -582,6 +586,7 @@
     width: 60%;
     flex-direction: column;
     height: 600px;
+    margin-top: 10px;
 }
 
 
@@ -756,6 +761,12 @@
 
 .justificar-texto{
     text-align: justify;
+}
+
+@media (max-width: 1000px){
+    .swiper_sobre{
+        width: 100%;
+    }
 }
 
 /* 
@@ -963,7 +974,6 @@ MEDIA QUERIES SOBRE */
 
     /* AREA CONTEUDO SOBRE NÓS */
 
-
     .about_text {
         display: flex;
         width: 100%;
@@ -991,7 +1001,11 @@ MEDIA QUERIES SOBRE */
 
     .left_about_text {
         display: flex;
+        /* background-color: #1f0068; */
         width: 90%;
+        height: auto;
+        /* margin-top: 10rem; */
+        margin-top: 10rem;
         flex-direction: column;
 
     }
@@ -1203,9 +1217,11 @@ MEDIA QUERIES SOBRE */
     /* === ESTILO GERAL DA SEÇÃO DE COMENTÁRIOS === */
     .comentarios-container {
         max-width: 1200px;
-        margin: 40px auto;
+        height: 800px;
+        margin-top: 20rem;
         padding: 20px;
-        background-color: #fffbee;
+        background-color: transparent;
+        /* background-color: #969696; */
         border-radius: 16px;
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     }
@@ -1221,24 +1237,26 @@ MEDIA QUERIES SOBRE */
     /* Um comentário individual */
     .comentario {
         display: flex;
+        width: 200px !important;
+        height: 500px !important;
         flex-direction: column;
         align-items: center;
         text-align: center;
         background-color: #fff;
         border: 1px solid #ffeaa7;
-        border-radius: 16px;
+        border-radius: 8px;
         padding: 20px;
-        margin-bottom: 20px;
+        /* margin-bottom: 20px; */
+       
     }
 
     /* Avatar circular */
     .avatar {
-        width: 80px;
+        width: 30px;
+        background-color: #FA301E;
+        height: 10px;
         display: flex;
-        border-radius: 100%;
-        /* Torna a imagem redondinha */
         object-fit: cover;
-        border: 4px solid #f1c40f;
         margin-bottom: 10px;
     }
 
@@ -1252,11 +1270,12 @@ MEDIA QUERIES SOBRE */
 
     /* Texto do comentário */
     .comentario-texto {
-        max-height: 160px;
+        height: 500px !important;
+        /* background-color: #cc9933; */
         overflow-y: auto;
         /* Ativa a rolagem se o texto for longo */
         padding-right: 10px;
-        font-size: 16px;
+        font-size: 10px;
         line-height: 1.6;
     }
 
@@ -1372,6 +1391,179 @@ MEDIA QUERIES SOBRE */
         margin-bottom: 10px;
     }
 }
+
+/* ####################################################################################### */
+
+/* Tarefa Lourdes: Fazer uma estrutura completa para o cliente deixar sua avaliação sobre a loja - Taslk 45 */
+
+/* Estilo do formulário de avaliação - harmonizado com seção de comentários */
+
+/* Título */
+.avaliacao-titulo {
+    text-align: center;
+    font-size: 32px;
+    margin-top: 60px;
+    font-weight: normal !important; 
+    color: #1a1a1a;
+    margin-bottom: 1px;
+}
+
+.avaliacao-container {
+    width: 650px; 
+    margin: 20px auto; 
+    background-color: #f6f6f6; 
+    /* background-color: orange; */
+    padding: 10px; 
+    
+    
+    /* Sombra mais ampla e gradual — mesma ideia usada no carrossel */
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+     
+    /* box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px; */
+                
+    
+    transition: box-shadow 0.3s ease;
+}
+
+/* Formulário centralizado */
+.avaliacao-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+/* Linha com os três campos lado a lado */
+.form-row {
+    display: flex;
+    width: 80%;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+/* Campo Nota menor */
+/* .form-group.nota {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    width: 100%;    
+} */
+
+
+.estrelas-avaliacao {
+    display: flex;
+    gap: 5px;
+    direction: rtl; /* para selecionar da direita para a esquerda */
+  }
+  
+  .estrelas-avaliacao input {
+    display: none;
+  }
+  
+  .estrelas-avaliacao label {
+    font-size: 24px;
+    color: #ccc;
+    cursor: pointer;
+  }
+  
+  .estrelas-avaliacao input:checked ~ label,
+  .estrelas-avaliacao label:hover,
+  .estrelas-avaliacao label:hover ~ label {
+    color: rgb(255, 136, 0);
+  }
+
+
+
+/* Campo Mensagem maior */
+.form-group.mensagem {
+    flex: 4;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Botão ocupa espaço adequado */
+.form-group.botao {
+    flex: 1.2;
+    display: flex;
+    align-items: flex-end;
+}
+
+/* Rótulos normais */
+.form-group label {
+
+    font-weight: normal;
+    margin-bottom: 6px;
+    font-size: 16px;
+}
+
+/* Campos */
+#mensagem,
+select {
+    width: 100%;
+    padding: 10px;
+    /* border-radius: 6px;   */
+    border: 1px solid #ccc;
+    font-size: 16px;
+    box-sizing: border-box;
+    resize: vertical;
+    resize: none; /* impede o redimensionamento */
+    overflow: auto;
+}
+
+.botao-enviar {
+    background-color: #4c00ff;
+    color: white;
+    padding: 12px 20px; 
+    font-size: 18px;
+    font-weight: bold;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    white-space: nowrap; 
+    text-align: center;
+    display: inline-block;
+  }
+  
+  .botao-enviar:hover {
+    background-color: #FA301E;      
+  }
+
+  /* ####################################################################################### */
+
+
+@media(max-width: 690px){
+    .avaliacao-container{
+        width: 80%;
+        flex-direction: column;
+    }
+    .avaliacao-form{
+        flex-direction: column !important;
+    }
+    .botao-enviar{
+        width: 80%;
+        font-size: 14px;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
