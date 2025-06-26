@@ -13,14 +13,7 @@ if (Login::IsLogedCliente()) {
 else {
     include 'navbar_deslogado.php';
 }
-
-if(isset($_SESSION)){
-    // print_r($_SESSION);
-    $id_cliente = $_SESSION['cliente']['id_cliente'];
     
-
-
-}
 
 
 
@@ -197,39 +190,53 @@ if(isset($_SESSION)){
 
         <!-- Formulário horizontal - Avaliação -->
 
-        <p class="avaliacao-titulo">Deixe sua Avaliação</p>
-
+        
         <!-- Container da avaliação -->
-        <section class="avaliacao-container">
-            <form class="avaliacao-form" method="POST" action="salvar_avaliacao.php">
-                <div class="form-row">
-                    
-                    <div class="form-group nota">
-                        <label for="nota">Nota:</label>
-                        <div class="estrelas-avaliacao">
-                            <input type="radio" id="estrela5" name="nota" value="5"><label for="estrela5"><i class="fas fa-star"></i></label>
-                            <input type="radio" id="estrela4" name="nota" value="4"><label for="estrela4"><i class="fas fa-star"></i></label>
-                            <input type="radio" id="estrela3" name="nota" value="3"><label for="estrela3"><i class="fas fa-star"></i></label>
-                            <input type="radio" id="estrela2" name="nota" value="2"><label for="estrela2"><i class="fas fa-star"></i></label>
-                            <input type="radio" id="estrela1" name="nota" value="1"><label for="estrela1"><i class="fas fa-star"></i></label>
+        <section class="sessao-avaliacao">
+            <h2 class="avaliacao-titulo">Deixe sua Avaliação</h2>
+            <div class="avaliacao-container">
+                
+                <form class="avaliacao-form" method="POST">
+                    <div class="form-row">
+                        <div class="form-group nota">
+                            <label for="nota">Nota:</label>
+                            <div class="estrelas-avaliacao">
+                                <input type="radio" id="estrela5" name="nota" value="5"><label for="estrela5"><i class="fas fa-star"></i></label>
+                                <input type="radio" id="estrela4" name="nota" value="4"><label for="estrela4"><i class="fas fa-star"></i></label>
+                                <input type="radio" id="estrela3" name="nota" value="3"><label for="estrela3"><i class="fas fa-star"></i></label>
+                                <input type="radio" id="estrela2" name="nota" value="2"><label for="estrela2"><i class="fas fa-star"></i></label>
+                                <input type="radio" id="estrela1" name="nota" value="1"><label for="estrela1"><i class="fas fa-star"></i></label>
+                            </div>
+                        </div>
+    
+    
+    
+                        <!-- Campo Mensagem ao centro -->
+                        <div class="form-group mensagem">
+                            <label for="mensagem">Mensagem:</label>
+                            <textarea id="mensagem" name="mensagem" placeholder="Como foi sua experiência?" required></textarea>
+                        </div>
+    
+                        <!-- Botão ao lado -->
+                        <div class="form-group botao">
+                            <button type="submit" class="botao-enviar">Enviar Avaliação</button>
                         </div>
                     </div>
-
-
-
-                    <!-- Campo Mensagem ao centro -->
-                    <div class="form-group mensagem">
-                        <label for="mensagem">Mensagem:</label>
-                        <textarea id="mensagem" name="mensagem" placeholder="Como foi sua experiência?" required></textarea>
-                    </div>
-
-                    <!-- Botão ao lado -->
-                    <div class="form-group botao">
-                        <button type="submit" class="botao-enviar">Enviar Avaliação</button>
-                    </div>
-
+                    
+                </form>
+            </div>
+            <div class="modal-sobre-nois-avaliado">
+                <div class="conteudo-modal">
+                    <i class="fa-solid fa-check"></i>
+                    <p>Avaliado com sucesso!</p>
                 </div>
-            </form>
+            </div>
+            <div class="modal-sobre-nois-not-avaliado">
+                <div class="conteudo-modal-not">
+                    <p>Você deve estar logado para avaliar!</p>
+                    <p>Realizar <a href="Login.php">Login</a></p>
+                </div> 
+            </div>
         </section>
 
     </main>

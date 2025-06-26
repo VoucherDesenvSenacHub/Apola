@@ -1398,6 +1398,16 @@ MEDIA QUERIES SOBRE */
 
 /* Estilo do formulário de avaliação - harmonizado com seção de comentários */
 
+.sessao-avaliacao{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    flex-direction: column;
+}
+
+
 /* Título */
 .avaliacao-titulo {
     text-align: center;
@@ -1860,3 +1870,91 @@ select {
     .sobre-nos p {
         font-size: 1.4rem;
     }*/
+
+
+/*Modal Sobre Nois */
+
+.modal-sobre-nois-avaliado-ative{
+    display: flex;
+    animation: suave 1s ease;
+    width: 100%;
+    justify-content: center;
+    /* background-color: #1a1a1a;    */
+    align-items: center; 
+    height: 200px;
+    position: absolute;
+    top: 0;
+    animation: suave 1s ease;
+    /* box-shadow: 0, 3px 5px rgba(0, 0, 0, 0.1); */
+    z-index: 10;
+    margin-bottom: 10px;  
+
+}
+.modal-sobre-nois-avaliado{
+    display: none;
+}
+.conteudo-modal{
+    width: 50%;
+    height: 100%;
+    display: flex;
+    background-color: #fff;
+    box-shadow: -1px -6px 20px 12px rgba(0, 0, 0, 0.3);
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    z-index: 3;
+    gap: 1rem;
+    border-radius: 20px;
+}
+.conteudo-modal i{
+    font-size: 80px;
+    color: #FA301E;
+}
+.conteudo-modal p{
+    font-size: 20px;
+}
+
+/*Segundo Modal*/
+.modal-sobre-nois-not-avaliado-ative{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    /* background-color: #1a1a1a;    */
+    align-items: center; 
+    height: 200px;
+    position: absolute;
+    top: 0;
+    animation: suave 1s ease;
+    box-shadow: 0, 3px 5px rgba(0, 0, 0, 0.1);
+    z-index: 10;
+    margin-bottom: 10px;
+}
+@keyframes suave{
+    from{
+        transform: translateY(50%);
+    }
+    to{
+        transform: translateY(0);
+    }
+}
+
+.modal-sobre-nois-not-avaliado{
+    display: none;
+}
+
+.conteudo-modal-not{
+    width: 50%;
+    height: 100%;
+    display: flex;
+    background-color: #fff;
+    box-shadow: -1px -6px 20px 12px rgba(0, 0, 0, 0.3);
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    z-index: 3;
+    gap: 1rem;
+    border-radius: 20px;
+}   
+.conteudo-modal-not p{
+    font-size: 20px;
+}

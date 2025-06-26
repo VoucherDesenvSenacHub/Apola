@@ -8,12 +8,14 @@ include "head.php";
 
 if (Login::IsLogedCliente()) {
     include 'navbar_logado.php';
+    echo '<script>sessionStorage.setItem("idcliente",'. $_SESSION['cliente']['id_cliente'] .')</script>';
 } 
 else {
     include 'navbar_deslogado.php';
+    echo'<script>sessionStorage.clear();</script>';
 }
 
-echo '<script>sessionStorage.setItem("idcliente",'. $_SESSION['cliente']['id_cliente'] .')</script>';
+
 
 $banner = new Banner();
 
