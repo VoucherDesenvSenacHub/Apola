@@ -120,12 +120,13 @@ else {
 
             <!-- Slides do Carrossel -->
             <div class="swiper_sobre">
-                <div class="swiper-wrapper">
 
                     <!-- Card dos Comentários -->
-   
-                    <div class="comentario swiper-slide">
-                        <!-- Avatar fictício -->
+                <div class="swiper-wrapper" id="carregar-avaliacoes-sobre-nois">
+
+                </div>
+                    <!-- <div class="comentario swiper-slide">
+                        Avatar fictício
                         <img class="avatar" src="../../src/imagens/sobre_nos/avatar_carlos.png" alt="Carlos Henrique"/>
                         <p class="nome">Carlos Henrique</p>
                         <div class="comentario-texto">
@@ -140,10 +141,10 @@ else {
                             <i class="fa-solid fa-star"></i>
                             <i class="fa-solid fa-star"></i>
                         </div>
-                    </div>
+                    </div> -->
 
-                    <div class="comentario swiper-slide">
-                        <!-- Avatar fictício -->
+                    <!-- <div class="comentario swiper-slide">
+                        Avatar fictício
                         <img src="../../src/imagens/sobre_nos/avatar_ana.png" alt="Ana Luiza" class="avatar">
                         <p class="nome">Ana Luiza</p>
                         <div class="comentario-texto">
@@ -157,9 +158,9 @@ else {
                             <i class="fa-solid fa-star"></i>
                             <i class="fa-solid fa-star"></i>
                         </div>
-                    </div>
-                    <div class="comentario swiper-slide">
-                        <!-- Avatar fictício -->
+                    </div> -->
+                    <!-- <div class="comentario swiper-slide">
+                        Avatar fictício
                         <img src="../../src/imagens/sobre_nos/lourdes.jpg" alt="Ana Luiza" class="avatar">
                         <p class="nome">Lourdes Rodrigues</p>
                         <div class="comentario-texto">
@@ -172,8 +173,7 @@ else {
                             <i class="fa-solid fa-star"></i>
                             <i class="fa-solid fa-star"></i>
                         </div>
-                    </div>
-                </div>
+                    </div> -->
             </div>
 
             <!-- Setinhas do Carrossel -->
@@ -213,10 +213,10 @@ else {
     
                         <!-- Campo Mensagem ao centro -->
                         <div class="form-group mensagem">
-                            <label for="mensagem">Mensagem:</label>
-                            <textarea id="mensagem" name="mensagem" placeholder="Como foi sua experiência?" required></textarea>
+                        <label for="mensagem">Avaliação:</label>
+                        <textarea maxlength="200" id="mensagem" name="mensagem" placeholder="Como foi sua experiência?" required oninput="atualizarContador()"></textarea>
+                        <small><span id="contador">0</span>/200 caracteres</small>
                         </div>
-    
                         <!-- Botão ao lado -->
                         <div class="form-group botao">
                             <button type="submit" class="botao-enviar">Enviar Avaliação</button>
@@ -235,6 +235,11 @@ else {
                 <div class="conteudo-modal-not">
                     <p>Você deve estar logado para avaliar!</p>
                     <p>Realizar <a href="Login.php">Login</a></p>
+                </div> 
+            </div>
+            <div class="modal-sobre-nois-sem-estrela">
+                <div class="conteudo-modal-sem-estrela">
+                    <p>Você deve inserir ao menos uma estrela para avaliar!</p>
                 </div> 
             </div>
         </section>

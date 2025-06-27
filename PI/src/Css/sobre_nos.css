@@ -349,7 +349,15 @@
 
 /* AREA CARDS AVALIAÇÂO SOBRE NÓS */
 
+.comentario-texto {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* background-color: orange;  */
+    max-width: 90%;
+    height: auto;
 
+}
 .card_avaliacao_sobre {
     display: flex;
     width: 100%;
@@ -399,10 +407,11 @@
     height: 100%; */
     justify-content: center;
     align-items: center;
+    text-align: center;
     width: 100%;
     height: 400px;
     max-width: 700px;
-    background-color: rgb(247, 247, 247);
+    background-color: rgb(255, 255, 255);
     border-radius: 5px;
     padding: 10px;
     box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
@@ -760,7 +769,12 @@
 }
 
 .justificar-texto{
-    text-align: justify;
+    width: 80%;
+    /* background-color: #1a1a1a;    */
+    text-align: 
+    center;
+    /* word-wrap: break-word; */
+    overflow-wrap: break-word; 
 }
 
 @media (max-width: 1000px){
@@ -772,7 +786,7 @@
 /* 
 MEDIA QUERIES SOBRE */
 
-@media (max-width: 550px) {
+@media (max-width: 660px) {
     /* AREA BANNER SOBRE NÓS */
 
 
@@ -1241,6 +1255,7 @@ MEDIA QUERIES SOBRE */
         height: 500px !important;
         flex-direction: column;
         align-items: center;
+        justify-content: center;
         text-align: center;
         background-color: #fff;
         border: 1px solid #ffeaa7;
@@ -1270,8 +1285,9 @@ MEDIA QUERIES SOBRE */
 
     /* Texto do comentário */
     .comentario-texto {
-        height: 500px !important;
-        /* background-color: #cc9933; */
+        height: auto;
+        width: 100%;
+        /* background-color: #f8a500; */
         overflow-y: auto;
         /* Ativa a rolagem se o texto for longo */
         padding-right: 10px;
@@ -1330,7 +1346,7 @@ MEDIA QUERIES SOBRE */
 
 }
 
-@media (min-width: 768px) and (max-width: 1190px) {
+@media (min-width: 620px) and (max-width: 1190px) {
     .avatar {
         width: 80px;
         height: 80px;
@@ -1424,6 +1440,7 @@ MEDIA QUERIES SOBRE */
     background-color: #f6f6f6; 
     /* background-color: orange; */
     padding: 10px; 
+    border-radius: 5px;
     
     
     /* Sombra mais ampla e gradual — mesma ideia usada no carrossel */
@@ -1448,20 +1465,21 @@ MEDIA QUERIES SOBRE */
     display: flex;
     width: 80%;
     gap: 20px;
-    flex-wrap: wrap;
+    flex-direction: column;
 }
 
 /* Campo Nota menor */
-/* .form-group.nota {
+.form-group.nota {
     flex: 1;
     display: flex;
     flex-direction: column;
-    width: 100%;    
-} */
+    width: 100%;  
+}
 
 
 .estrelas-avaliacao {
     display: flex;
+    justify-content: left;
     gap: 5px;
     direction: rtl; /* para selecionar da direita para a esquerda */
   }
@@ -1956,5 +1974,51 @@ select {
     border-radius: 20px;
 }   
 .conteudo-modal-not p{
+    font-size: 20px;
+}
+
+
+
+.modal-sobre-nois-sem-estrela-ative{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    /* background-color: #1a1a1a;    */
+    align-items: center; 
+    height: 200px;
+    position: absolute;
+    top: 0;
+    animation: suave 1s ease;
+    box-shadow: 0, 3px 5px rgba(0, 0, 0, 0.1);
+    z-index: 10;
+    margin-bottom: 10px;
+}
+@keyframes suave{
+    from{
+        transform: translateY(50%);
+    }
+    to{
+        transform: translateY(0);
+    }
+}
+
+.modal-sobre-nois-sem-estrela{
+    display: none;
+}
+
+.conteudo-modal-sem-estrela{
+    width: 50%;
+    height: 100%;
+    display: flex;
+    background-color: #fff;
+    box-shadow: -1px -6px 20px 12px rgba(0, 0, 0, 0.3);
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    z-index: 3;
+    gap: 1rem;
+    border-radius: 20px;
+}   
+.conteudo-modal-sem-estrela p{
     font-size: 20px;
 }

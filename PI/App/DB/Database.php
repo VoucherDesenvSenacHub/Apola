@@ -190,6 +190,24 @@ clASs Database{
         return $stmt;
     }
 
+    /*sobreNois*/
+
+    public function select_avaliacao_loja(){
+        $query = "SELECT avaliacao_loja.comentario, avaliacao_loja.notas, usuario.nome, cliente.sobrenome, cliente.foto_perfil
+        FROM avaliacao_loja JOIN cliente ON 
+        avaliacao_loja.id_cliente = cliente.id_cliente JOIN usuario ON cliente.id_usuario = usuario.id_usuario ORDER BY avaliacao_loja.id_avaliacao_loja DESC";
+        $stmt = $this->execute($query)->fetchAll(PDO::FETCH_ASSOC);
+        
+        if($stmt){
+            return $stmt;
+        }
+        else{
+            return false;
+        }
+
+
+    }
+
 
 
 

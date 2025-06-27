@@ -22,6 +22,13 @@ Class Avaliacao{
             return false;
         }
     }
-    
+
+    public function buscarAvaliacao(){
+        $db = new Database('avaliacao_loja');
+
+        $result = $db->select_avaliacao_loja();
+
+        return $result;
+    }
         
 }

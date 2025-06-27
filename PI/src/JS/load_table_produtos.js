@@ -279,7 +279,7 @@ async function handleTablesProdutos(event=null){
                         <a href="produtos_adm.php?id=${e.id_produto}"><i class="fa-solid fa-eye"></i></a>
                     </div>
             </td>
-            `;
+            `;  
         })
         
         
