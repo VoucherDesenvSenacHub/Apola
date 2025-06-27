@@ -4,9 +4,9 @@ session_start();
 include "nav_bar_adm.php";
 
 
-$id = $_GET['id'];
+$id = $_GET['search'];
 $buscar = new Pedido();
-$pedido_cliente = $buscar->buscar_by_id($id);
+$pedido_cliente = $buscar->buscar_pedido_by_id($id);
 
 // print_r($pedido_cliente);
 
@@ -17,7 +17,7 @@ $pedido_cliente = $buscar->buscar_by_id($id);
             <div class="Title_deafult_adm">
                 <div class="container_title_adm_left">
                 <a href="./listar_pedidos_adm.php" style="text-decoration: none; color: gray"><i class="fa-solid fa-chevron-left"></i></a>
-                    <span class="title_adm">Pedido #<?= $_GET['id']; ?></span>
+                    <span class="title_adm">Pedido #<?= $_GET['search']; ?></span>
                 </div>
                 <div class="container_title_adm_right">
                     <div class="conatiner_btn_adm mobile_btn_salvar">

@@ -1,9 +1,10 @@
 
-let dados_tabela = document.getElementById('dados')
-let html = "";
 
 async function load_table(){
     
+    let dados_tabela = document.getElementById('dados')
+    let html = "";
+
     let dados_php = await fetch('../../App/Session/carrega_tabela_pedido.php');
     let response = await dados_php.json();
 
@@ -20,11 +21,11 @@ async function load_table(){
         html += '<td>';
         if (response[i].Tipo === "disponivel"){
             html += '<div class="container_item_list_ações">';
-            html += `<a href="pedido_disponivel_adm.php?id=${response[i].ID}"><i class="fa-solid fa-eye"></i></a>`;
+            html += `<a href="pedido_disponivel_adm.php?search=${response[i].ID}"><i class="fa-solid fa-eye"></i></a>`;
         }
         if (response[i].Tipo === "personalizado"){
             html += '<div class="container_item_list_ações">';
-            html += `<a href="pedido_personalizado_adm.php?id=${response[i].ID}"><i class="fa-solid fa-eye"></i></a>`;
+            html += `<a href="pedido_personalizado_adm.php?search=${response[i].ID}"><i class="fa-solid fa-eye"></i></a>`;
         }
     }
     dados_tabela.innerHTML = html;
@@ -50,14 +51,47 @@ buttons.forEach(button => {
     });
 });
 
-let buscar_pedido = document.getElementById('input_search');
+var pesquisa = document.getElementById('input_search');
+pesquisa.addEventListener('input', function () {
+    const searchInput = this.value.trim();
 
-buscar_pedido.addEventListener('keypress', function(evento){
+    const xhr = new XMLHttpRequest();
+    xhr.open("GET", `../../App/Session/carrega_tabela_pedido.php?search=${encodeURIComponent(searchInput)}`, true);
 
-    let xhr = new XMLHttpRequest()
-    xhr.onload = function() {
-        console.log(this.responseText)
-    }
-    xhr.open("GET", "../../App/Session/Carrega.tabela.php", true);
+    xhr.onload = function () {
+        if (xhr.status === 200) {
+            const dados = JSON.parse(xhr.responseText);
+            const table = document.getElementById('dados');
+            let html = '';
+
+            if (Array.isArray(dados) && dados.length > 0) {
+                dados.forEach(e => {
+                    html += '<tr>';
+                    html += '<td>';
+                    html += e.ID;
+                    html += '<td>';
+                    html += e.Valor;
+                    html += '<td>';
+                    html += e.Tipo;
+                    html += '<td>';
+                    html += e.UF;
+                    html += '<td>';
+                    if (e.Tipo === "disponivel"){
+                        html += '<div class="container_item_list_ações">';
+                        html += `<a href="pedido_disponivel_adm.php?search=${e.ID}"><i class="fa-solid fa-eye"></i></a>`;
+                    }
+                    if (e.Tipo === "personalizado"){
+                        html += '<div class="container_item_list_ações">';
+                        html += `<a href="pedido_personalizado_adm.php?search=${e.ID}"><i class="fa-solid fa-eye"></i></a>`;
+                    }
+                    console.log(dados)
+                });
+            } else {
+                html += '<tr><td colspan="6">Nenhum resultado encontrado</td></tr>';
+            }
+
+            table.innerHTML = html;
+        }
+    };
     xhr.send();
-})
+});

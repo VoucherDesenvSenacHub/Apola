@@ -62,7 +62,6 @@ else{
                     <div class="container_listar_header_adm_right">
                         <input id="input_search" placeholder="Pesquisar produto" type="search" name="" id="">
                         <i class="fa-solid fa-magnifying-glass"></i>
-                        <button class="btn_search_listar">Buscar</button>
                     </div>
                     
 
