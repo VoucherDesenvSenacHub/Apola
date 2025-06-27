@@ -2,7 +2,12 @@
 require_once '../../App/DB/Database.php';
 
 class Pedido {
-
+    public int $id;
+    public DATETIME $data_pedido;
+    public string $tipo;
+    public string $status_pedido;
+    public string $codigo_rastreio;
+    
     public function cadastrar(){
         $db = new Database('pedido');
         $result = $db->insert([
@@ -17,13 +22,13 @@ class Pedido {
         ]);
     }
 
-    public static function buscar(){
-        return (new Database('pedido'))->select_pedido();
-        //return (new Database('pedido'))->select_pedido()->fetchAll(PDO::FETCH_ASSOC);
+    public static function buscar($where = ''){
+        return (new Database('pedido'))->select_pedido($where);
     }
+    
 
-    public static function buscar_by_id($id){
-        return (new Database('pedido'))->select_by_id($id)->fetchObject(self::class);
+    public static function buscar_pedido_by_id($id){
+        return (new Database('pedido'))->select_pedido_by_id($id)->fetchObject(self::class);
     }
 
     public function excluir($sacola_id){
