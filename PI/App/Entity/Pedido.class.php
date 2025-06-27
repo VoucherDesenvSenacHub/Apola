@@ -16,9 +16,8 @@ class Pedido {
         return $result ? true : false;
     }
 
-    public function atualizar($id_pedido){
-        return (new Database('pedido'))->update('id_pedido = ' .$id_pedido  ,[
-            $status_pedido =
+    public function atualizar(){
+        return (new Database('pedido'))->update('sacola_id_sacola = '.$this->sacola_id_sacola,[
         ]);
     }
 
