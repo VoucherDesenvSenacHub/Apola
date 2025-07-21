@@ -72,6 +72,9 @@ if (isset($_POST['logar'])) {
         $erro = 'Preencha todos os campos.';
     }
 }
+
+
+
 ?>
 
 <!DOCTYPE html>
