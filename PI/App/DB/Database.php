@@ -108,6 +108,8 @@ class Database{
         $query = 'SELECT '.$fields.' FROM '. $this->table.' '.$where.' '.$order.' '.$limit;
 
 
+
+
         // $query = 'SELECT * FROM '. $this->table.' '.$where.' '.$order.' '.$limit.;            
         return $this->execute($query);
         
@@ -299,7 +301,7 @@ class Database{
 
 
     public function select_produto_por_categoria($categoria){
-        $query =  "Select produto.imagem, produto.nome, produto.preco from produto Join categoria on produto.categoria_id_categoria = categoria.id_categoria where categoria.nome = '". $categoria. "' AND categoria.status_categoria = 'a' LIMIT 10  " ;
+        $query =  "Select * from produto Join categoria on produto.categoria_id_categoria = categoria.id_categoria where categoria.nome = '". $categoria. "' AND categoria.status_categoria = 'a' LIMIT 10  " ;
 
     
         return $result = $this->execute($query)->fetchAll(PDO::FETCH_ASSOC);
