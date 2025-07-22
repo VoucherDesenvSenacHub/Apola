@@ -264,7 +264,6 @@ $result = $produto->buscarProdutoPorId($id_produto);
             });
         });
 
-        // ✅ VERIFICAÇÃO DE LOGIN PARA BOTÃO COMPRAR
         const isClienteLogado = <?php echo Login::IsLogedCliente() ? 'true' : 'false'; ?>;
         const buyButtons = document.querySelectorAll('.btn_buy_produto');
 
