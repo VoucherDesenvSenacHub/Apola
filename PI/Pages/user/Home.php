@@ -25,6 +25,7 @@ $banner = new Banner();
 $bannerPrincipalPosicao1 = $banner->getBannerForPosicao('banners_principais',1);
 
 
+
 $bannerPrincipalPosicao2 = $banner->getBannerForPosicao('banners_principais',2);
 $bannerPrincipalPosicao3 = $banner->getBannerForPosicao('banners_principais',3);
 
@@ -44,12 +45,9 @@ $produtosAleatorios = Produto::buscarProdutoAleatorio();
 
 
 
-// print_r($produtosAleatorios);
-// exit;
-
 
 $categorias = Categoria::buscarCategoriaLimit('RAND()',null,3);
-print_r($categorias);
+
 $categoriasAll =  Categoria::buscarCategoriaLimit(null, 'BY RAND()',6);
 
 
@@ -60,10 +58,6 @@ foreach ($categorias as $categoria) {
     array_push($categoriaArray, $categoria->nome);
 
 }
-$produtoCategoria1 = Produto::buscarProdutoCategoria($categoriaArray[0]);
-$produtoCategoria2 = Produto::buscarProdutoCategoria($categoriaArray[1]);
-$produtoCategoria3 = Produto::buscarProdutoCategoria($categoriaArray[2]);
-
 
 
 
@@ -71,7 +65,7 @@ $produtoCategoria3 = Produto::buscarProdutoCategoria($categoriaArray[2]);
 
 ?>
 
-<!-- Started new branch 25 -->
+
 
 
 
@@ -105,17 +99,6 @@ $produtoCategoria3 = Produto::buscarProdutoCategoria($categoriaArray[2]);
         <!-- FIM BANNER PRINCIPAL -->
 
 
-
-
-        <!-- INICIO BANNER MENU -->
-        <!-- <div class="mySwiperMenu carrosel_menu">
-            <div class="swiper-wrapper swiper-wrapper_menu">
-              <div class="swiper-slide"><img src="../../src/imagens/img_banner_menu/1.png" alt=""></div>
-              <div class="swiper-slide"><img src="../../src/imagens/img_banner_menu/2.png" alt=""></div>
-              <div class="swiper-slide"><img src="../../src/imagens/img_banner_menu/3.png" alt=""></div>
-            </div>
-            <div class="swiper-pagination" style="--swiper-pagination-color:rgb(255, 255, 255);"></div>
-        </div> -->
 
 
 
