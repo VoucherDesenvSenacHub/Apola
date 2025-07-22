@@ -49,7 +49,7 @@ $produtosAleatorios = Produto::buscarProdutoAleatorio();
 
 
 $categorias = Categoria::buscarCategoriaLimit('RAND()',null,3);
-print_r($categorias);
+// print_r($categorias);
 $categoriasAll =  Categoria::buscarCategoriaLimit(null, 'BY RAND()',6);
 
 
