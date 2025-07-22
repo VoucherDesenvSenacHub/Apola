@@ -30,7 +30,8 @@ if($result){
                     </div>
                     <div class="barra-pesquisa">
                         <div class="container-barra">
-                            <input class="input-pesquisa" type="text" placeholder="Pesquise seu produto...">
+                        <input class="input-pesquisa" id="input-busca" type="text" placeholder="Pesquise seu produto...">
+                        <div id="resultado-busca" class="resultados-busca"></div>
                             <a href="#" class="btn-pesquisa">
                                     <i class="fa-solid fa-magnifying-glass"></i>
                             </a>
