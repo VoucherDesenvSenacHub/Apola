@@ -13,7 +13,6 @@ if (!$id) {
 
 $entity = new Pedido();
 $pedido_cliente = $entity->buscar_pedidoperso_by_id($id);
-print_r($pedido_cliente);
 
 if (!$pedido_cliente) {
     echo "Pedido personalizado não encontrado.";
