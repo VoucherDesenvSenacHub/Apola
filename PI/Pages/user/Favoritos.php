@@ -20,7 +20,13 @@ if($result){
 
 $id_cliente =  $_SESSION['cliente']['id_cliente'];
 
+
 $favoritos = Favoritos::getFavoritosByIdUser($id_cliente);
+
+
+
+// print_r($favoritos);
+// exit;
 
 
 
@@ -58,42 +64,54 @@ $favoritos = Favoritos::getFavoritosByIdUser($id_cliente);
                         <img src="../../src/imagens/banner/1.png" alt="">
                     </div>
                     <div class="item_conteudo_favoritos">
-                        
-                    <?php
+                        <?php
+                            if($favoritos){
+                                foreach ($favoritos as $produto) {
 
-                        foreach ($favoritos as $produto) {
-                            echo '
-                                <div class="swiper-slide card_produto">
-                                    <div class="icon_favorite">
-                                        <label class="checkbox-heart">
-                                            <input class="input-check" type="checkbox" data-status="'.$produto['status_favoritos'] .'" data-id="'.$produto['id_produto'].'" '.($produto['status_favoritos'] ? 'checked' : '').'>
-                                            <i class="fa-solid fa-heart"></i>
-                                        </label> 
-                                    </div>
-                                    <div class="img_content_produto">
-                                        <img src="'.$produto['imagem'].'" alt="">
-                                    </div>
-                                    <div class="conteudo_card">
-                                        <div class="nome_card_produto">'.htmlspecialchars($produto['produto_nome']).'</div>
-                                        <div class="content_star_icon">
-                                            <i class="fa-solid fa-star"></i>
-                                            <i class="fa-solid fa-star"></i>
-                                            <i class="fa-solid fa-star"></i>
-                                            <i class="fa-solid fa-star"></i>
-                                            <i class="fa-solid fa-star"></i>
+                                    echo'          
+                                    <div class="card_produto">
+                                        <div class="icon_favorite">
+                                            <label class="checkbox-heart">
+                                                <input class="input-check" type="checkbox" data-status="'.$produto['status_favoritos'] .'" data-id="'.$produto['id_produto'].'" '.($produto['status_favoritos'] ? 'checked' : '').'>
+                                                <i class="fa-solid fa-heart"></i>
+                                            </label> 
                                         </div>
-                                        <div class="preco_card_produto">R$ '.number_format($produto['preco'], 2, ',', '.').'</div>
-                                        <div class="btn_content_card_produto">
-                                            <div class="btn_bag_card"><i class="fa-solid fa-bag-shopping"></i></div>
-                                            <div class="btn_buy_card">Comprar</div>
+                                        <div class="img_content_produto">
+                                            <img src="'.$produto['imagem'].'" alt="">
+                                        </div>
+                                        <div class="conteudo_card">
+                                            <div class="nome_card_produto">'.htmlspecialchars($produto['produto_nome']).'</div>
+                                            <div class="content_star_icon">
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                                            </div>
+                                            <div class="preco_card_produto">R$ '.number_format($produto['preco'], 2, ',', '.').'</div>
+                                            <div class="btn_content_card_produto">
+                                                <div class="btn_bag_card"><i class="fa-solid fa-bag-shopping"></i></div>
+                                                <a href="./comprar_produto.php?id_produto='. $produto['id_produto'] .'"class="btn_buy_card">Comprar</a>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                            ';
-                        }
+    
+                                    ';
+                    
+                                }
+
+                            }else{
+
+                                echo '
+                                <div> Você ainda não favoritou nenhum produto </div>
+
+                                ';
+
+                            }
+                            
 
 
-                        ?>
+                        ?>   
 
                     </div>
 
@@ -105,7 +123,15 @@ $favoritos = Favoritos::getFavoritosByIdUser($id_cliente);
 
 
     </main>
+
+    
+
+
+    <script src="../../src/JS/favoritos.js"></script>
+
 <?php
+
+
 
 include "footer.php";
 

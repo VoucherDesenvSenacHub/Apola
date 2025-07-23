@@ -98,23 +98,17 @@ class Database{
 
     // Função para listar dados do banco de dados
     
-    public function select($where=null, $order=null, $limit=null, $fields = '*'){
+    public function select($where = null, $order = null, $limit = null, $fields = '*') {
 
-        $where = strlen($where) ? 'WHERE '.$where : '';
-        $order = strlen($order) ? 'ORDER '.$order : '';
-        $limit = strlen($limit) ? 'LIMIT '.$limit : '';
-
-        // COM FIELDS NA FUNÇÃO SELECT COMO PARAMENTRO = "$fields = '*'
-        $query = 'SELECT '.$fields.' FROM '. $this->table.' '.$where.' '.$order.' '.$limit;
-
-
-
-
-        // $query = 'SELECT * FROM '. $this->table.' '.$where.' '.$order.' '.$limit.;            
+        $where = !empty($where) ? 'WHERE ' . $where : '';
+        $order = !empty($order) ? 'ORDER ' . $order : '';
+        $limit = !empty($limit) ? 'LIMIT ' . $limit : '';
+    
+        $query = 'SELECT ' . $fields . ' FROM ' . $this->table . ' ' . $where . ' ' . $order . ' ' . $limit;
+    
         return $this->execute($query);
-        
     }
-
+    
 
 
     // Função para deletar dados do banco de dados
@@ -301,7 +295,19 @@ class Database{
 
 
     public function select_produto_por_categoria($categoria){
-        $query =  "Select * from produto Join categoria on produto.categoria_id_categoria = categoria.id_categoria where categoria.nome = '". $categoria. "' AND categoria.status_categoria = 'a' LIMIT 10  " ;
+        $query =  "Select 
+            favoritos.status_favoritos, 
+            produto.id_produto, 
+            categoria.nome AS categoria_nome, 
+            produto.imagem, 
+            produto.nome AS produto_nome, 
+            produto.preco 
+        FROM produto
+        JOIN categoria on produto.categoria_id_categoria = categoria.id_categoria 
+        LEFT JOIN favoritos ON produto.id_produto = favoritos.produto_id_produto
+        WHERE
+        categoria.nome = '". $categoria. "' 
+        AND categoria.status_categoria = 'a' LIMIT 10  " ;
 
     
         return $result = $this->execute($query)->fetchAll(PDO::FETCH_ASSOC);
@@ -338,18 +344,21 @@ class Database{
     public function select_produto_favoritos($id_cliente)
     {
 
-        $query = "SELECT 
-                favoritos.status_favoritos, 
-                produto.id_produto, 
-                categoria.nome AS categoria_nome, 
-                produto.imagem, 
-                produto.nome AS produto_nome, 
-                produto.preco 
-            FROM produto 
-            JOIN categoria ON produto.categoria_id_categoria = categoria.id_categoria 
-            LEFT JOIN favoritos ON produto.id_produto = favoritos.produto_id_produto 
-                AND favoritos.cliente_id_cliente = " . (int)$id_cliente . "
-            WHERE produto.status_produto = 'a';
+        $query = "
+        SELECT 
+            favoritos.status_favoritos, 
+            produto.id_produto, 
+            categoria.nome AS categoria_nome, 
+            produto.imagem, 
+            produto.nome AS produto_nome, 
+            produto.preco 
+        FROM produto 
+        JOIN categoria ON produto.categoria_id_categoria = categoria.id_categoria 
+        JOIN favoritos ON produto.id_produto = favoritos.produto_id_produto 
+        WHERE 
+            favoritos.status_favoritos = 'a'
+            AND favoritos.cliente_id_cliente = '$id_cliente'
+
         ";
 
 

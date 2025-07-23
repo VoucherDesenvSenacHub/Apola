@@ -47,6 +47,7 @@ $categorias = Categoria::buscarCategoriaLimit(null,'BY RAND()',3);
 $categoriasAll =  Categoria::buscarCategoriaLimit(null, 'BY RAND()',6);
 
 
+
 $categoriaArray = array();
 
 foreach ($categorias as $categoria) {
@@ -60,6 +61,10 @@ $produtoCategoria1 = Produto::buscarProdutoCategoria($categoriaArray[0]);
 $produtoCategoria2 = Produto::buscarProdutoCategoria($categoriaArray[1]);
 $produtoCategoria3 = Produto::buscarProdutoCategoria($categoriaArray[2]);
 
+// print_r($produtoCategoria1);
+
+// print_r('========================================================================================');
+// exit;
 
 
 ?>
@@ -143,7 +148,7 @@ $produtoCategoria3 = Produto::buscarProdutoCategoria($categoriaArray[2]);
                 <div class="btn_prev_card"><i class="fa-solid default_btn_icon_card fa-chevron-left"></i></div>
                 <div class="btn_next_card"><i class="fa-solid default_btn_icon_card fa-chevron-right"></i></div>
             </div>
-            <div class="swiper-wrapper">
+            <div class="swiper-wrapper ">
 
                 <?php
 
@@ -242,29 +247,28 @@ $produtoCategoria3 = Produto::buscarProdutoCategoria($categoriaArray[2]);
                             <div class="swiper-slide card_produto">
                                 <div class="icon_favorite">
                                     <label class="checkbox-heart">
-                                        <input type="checkbox">
+                                        <input class="input-check" type="checkbox" data-status="'.$produto['status_favoritos'] .'" data-id="'.$produto['id_produto'].'" '.($produto['status_favoritos'] ? 'checked' : '').'>
                                         <i class="fa-solid fa-heart"></i>
                                     </label> 
                                 </div>
-                                <!-- <a style="text-decoration:none;" class="link_produto_home" href="./comprar_produto.php"> -->
-                                    <div class="img_content_produto">
-                                        <img src=" '.$produto['imagem'].' " alt="">
+                                <div class="img_content_produto">
+                                    <img src="'.$produto['imagem'].'" alt="">
+                                </div>
+                                <div class="conteudo_card">
+                                    <div class="nome_card_produto">'.htmlspecialchars($produto['produto_nome']).'</div>
+                                    <div class="content_star_icon">
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
                                     </div>
-                                    <div class="conteudo_card">
-                                        <div class="nome_card_produto">'. $produto['nome'] .'</div>
-                                        <div class="content_star_icon">
-                                            <i class="fa-solid fa-star"></i>
-                                            <i class="fa-solid fa-star"></i>
-                                            <i class="fa-solid fa-star"></i>
-                                            <i class="fa-solid fa-star"></i>
-                                            <i class="fa-solid fa-star"></i>
-                                        </div>
-                                        <div class="preco_card_produto">R$ '. $produto['preco'] .'</div>
-                                        <div class="btn_content_card_produto">
-                                            <div class="btn_bag_card"><i class="fa-solid fa-bag-shopping"></i><a href="./comprar_produto.php?id_produto='.$produto['id_produto'].'"class="btn_buy_card">Comprar</a>
-                                        </div>
+                                    <div class="preco_card_produto">R$ '.number_format($produto['preco'], 2, ',', '.').'</div>
+                                    <div class="btn_content_card_produto">
+                                        <div class="btn_bag_card"><i class="fa-solid fa-bag-shopping"></i></div>
+                                        <a href="./comprar_produto.php?id_produto='. $produto['id_produto'] .'"class="btn_buy_card">Comprar</a>
                                     </div>
-                                <!-- </a> -->
+                                </div>
                             </div>
                             ';
                         }
@@ -305,30 +309,28 @@ $produtoCategoria3 = Produto::buscarProdutoCategoria($categoriaArray[2]);
                             <div class="swiper-slide card_produto">
                                 <div class="icon_favorite">
                                     <label class="checkbox-heart">
-                                        <input type="checkbox">
+                                        <input class="input-check" type="checkbox" data-status="'.$produto['status_favoritos'] .'" data-id="'.$produto['id_produto'].'" '.($produto['status_favoritos'] ? 'checked' : '').'>
                                         <i class="fa-solid fa-heart"></i>
                                     </label> 
                                 </div>
-                                <!-- <a style="text-decoration:none;" class="link_produto_home" href="./comprar_produto.php"> -->
-                                    <div class="img_content_produto">
-                                        <img src=" '.$produto['imagem'].' " alt="">
+                                <div class="img_content_produto">
+                                    <img src="'.$produto['imagem'].'" alt="">
+                                </div>
+                                <div class="conteudo_card">
+                                    <div class="nome_card_produto">'.htmlspecialchars($produto['produto_nome']).'</div>
+                                    <div class="content_star_icon">
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
                                     </div>
-                                    <div class="conteudo_card">
-                                        <div class="nome_card_produto">'. $produto['nome'] .'</div>
-                                        <div class="content_star_icon">
-                                            <i class="fa-solid fa-star"></i>
-                                            <i class="fa-solid fa-star"></i>
-                                            <i class="fa-solid fa-star"></i>
-                                            <i class="fa-solid fa-star"></i>
-                                            <i class="fa-solid fa-star"></i>
-                                        </div>
-                                        <div class="preco_card_produto">R$ '. $produto['preco'] .'</div>
-                                        <div class="btn_content_card_produto">
-                                            <div class="btn_bag_card"><i class="fa-solid fa-bag-shopping"></i></div>
-                                            <div class="btn_buy_card">Comprar</div>
-                                        </div>
+                                    <div class="preco_card_produto">R$ '.number_format($produto['preco'], 2, ',', '.').'</div>
+                                    <div class="btn_content_card_produto">
+                                        <div class="btn_bag_card"><i class="fa-solid fa-bag-shopping"></i></div>
+                                        <a href="./comprar_produto.php?id_produto='. $produto['id_produto'] .'"class="btn_buy_card">Comprar</a>
                                     </div>
-                                <!-- </a> -->
+                                </div>
                             </div>
                             ';
                         }
@@ -380,30 +382,28 @@ $produtoCategoria3 = Produto::buscarProdutoCategoria($categoriaArray[2]);
                             <div class="swiper-slide card_produto">
                                 <div class="icon_favorite">
                                     <label class="checkbox-heart">
-                                        <input type="checkbox">
+                                        <input class="input-check" type="checkbox" data-status="'.$produto['status_favoritos'] .'" data-id="'.$produto['id_produto'].'" '.($produto['status_favoritos'] ? 'checked' : '').'>
                                         <i class="fa-solid fa-heart"></i>
                                     </label> 
                                 </div>
-                                <!-- <a style="text-decoration:none;" class="link_produto_home" href="./comprar_produto.php"> -->
-                                    <div class="img_content_produto">
-                                        <img src=" '.$produto['imagem'].' " alt="">
+                                <div class="img_content_produto">
+                                    <img src="'.$produto['imagem'].'" alt="">
+                                </div>
+                                <div class="conteudo_card">
+                                    <div class="nome_card_produto">'.htmlspecialchars($produto['produto_nome']).'</div>
+                                    <div class="content_star_icon">
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
                                     </div>
-                                    <div class="conteudo_card">
-                                        <div class="nome_card_produto">'. $produto['nome'] .'</div>
-                                        <div class="content_star_icon">
-                                            <i class="fa-solid fa-star"></i>
-                                            <i class="fa-solid fa-star"></i>
-                                            <i class="fa-solid fa-star"></i>
-                                            <i class="fa-solid fa-star"></i>
-                                            <i class="fa-solid fa-star"></i>
-                                        </div>
-                                        <div class="preco_card_produto">R$ '. $produto['preco'] .'</div>
-                                        <div class="btn_content_card_produto">
-                                            <div class="btn_bag_card"><i class="fa-solid fa-bag-shopping"></i></div>
-                                            <div class="btn_buy_card">Comprar</div>
-                                        </div>
+                                    <div class="preco_card_produto">R$ '.number_format($produto['preco'], 2, ',', '.').'</div>
+                                    <div class="btn_content_card_produto">
+                                        <div class="btn_bag_card"><i class="fa-solid fa-bag-shopping"></i></div>
+                                        <a href="./comprar_produto.php?id_produto='. $produto['id_produto'] .'"class="btn_buy_card">Comprar</a>
                                     </div>
-                                <!-- </a> -->
+                                </div>
                             </div>
                             ';
                         }
