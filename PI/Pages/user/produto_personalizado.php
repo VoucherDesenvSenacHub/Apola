@@ -108,7 +108,7 @@ if($result){
         </form>
         <div class="modal-enviado">
             <div class="area-btn-fechar">
-                <button class="btn-fechar-modal">X</button>
+                <button class="btn-fechar-modal"><i class="fa-solid fa-xmark"></i></button>
             </div>
             <div class="corpo-modal-enviado">
                 <h5 class="title_modal_zap">Pedido enviado</h5>

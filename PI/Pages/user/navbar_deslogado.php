@@ -54,15 +54,11 @@
                     </div>
 
                     <div class="content-conteudo-mobile">
-                        <h5>Destaque</h5>
+                        <h5>Destaques</h5>
                         <ul>
                             <li>
                                 <i class="fa-solid fa-fire"></i>
-                                <a href="./home.php">Mais Vendidos</a>
-                            </li>
-                            <li>
-                                <i class="fa-solid fa-dollar-sign"></i>
-                                <a href="./home.php">Ofertas</a>
+                                <a href="./home.php">Em Alta</a>
                             </li>
                             <li>
                                 <i class="fa-solid fa-box"></i>
@@ -75,60 +71,22 @@
                         </ul>
                         <h5>Categorias</h5>
                         <ul>
-                            <li class="categoria-content-mobile-items">
-                                <a href="./cate">Amigurumi</a>
-                                <i class="fa-solid fa-chevron-right"></i>
-                            </li>
-                            <div class="submenu-drop-mobile">
-                                <ul class="dropdown__menu">
-                                    <div class="btn-voltar-submenu">
-                                        <i class="fa-solid fa-chevron-left"></i><p class="text-submenu-voltar">voltar</p>
-                                    </div>
-                                    <li><a class="drop__link" href="#">Amigurumi Cacto</a></li>
-                                    <li><a class="drop__link" href="#">Amigurumi Urso</a></li>
-                                </ul>
-                            </div>
-                        
-                            <li class="categoria-content-mobile-items">
-                                <a href="#">Cachepô</a>
-                                <i class="fa-solid fa-chevron-right"></i>
-                            </li>
-                            <div class="submenu-drop-mobile">
-                                <ul class="dropdown__menu">
-                                    <div class="btn-voltar-submenu">
-                                        <i class="fa-solid fa-chevron-left"></i><p class="text-submenu-voltar">voltar</p>
-                                    </div>
-                                    <li><a class="drop__link" href="#">Cachepô Bolsa</a></li>
-                                    <li><a class="drop__link" href="#">Cachepô Tapete</a></li>
-                                </ul>
-                            </div>
-                        
-                            <li class="categoria-content-mobile-items">
-                                <a href="#">Porta-Chaves</a>
-                                <i class="fa-solid fa-chevron-right"></i>
-                            </li>
-                            <div class="submenu-drop-mobile">
-                                <ul class="dropdown__menu">
-                                    <div class="btn-voltar-submenu">
-                                        <i class="fa-solid fa-chevron-left"></i><p class="text-submenu-voltar">voltar</p>
-                                    </div>
-                                    <li><a class="drop__link" href="#">Porta-Chaves de raposa</a></li>
-                                    <li><a class="drop__link" href="#">Porta-Chaves de raposa</a></li>
-                                </ul>
-                            </div>
-                            <li class="categoria-content-mobile-items">
-                                <a href="#">Bordado</a>
-                                <i class="fa-solid fa-chevron-right"></i>
-                            </li>
-                            <div class="submenu-drop-mobile">
-                                <ul class="dropdown__menu">
-                                    <div class="btn-voltar-submenu">
-                                        <i class="fa-solid fa-chevron-left"></i><p class="text-submenu-voltar">voltar</p>
-                                    </div>
-                                    <li><a class="drop__link" href="#">Bordado paisagem</a></li>
-                                    <li><a class="drop__link" href="#">Bordado paisagem</a></li>
-                                </ul>
-                            </div>
+                        <?php
+                                    foreach ($categorias as $categoria) {
+                                        
+                                        echo'
+
+                                            <li class="categoria-content-mobile-items">
+                                                <a href="./categorias.php?id_categoria='. $categoria->id_categoria .'" >'.$categoria->nome.'</a>
+                                                <i class="fa-solid fa-chevron-right"></i>
+                                            </li>
+
+
+                                        ';
+
+                                    }
+
+                                ?>
                         </ul>
                         
                     </div>

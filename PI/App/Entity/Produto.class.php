@@ -3,6 +3,7 @@ require_once(__DIR__ . '/../DB/Database.php');
 
 
 class Produto{
+    public int $id_produto;
     public string $nome;
     public float $preco;
     public ?string $avaliacao;
