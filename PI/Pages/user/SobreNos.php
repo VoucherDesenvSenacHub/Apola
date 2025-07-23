@@ -116,7 +116,7 @@ else {
 
         <!-- SEÇÃO DE COMENTÁRIOS DOS USUÁRIOS -->
         <section class="comentarios-container content_card_avalicao_sobre"> <!-- Define o Formato do Container -->
-            <h2>O que dizem sobre nós</h2>
+        <div class="title_text_about"> O que dizem <span class="title_text_about2"> sobre nós?</span></div>
 
             <!-- Slides do Carrossel -->
             <div class="swiper_sobre">
@@ -193,13 +193,13 @@ else {
         
         <!-- Container da avaliação -->
         <section class="sessao-avaliacao">
-            <h2 class="avaliacao-titulo">Deixe sua Avaliação</h2>
+        <div class="title_text_about"> Deixe sua <span class="title_text_about2"> Avaliação</span></div>
             <div class="avaliacao-container">
                 
                 <form class="avaliacao-form" id="formulario_avaliacao" method="POST">
                     <div class="form-row">
                         <div class="form-group nota">
-                            <label for="nota">Nota:</label>
+
                             <div class="estrelas-avaliacao">
                                 <input type="radio" id="estrela5" name="nota" value="5"><label for="estrela5"><i class="fas fa-star"></i></label>
                                 <input type="radio" id="estrela4" name="nota" value="4"><label for="estrela4"><i class="fas fa-star"></i></label>
@@ -213,7 +213,6 @@ else {
     
                         <!-- Campo Mensagem ao centro -->
                         <div class="form-group mensagem">
-                        <label for="mensagem">Avaliação:</label>
                         <textarea maxlength="200" id="mensagem" name="mensagem" placeholder="Como foi sua experiência?" required oninput="atualizarContador()"></textarea>
                         <small><span id="contador">0</span>/200 caracteres</small>
                         </div>

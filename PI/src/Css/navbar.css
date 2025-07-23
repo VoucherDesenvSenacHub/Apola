@@ -542,18 +542,25 @@ Area Responsiva */
     font-weight: 600;
     text-decoration: none;
     font-size: 16px;
+    gap: 0.7rem;
+    align-items: center;
+    display: flex;
   }
 
   .content-mobile-btn-login-cad .btn-cadastro-mobile{
     background-color: transparent;
     border: 2px solid #FA301E;
     outline: none;
+
     
   }
 
   .content-mobile-btn-login-cad .btn-cadastro-mobile a{
     color: #FA301E;
+    display: flex;
+    gap: 0.7rem;
     font-weight: 600;
+    align-items: center;
 
   }
 

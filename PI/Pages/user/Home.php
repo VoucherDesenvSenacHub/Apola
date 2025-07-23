@@ -143,7 +143,7 @@ $produtoCategoria3 = Produto::buscarProdutoCategoria($categoriaArray[2]);
         <!-- INICIO 1* CARDS PRODUTOS -->
         <section class="card_produtos">
         <div class="swiper">
-            <div class="Title_card_produto">Destaques</div>
+            <div class="Title_card_produto">Em Alta</div>
             <div class="btn_card_produto">
                 <div class="btn_prev_card"><i class="fa-solid default_btn_icon_card fa-chevron-left"></i></div>
                 <div class="btn_next_card"><i class="fa-solid default_btn_icon_card fa-chevron-right"></i></div>
