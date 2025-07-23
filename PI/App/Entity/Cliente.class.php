@@ -11,8 +11,8 @@ class Cliente extends User{
     public string $nome;
     public string $sobrenome;
     public ?string $foto_perfil;
-    public int $cpf;
-    public ?string $telefone;
+    public string $cpf;
+    public string $telefone;
     public ?string $cep;
     public ?string $rua;
     public ?int $numero_casa;
@@ -41,14 +41,14 @@ class Cliente extends User{
             ]
         );
         $db = new Database('cliente');
-        $res = $db->insert(
-            [
-                'sobrenome' => $this->sobrenome,
-                'cep' => $this->cep,
-                'cpf' => $this->cpf,
-                'id_usuario' => $res_id
-            ]
-            );
+        $res = $db->insert([
+            'sobrenome' => $this->sobrenome,
+            'cep' => $this->cep,
+            'cpf' => $this->cpf,
+            'telefone' => $this->telefone, // ← ESSA LINHA AQUI
+            'id_usuario' => $res_id
+        ]);
+
 
         
         return $res;

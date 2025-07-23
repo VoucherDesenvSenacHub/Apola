@@ -1,53 +1,31 @@
 document.addEventListener("DOMContentLoaded", function () {
-    const form = document.querySelector("form");
+    // === MÁSCARA CPF ===
+    const cpfInput = document.getElementById('cpf-cad');
+    cpfInput.addEventListener('input', function () {
+        let valor = this.value.replace(/\D/g, '');
+        if (valor.length > 11) valor = valor.slice(0, 11);
+        valor = valor.replace(/(\d{3})(\d)/, '$1.$2');
+        valor = valor.replace(/(\d{3})(\d)/, '$1.$2');
+        valor = valor.replace(/(\d{3})(\d{1,2})$/, '$1-$2');
+        this.value = valor;
+    });
 
-    const campos = [
-        { id: "nome-cad", nome: "Nome" },
-        { id: "sobrenome-cad", nome: "Sobrenome" },
-        { id: "email-cad", nome: "E-mail", tipo: "email" },
-        { id: "cpf-cad", nome: "CPF", tipo: "cpf" },
-        { id: "cep-cad", nome: "CEP", tipo: "cep" },
-        { id: "senha-cad", nome: "Senha", tipo: "senha" }
-    ];
+    // === MÁSCARA TELEFONE ===
+    const telefoneInput = document.getElementById('telefone-cad');
+    telefoneInput.addEventListener('input', function () {
+        let valor = this.value.replace(/\D/g, '');
+        if (valor.length > 11) valor = valor.slice(0, 11);
+        valor = valor.replace(/^(\d{2})(\d)/, '($1) $2');
+        valor = valor.replace(/(\d{5})(\d{4})$/, '$1-$2');
+        this.value = valor;
+    });
 
-    form.addEventListener("submit", function (e) {
-        let valido = true;
-
-        campos.forEach(campo => {
-            const input = document.getElementById(campo.id);
-            const erroDiv = document.getElementById("erro-" + campo.id.replace("-cad", ""));
-            const valor = input.value.trim();
-            let erro = "";
-
-            input.classList.remove("input-erro");
-            erroDiv.textContent = "";
-
-            if (!valor) {
-                erro = campo.nome + " é obrigatório.";
-            } else {
-                if (campo.tipo === "email" && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(valor)) {
-                    erro = "E-mail inválido.";
-                }
-                if (campo.tipo === "cpf" && !/^\d{11}$/.test(valor)) {
-                    erro = "CPF inválido.";
-                }
-                if (campo.tipo === "cep" && !/^\d{8}$/.test(valor)) {
-                    erro = "CEP inválido.";
-                }
-                if (campo.tipo === "senha" && valor.length < 6) {
-                    erro = "Senha deve ter pelo menos 6 caracteres.";
-                }
-            }
-
-            if (erro) {
-                input.classList.add("input-erro");
-                erroDiv.textContent = erro;
-                valido = false;
-            }
-        });
-
-        if (!valido) {
-            e.preventDefault(); // Impede o envio se houver erro
-        }
+    // === MÁSCARA CEP ===
+    const cepInput = document.getElementById('cep-cad');
+    cepInput.addEventListener('input', function () {
+        let valor = this.value.replace(/\D/g, '');
+        if (valor.length > 8) valor = valor.slice(0, 8);
+        valor = valor.replace(/^(\d{5})(\d)/, '$1-$2');
+        this.value = valor;
     });
 });

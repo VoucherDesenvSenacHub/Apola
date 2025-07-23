@@ -5,12 +5,15 @@ include "nav_bar_adm.php";
 
 require_once '../../App/config.inc.php';
 require_once '../../App/Session/Login.php';
+require_once '../../App/Entity/Produto.class.php';  // <-- mantive exatamente como você tinha
+
 $result = Login::IsLogedAdm();
 if($result){
     $id_administrador = $_SESSION['administrador']['id_administrador'];
 }
 else{
     header('location: ../user/login.php');
+    exit;
 }
 
 $errTitulo = "";
@@ -23,24 +26,32 @@ $errCor = "";
 $errAltura = "";
 $errLargura = "";
 $errEstoque = "";
+
 if(isset($_GET['id'])){
     $id_produto = $_GET['id'];
+} else {
+    header('location: listar_produtos_adm.php');
+    exit;
 }
-$entity = new Produto();
-$produto = $entity->buscarProdutoPorId($id_produto);
+
+$produto = Produto::buscarProdutoPorId($id_produto);
+
+if (!$produto) {
+    echo "<script>alert('Produto não encontrado!'); window.location.href='listar_produtos_adm.php';</script>";
+    exit;
+}
 
 if (isset($_POST['carregarDadosProduto'])) {
-    $titulo = $_POST['tituloProduto'];
-    $status = $_POST['selectStatus'];
-    $categoria = $_POST['selectCategoria'];
-    $descricao = $_POST['descricaoProduto'];
-    $cor = $_POST['corProduto'];
-    $altura = $_POST['alturaProduto'];
-    $largura = $_POST['larguraProduto'];
-    $estoque = $_POST['estoqueProduto'];
-    $preco = $_POST['precoProduto'];
+    $titulo = $_POST['tituloProduto'] ?? '';
+    $status = $_POST['selectStatus'] ?? '';
+    $categoria = $_POST['selectCategoria'] ?? '';
+    $descricao = $_POST['descricaoProduto'] ?? '';
+    $cor = $_POST['corProduto'] ?? '';
+    $altura = $_POST['alturaProduto'] ?? '';
+    $largura = $_POST['larguraProduto'] ?? '';
+    $estoque = $_POST['estoqueProduto'] ?? '';
+    $preco = $_POST['precoProduto'] ?? '';
 
-    // Validações simples
     if (empty($titulo)) $errTitulo = "Adicione um título";
     if (empty($status)) $errStatus = "Escolha o status";
     if (empty($categoria)) $errCategoria = "Escolha uma categoria";
@@ -51,12 +62,10 @@ if (isset($_POST['carregarDadosProduto'])) {
     if (empty($estoque)) $errEstoque = "Adicione um estoque";
     if (empty($preco)) $errPreco = "Adicione um preço";
 
-    // Só continua se todos os campos estiverem preenchidos
     if (empty($errTitulo) && empty($errStatus) && empty($errCategoria) && empty($errDescricao) && empty($errCor) && empty($errAltura) && empty($errLargura) && empty($errEstoque) && empty($errPreco)) {
         
         $imagemNova = false;
 
-        // Trata imagem, se uma nova for enviada
         if (isset($_FILES['imagemProduto']) && $_FILES['imagemProduto']['error'] === UPLOAD_ERR_OK && $_FILES['imagemProduto']['size'] > 0) {
             $extensoesPermitidas = ['png', 'jpg', 'jpeg', 'jfif'];
             $pastaDestino = '../../src/imagens/produtos/';
@@ -71,23 +80,25 @@ if (isset($_POST['carregarDadosProduto'])) {
                 $caminhoFinal = $pastaDestino . $novoNome;
 
                 if (move_uploaded_file($imagem['tmp_name'], $caminhoFinal)) {
-                    // Apaga imagem anterior, se for diferente
-                    if (file_exists($produto->imagem) && $produto->imagem !== $caminhoFinal) {
-                        unlink($produto->imagem);
+                    $nomeSalvoNoBanco = 'src/imagens/produtos/' . $novoNome;
+
+                    $caminhoAntigo = '../../' . $produto->imagem;
+                    if (file_exists($caminhoAntigo) && $produto->imagem !== $nomeSalvoNoBanco) {
+                        unlink($caminhoAntigo);
                     }
-                    $imagemNova = $caminhoFinal;
+
+                    $imagemNova = $nomeSalvoNoBanco;
                 } else {
                     $errImagem = "Falha ao mover a imagem para o destino.";
                 }
             }
         }
 
-        // Se não houve erro de imagem, continua
         if (empty($errImagem)) {
             $entity = new Produto();
             $entity->nome = $titulo;
             $entity->preco = $preco;
-            $entity->avaliacao = ""; // Se não for usado, pode remover
+            $entity->avaliacao = $produto->avaliacao ?? null;
             $entity->quantidade = $estoque;
             $entity->cor = $cor;
             $entity->altura = $altura;
@@ -100,8 +111,8 @@ if (isset($_POST['carregarDadosProduto'])) {
 
             $resultado = $entity->atualizarProduto($id_produto);
             if ($resultado) {
+                $produto = Produto::buscarProdutoPorId($id_produto);
                 $mostrarModal = true;
-                echo '<meta http-equiv="refresh" content="1.9">';
             } else {
                 echo "<script>
                     Swal.fire({
@@ -115,15 +126,15 @@ if (isset($_POST['carregarDadosProduto'])) {
         }
     }
 }
-
 ?>
-<body>   
+
+<body>
     <main class="main_adm">
         <form method="POST" enctype="multipart/form-data" class="conatiner_dashbord_adm">
             <div class="Title_deafult_adm">
                 <div class="container_title_adm_left">
                     <a href="./listar_produtos_adm.php" style="text-decoration: none; color: #ccc"><i class="fa-solid fa-chevron-left"></i></a>
-                    <span class="title_adm">Produto N°<?= $id_produto; ?></span>
+                    <span class="title_adm">Produto N°<?= htmlspecialchars($id_produto); ?></span>
                 </div>
             </div>
             <div class="conatiner_cadastro_adm_items">
@@ -131,18 +142,18 @@ if (isset($_POST['carregarDadosProduto'])) {
                     <div class="conatiner_cadastro_adm_items_header_left">
                         <div class="item_flex_adm">
                             <label for="">Titulo</label>
-                            <input type="text" name="tituloProduto" value="<?= $produto->nome; ?>">
+                            <input type="text" name="tituloProduto" value="<?= htmlspecialchars($produto->nome); ?>">
                             <p class="text_tamanho_img" style="color:red;"> <?= $errTitulo; ?> </p>
                         </div>
                         <div class="item_flex_adm">
                             <label for="">Status</label>
                             <select name="selectStatus" id="selectStatus">
                                 <?php if($produto->status_produto === "a"): ?>
-                                    <option value="ativo" selected>Ativo</option>
-                                    <option value="inativo">Inativo</option>
+                                    <option value="a" selected>Ativo</option>
+                                    <option value="i">Inativo</option>
                                 <?php else: ?>
-                                    <option value="ativo">Ativo</option>
-                                    <option value="inativo" selected>Inativo</option>
+                                    <option value="a">Ativo</option>
+                                    <option value="i" selected>Inativo</option>
                                 <?php endif; ?>
                             </select>
                             <p class="text_tamanho_img" style="color:red;"> <?= $errStatus; ?> </p>
@@ -150,116 +161,118 @@ if (isset($_POST['carregarDadosProduto'])) {
                         <div class="item_flex_adm">
                             <label for="">Categoria</label>
                             <script>
-                                const categoriaSelecionada = <?= $produto->categoria_id_categoria ?>;
+                                const categoriaSelecionada = <?= (int)$produto->categoria_id_categoria ?>;
                             </script>
                             <select name="selectCategoria" id="dadosTodasCategoria">
-                                <!-- <option value="">Amigurumi</option>
-                                <option value="">Cachepô</option> -->
+                                <!-- Sua lógica atual para carregar as categorias -->
                             </select>
                             <p class="text_tamanho_img" style="color:red;"> <?= $errCategoria; ?> </p>
                         </div>
                         <div class="item_flex_adm">
                             <label for="">Descrição</label>
-                            <textarea name="descricaoProduto" id="" value=""><?= $produto->descricao ?></textarea>
+                            <textarea name="descricaoProduto"><?= htmlspecialchars($produto->descricao) ?></textarea>
                             <p class="text_tamanho_img" style="color:red;"> <?= $errDescricao; ?> </p>
                         </div>
-                        
                     </div>
                     <div class="conatiner_cadastro_adm_items_header_right">
                         <div class="conatiner_img_add_adm add_img_categoria">
-                                <img  class="imagemCategoria-active" src="<?= $produto->imagem; ?>" alt="" id="preview_img">
-                                <input type="file" name="imagemProduto" id="imgInput"  class="imagemCategoria" >
-                            </div>
-                            <p>Clique na Imagem para Trocar <i class="fa-solid fa-pencil"></i></p>
-                            <p style="color: red;"><?= $errImagem;?></p>
+                            <label for="imgInput" style="cursor: pointer;">
+                                <img class="imagemCategoria-active" src="<?= htmlspecialchars($produto->imagem); ?>" alt="Imagem do Produto" id="preview_img" />
+                            </label>
+                            <input type="file" name="imagemProduto" id="imgInput" style="display: none;" accept="image/*">
+                        </div>
+                        <p>Clique na Imagem para Trocar <i class="fa-solid fa-pencil"></i></p>
+                        <p style="color: red;"><?= $errImagem;?></p>
                     </div>
                 </div>
                 <div class="conatiner_cadastro_adm_items_body">
                     <div class="conatiner_cadastro_adm_items_body_add">
                         <div class="item_flex_adm">
                             <label for="">Preço</label>
-                            <input type="text" name="precoProduto" class="input_adcionar_produto" value="<?= $produto->preco; ?>">
+                            <input type="text" name="precoProduto" class="input_adcionar_produto" value="<?= htmlspecialchars($produto->preco); ?>">
                             <p class="text_tamanho_img" style="color:red;"> <?= $errPreco; ?> </p>
                         </div>
                         <div class="item_flex_adm">
                             <label for="">Adicionar Cor</label>
-                            <input name="corProduto" class="input_adcionar_produto" type="color" value="<?= $produto->cor; ?>">
+                            <input name="corProduto" class="input_adcionar_produto" type="color" value="<?= htmlspecialchars($produto->cor); ?>">
                             <p class="text_tamanho_img" style="color:red;"> <?= $errCor; ?> </p>
                         </div>
-                        <!-- <button class="btn_produto_add">Adicionar</button> -->
                         <div class="item_flex_adm">
                             <label for="">Adicionar Altura</label>
-                            <input name="alturaProduto" placeholder="cm" class="input_adcionar_produto" type="text" value="<?=$produto->altura; ?>">
+                            <input name="alturaProduto" placeholder="cm" class="input_adcionar_produto" type="text" value="<?= htmlspecialchars($produto->altura); ?>">
                             <p class="text_tamanho_img" style="color:red;"> <?= $errAltura; ?> </p>
-                        </div> 
+                        </div>
                         <div class="item_flex_adm">
                             <label for="">Adicionar Largura</label>
-                            <input name="larguraProduto" placeholder="cm"class="input_adcionar_produto" type="text" value="<?=$produto->largura; ?>" >
+                            <input name="larguraProduto" placeholder="cm" class="input_adcionar_produto" type="text" value="<?= htmlspecialchars($produto->largura); ?>">
                             <p class="text_tamanho_img" style="color:red;"> <?= $errLargura; ?> </p>
                         </div>
                     </div>
                     <div class="conatiner_cadastro_adm_items_body_2">
-                        <!-- <button class="btn_produto_add">Adicionar</button> -->
                         <div class="item_flex_adm2">
                             <label for="">Adicionar Estoque</label>
-                            <input name="estoqueProduto" class="input_adcionar_produto" type="number" value="<?=$produto->quantidade; ?>">
+                            <input name="estoqueProduto" class="input_adcionar_produto" type="number" value="<?= htmlspecialchars($produto->quantidade); ?>">
                             <p class="text_tamanho_img" style="color:red;"> <?= $errEstoque; ?> </p>
                         </div>
-                        <!-- <button class="btn_produto_add">Adicionar</button> -->
                     </div>
                 </div>
             </div>
-            <div id="conatiner_btn_adm_pc"  class="conatiner_btn_adm">
-                <!-- <button class="btn_excluir_adm">Excluir</button> -->
+            <div id="conatiner_btn_adm_pc" class="conatiner_btn_adm">
                 <button type="submit" name="carregarDadosProduto" class="btn_salvar_adm">Salvar</button>
             </div>
-            <div id="modalSucesso" class="modal-sucesso">
+            <div id="modalSucesso" class="modal-sucesso" style="display:none;">
                 <div class="modal-conteudo">
                     <span class="fechar" onclick="fecharModal()">&times;</span>
                     <p><strong>✔ Sucesso!</strong> A operação foi realizada corretamente.</p>
                 </div>
             </div>
-    </form>   
+        </form>
     </main>
+
 <script>
-function mostrarModal() {
-    const modal = document.getElementById("modalSucesso");
-    modal.style.display = "block";
+    document.getElementById('imgInput').addEventListener('change', function(event) {
+        const preview = document.getElementById('preview_img');
+        const file = event.target.files[0];
 
-    // Fecha automaticamente após 3 segundos
-    setTimeout(() => {
-       modal.style.display = "none";
-       
-    }, 1);
-}
+        if (file) {
+            const reader = new FileReader();
 
-function fecharModal() {
+            reader.onload = function(e) {
+                preview.src = e.target.result;
+            }
 
-    document.getElementById("modalSucesso").style.display = "none";
+            reader.readAsDataURL(file);
+        }
+    });
 
-}
+    function mostrarModal() {
+        const modal = document.getElementById("modalSucesso");
+        modal.style.display = "block";
+
+        setTimeout(() => {
+           modal.style.display = "none";
+        }, 3000);
+    }
+
+    function fecharModal() {
+        document.getElementById("modalSucesso").style.display = "none";
+    }
 </script>
 
-<!-- PHP ativa o modal se operação for bem-sucedida -->
 <?php if (isset($mostrarModal) && $mostrarModal === true): ?>
-    <!-- SweetAlert2 -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script>
-        window.onload = function  () {
-            // Mostra o modal verdinho simples
+        window.onload = function() {
             mostrarModal();
 
-            // E também mostra o SweetAlert como reforço visual
             Swal.fire({
                 icon: 'success',
                 title: 'Salvo com sucesso!',
                 showConfirmButton: false,
-                timer: 1000
+                timer: 1500
             });
         };
     </script>
 <?php endif; ?>
-    <!-- <script src="adm_nav.js"></script>
-    <script src="btn_listar_adm.js"></script> -->
 </body>
 </html>

@@ -20,6 +20,7 @@ if(isset($_POST['cadastrar'])){
         $email  = $_POST['email'];
         $senha  = $_POST['senha'];
         $cpf  = $_POST['cpf'];
+        $telefone = $_POST['telefone'];
         $cep  = $_POST['cep'];
 
                 $cliente =  new Cliente();
@@ -30,6 +31,7 @@ if(isset($_POST['cadastrar'])){
                 $cliente->cpf =$cpf;
                 $cliente->email =$email;
                 $cliente->senha = password_hash($senha, PASSWORD_DEFAULT);
+                $cliente->telefone = $telefone;
                 $cliente->id_perfil = "cli";
 
 
@@ -96,17 +98,27 @@ if(isset($_POST['cadastrar'])){
                                 <div class="erro-input" id="erro-email"></div>
                             </div>
 
+                            <!-- TELEFONE -->
+                            <div class="form__group field">
+                                <input autocomplete="off" type="text" name="telefone" id="telefone-cad" class="form__field" placeholder="Telefone" required>
+                                <label for="telefone-cad" class="form__label">Telefone*</label>
+                                <div class="erro-input" id="erro-telefone"></div>
+                            </div>
+
+                            <!-- CPF -->
                             <div class="form__group field">
                                 <input autocomplete="off" type="text" name="cpf" id="cpf-cad" class="form__field" placeholder="CPF" required>
                                 <label for="cpf-cad" class="form__label">CPF*</label>
                                 <div class="erro-input" id="erro-cpf"></div>
                             </div>
 
+                            <!-- CEP -->
                             <div class="form__group field">
                                 <input autocomplete="off" type="text" name="cep" id="cep-cad" class="form__field" placeholder="CEP" required>
                                 <label for="cep-cad" class="form__label">CEP*</label>
                                 <div class="erro-input" id="erro-cep"></div>
                             </div>
+
 
                             <div class="form__group field">
                                 <input autocomplete="off" type="password" name="senha" id="senha-cad" class="form__field" placeholder="Senha" required>

@@ -138,7 +138,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <div id="conatiner_btn_adm_pc" class="conatiner_btn_adm">
                     <button type="submit" class="btn_salvar_adm">Salvar</button>
                 </div>
-                <div id="modalSucesso" class="modal-sucesso">
+                <div id="modalSucesso" class="modal-sucesso" style="display: none;">
                     <div class="modal-conteudo">
                         <span class="fechar" onclick="fecharModal()">&times;</span>
                         <p><strong>✔ Sucesso!</strong> A operação foi realizada corretamente.</p>
@@ -153,35 +153,28 @@ function mostrarModal() {
     const modal = document.getElementById("modalSucesso");
     modal.style.display = "block";
 
-    // Fecha automaticamente após 3 segundos
     setTimeout(() => {
        modal.style.display = "none";
-       
-    }, 1);
+    }, 1900);
 }
 
 function fecharModal() {
-
     document.getElementById("modalSucesso").style.display = "none";
-
 }
 </script>
 
-<!-- PHP ativa o modal se operação for bem-sucedida -->
 <?php if (isset($mostrarModal) && $mostrarModal === true): ?>
     <!-- SweetAlert2 -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script>
-        window.onload = function  () {
-            // Mostra o modal verdinho simples
+        window.onload = function () {
             mostrarModal();
 
-            // E também mostra o SweetAlert como reforço visual
             Swal.fire({
                 icon: 'success',
                 title: 'Salvo com sucesso!',
                 showConfirmButton: false,
-                timer: 1000
+                timer: 1500
             });
         };
     </script>
