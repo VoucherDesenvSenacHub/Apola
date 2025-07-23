@@ -2,8 +2,9 @@
 
 // require '../../App/config.inc.php';
 
+require_once '../../App/Session/Login.php';
 require_once '../../App/Entity/Cliente.class.php';
-
+require_once '../../App/Entity/Categoria.class.php';
 
 $result = Login::IsLogedCliente();
 if($result){
