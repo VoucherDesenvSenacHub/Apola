@@ -4,7 +4,7 @@
 require_once(__DIR__ . '/../DB/Database.php');
 
 class Categoria{
-    public string $nome;
+    public string $nome = '';
     public string $status_categoria;
     public string $imagem;
 

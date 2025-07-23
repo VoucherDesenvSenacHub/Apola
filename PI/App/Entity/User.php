@@ -10,10 +10,10 @@ class User{
 
 
     public int $id_user;
-    public string $nome;
-    public string $email;
-    public string $senha;
-    public string $id_perfil;
+    public ?string $nome;
+    public ?string $email;
+    public ?string $senha;
+    public ?string $id_perfil;
 
 
 

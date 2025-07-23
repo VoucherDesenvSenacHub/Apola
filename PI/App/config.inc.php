@@ -1,6 +1,17 @@
 
 <?php
 
+require_once __DIR__ . '/../../vendor/autoload.php';  // Make sure this is correct
+
+$dotenv = Dotenv\Dotenv::createImmutable(__DIR__ . '/../'); // this points to /PI
+$dotenv->load();
+
+define('DB_HOST', $_ENV['DB_HOST']);
+define('DB_USERNAME', $_ENV['DB_USERNAME']);
+define('DB_PASSWORD', $_ENV['DB_PASSWORD']);
+define('DB_DATABASE', $_ENV['DB_DATABASE']);
+
+// var_dump($_ENV['DB_USERNAME'], $_ENV['DB_PASSWORD']);
 
 function autoload($class){
     $cDir = ['Entity'];

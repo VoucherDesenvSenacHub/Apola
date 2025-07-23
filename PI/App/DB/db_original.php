@@ -1,49 +1,23 @@
 <?php
 
-namespace App\DB;
-
 require_once __DIR__ . '/../../../vendor/autoload.php';
 
 $dotenv = Dotenv\Dotenv::createImmutable(__DIR__ . '/../../../');
 $dotenv->load();
 
 
-use PDO;          // <<< Importa a classe PDO do namespace global
-use PDOException; // <<< Importa PDOException do namespace global
-
 class Database{
-
-    // public $conection;
-    // public string $local = '10.38.0.125';
-    // public string $db = 'pi_artesanato';
-    // public string $user = 'devweb';
-    // public string $password = 'suporte@22';
-    // public $table;
-    
-    public $pdo;
-    public string $local;
-    public string $db;
-    public string $user;
-    public string $password;
+    public $conection;
+    public string $local="192.168.22.9";
+    public string $db="140p1";
+    public string $user = "devweb";
+    public string $password = "voucher140";
     public $table;
-
-
-
-    public function __construct($table = null, $envPath = null) {
-        // Se passar o caminho do .env, carrega antes
-        if ($envPath) {
-            $this->loadEnv($envPath);
-        }
-
-        // var_dump($_ENV); 
-        // Agora pega variáveis do $_ENV
-        $this->local = $_ENV['DB_HOST'] ?? 'localhost';
-        $this->db = $_ENV['DB_DATABASE'] ?? 'Users';
-        $this->user = $_ENV['DB_USERNAME'] ?? 'root';
-        $this->password = $_ENV['DB_PASSWORD'] ?? '';
+    
+    
+    public function __construct($table = null){
         $this->table = $table;
-
-        $this->conecta();
+        $result = $this->conecta();
     }
     
     public function conecta(){
@@ -56,6 +30,8 @@ class Database{
             die("ERRO DE CONEXAO: " . $err->getMessage());
         }
     }
+
+
 
     // Função para excutar uma função do banco de dados
 
@@ -70,6 +46,7 @@ class Database{
             die("Connection Failed " . $err->getMessage());
 
         }
+
     }
 
     // Função para inserir algo dados no banco de dados
@@ -80,9 +57,11 @@ class Database{
 
         $query = 'INSERT INTO ' . $this->table .'  (' .implode(',',$fields). ') VALUES (' .implode(',',$binds).')';
 
+
         // echo $query ;
         // print_r( array_values($values));
         // die();
+
 
         $result = $this->execute($query,array_values($values));
 
@@ -92,6 +71,8 @@ class Database{
         else{
             return false;
         }
+
+        
     }
 
     public function insert_LastId($values){
@@ -111,7 +92,9 @@ class Database{
         else{
             return false;
         }
+        
     }
+
 
     // Função para listar dados do banco de dados
     
@@ -124,10 +107,15 @@ class Database{
         // COM FIELDS NA FUNÇÃO SELECT COMO PARAMENTRO = "$fields = '*'
         $query = 'SELECT '.$fields.' FROM '. $this->table.' '.$where.' '.$order.' '.$limit;
 
+
+
+
         // $query = 'SELECT * FROM '. $this->table.' '.$where.' '.$order.' '.$limit.;            
         return $this->execute($query);
         
     }
+
+
 
     // Função para deletar dados do banco de dados
     public function delete($where)
@@ -141,6 +129,8 @@ class Database{
         // Executa a query
         return $this->execute($query);
     }
+    
+
 
     // Função para editar a dados do banco de dados
 
@@ -151,6 +141,7 @@ class Database{
     
         return $this->execute($query, array_values($values));
     }
+    
 
     public function select_perfil($id_cli){
 

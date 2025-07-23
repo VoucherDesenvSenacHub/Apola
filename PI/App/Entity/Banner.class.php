@@ -1,10 +1,7 @@
 <?php
 require_once(__DIR__ . '/../DB/Database.php');
 
-
 // use \AllowDynamicProperties;
-
-
 
 // #[AllowDynamicProperties]
 class Banner{

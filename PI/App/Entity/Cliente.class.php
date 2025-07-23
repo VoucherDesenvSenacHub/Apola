@@ -8,7 +8,7 @@ class Cliente extends User{
 
 
     public ?int $id_cliente = null;
-    public string $nome;
+    public ?string $nome;
     public string $sobrenome;
     public ?string $foto_perfil;
     public int $cpf;
