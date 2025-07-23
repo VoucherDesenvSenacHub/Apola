@@ -7,19 +7,33 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
-require '../../App/config.inc.php';
-require '../../App/Session/Login.php';
-require_once __DIR__ . '/../../../vendor/autoload.php';
+// Include required files
+require '../../App/config.inc.php';  // Include app configuration
+require '../../App/Session/Login.php';  // Handle login session
+require_once __DIR__ . '/../../../vendor/autoload.php';  // Autoload Composer dependencies
+require_once __DIR__ . '/../../App/DB/Database.php';  // Database class
+require_once __DIR__ . '/../../App/Actions/CartController.php';  // CartController class
 
-use App\Controllers\CartController;
-use App\DB\Database;
+use App\Actions\CartController;  // Use CartController
+use App\DB\Database;            // If you are using Database class
+
+// Database connection setup
+$dsn = 'mysql:host=' . DB_HOST . ';dbname=' . DB_DATABASE;
+$username = DB_USERNAME;
+$password = DB_PASSWORD;
 
 try {
-    $db = new Database();
-    $pdo = $db->pdo;
-    require_once __DIR__ . '/../../App/Controllers/CartController.php';
+    // Create the PDO instance using the configuration from config.inc.php
+    $pdo = new PDO($dsn, $username, $password);
+    
+    // Set PDO attributes for better error handling
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+    // Initialize CartController with the PDO instance
     $cartController = new CartController($pdo);
-} catch (Exception $e) {
+
+} catch (PDOException $e) {
+    // Handle database connection errors
     die('Erro ao conectar ao banco de dados: ' . $e->getMessage());
 }
 
@@ -65,7 +79,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action'])) {
     }
 }
 
-include 'header.php';
+include 'head.php';
 
 $result = Login::RequireLogout();
 

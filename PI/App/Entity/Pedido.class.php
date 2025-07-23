@@ -1,6 +1,9 @@
 <?php
 require_once '../../App/DB/Database.php';
 
+use App\DB\Database;
+
+
 class Pedido {
     public string $data_pedido;
     public string $tipo;

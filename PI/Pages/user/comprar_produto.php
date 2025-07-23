@@ -1,35 +1,42 @@
 <?php
-
 require_once __DIR__ . '/../../../vendor/autoload.php';
 require_once __DIR__ . '/../../App/DB/Database.php';
-// require_once __DIR__ . '/../../App/Controllers/ProductController.php';
 require '../../App/config.inc.php';
 require '../../App/Session/Login.php';
+require '../../App/Core/Config.php';
 
-use App\Core\Config;
 use App\DB\Database;
+use App\Core\Config;
+use App\Entity\ProductModel; 
 
-// Erros ativados para debug
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
-// Inicializa config (carrega .env etc)
 Config::initialize();
 
-// Conecta ao banco
 $database = new Database();
-$pdo = $database->conecta();
+
+if ($database->pdo === null) {
+    die("Failed to establish a database connection.");
+}
+
+$pdo = $database->pdo;
+
+// Check if ProductModel class is available
+if (!class_exists('App\Entity\ProductModel')) {
+    die('ProductModel class not found');
+}
+
+// Now instantiate the ProductModel class
+$productModel = new ProductModel($pdo);
+
 
 // Pega o ID do produto da URL e valida
 $productId = isset($_GET['id']) ? (int)$_GET['id'] : 0;
 if ($productId <= 0) {
     die("ID de produto inválido");
 }
-
-// Inicializa model e controller (supondo que ProductModel recebe o PDO)
-$productModel = new App\Entity\ProductModel($pdo);
-// $productController = new App\Controllers\ProductController($productModel);
 
 // Busca o produto
 $product = $productModel->getProductById($productId);
@@ -54,7 +61,7 @@ if (!$product) {
 // var_dump($_ENV['DB_USERNAME'], $_ENV['DB_PASSWORD']);
 // exit;
 
-include "header.php";
+include "head.php";
 
 $result = Login::RequireLogout();
 

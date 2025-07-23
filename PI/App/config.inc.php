@@ -1,11 +1,16 @@
 
 <?php
 
-require_once __DIR__ . '/../../vendor/autoload.php';  // Make sure this is correct
+// Include Composer's autoloader
+require_once __DIR__ . '/../../vendor/autoload.php';
 
-$dotenv = Dotenv\Dotenv::createImmutable(__DIR__ . '/../'); // this points to /PI
-$dotenv->load();
+use Dotenv\Dotenv;  // Correctly use the Dotenv class
 
+// Load environment variables from .env file
+$dotenv = Dotenv::createImmutable('/home/felix/Desktop/Apola');  // Correct instantiation
+$dotenv->load();  // Load the variables
+
+// Define constants for easier access to environment variables
 define('DB_HOST', $_ENV['DB_HOST']);
 define('DB_USERNAME', $_ENV['DB_USERNAME']);
 define('DB_PASSWORD', $_ENV['DB_PASSWORD']);
@@ -13,10 +18,11 @@ define('DB_DATABASE', $_ENV['DB_DATABASE']);
 
 // var_dump($_ENV['DB_USERNAME'], $_ENV['DB_PASSWORD']);
 
+// var_dump($_ENV);
+
 function autoload($class){
     $cDir = ['Entity'];
     $iDir = null;
-
 
     foreach($cDir as $dirName):
 

@@ -1,16 +1,13 @@
 <?php
 
 // controllers/CartController.php
-namespace App\Controllers;
-use PDO;
+namespace App\Actions;
 
-// session_start();  Make sure session is started before reading/writing $_SESSION
+require_once __DIR__ . '/../Entity/Produto.class.php';
 
-require_once __DIR__ . '/../Entity/ProductModel.php';
-
-
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
+if (!class_exists('App\\Entity\\Produto')) {
+    die('Produto class not found');
+}
 
 class CartController
 {
@@ -20,7 +17,7 @@ class CartController
     private $pdo;
 
     /**
-     * @var ProductModel
+     * @var Produto
      */
     private $productModel;
 
@@ -29,10 +26,9 @@ class CartController
      *
      * @param \PDO $pdo  A PDO instance connected to your MySQL database.
      */
-    public function __construct(PDO $pdo)
-    {
+    public function __construct(\PDO $pdo) {
         $this->pdo = $pdo;
-        $this->productModel = new \App\Entity\ProductModel($pdo);
+        $this->productModel = new \App\Entity\Produto($pdo);
 
         // Ensure $_SESSION['cart'] is always an array
         // if (!isset($_SESSION['cart']) || !is_array($_SESSION['cart'])) {

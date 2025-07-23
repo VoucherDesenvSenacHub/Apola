@@ -2,58 +2,80 @@
 
 namespace App\DB;
 
-require_once __DIR__ . '/../../../vendor/autoload.php';
+// require_once __DIR__ . '/../../../vendor/autoload.php';
 
-$dotenv = Dotenv\Dotenv::createImmutable(__DIR__ . '/../../../');
-$dotenv->load();
+// use Dotenv\Dotenv;  
+
+// $dotenv = Dotenv\Dotenv::createImmutable(__DIR__ . '/../../../');
+// $dotenv->load();
 
 
-use PDO;          // <<< Importa a classe PDO do namespace global
-use PDOException; // <<< Importa PDOException do namespace global
+use PDO;
+use PDOException;
 
-class Database{
-
-    // public $conection;
-    // public string $local = '10.38.0.125';
-    // public string $db = 'pi_artesanato';
-    // public string $user = 'devweb';
-    // public string $password = 'suporte@22';
-    // public $table;
-    
+class Database {
+    // Explicitly declare the properties
     public $pdo;
     public string $local;
     public string $db;
     public string $user;
     public string $password;
-    public $table;
+    public ?string $table;
 
-
-
+    /**
+     * Constructor to initialize DB connection and load environment variables if needed
+     *
+     * @param string|null $table Optional table name
+     * @param string|null $envPath Optional path to .env file
+     */
     public function __construct($table = null, $envPath = null) {
-        // Se passar o caminho do .env, carrega antes
+        // If .env path is provided, load environment variables
         if ($envPath) {
             $this->loadEnv($envPath);
         }
 
-        // var_dump($_ENV); 
-        // Agora pega variáveis do $_ENV
+        // Set database credentials, fallback to defaults if not set in .env
         $this->local = $_ENV['DB_HOST'] ?? 'localhost';
         $this->db = $_ENV['DB_DATABASE'] ?? 'Users';
         $this->user = $_ENV['DB_USERNAME'] ?? 'root';
         $this->password = $_ENV['DB_PASSWORD'] ?? '';
         $this->table = $table;
 
+        // Connect to the database
         $this->conecta();
     }
-    
-    public function conecta(){
+
+    /**
+     * Method to load environment variables from a .env file
+     *
+     * @param string $envPath Path to the .env file
+     */
+    private function loadEnv($envPath) {
+        if (file_exists($envPath)) {
+            $dotenv = \Dotenv\Dotenv::createImmutable($envPath);
+            $dotenv->load();
+        } else {
+            die("Error: .env file not found at $envPath");
+        }
+    }
+
+    /**
+     * Establish a database connection using PDO
+     */
+    public function conecta() {
         try {
-            $this->conection = new PDO("mysql:host=".$this->local.";dbname=$this->db",$this->user,$this->password); 
-            $this->conection->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
-            // echo "Conectado com Sucesso!!";
+            // Initialize the PDO connection and set error mode
+            $dsn = "mysql:host={$this->local};dbname={$this->db}";
+            $this->pdo = new PDO($dsn, $this->user, $this->password);
+            $this->pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            
+            // Check if the PDO object was successfully created
+            if (!$this->pdo) {
+                throw new PDOException("Failed to establish database connection.");
+            }
         } catch (PDOException $err) {
-            //retirar msg em produção
-            die("ERRO DE CONEXAO: " . $err->getMessage());
+            // Handle connection error
+            die("Database connection failed: " . $err->getMessage());
         }
     }
 
@@ -62,7 +84,7 @@ class Database{
     public function execute($query,$binds = []){
         //BINDS = parametros
         try{
-            $stmt = $this->conection->prepare($query);
+            $stmt = $this->pdo->prepare($query);  // Corrected property name
             $stmt->execute($binds);
             return $stmt;
         }catch (PDOException $err) {
