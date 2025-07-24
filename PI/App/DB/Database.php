@@ -381,6 +381,19 @@ class Database{
 
     }
 
+    public function select_buscar_produto_cart($ids_prod)
+    {
+        if (empty($ids_prod)) {
+            return [];
+        }
+    
+        $placeholders = implode(',', array_fill(0, count($ids_prod), '?'));
+    
+        $query = "SELECT * FROM produto WHERE id_produto IN ($placeholders)";
+    
+        return $this->execute($query, $ids_prod)->fetchAll(PDO::FETCH_ASSOC);
+    }
+    
 
 
 

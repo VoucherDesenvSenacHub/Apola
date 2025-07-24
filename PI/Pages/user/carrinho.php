@@ -10,12 +10,16 @@ include "head.php";
 
 $result = Login::IsLogedCliente();
 
-// print_r($result);
+
 if($result){
     include "navbar_logado.php";
 }else{
     header('location: login.php');
 }
+
+$id_cliente = $_SESSION['cliente']['id_cliente'];
+
+$cliente = Cliente::getClienteById($id_cliente);
 
 
 
@@ -34,46 +38,20 @@ if($result){
                     <li>Total</li>
                 </ul>
                 <div class="shape_sacola"></div>
-                <ul class="produto_list_cart">
+                <div class="teste-cart" id="DivIdCart">
+        
 
-                    <li class="produto_item_cart-1">
-                        <div class="produto_item_cart_left">
-                            <div class="container_img_produto_cart">
-                                <img src="../../src/imagens/card_produto/IMG1-Produto.png" alt="">
-                            </div>
-                        </div>
-                        <div class="produto_item_cart_right">
-                            <h6 class="name_produto_cart">Amigurumi Ursos Sem Curso</h6>
-                            <h6 class="detalhes_produto_cart">
-                                <div class="cor_produto_cart">Cor - Preto //</div>
-                                <div class="tamanho_produto_cart">Tamanho - 10 cm</div>
-                            </h6>
-
-                        </div>
-                    </li>
-                    <li class="produto_item_cart-2">
-                       <h6 class="desconto_produto_cart">- 122.60 R$</h6>
-                       <h6 class="preco_produto_cart">99.98 R$</h6>
-                    </li>
-                    <li class="produto_item_cart-3">
-                       <h6 id='sub_item_solo' class="subtrair_produto_cart">-</h6>
-                        <h6  id='quant_item_solo' class="quant_produto_cart">1</h6>
-                       <h6   id='sum_item_solo' class="adicionar_produto_cart">+</h6>
-                    </li>
-                    <li class="produto_item_cart-4 ">
-                    <h6 class="preco_produto_cart"><div id="valor_produt">99.98</div> R$</h6>
-                        <button class="container_remover_produto_cart">
-                            <i class="fa-solid fa-trash"></i>
-                        </button>
-                    </li>
-                </ul>
-                <div class="shape_sacola"></div>
+                </div>
+              
             </div>
             <div class="conatiner_final_carrinho">
                 <div class="conatiner_final_carrinho_left">
                     <div class="item_edereco_carrinho">
                         <div class="radio_cep" id="radio_cep2"></div>
-                        <div class="text_carrinho_endereco">Endereço - Avenida Eucaliptos, 789, Centro, Rj - CEP: 79012-2321 </div>
+                        <div class="text_carrinho_endereco">
+                            Endereço - <?= $cliente['rua'] ?>, <?= $cliente['numero_casa'] ?>, <?= $cliente['bairro'] ?>, <?= $cliente['estado'] ?> - CEP: <?= $cliente['cep'] ?>
+                        </div>
+
                     </div>
                     <div class="item_edereco_carrinho">
                         <div class="radio_cep" id="radio_cep"></div>
@@ -96,6 +74,7 @@ if($result){
                                 R$ 319,19
 
                             </div>
+            
                         </div>
                         <div class="linha_preco_carrinho"></div>
                         <div class="item_preco_carrinho">
