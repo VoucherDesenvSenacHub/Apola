@@ -1,93 +1,97 @@
 <?php
-namespace App\Entity;
 
 require_once(__DIR__ . '/../DB/Database.php');
 
-use App\DB\Database;
-use PDO;
-
 class Categoria
 {
-    public int $id_categoria;
-    public string $nome_categoria;
+    public string $nome = '';
     public string $status_categoria;
     public string $imagem;
 
+    // Construtor para inicializar a categoria - agora aceita argumento opcional
     public function __construct(array $data = [])
     {
-        $this->id_categoria   = isset($data['id_categoria']) ? (int) $data['id_categoria'] : 0;
-        $this->nome_categoria = $data['nome_categoria']      ?? '';
-        $this->status_categoria = $data['status_categoria']  ?? '';
-        $this->imagem         = $data['imagem']              ?? '';
+        if (!empty($data)) {
+            $this->nome = $data['nome'] ?? '';
+            $this->status_categoria = $data['status_categoria'] ?? '';
+            $this->imagem = $data['imagem'] ?? '';
+        }
     }
 
-    // Getters
-    public function getIdCategoria(): int
+    public function cadastrarCategoria()
     {
-        return $this->id_categoria;
+        $db = new Database('categoria');
+        $res = $db->insert(
+            [
+                'nome' => $this->nome,
+                'status_categoria' => $this->status_categoria,
+                'imagem' => $this->imagem
+            ]
+        );
+        return $res;
     }
 
-    public function getNomeCategoria(): string
+    public function atualizarCategoria($id_categoria)
     {
-        return $this->nome_categoria;
+        $db = new Database('categoria');
+        $res = $db->update('id_categoria = ' . $id_categoria, [
+            'status_categoria' => $this->status_categoria,
+            'nome' => $this->nome,
+            'imagem' => $this->imagem,
+        ]);
+
+        return $res;
     }
 
+    // Buscar categoria por ID
+    public static function SelectCategoriaPorId($where = null, $order = null, $limit = null)
+    {
+        return (new Database('categoria'))->select('id_categoria = "' . $where . '"')->fetchObject(self::class);
+    }
+
+    // Buscar categorias com filtros
+    public static function buscarCategoria($where = null, $order = null, $limit = null)
+    {
+        return (new Database('categoria'))->select($where, $order, $limit)
+            ->fetchAll(PDO::FETCH_CLASS, self::class);
+    }
+
+    // Buscar categorias com limite
+    public static function buscarCategoriaLimit($where = null, $order = null, $limit = null)
+    {
+        return (new Database('categoria'))->select($where, $order, $limit)
+            ->fetchAll(PDO::FETCH_CLASS, self::class);
+    }
+
+    // Método adicional: Buscar categoria por ID e retornar objeto Categoria
+    public static function buscarCategoriaPorId(int $id_categoria): ?self
+    {
+        $db = new Database('categoria');
+        $stmt = $db->getPDO()->prepare("SELECT * FROM categoria WHERE id_categoria = ?");
+        $stmt->execute([$id_categoria]);
+        $data = $stmt->fetch(PDO::FETCH_ASSOC);
+        if ($data) {
+            return new self($data);
+        }
+        return null;
+    }
+
+    // Getter para nome da categoria
+    public function getNome(): string
+    {
+        return $this->nome;
+    }
+
+    // Getter para status da categoria
     public function getStatusCategoria(): string
     {
         return $this->status_categoria;
     }
 
+    // Getter para imagem da categoria
     public function getImagem(): string
     {
         return $this->imagem;
     }
-
-    // Inserts a new category
-    public function cadastrarCategoria(): bool
-    {
-        $db = new Database('categoria');
-        return $db->insert([
-            'nome_categoria'    => $this->nome_categoria,
-            'status_categoria'  => $this->status_categoria,
-            'imagem'            => $this->imagem
-        ]);
-    }
-
-    // Updates an existing category
-    public function atualizarCategoria(int $id): bool
-    {
-        $db = new Database('categoria');
-        return $db->update('id_categoria = ' . $id, [
-            'nome_categoria'    => $this->nome_categoria,
-            'status_categoria'  => $this->status_categoria,
-            'imagem'            => $this->imagem
-        ]);
-    }
-
-    // Fetch a category by ID
-    public static function buscarPorId(int $id): ?self
-    {
-        $db = new Database('categoria');
-        $stmt = $db->getPDO()->prepare("SELECT * FROM categoria WHERE id_categoria = ?");
-        $stmt->execute([$id]);
-        $data = $stmt->fetch(PDO::FETCH_ASSOC);
-        return $data ? new self($data) : null;
-    }
-
-    // Fetch all categories
-    public static function buscarTodas(?string $where = null, ?string $order = null, ?int $limit = null): array
-    {
-        return (new Database('categoria'))
-            ->select($where, $order, $limit)
-            ->fetchAll(PDO::FETCH_CLASS, self::class);
-    }
-
-    // Convert to generic Category object if needed
-    public function toCategory(): Category
-    {
-        return new Category([
-            'id_categoria'   => $this->id_categoria,
-            'nome_categoria' => $this->nome_categoria,
-        ]);
-    }
 }
+?>
