@@ -38,7 +38,7 @@ foreach ($_SESSION['cart'] as $item) {
 }
 
 // Validate product ID from GET
-$productId = isset($_GET['id']) ? (int)$_GET['id'] : 0;
+$productId = isset($_GET['id_produto']) ? (int)$_GET['id_produto'] : 0;
 if ($productId <= 0) {
     die("ID de produto inválido.");
 }
