@@ -2,7 +2,7 @@
 
 
 
-    $categorias= Categoria::buscarCategoria();
+    $categorias= Categoria::buscarCategoria("status_categoria = 'a'");
     
 
 ?>
