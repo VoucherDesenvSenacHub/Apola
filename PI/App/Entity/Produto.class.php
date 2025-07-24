@@ -20,6 +20,9 @@ class Produto
     public string $tipo;
     public string $status_produto;
     public int $categoria_id_categoria;
+    
+    // Declare the 'tamanho' property to avoid dynamic property deprecation
+    public ?string $tamanho = null;
 
     // Constructor to initialize properties (Optional argument for default values)
     public function __construct(array $data = [])
@@ -38,6 +41,7 @@ class Produto
             $this->tipo = $data['tipo'] ?? '';
             $this->status_produto = $data['status_produto'] ?? '';
             $this->categoria_id_categoria = $data['categoria_id_categoria'] ?? 0;
+            $this->tamanho = $data['tamanho'] ?? null; // Initialize 'tamanho' if provided
         }
     }
 
@@ -58,7 +62,8 @@ class Produto
                 'descricao' => $this->descricao,
                 'tipo' => $this->tipo,
                 'status_produto' => $this->status_produto,
-                'categoria_id_categoria' => $this->categoria_id_categoria
+                'categoria_id_categoria' => $this->categoria_id_categoria,
+                'tamanho' => $this->tamanho // Include 'tamanho' when inserting
             ]
         );
         return $result;
@@ -80,7 +85,8 @@ class Produto
             'descricao' => $this->descricao,
             'tipo' => $this->tipo,
             'status_produto' => $this->status_produto,
-            'categoria_id_categoria' => $this->categoria_id_categoria
+            'categoria_id_categoria' => $this->categoria_id_categoria,
+            'tamanho' => $this->tamanho // Include 'tamanho' when updating
         ]);
         return $res;
     }
@@ -116,11 +122,92 @@ class Produto
         return Categoria::buscarCategoriaPorId($this->categoria_id_categoria);
     }
 
-    // Add this method to the Produto class
+    // Getter for Nome
     public function getNome(): string
     {
         return $this->nome;
     }
+
+    // Getter for Preço
+    public function getPreco(): float
+    {
+        return $this->preco;
+    }
+
+    // Getter for Avaliação
+    public function getAvaliacao(): ?string
+    {
+        return $this->avaliacao;
+    }
+
+    // Getter for Quantidade
+    public function getQuantidade(): int
+    {
+        return $this->quantidade;
+    }
+
+    // Getter for Cor
+    public function getCor(): array
+    {
+        return array_filter(array_map('trim', explode(',', $this->cor ?? '')));
+    }
+
+    // Getter for Largura
+    public function getLargura(): float
+    {
+        return $this->largura;
+    }
+
+    // Getter for Altura
+    public function getAltura(): array
+    {
+        return array_filter(array_map('trim', explode(',', $this->altura ?? '')));
+    }
+
+    // Getter for Imagem
+    public function getImagem(): array
+    {
+        return array_filter(array_map('trim', explode(',', $this->imagem ?? '')));
+    }
+
+    // Getter for Descrição
+    public function getDescricao(): string
+    {
+        return $this->descricao;
+    }
+
+    // Getter for Tipo
+    public function getTipo(): string
+    {
+        return $this->tipo;
+    }
+
+    // Getter for Status
+    public function getStatusProduto(): string
+    {
+        return $this->status_produto;
+    }
+
+    // Getter for Categoria ID
+    public function getCategoriaId(): int
+    {
+        return $this->categoria_id_categoria;
+    }
+
+    // Getter for Tamanho (to access the tamanho property)
+    public function getTamanho(): ?string
+    {
+        return $this->tamanho;
+    }
+
+    // Getter for the Original Price
+    public function getPrecoOriginal(): float
+    {
+        return $this->preco; // Assuming 'preco_original' doesn't exist, returning 'preco' instead.
+    }
+
+        public function getId(): int { return $this->id_produto; }
+
 
 }
 ?>

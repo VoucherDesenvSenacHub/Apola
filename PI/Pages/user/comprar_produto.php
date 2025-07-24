@@ -78,7 +78,7 @@ if (Login::IsLogedCliente()) {
                     <script src="../../src/JS/comprar_produto.js" defer></script>
                     <div class="product-thumb-container">
                         <div class="thumbnail-images">
-                            <?php foreach ($product->getImagensUrls() as $url): ?>
+                            <?php foreach ($product->getImagem() as $url): ?>
                                 <img
                                     src="<?= htmlspecialchars($url) ?>"
                                     alt="<?= htmlspecialchars($product->getNome()) ?>"
@@ -90,7 +90,7 @@ if (Login::IsLogedCliente()) {
                         <div class="image-gallery">
                             <div class="image-gallery-urso">
                                 <img
-                                    src="<?= htmlspecialchars($product->getImagensUrls()[0] ?? '') ?>"
+                                    src="<?= htmlspecialchars($product->getImagem()[0] ?? '') ?>"
                                     id="main-image"
                                 >
                             </div>
@@ -113,7 +113,7 @@ if (Login::IsLogedCliente()) {
                             <div class="item_flex_produto">
                                 <label>Cor</label>
                                 <div class="item_flex_cor_produto">
-                                    <?php foreach ($product->getCores() as $colorHex): ?>
+                                    <?php foreach ($product->getCor() as $colorHex): ?>
                                         <div class="shape_cor_produto" style="background: <?= htmlspecialchars($colorHex) ?>;"></div>
                                     <?php endforeach; ?>
                                 </div>
@@ -121,8 +121,8 @@ if (Login::IsLogedCliente()) {
                             <div class="item_flex_produto">
                                 <label>tamanho</label>
                                 <div class="item_flex_cor_produto">
-                                    <?php foreach ($product->getTamanhos() as $size): ?>
-                                        <div class="shape_tamanho_produto"><?= htmlspecialchars($size) ?></div>
+                                    <?php foreach ($product->getAltura() as $altura): ?>
+                                        <div class="shape_tamanho_produto"><?= htmlspecialchars($altura) ?></div>
                                     <?php endforeach; ?>
                                 </div>
                             </div>
@@ -177,12 +177,12 @@ if (Login::IsLogedCliente()) {
                                 <script src="../src/JS/modal.js" defer></script>
                                 <!-- First Product Section -->
                                 <div class="container_buy_quant display_none_solo">
-                                    <div class="menos_cart qty-control" data-target="quant_item_solo-<?= $product->getIdProduto() ?>">
+                                    <div class="menos_cart qty-control" data-target="quant_item_solo-<?= $product->getId() ?>">
                                         <i class="fa-solid fa-minus"></i>
                                     </div>
                                     <!-- Fixed ID: Use hyphen instead of space -->
-                                    <div id="quant_item_solo-<?= $product->getIdProduto() ?>" class="quant_cart_solo">1</div>
-                                    <div class="mais_cart qty-control" data-target="quant_item_solo-<?= $product->getIdProduto() ?>">
+                                    <div id="quant_item_solo-<?= $product->getId() ?>" class="quant_cart_solo">1</div>
+                                    <div class="mais_cart qty-control" data-target="quant_item_solo-<?= $product->getId() ?>">
                                         <i class="fa-solid fa-plus"></i>
                                     </div>
                                 </div>
@@ -190,8 +190,8 @@ if (Login::IsLogedCliente()) {
                                 <!-- Add to Cart Button (First Section) -->
                                 <button class="btn_bag_produto" 
                                         data-action="add" 
-                                        data-id="<?= $product->getIdProduto() ?>"
-                                        data-qty-target="quant_item_solo-<?= $product->getIdProduto() ?>">
+                                        data-id="<?= $product->getId() ?>"
+                                        data-qty-target="quant_item_solo-<?= $product->getId() ?>">
                                     <i class="fa-solid fa-bag-shopping"></i>
                                 </button>
                             </section>
