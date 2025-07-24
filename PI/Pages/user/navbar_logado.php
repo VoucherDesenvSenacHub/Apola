@@ -24,7 +24,8 @@ if ($result) {
         $cli = $objCliente->getClienteById($id_cliente);
     }
 
-    $categorias = Categoria::buscarTodas();
+    // Change this line to use the correct method to get all categories
+    $categorias = Categoria::buscarCategoria();  // or Categoria::buscarCategoriaLimit() if you want to limit the number of categories
 }
 ?>
 
