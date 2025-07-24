@@ -4,7 +4,7 @@ require_once __DIR__ . '/../../App/Entity/Categoria.class.php';
 
 use App\Entity\Categoria;
 
-    $categorias = Categoria::buscarTodas();
+    $categorias = Categoria::buscarCategoria();
     
 
 ?>
