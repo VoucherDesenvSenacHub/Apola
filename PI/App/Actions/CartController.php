@@ -133,9 +133,9 @@ class CartController
                 'id' => $productId,
                 'nome' => $product->getNome(),
                 'preco' => $product->getPreco(),
-                'imagem' => $product->getImagensUrls()[0] ?? '',
-                'cor' => implode(', ', $product->getCores()),
-                'altura' => implode(', ', $product->getTamanhos()),
+                'imagem' => $product->getImagem()[0] ?? '',
+                'cor' => implode(', ', $product->getCor()),
+                'altura' => implode(', ', $product->getTamanho()),
                 'quantidade' => $qty
             ];
         }

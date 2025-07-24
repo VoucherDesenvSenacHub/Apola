@@ -194,10 +194,10 @@ class Produto
         return $this->categoria_id_categoria;
     }
 
-    // Getter for Tamanho (to access the tamanho property)
-    public function getTamanho(): ?string
+    // In getTamanho method
+    public function getTamanho(): ?array
     {
-        return $this->tamanho;
+        return is_array($this->tamanho) ? $this->tamanho : [$this->tamanho];
     }
 
     // Getter for the Original Price
