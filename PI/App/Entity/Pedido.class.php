@@ -66,6 +66,62 @@ class Pedido {
             ]);
         }
     }
+    public static function getPedidosComDetalhes($id_cliente) {
+        $sql = "
+            SELECT 
+                p.id_pedido,
+                p.codigo_rastreio,
+                p.status_pedido,
+                p.data_pedido,
+                pr.nome AS nome_produto,
+                pr.imagem,
+                pr.cor,
+                pr.altura,
+                pr.preco,
+                s.quant_produto
+            FROM pedido p
+            INNER JOIN sacola s ON s.id_sacola = p.sacola_id_sacola
+            INNER JOIN produto pr ON pr.id_produto = s.produto_id_produto
+            WHERE p.id_cliente = :id_cliente
+            ORDER BY p.data_pedido DESC
+        ";
+    
+        $db = new Database();
+        $stmt = $db->execute($sql, [':id_cliente' => $id_cliente]);
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+    public static function getPedidosPersonalizadosComDetalhes($id_cliente) {
+        $sql = "
+            SELECT 
+                p.id_pedido,
+                p.codigo_rastreio,
+                p.status_pedido,
+                p.data_pedido,
+                pr.tipo AS nome_produto,
+                pr.descricao AS descricao_personalizada,
+                ip.imagem1,
+                ip.imagem2,
+                ip.imagem3,
+                ip.imagem4,
+                p.valor_total_perso AS preco,
+                NULL AS cor,
+                NULL AS altura,
+                1 AS quant_produto
+            FROM pedido p
+            JOIN produto_perso pr ON p.produto_perso_id_produto_perso = pr.id_produto_perso
+            LEFT JOIN imagens_produto_perso ip ON pr.id_produto_perso = ip.id_produto_perso
+            WHERE p.id_cliente = :id_cliente
+            AND p.tipo = 'personalizado'
+            ORDER BY p.data_pedido DESC
+        ";
+    
+        $db = new Database();
+        $stmt = $db->execute($sql, [':id_cliente' => $id_cliente]);
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+    
+    
+    
     
     
     
