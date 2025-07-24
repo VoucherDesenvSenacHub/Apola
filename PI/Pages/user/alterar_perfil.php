@@ -45,7 +45,7 @@ if (isset($_POST['carregarNovosDados'])) {
     $arquivo = $_FILES['foto_perfil'];
 
     if ($arquivo['error'] == UPLOAD_ERR_NO_FILE || empty($arquivo['name'])) {
-        // Nenhuma imagem nova enviada
+        
         $caminho = (!empty($cli['foto_perfil'])) ? $cli['foto_perfil'] : null;
     } 
     else {
@@ -91,9 +91,9 @@ if (isset($_POST['carregarNovosDados'])) {
 
     if ($resultado) {
         // echo '<script>
-        //         alert("Atualizado com sucesso!!");
-        //         window.location.href = "./perfil.php";
-        //       </script>';
+        //     alert("Atualizado com sucesso!!");
+        //        window.location.href = "./perfil.php";
+        //      </script>';
     } else {
         echo '<script>
                 alert("Erro ao atualizar!");

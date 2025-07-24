@@ -35,9 +35,10 @@ if(isset($_POST['cadastrar'])){
 
 
                 $cliente->cadastrarCliente();
+                $mostrarModal = true;
 
                 if($cliente){
-                    $succes='Cadastro realizado com successo';
+                   // $succes='Cadastro realizado com successo';
                 }else{
                     $erro='Erro ao cadastrar';
                 }
@@ -131,5 +132,24 @@ if(isset($_POST['cadastrar'])){
         </section>
         <script src="../../src/JS/validacao_cadastro.js"></script>
     </main>
+
+    <?php if (isset($mostrarModal) && $mostrarModal === true): ?>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script>
+    window.onload = function () {
+      Swal.fire({
+        icon: 'success',
+        title: 'Cadastro realizado com sucesso!',
+        showConfirmButton: false,
+        timer: 1000
+      });
+
+      // Redireciona após 1 segundo (mesmo tempo do timer do modal)
+      setTimeout(function () {
+        window.location.href = 'login.php';
+      }, 1000);
+    };
+  </script>
+<?php endif; ?>
 </body>
 </html>
