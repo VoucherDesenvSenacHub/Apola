@@ -9,7 +9,7 @@ require_once(__DIR__ . '/../DB/Database.php');
 // #[AllowDynamicProperties]
 class Banner{
 
-    public int $id_banner; 
+    public int $id_banner;
     public string $caminho;
     public int $posicao;
 

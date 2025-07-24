@@ -3,8 +3,8 @@
 require_once(__DIR__ . '/../DB/Database.php');
 
 class Categoria{
-  
-    public int $id_categoria; 
+
+    public int $id_categoria;
     public string $nome;
     public string $status_categoria;
     public string $imagem;

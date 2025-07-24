@@ -42,9 +42,9 @@ $produtosAleatorios = Produto::buscarProdutoAleatorio();
 
 
 
-$categorias = Categoria::buscarCategoriaLimit(null,'BY RAND()',3);
+$categorias = Categoria::buscarCategoriaLimit("status_categoria = 'a'",'BY RAND()',3);
 
-$categoriasAll =  Categoria::buscarCategoriaLimit(null, 'BY RAND()',6);
+$categoriasAll =  Categoria::buscarCategoriaLimit("status_categoria = 'a'", 'BY RAND()',6);
 
 
 
@@ -175,7 +175,7 @@ $produtoCategoria3 = Produto::buscarProdutoCategoria($categoriaArray[2]);
                                     </div>
                                     <div class="preco_card_produto">R$ '.number_format($produto['preco'], 2, ',', '.').'</div>
                                     <div class="btn_content_card_produto">
-                                        <div class="btn_bag_card"><i class="fa-solid fa-bag-shopping"></i></div>
+                                        <button class="btn_bag_card btn-cart-add"><i class="fa-solid fa-bag-shopping"></i></button>
                                         <a href="./comprar_produto.php?id_produto='. $produto['id_produto'] .'"class="btn_buy_card">Comprar</a>
                                     </div>
                                 </div>
