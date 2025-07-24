@@ -1,21 +1,22 @@
 <?php
-// /home/felix/Desktop/php_2/PI/Pages/user/carrinho.php
-
-session_start(); 
+session_start();
 
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
-// Include required files
-require '../../App/config.inc.php';  // Include app configuration
-require '../../App/Session/Login.php';  // Handle login session
-require_once __DIR__ . '/../../../vendor/autoload.php';  // Autoload Composer dependencies
-require_once __DIR__ . '/../../App/DB/Database.php';  // Database class
-require_once __DIR__ . '/../../App/Actions/CartController.php';  // CartController class
+require '../../App/config.inc.php';
+require_once __DIR__ . '/../../../vendor/autoload.php';
+require_once __DIR__ . '/../../App/DB/Database.php';
+require_once __DIR__ . '/../../App/Actions/CartController.php';
 
-use App\Actions\CartController;  // Use CartController
-use App\DB\Database;            // If you are using Database class
+use App\Actions\CartController;
+use App\DB\Database;
+
+// Initialize cart in session if it doesn't exist yet
+if (!isset($_SESSION['cart'])) {
+    $_SESSION['cart'] = [];
+}
 
 // Database connection setup
 $dsn = 'mysql:host=' . DB_HOST . ';dbname=' . DB_DATABASE;
@@ -23,45 +24,45 @@ $username = DB_USERNAME;
 $password = DB_PASSWORD;
 
 try {
-    // Create the PDO instance using the configuration from config.inc.php
     $pdo = new PDO($dsn, $username, $password);
-    
-    // Set PDO attributes for better error handling
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-    // Initialize CartController with the PDO instance
     $cartController = new CartController($pdo);
 
 } catch (PDOException $e) {
-    // Handle database connection errors
     die('Erro ao conectar ao banco de dados: ' . $e->getMessage());
 }
 
+// Get cart data from controller
 $cartData = $cartController->showCart();
 $cartItems = $cartData['cartItems'];
 $subtotal = $cartData['subtotal'];
 $shipping = $cartData['shipping'];
 $total = $cartData['total'];
 
-// Handle AJAX requests
+// Calculate cart count from session cart items
+$cartCount = 0;
+foreach ($_SESSION['cart'] as $item) {
+    $cartCount += $item['quantidade'] ?? 0;
+}
+
+// Handle AJAX requests for cart updates
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action'])) {
     header('Content-Type: application/json');
-    // REMOVE THIS: session_start(); // Already started at top
-    
+
     $productId = (int)($_POST['id'] ?? 0);
     $action = $_POST['action'];
-    
+
     try {
         if ($action === 'update') {
             $quantity = (int)($_POST['qty'] ?? 1);
             $cartController->updateQuantity($productId, $quantity);
-        } 
-        elseif ($action === 'remove') {
+        } elseif ($action === 'remove') {
             $cartController->removeFromCart($productId);
         }
-        
-        // Return updated cart data
+
         $cartData = $cartController->showCart();
+
         echo json_encode([
             'status' => 'success',
             'cartItems' => $cartData['cartItems'],
@@ -71,7 +72,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action'])) {
             'cartCount' => array_sum(array_column($_SESSION['cart'] ?? [], 'quantidade'))
         ]);
         exit;
-        
+
     } catch (Exception $e) {
         http_response_code(500);
         echo json_encode(['status' => 'error', 'message' => $e->getMessage()]);
@@ -79,28 +80,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action'])) {
     }
 }
 
-include 'head.php';
+// Include header
+include __DIR__ . '/head.php';
 
-$result = Login::RequireLogout();
-
-if ($result) {
-    include 'navbar_logado.php';
+// Include navbar based on session 'cliente' key (your Login class sets 'cliente')
+if (isset($_SESSION['cliente'])) {
+    include __DIR__ . '/navbar_logado.php';
 } else {
-    include 'navbar_deslogado.php';
+    include __DIR__ . '/navbar_deslogado.php';
 }
 
-// Debug cart items
-// echo '<pre>';
-// var_dump($cartItemsDetailed);
-// echo '</pre>';
-
-// echo '<pre>';
-// print_r($_SESSION['cart']);
-// echo '</pre>';
-
-// TODO: output your cart items here in HTML
-
 ?>
+
 
 <main class="main2">
     <div class="container_cart">
@@ -288,7 +279,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         <div class="detalhes_produto_cart">
                             <div class="cor_produto_cart">Cor: ${item.cor}</div>
                             <div class="tamanho_produto_cart">
-                                Tamanho: ${item.altura && item.largura ? (item.altura + 'x' + item.largura) : '-'}
+                                Tamanho: ${item.tamanho}
                             </div>
                         </div>
                     </div>

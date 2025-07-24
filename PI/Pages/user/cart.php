@@ -8,10 +8,12 @@ ini_set('display_errors', 1);
 require_once __DIR__ . '/../../App/Core/Config.php';
 require_once __DIR__ . '/../../App/DB/Database.php';
 require_once __DIR__ . '/../../../vendor/autoload.php';
+require_once __DIR__ . '/../../App/Actions/CartController.php';
 
-
-use App\Controllers\CartController;
+use App\Actions\CartController;
 use App\Core\Config;
+
+header('Content-Type: application/json');
 
 try {
     // Initialize configuration
@@ -39,16 +41,21 @@ try {
         throw new InvalidArgumentException('ID de produto inválido');
     }
 
+    // Try to add to cart
     $cartController->addToCart($productId, $qty);
 
+    echo json_encode([
+        'status' => 'success',
+        'message' => 'Produto adicionado ao carrinho',
+        'cartCount' => array_sum(array_column($_SESSION['cart'] ?? [], 'quantidade'))
+    ]);
+    exit;
+
 } catch (Exception $e) {
-    // Error response
     http_response_code(400);
-    header('Content-Type: application/json');
     echo json_encode([
         'status' => 'error',
-        'message' => $e->getMessage(),
-        'cartCount' => array_sum(array_column($_SESSION['cart'] ?? [], 'quantidade'))
+        'message' => $e->getMessage()
     ]);
     exit;
 }

@@ -1,24 +1,32 @@
 <?php
+// Start session if not already started
+if (session_status() !== PHP_SESSION_ACTIVE) {
+    session_start();
+}
 
-// require '../../App/config.inc.php';
+// Require the Login class to use its methods
+require_once __DIR__ . '/../../App/Session/Login.php';
 
-require_once '../../App/Entity/Cliente.class.php';
+require_once __DIR__ . '/../../App/Entity/Cliente.class.php';
+require_once __DIR__ . '/../../App/Entity/Categoria.class.php';
 
+use App\Entity\Categoria;
 
 $result = Login::IsLogedCliente();
-if($result){
-    $id_cliente = $_SESSION['cliente']['id_cliente'];
+$cli = null;
+$categorias = [];
 
-    $objCliente = new Cliente();
-    
-    $cli = $objCliente->getClienteById($id_cliente);
+if ($result) {
+    $id_cliente = $_SESSION['cliente']['id_cliente'] ?? null;
 
-    $categorias= Categoria::buscarCategoria();
-    
+    if ($id_cliente) {
+        $objCliente = new Cliente();
+        $cli = $objCliente->getClienteById($id_cliente);
+    }
+
+    $categorias = Categoria::buscarTodas();
 }
 ?>
- 
-
 
  <!-- INICIO MeENU NAVABAR -->
         <header class="menu">
@@ -179,35 +187,30 @@ if($result){
                                     <a id="icon-default" href="./produto_personalizado.php">Personalize</a>
                                 </li>
                                 <li id="text-categoria">
-                                    <a href="">Categorias<i class="fa-solid fa-chevron-down icon-seta"></i></a>
+                                    <a href="#">Categorias <i class="fa-solid fa-chevron-down icon-seta"></i></a>
                                     <div class="mega-menu">
                                         <div class="mega-menu-content">
-
-                                        <?php
- 
-                                            foreach ($categorias as $categoria) {
-                                                
-                                                echo'
-                                                <div class="row">
-                                                    <h3 class="Title-cat"><a href="./categorias.php?id_categoria='. $categoria->id_categoria .'">'.$categoria->nome.'</a></h3>
-                                                    <ul class="mega-links">
-                                                        <!-- <li><a href="">Amigurumi Cacto</a></li>
-                                                        <li><a href="">Amigurumi Cacto</a></li>
-                                                        <li><a href="">Amigurumi Cacto</a></li>
-                                                        <li><a href="">Amigurumi Cacto</a></li> -->
-                                                    </ul>
-                                                </div>
-
-                                                ';
-
-                                            }
-
-                                        ?>
+                                            <?php if (!empty($categorias)): ?>
+                                                <?php foreach ($categorias as $categoria): ?>
+                                                    <div class="row">
+                                                        <h3 class="Title-cat">
+                                                        <a href="./categorias.php?id_categoria=<?= $categoria->getIdCategoria() ?>">
+                                                            <?= htmlspecialchars($categoria->getNomeCategoria()) ?>
+                                                        </a>
+                                                        </h3>
+                                                        <ul class="mega-links"></ul>
+                                                    </div>
+                                                <?php endforeach; ?>
+                                            <?php else: ?>
+                                                <p class="no-categories">Nenhuma categoria encontrada</p>
+                                            <?php endif; ?>
                                         </div>
                                     </div>
                                 </li>
+
+                                <!-- Carrinho -->
                                 <li class="icon-default-back">
-                                    <a id="icon-default" href="carrinho.php" class="nav_icon">
+                                    <a href="carrinho.php" class="nav_icon">
                                         <i class="fa-solid fa-bag-shopping"></i>
                                         <span class="cart-count">
                                             <?php
@@ -220,19 +223,19 @@ if($result){
                                         </span>
                                     </a>
                                 </li>
+
+                                <!-- Foto do Perfil -->
                                 <li class="icon-default-back">
-                                <a class="conatiner_navbar_perfil_2" href="./perfil.php"><img class="img_navbar_2" src="<?= $cli['foto_perfil']; ?>" alt=""></a>
-                                 
-
-
-                                      
-                                    
-                                
-                                </a>
+                                    <a class="conatiner_navbar_perfil_2" href="./perfil.php">
+                                        <img class="img_navbar_2"
+                                            src="<?= $cli && $cli['foto_perfil']
+                                                ? htmlspecialchars($cli['foto_perfil'])
+                                                : '../../src/imagens/cadastro/perfil/img_padrao_perfil.jpg' ?>"
+                                            alt="Perfil">
+                                    </a>
                                 </li>
                             </ul>
                         </nav>
                     </div>
-            </nav>
-             <!-- FIM MENU NAVBAR -->
-        </header>
+                </nav>
+            </header>

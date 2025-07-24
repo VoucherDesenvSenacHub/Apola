@@ -4,7 +4,7 @@ class Login {
 
     public static function init() {
         if (session_status() !== PHP_SESSION_ACTIVE) {
-            return session_start();
+            session_start();
         }
     }
 
@@ -14,7 +14,6 @@ class Login {
             'id_cliente' => $object->id_cliente,
             'email' => $object->email
         ];
-
 
         header('location: ../../Pages/user/Home.php');
         exit;
@@ -28,7 +27,6 @@ class Login {
         ];
         header('location: ../../Pages/adm/perfil_adm.php');
         exit;
-        
     }
 
     public static function IsLogedCliente() {

@@ -137,18 +137,14 @@ class Database {
 
     // Função para listar dados do banco de dados
     
-    public function select($where=null, $order=null, $limit=null, $fields = '*'){
+    public function select($where = null, $order = null, $limit = null, $fields = '*') {
+        $where = strlen((string)$where) ? 'WHERE ' . $where : '';
+        $order = strlen((string)$order) ? 'ORDER ' . $order : '';
+        $limit = strlen((string)$limit) ? 'LIMIT ' . $limit : '';
 
-        $where = strlen($where) ? 'WHERE '.$where : '';
-        $order = strlen($order) ? 'ORDER '.$order : '';
-        $limit = strlen($limit) ? 'LIMIT '.$limit : '';
+        $query = 'SELECT ' . $fields . ' FROM ' . $this->table . ' ' . $where . ' ' . $order . ' ' . $limit;
 
-        // COM FIELDS NA FUNÇÃO SELECT COMO PARAMENTRO = "$fields = '*'
-        $query = 'SELECT '.$fields.' FROM '. $this->table.' '.$where.' '.$order.' '.$limit;
-
-        // $query = 'SELECT * FROM '. $this->table.' '.$where.' '.$order.' '.$limit.;            
         return $this->execute($query);
-        
     }
 
     // Função para deletar dados do banco de dados
@@ -389,6 +385,13 @@ class Database {
 
 
     }
+
+    // Dentro da classe Database
+    public function getPDO()
+    {
+        return $this->pdo;
+    }
+
 
 
 

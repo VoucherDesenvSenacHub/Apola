@@ -1,78 +1,66 @@
 <?php
-require_once __DIR__ . '/../../../vendor/autoload.php';
-require_once __DIR__ . '/../../App/DB/Database.php';
-require '../../App/config.inc.php';
-require '../../App/Session/Login.php';
-require '../../App/Core/Config.php';
+session_start();  // Start session at the very beginning
 
-use App\DB\Database;
-use App\Core\Config;
-use App\Entity\ProductModel; 
-
+// Display errors for debugging (remove in production)
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
+// Autoload and includes
+require_once __DIR__ . '/../../../vendor/autoload.php';
+require_once __DIR__ . '/../../App/DB/Database.php';
+require_once __DIR__ . '/../../App/Entity/Produto.class.php';
+
+require '../../App/config.inc.php';
+require '../../App/Session/Login.php';  // Your Login class
+require '../../App/Core/Config.php';
+
+use App\DB\Database;
+use App\Core\Config;
+use App\Entity\Produto;
+
+// Initialize Config and DB
 Config::initialize();
-
 $database = new Database();
-
 if ($database->pdo === null) {
-    die("Failed to establish a database connection.");
+    die("Falha ao conectar ao banco de dados.");
 }
 
-$pdo = $database->pdo;
-
-// Check if ProductModel class is available
-if (!class_exists('App\Entity\ProductModel')) {
-    die('ProductModel class not found');
+// Initialize cart if not set
+if (!isset($_SESSION['cart'])) {
+    $_SESSION['cart'] = [];
 }
 
-// Now instantiate the ProductModel class
-$productModel = new ProductModel($pdo);
+// Calculate cart count from session cart
+$cartCount = 0;
+foreach ($_SESSION['cart'] as $item) {
+    $cartCount += $item['quantidade'] ?? 0;
+}
 
-
-// Pega o ID do produto da URL e valida
+// Validate product ID from GET
 $productId = isset($_GET['id']) ? (int)$_GET['id'] : 0;
 if ($productId <= 0) {
-    die("ID de produto inválido");
+    die("ID de produto inválido.");
 }
 
-// Busca o produto
-$product = $productModel->getProductById($productId);
+// Fetch product using your entity method
+$product = Produto::buscarProdutoPorId($productId);
 if (!$product) {
-    die("Produto não encontrado");
+    die("Produto não encontrado.");
 }
 
-// Agora chama a view (você pode adaptar para incluir cabeçalho, navbar, footer, etc)
+// Include header
+include __DIR__ . '/head.php';
 
-// Exemplo simples de exibição do produto
-// echo "<h1>{$product['nome']}</h1>";
-// echo "<p>Preço: R$ {$product['preco']}</p>";
-// echo "<p>Descrição: {$product['descricao']}</p>";
-// echo "<p>Cores: {$product['cor']}</p>";
-// echo "<p>Tamanhos: {$product['tamanho']}</p>";
-
-// Pode colocar aqui o botão de "Adicionar ao carrinho", etc
-
-// include __DIR__ . '/footer.php';
-
-// var_dump($productData);
-// var_dump($_ENV['DB_USERNAME'], $_ENV['DB_PASSWORD']);
-// exit;
-
-include "head.php";
-
-$result = Login::RequireLogout();
-
-if($result){
-    include 'navbar_logado.php';
-
-}else{
-    include 'navbar_deslogado.php';
+// Include navbar based on login status
+if (Login::IsLogedCliente()) {
+    include __DIR__ . '/navbar_logado.php';
+} else {
+    include __DIR__ . '/navbar_deslogado.php';
 }
 
 ?>
+
 
     <main class="main2">
         <div class="comprar_produto">
@@ -81,8 +69,8 @@ if($result){
                     <h6>
                         Home /
                         <!-- var_dump($product); exit; -->
-                        <?= htmlspecialchars($product->getCategory()->getName()) ?>
-                        <?= htmlspecialchars($product->getName()) ?>
+                        <?= htmlspecialchars($product->getCategoria()?->getNomeCategoria() ?? '—') ?> 
+                        <?= htmlspecialchars($product->getNome()) ?>
 
                     </h6>
                 </div>
@@ -90,10 +78,10 @@ if($result){
                     <script src="../../src/JS/comprar_produto.js" defer></script>
                     <div class="product-thumb-container">
                         <div class="thumbnail-images">
-                            <?php foreach ($product->getImageUrls() as $url): ?>
+                            <?php foreach ($product->getImagensUrls() as $url): ?>
                                 <img
                                     src="<?= htmlspecialchars($url) ?>"
-                                    alt="<?= htmlspecialchars($product->getName()) ?>"
+                                    alt="<?= htmlspecialchars($product->getNome()) ?>"
                                     class="thumbnail"
                                     data-image="<?= htmlspecialchars($url) ?>"
                                 >
@@ -102,7 +90,7 @@ if($result){
                         <div class="image-gallery">
                             <div class="image-gallery-urso">
                                 <img
-                                    src="<?= htmlspecialchars($product->getImageUrls()[0] ?? '') ?>"
+                                    src="<?= htmlspecialchars($product->getImagensUrls()[0] ?? '') ?>"
                                     id="main-image"
                                 >
                             </div>
@@ -114,7 +102,7 @@ if($result){
                     <div class="product-details">
                         <div class="product-details_left">
                             <div class="container_name_produto">
-                                <h6><?= htmlspecialchars($product->getName()) ?></h6>
+                                <h6><?= htmlspecialchars($product->getNome()) ?></h6>
                                 <i class="fa-solid fa-heart"></i>
                             </div>
                             <div class="container_avaliacao_produto">
@@ -125,7 +113,7 @@ if($result){
                             <div class="item_flex_produto">
                                 <label>Cor</label>
                                 <div class="item_flex_cor_produto">
-                                    <?php foreach ($product->getColors() as $colorHex): ?>
+                                    <?php foreach ($product->getCores() as $colorHex): ?>
                                         <div class="shape_cor_produto" style="background: <?= htmlspecialchars($colorHex) ?>;"></div>
                                     <?php endforeach; ?>
                                 </div>
@@ -133,7 +121,7 @@ if($result){
                             <div class="item_flex_produto">
                                 <label>tamanho</label>
                                 <div class="item_flex_cor_produto">
-                                    <?php foreach ($product->getSizes() as $size): ?>
+                                    <?php foreach ($product->getTamanhos() as $size): ?>
                                         <div class="shape_tamanho_produto"><?= htmlspecialchars($size) ?></div>
                                     <?php endforeach; ?>
                                 </div>
@@ -141,15 +129,15 @@ if($result){
                         </div>
                         <div class="product-details_right">
                             <div class="container_preco_produto">
-                                <?php if ($product->getOriginalPrice()): ?>
+                                <?php if ($product->getPrecoOriginal()): ?>
                                     <span class="preco_antigo_produto">
-                                        De R$ <?= number_format($product->getOriginalPrice(), 2, ',', '.') ?>
+                                        De R$ <?= number_format($product->getPrecoOriginal(), 2, ',', '.') ?>
                                     </span>
                                 <?php endif; ?>
                                 <span class="preco_novo_produto">
-                                    R$<div id="valor_produt">
-                                        <?= number_format($product->getPrice(), 2, ',', '.') ?>
-                                    </div>
+                                    R$<div id="valor_produt" data-price="<?= $product->getPreco() ?>">
+                                            <?= number_format($product->getPreco(), 2, ',', '.') ?>
+                                        </div>
                                 </span>
                             </div>
                             
@@ -189,12 +177,12 @@ if($result){
                                 <script src="../src/JS/modal.js" defer></script>
                                 <!-- First Product Section -->
                                 <div class="container_buy_quant display_none_solo">
-                                    <div class="menos_cart qty-control" data-target="quant_item_solo-<?= $product->getId() ?>">
+                                    <div class="menos_cart qty-control" data-target="quant_item_solo-<?= $product->getIdProduto() ?>">
                                         <i class="fa-solid fa-minus"></i>
                                     </div>
                                     <!-- Fixed ID: Use hyphen instead of space -->
-                                    <div id="quant_item_solo-<?= $product->getId() ?>" class="quant_cart_solo">1</div>
-                                    <div class="mais_cart qty-control" data-target="quant_item_solo-<?= $product->getId() ?>">
+                                    <div id="quant_item_solo-<?= $product->getIdProduto() ?>" class="quant_cart_solo">1</div>
+                                    <div class="mais_cart qty-control" data-target="quant_item_solo-<?= $product->getIdProduto() ?>">
                                         <i class="fa-solid fa-plus"></i>
                                     </div>
                                 </div>
@@ -202,8 +190,8 @@ if($result){
                                 <!-- Add to Cart Button (First Section) -->
                                 <button class="btn_bag_produto" 
                                         data-action="add" 
-                                        data-id="<?= $product->getId() ?>"
-                                        data-qty-target="quant_item_solo-<?= $product->getId() ?>">
+                                        data-id="<?= $product->getIdProduto() ?>"
+                                        data-qty-target="quant_item_solo-<?= $product->getIdProduto() ?>">
                                     <i class="fa-solid fa-bag-shopping"></i>
                                 </button>
                             </section>
@@ -327,38 +315,50 @@ if($result){
 
     <script>
 
-document.addEventListener('DOMContentLoaded', function() {
-    // Image gallery functionality
+document.addEventListener('DOMContentLoaded', function () {
     const thumbnails = document.querySelectorAll('.thumbnail');
     const mainImage = document.getElementById('main-image');
-    
+
     thumbnails.forEach(thumb => {
-        thumb.addEventListener('click', function() {
+        thumb.addEventListener('click', function () {
             mainImage.src = this.dataset.image;
         });
     });
 
-    // Quantity controls
+    // Quantity controls with price update
     document.querySelectorAll('.qty-control').forEach(control => {
-        control.addEventListener('click', function(e) {
+        control.addEventListener('click', function (e) {
             e.preventDefault();
+
             const targetId = this.dataset.target;
             const qtyDisplay = document.getElementById(targetId);
             if (!qtyDisplay) return;
 
             let currentQty = parseInt(qtyDisplay.textContent) || 1;
-            currentQty = this.classList.contains('menos_cart') 
-                ? Math.max(1, currentQty - 1) 
+            currentQty = this.classList.contains('menos_cart')
+                ? Math.max(1, currentQty - 1)
                 : currentQty + 1;
-            
+
             qtyDisplay.textContent = currentQty;
+
+            // 🟢 Price update logic
+            const priceElement = document.getElementById('valor_produt');
+            const unitPrice = parseFloat(priceElement.dataset.price);
+            if (!isNaN(unitPrice)) {
+                const total = unitPrice * currentQty;
+                priceElement.textContent = total.toLocaleString('pt-BR', {
+                    minimumFractionDigits: 2,
+                    maximumFractionDigits: 2
+                });
+            }
         });
     });
 
     // Add to cart functionality
     document.querySelectorAll('.btn_bag_produto').forEach(button => {
-        button.addEventListener('click', async function(e) {
+        button.addEventListener('click', async function (e) {
             e.preventDefault();
+
             const productId = this.dataset.id;
             const qty = parseInt(document.getElementById(this.dataset.qtyTarget)?.textContent) || 1;
 
@@ -372,15 +372,12 @@ document.addEventListener('DOMContentLoaded', function() {
                 });
 
                 const data = await response.json();
-                
+
                 if (data.status === 'success') {
-                    // Update cart count
                     document.querySelectorAll('.cart-count').forEach(el => {
                         el.textContent = data.cartCount;
                     });
-                    
-                    // Show success message
-                    // alert('Produto adicionado ao carrinho!');
+                    // Optionally show a toast or modal
                 } else {
                     alert(data.message || 'Erro ao adicionar ao carrinho');
                 }

@@ -3,6 +3,9 @@
 require '../../App/config.inc.php';
 
 require '../../App/Session/Login.php';
+require_once __DIR__ . '/../../App/Entity/Produto.class.php';
+
+use App\Entity\Produto;
 
 include "head.php";
 

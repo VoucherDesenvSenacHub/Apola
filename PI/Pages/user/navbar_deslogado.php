@@ -1,8 +1,10 @@
 <?php
 
+require_once __DIR__ . '/../../App/Entity/Categoria.class.php';
 
+use App\Entity\Categoria;
 
-    $categorias= Categoria::buscarCategoria();
+    $categorias = Categoria::buscarTodas();
     
 
 ?>
@@ -144,35 +146,34 @@
                             <li class="icon-default-back">
                                 <a id="icon-default" href="./produto_personalizado.php">Personalize</a>
                             </li>
+                            <!-- Categorias -->
                             <li id="text-categoria">
-                                <a href="#">Categorias<i class="fa-solid fa-chevron-down icon-seta"></i></a>
+                                <a href="#">Categorias <i class="fa-solid fa-chevron-down icon-seta"></i></a>
                                 <div class="mega-menu">
                                     <div class="mega-menu-content">
-                                    <?php
-
-                                        foreach ($categorias as $categoria) {
-                                            
-                                            echo'
-                                            <div class="row">
-                                                <h3 class="Title-cat"><a href="./categorias.php?id_categoria='. $categoria->id_categoria .'">'.$categoria->nome.'</a></h3>
-                                                <ul class="mega-links">
-                                                    <!-- <li><a href="">Amigurumi Cacto</a></li>
-                                                    <li><a href="">Amigurumi Cacto</a></li>
-                                                    <li><a href="">Amigurumi Cacto</a></li>
-                                                    <li><a href="">Amigurumi Cacto</a></li> -->
-                                                </ul>
-                                            </div>
-
-                                            ';
-
-                                        }
-
-                                        ?>
+                                        <?php if (!empty($categorias)): ?>
+                                            <?php foreach ($categorias as $categoria): ?>
+                                                <div class="row">
+                                                    <h3 class="Title-cat">
+                                                        <a href="./categorias.php?id_categoria=<?= htmlspecialchars($categoria->getIdCategoria()) ?>">
+                                                            <?= htmlspecialchars($categoria->getNomeCategoria()) ?>
+                                                        </a>
+                                                    </h3>
+                                                    <ul class="mega-links">
+                                                        <!-- future subcategories -->
+                                                    </ul>
+                                                </div>
+                                            <?php endforeach; ?>
+                                        <?php else: ?>
+                                            <p class="no-categories">Nenhuma categoria encontrada</p>
+                                        <?php endif; ?>
                                     </div>
                                 </div>
                             </li>
+
+                            <!-- Carrinho -->
                             <li class="icon-default-back">
-                                <a id="icon-default" href="carrinho.php" class="nav_icon">
+                                <a href="carrinho.php" class="nav_icon">
                                     <i class="fa-solid fa-bag-shopping"></i>
                                     <span class="cart-count">
                                         <?php
@@ -185,15 +186,17 @@
                                     </span>
                                 </a>
                             </li>
+
+                            <!-- Login/Cadastro -->
                             <li class="icon-default-back">
-                                <a id="icon-default" href=""><i class="fa-solid fa-user"></i></a>
+                                <a id="icon-default" href="#"><i class="fa-solid fa-user"></i></a>
                                 <ul class="drop-menu">
                                     <div class="shape-perfil"></div>
                                     <li><a href="./login.php">Login</a></li>
                                     <li><a href="./cadastro.php">Cadastro</a></li>
                                 </ul>
-                                </div>
                             </li>
+
                         </ul>
                     </nav>
                 </div>
