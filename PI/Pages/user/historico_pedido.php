@@ -58,7 +58,7 @@ usort($pedidos, function($a, $b) {
 
                 <div class="conatiner_gap_body_cart">
                 <?php foreach ($pedidos as $pedido): ?>
-                    <div class="container_body_cart">
+                    <div class="container_body_cart" data-status="<?= $pedido['status_pedido'] ?>">
                         <ul class="conatiner_list_item_cart">
                             <li>Produto</li>
                             <li>Preço</li>
@@ -109,11 +109,28 @@ usort($pedidos, function($a, $b) {
                             <div class="container_final_cart">
                                 <div class="container_final_cart_left">
                                     <ul class="status_shape_hist">
-                                        <li class="<?= ($pedido['status_pedido'] == 'Produção') ? 'active_entrega_shape' : 'item_shape_hist' ?>"><i class="fa-solid fa-check"></i></li>
+                                        <!-- Produção -->
+                                        <li class="<?= in_array($pedido['status_pedido'], ['Produção', 'Envio', 'Entregue']) ? 'active_entrega_shape' : 'item_shape_hist' ?>">
+                                            <?php if (in_array($pedido['status_pedido'], ['Produção', 'Envio', 'Entregue'])): ?>
+                                                <i class="fa-solid fa-check"></i>
+                                            <?php endif; ?>
+                                        </li>
                                         <div class="linha_shape_hist"></div>
-                                        <li class="<?= ($pedido['status_pedido'] == 'A caminho') ? 'active_entrega_shape' : 'item_shape_hist' ?>"></li>
+
+                                        <!-- A caminho -->
+                                        <li class="<?= in_array($pedido['status_pedido'], ['Envio', 'Entregue']) ? 'active_entrega_shape' : 'item_shape_hist' ?>">
+                                            <?php if (in_array($pedido['status_pedido'], ['Envio', 'Entregue'])): ?>
+                                                <i class="fa-solid fa-check"></i>
+                                            <?php endif; ?>
+                                        </li>
                                         <div class="linha_shape_hist"></div>
-                                        <li class="<?= ($pedido['status_pedido'] == 'Entregue') ? 'active_entrega_shape' : 'item_shape_hist' ?>"></li>
+
+                                        <!-- Entregue -->
+                                        <li class="<?= $pedido['status_pedido'] === 'Entregue' ? 'active_entrega_shape' : 'item_shape_hist' ?>">
+                                            <?php if ($pedido['status_pedido'] === 'Entregue'): ?>
+                                                <i class="fa-solid fa-check"></i>
+                                            <?php endif; ?>
+                                        </li>
                                     </ul>
                                     <ul class="name_status_hist">
                                         <li class="item_name_hist">Produção</li>
@@ -162,6 +179,33 @@ usort($pedidos, function($a, $b) {
             </div>
         </div>
     </section>
+    <script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const btns = document.querySelectorAll('.btn_pedidos_historico');
+        const pedidos = document.querySelectorAll('.container_body_cart');
+
+        btns.forEach((btn, index) => {
+            btn.addEventListener('click', () => {
+                btns.forEach(b => b.classList.remove('hp'));
+                btn.classList.add('hp');
+
+                pedidos.forEach(pedido => {
+                    const status = pedido.getAttribute('data-status');
+
+                    if (index === 0) {
+                        // Mostrar todos
+                        pedido.style.display = 'block';
+                    } else if (index === 1) {
+                        // Mostrar apenas os entregues
+                        pedido.style.display = status === 'Entregue' ? 'block' : 'none';
+                    }
+                });
+            });
+        });
+    });
+    </script>
+
+
 </main>
 
 <?php include "footer.php"; ?>
