@@ -235,11 +235,9 @@
 .conatiner_final_carrinho{
     display: flex;
     width: 90%;
-    height: 100%;
     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-    height: 250px;
     align-items: center;
-    padding: 1rem;
+    padding: 2rem;
     border-radius: 10px;
 }
 
@@ -249,7 +247,6 @@
 .conatiner_final_carrinho_left{
     display: flex;
     width: 50%;
-    height: 100%;
     flex-direction: column;
     justify-content: center;
     gap: 1rem;
@@ -265,9 +262,16 @@
 
 }
 
+.err-alert{
+    display: flex;
+    width: 100%;
+    color: rgb(217, 33, 33);
+    font-weight: 500;
+}
+
 .radio_cep{
-    width: 20px;
-    height: 20px;
+    width: 25px;
+    height: 25px;
     border-radius: 50%;
     border: 1px solid #bebebe;
     cursor: pointer;
@@ -292,9 +296,38 @@
 
 
 
+.alertModalErr{
+    display: flex;
+    background-color: rgb(255, 255, 255);
+    width: auto;
+    padding: 1rem;
+    border-radius: 5px;
+    position: fixed;
+    height: auto;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    align-items: center;
+    gap: 1rem;
+    color: rgb(182, 33, 33);
+    font-weight: 500;
+    z-index: 999999;
+    top: 100px;
+    transition: all 0.2s ease;
+    left: -500px;
+}
 
-
-
+.diverrborder{
+    display: flex;
+    width: 40px;
+    height: 40px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 100%;
+    display: flex;
+    background-color: rgba(255, 212, 212, 0.797);
+    color: rgb(182, 33, 33);
+    font-size: 1.2rem;
+    gap: 1rem;
+}
 
 
 .conatiner_final_carrinho_right{
@@ -361,8 +394,66 @@
     background-color: #2b2b2b;
 }
 
+.conatiner_cep_drop_input_btn{
+    display: flex;
+    gap: 1rem;
+
+}
+
+#new_edereco{
+    width: 80%;
+    flex-direction: column;
+
+    display: flex;
+    gap: 0.5rem;
+ 
+}
 
 
+.div-flex-input{
+    display: flex;
+    gap: 0.5rem;
+}
+.div-flex-input input{
+
+    border: 1px solid rgb(219, 219, 219);
+    border-radius: 4px;
+    outline: none;
+    display: flex;
+    padding: 0.5rem;
+
+}
+
+.div-flex-input button{
+    display: flex;
+    width: 20%;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    background-color: rgb(233, 255, 233);
+    color: rgb(21, 121, 21);
+    border-radius: 4px;
+    padding: 0.5rem;
+    transition: all 0.2s ease;
+    cursor: pointer;
+}
+
+.div-flex-input button:hover{
+    background-color:  rgb(183, 255, 183);
+}
+
+#cepnew{
+    display: flex;
+    border: 1px solid rgb(219, 219, 219);
+    border-radius: 4px;
+    width: 10%;
+    height: 30px;
+    outline: none;
+}
+.conatiner_cep_drop{
+    display: flex;
+    flex-direction: column;
+}
 
 .conatiner_cep_drop input{
     display: flex;

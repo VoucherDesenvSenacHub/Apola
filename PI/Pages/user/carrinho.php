@@ -47,6 +47,7 @@ $cliente = Cliente::getClienteById($id_cliente);
             <div class="conatiner_final_carrinho">
                 <div class="conatiner_final_carrinho_left">
                     <div class="item_edereco_carrinho">
+                        <input type="hidden" id='iputCepStatus'>
                         <div class="radio_cep" id="radio_cep2"></div>
                         <div class="text_carrinho_endereco">
                             Endereço - <?= $cliente['rua'] ?>, <?= $cliente['numero_casa'] ?>, <?= $cliente['bairro'] ?>, <?= $cliente['estado'] ?> - CEP: <?= $cliente['cep'] ?>
@@ -55,12 +56,19 @@ $cliente = Cliente::getClienteById($id_cliente);
                     </div>
                     <div class="item_edereco_carrinho">
                         <div class="radio_cep" id="radio_cep"></div>
-                        <div class="text_carrinho_endereco">Outro endereço</div>
+                        <div class="text_carrinho_endereco" id='newEndereco'  >Outro endereço</div>
                     </div>
                     <div class="conatiner_cep_drop" id="conatiner_cep_drop">
-                        <input type="text">
-                        <button class="btn_input_cep" ><i class="fa-solid fa-truck"></i></button>
+                        <div class="conatiner_cep_drop_input_btn">
+                            <input id='input-cep' type="text">
+                            <button  id='btn-input-cep'  class="btn_input_cep" ><i class="fa-solid fa-truck"></i></button>
+
+                        </div>
                     </div>
+                    <div id='new_edereco'  class="text_carrinho_endereco">
+                          
+                    </div>
+                    <div id='divErr' class="err-alert"></div>
                     
                 </div>
                 <div class="conatiner_final_carrinho_right">
@@ -70,8 +78,8 @@ $cliente = Cliente::getClienteById($id_cliente);
                                 SubTotal
                                 
                             </div>
-                            <div class="preco_text_carrinho">
-                                R$ 319,19
+                            <div id='subtotal' class="preco_text_carrinho">
+                                    00,00 R$
 
                             </div>
             
@@ -83,24 +91,24 @@ $cliente = Cliente::getClienteById($id_cliente);
                                 
                             </div>
                             <div class="preco_text_carrinho">
-                                R$ 22,69
+                                15,65 R$
 
                             </div>
-                        </div>
+                        </div> 
                         <div class="linha_preco_carrinho"></div>
                         <div class="item_preco_carrinho">
                             <div style="font-weight: 600;" class="preco_text_carrinho">
                                 Valor Total
                                 
                             </div>
-                            <div style="font-weight: 600;"class="preco_text_carrinho">
-                                R$ 341,88
+                            <div  id='total'  style="font-weight: 600;"class="preco_text_carrinho">
+                                 00,00 R$
 
                             </div>
                         </div>
                         <div class="linha_preco_carrinho"></div>
                         <div class="conatiner_btn_finalizar_compra_cart">
-                            <button data-modal="modal-1" class=" open-modal btn_finalizar">Finalizar Pedido</button>
+                            <button id="btn-finalizar" class=" open-modal btn_finalizar">Finalizar Pedido</button>
                         </div>
                         <dialog id="modal-1">
                             <div class="modal_header">
@@ -127,6 +135,16 @@ $cliente = Cliente::getClienteById($id_cliente);
        
 
     </main>
+
+
+    <div id='alertModal' class="alertModalErr">
+        <div class="diverrborder">
+            <i class="fa-solid fa-xmark"></i>
+        </div>
+        <div id="divErrmodal">
+        </div>
+
+    </div>
     
 <?php
 
