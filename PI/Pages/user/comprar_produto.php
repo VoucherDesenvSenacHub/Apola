@@ -135,7 +135,7 @@ $avaliacoesDoProduto = $avaliacaoProduto->select_avaliacao_produto($id_produto);
                                 <script src="../src/JS/modal.js" defer></script>
                                 <!-- O botão da bolsa -->
                                 
-                                <button type="button" class="btn_bag_produto">
+                                <button data-id="<?= $result->id_produto ?>" class="btn_bag_produto btn-cart-add">
                                     <i class="fa-solid fa-bag-shopping"></i>
                                 </button>
                             </div>
@@ -150,7 +150,7 @@ $avaliacoesDoProduto = $avaliacaoProduto->select_avaliacao_produto($id_produto);
                     <div class="container_buy_produto2  ">
                         <div class="container_buy_buy none_display">
                         <button type="button" class="btn_buy_produto">Comprar</button>
-                            <button class="btn_bag_produto"><i class="fa-solid fa-bag-shopping"></i></button>
+
                         </div>
                         <div class="container_buy_quant none_display">
                                 <div id='sub_item_solo2' class="menos_cart"><i class="fa-solid fa-minus"></i></div>
