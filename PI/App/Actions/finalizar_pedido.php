@@ -49,7 +49,7 @@ $id_sacola = gerarCodigo();
 $pedido = new Pedido();
 
 
-
+$pedido->data_pedido = date('Y-m-d H:i:s');
 $pedido->tipo = 'disponivel';
 $pedido->status_pedido = 'A pagar';
 $pedido->codigo_rastreio = null;
@@ -57,6 +57,7 @@ $pedido->id_cliente = $id_cliente;
 
 
 $LastIdPedido = $pedido->cadastrar();
+
 
 
 foreach ($cart as $produto) {

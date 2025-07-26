@@ -13,6 +13,7 @@ class Pedido {
         $db = new Database('pedido');
         $result = $db->insert_LastId([
             'tipo' => $this->tipo,
+            'data_pedido' => $this->data_pedido,
             'status_pedido' => $this->status_pedido,
             'codigo_rastreio' => $this->codigo_rastreio,
             'id_cliente' => $this->id_cliente,

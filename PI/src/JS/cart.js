@@ -476,18 +476,58 @@ document.addEventListener('DOMContentLoaded', function(){
 
             if (response.status === 'success' || response.status == true) {
 
-            localStorage.removeItem('cart');
+            localStorage.clear();('cart');
 
             QuanCart.forEach(element => {
                 element.innerHTML = '0';
             });
 
+
+
+            const DivModalSucess = document.getElementById('ModalSucess');
+            const DivModalOpacity = document.getElementById('opacityModal');
+
+
+            DivModalSucess.innerHTML =`
             
+            <div class="modal_header">
+                <button class="close-modal" id='closeModalSucces'><i class="fa-solid fa-xmark"></i></button>
+            </div>
+                <div class="modal_body">
+                    <h5 class="title_modal_zap">Pedido Realizado!</h5>
+                    <div class="text_modal_zap">Segue o link do nosso WhatsApp para realizar o pagamento. Entraremos em contato em breve.</div>
+                    <div class="conatiner_item_modal_link_zap">
+                    <div class="item_modal_link_zap">
+                        <i class="fa-brands fa-whatsapp"></i>
+                        <a target='blank' href="https://wa.me/">67 991924837</a>
+                    </div>
+                </div>  
+            </div>
+            
+            `
+
+            DivModalSucess.style.top ='350px'
+            DivModalSucess.style.transition ='all 0.4s ease-in-out'
+            DivModalOpacity.style.display='flex'
 
 
-           
+            let DivCart = document.getElementById('DivIdCart');
+            DivCart.innerHTML = '';
 
-          
+
+
+            let DivCartClose = document.getElementById('closeModalSucces');
+
+
+            DivCartClose.addEventListener('click', () =>{
+
+                DivModalSucess.style.top ='-100px'
+                DivModalSucess.style.display='none';
+                DivModalOpacity.style.display='none'
+               
+            })
+
+
         } else {
             const DivErr = document.getElementById('divErrmodal');
             DivErr.style.left = '0px';
