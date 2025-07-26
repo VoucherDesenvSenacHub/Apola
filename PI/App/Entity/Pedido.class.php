@@ -11,10 +11,14 @@ class Pedido {
     
     public function cadastrar(){
         $db = new Database('pedido');
-        $result = $db->insert([
+        $result = $db->insert_LastId([
+            'tipo' => $this->tipo,
+            'status_pedido' => $this->status_pedido,
+            'codigo_rastreio' => $this->codigo_rastreio,
+            'id_cliente' => $this->id_cliente,
         ]);
 
-        return $result ? true : false;
+        return $result;
     }
     public function cadastrarPerso($id){
         $db = new Database('pedido');

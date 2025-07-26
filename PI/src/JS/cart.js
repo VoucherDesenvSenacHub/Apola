@@ -427,52 +427,80 @@ document.addEventListener('DOMContentLoaded', function(){
 
 
     
-    const BtnFinalizar = document.getElementById('btn-finalizar')
+   const BtnFinalizar = document.getElementById('btn-finalizar');
 
-    BtnFinalizar.addEventListener('click', () =>{
-
-   
-
+    BtnFinalizar.addEventListener('click', () => {
+        let inputStatusCep = document.getElementById('iputCepStatus');
         let cart = JSON.parse(localStorage.getItem('cart')) || [];
 
         if (cart.length === 0) {
             const DivErr = document.getElementById('divErrmodal');
             const DivErrModal = document.getElementById('alertModal');
-        
-    
+
             DivErrModal.style.left = '0px';
-        
             DivErr.innerHTML = `A sua sacola está vazia.`;
-        
+
             setTimeout(() => {
                 DivErr.innerHTML = '';
                 DivErrModal.style.left = '-500px';
                 DivErrModal.style.transition = 'all 0.2s ease';
             }, 4000);
-        }else{
+            return;
+        }
 
-            console.log('Passou aqui')
-            console.log(cart)
+
+        let enderecoFinal;
+        if (inputStatusCep.value === 'outro') {
+      
+            enderecoFinal = document.getElementById('newEndereco').innerText.trim();
+
+            console.log(enderecoFinal)
+        } else {
+           
+            enderecoFinal = document.querySelector('.text_carrinho_endereco').innerText.trim();
+        }
+
+        fetch('../../App/Actions/finalizar_pedido.php', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ 
+                cartFinal: cart,
+                endereco: enderecoFinal
+            })
+        })
+        .then(response => response.json())
+        .then(response => {
+             console.log(response.status);
+
+            if (response.status === 'success' || response.status == true) {
+
+            localStorage.removeItem('cart');
+
+            QuanCart.forEach(element => {
+                element.innerHTML = '0';
+            });
 
             
 
-            fetch('../../App/Actions/finalizar_pedido.php', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({ cartFinal: cart }, {})
-            }).then(response => response.json())
-            .then(response =>{
 
-                
-                
-            })
+           
 
+          
+        } else {
+            const DivErr = document.getElementById('divErrmodal');
+            DivErr.style.left = '0px';
+            document.getElementById('divErr').innerHTML = `Erro ao finalizar pedido.`;
+
+            setTimeout(() => {
+                document.getElementById('divErr').innerHTML = '';
+                DivErr.style.left = '-500px';
+            }, 4000);
         }
-        
-        
+                
+        });
+    });
 
-    })
 
 })

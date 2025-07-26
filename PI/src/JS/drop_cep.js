@@ -10,10 +10,13 @@ OpenBtnradio2.style.background = "#FA301E";
 
 let inputStatusCep = document.getElementById('iputCepStatus')
 
+inputStatusCep.value ='incial'
+
 
 OpenBtnradio.addEventListener("click", () =>{
 
-    inputStatusCep.value ='incial'
+    inputStatusCep.value ='outro'
+
 
     ConteudoBtnradio.classList.add("active_drop_cep");
     OpenBtnradio2.style.background = "transparent";
@@ -28,13 +31,14 @@ OpenBtnradio2.addEventListener("click", ()=>{
     OpenBtnradio.style.background = "transparent";
     OpenBtnradio2.style.background = "#FA301E";
 
-    inputStatusCep.value ='outro'
+    inputStatusCep.value ='incial'
+
+
 
 })
 
 
 
-console.log(inputStatusCep.value)
 
 
 

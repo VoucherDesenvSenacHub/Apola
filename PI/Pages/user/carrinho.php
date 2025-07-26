@@ -110,20 +110,20 @@ $cliente = Cliente::getClienteById($id_cliente);
                         <div class="conatiner_btn_finalizar_compra_cart">
                             <button id="btn-finalizar" class=" open-modal btn_finalizar">Finalizar Pedido</button>
                         </div>
-                        <dialog id="modal-1">
-                            <div class="modal_header">
-                                <button class="close-modal" data-modal="modal-1"><i class="fa-solid fa-xmark"></i></button>
-                            </div>
-                            <div class="modal_body">
-                                <h5 class="title_modal_zap">Pedido Realizado!</h5>
-                                <div class="text_modal_zap">Segue o link do nosso WhatsApp para realizar o pagamento. Entraremos em contato em breve.</div>
-                                <div class="conatiner_item_modal_link_zap">
-                                <div class="item_modal_link_zap">
-                                    <i class="fa-brands fa-whatsapp"></i>
-                                    <a href="https://wa.me/">67 991924837</a>
+                            <dialog id="modal-1">
+                                <div class="modal_header">
+                                    <button class="close-modal" data-modal="modal-1"><i class="fa-solid fa-xmark"></i></button>
                                 </div>
-                                </div>  
-                            </div>
+                                <div class="modal_body">
+                                    <h5 class="title_modal_zap">Pedido Realizado!</h5>
+                                    <div class="text_modal_zap">Segue o link do nosso WhatsApp para realizar o pagamento. Entraremos em contato em breve.</div>
+                                    <div class="conatiner_item_modal_link_zap">
+                                    <div class="item_modal_link_zap">
+                                        <i class="fa-brands fa-whatsapp"></i>
+                                        <a href="https://wa.me/">67 991924837</a>
+                                    </div>
+                                    </div>  
+                                </div>
                             </dialog>
                             <script src="../../src/JS/modal.js"></script>
                     </div>
@@ -145,6 +145,11 @@ $cliente = Cliente::getClienteById($id_cliente);
         </div>
 
     </div>
+
+
+   
+
+
     
 <?php
 
