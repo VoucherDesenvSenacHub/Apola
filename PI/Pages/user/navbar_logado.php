@@ -64,7 +64,10 @@ if($result){
                         <div class="content-mobile-btn-login-cad">
                             <button class="btn-login-mobile">
                                 <a href="./carrinho.php"><i class="fa-solid fa-bag-shopping"></i> Sacola</a>
+                                <div class="quntCart2 quantCartId" >
+                                </div>
                             </button>
+                            
                             <button class="btn-cadastro-mobile">
                                 <a href="logout.php"><i class="fa-solid fa-arrow-right-from-bracket"></i>Sair</a>
                             </button>
@@ -166,6 +169,8 @@ if($result){
                                 </li>
                                 <li class="icon-default-back">
                                     <a id="icon-default" href="./carrinho.php"><i class="fa-solid fa-bag-shopping"></i></a>
+                                    <div class="quntCart quantCartId" >
+                                    </div>
                                 </li>
                                 <li class="icon-default-back">
                                 <a class="conatiner_navbar_perfil_2" href="./perfil.php"><img class="img_navbar_2" src="<?= $cli['foto_perfil']; ?>" alt=""></a>

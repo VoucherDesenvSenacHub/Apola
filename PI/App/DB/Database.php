@@ -10,9 +10,17 @@ class Database{
     public $conection;
     public string $local="localhost";
     public string $db="140p1";
-    public string $user = "devweb";
-    public string $password = 'Suporte@22';
+    public string $user = "root";
+    public string $password = "";
     public $table;
+
+    // public $conection;
+    
+    // public string $local="192.168.22.9";
+    // public string $db="140p1";
+    // public string $user = "devweb";
+    // public string $password = "voucher140";
+    // public $table;
     
     
     public function __construct($table = null){
@@ -381,6 +389,19 @@ class Database{
 
     }
 
+    public function select_buscar_produto_cart($ids_prod)
+    {
+        if (empty($ids_prod)) {
+            return [];
+        }
+    
+        $placeholders = implode(',', array_fill(0, count($ids_prod), '?'));
+    
+        $query = "SELECT * FROM produto WHERE id_produto IN ($placeholders)";
+    
+        return $this->execute($query, $ids_prod)->fetchAll(PDO::FETCH_ASSOC);
+    }
+    
 
 
 

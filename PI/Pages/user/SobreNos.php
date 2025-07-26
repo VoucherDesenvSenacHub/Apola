@@ -49,17 +49,17 @@ else {
 
                         <div class="couteudo_dados_sobre">
                             <div class="number_dados_sobre" data-target="28">0</div>
-                            <div class="text_dados_sobre">Apola Ecommerce Artesanatos</div>
+                            <div class="text_dados_sobre">Eventos ou feiras participadas </div>
                         </div>
 
                         <div class="couteudo_dados_sobre">
                             <div class="number_dados_sobre" data-target="894">0</div>
-                            <div class="text_dados_sobre">Apola Ecommerce Artesanatos</div>
+                            <div class="text_dados_sobre">Produtos vendidos</div>
                         </div>
 
                         <div class="couteudo_dados_sobre">
                             <div class="number_dados_sobre" data-target="74">0</div>
-                            <div class="text_dados_sobre">Apola Ecommerce Artesanatos</div>
+                            <div class="text_dados_sobre">Modelos exclusivos criados à mão</div>
                         </div>
 
                     </div> 

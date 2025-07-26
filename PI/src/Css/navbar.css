@@ -535,6 +535,7 @@ Area Responsiva */
     border-radius: 10px;
     border: 0;
     background-color: #4200db;
+    position: relative;
   }
 
   .content-mobile-btn-login-cad button a{

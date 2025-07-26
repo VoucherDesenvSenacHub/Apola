@@ -10,12 +10,16 @@ include "head.php";
 
 $result = Login::IsLogedCliente();
 
-// print_r($result);
+
 if($result){
     include "navbar_logado.php";
 }else{
     header('location: login.php');
 }
+
+$id_cliente = $_SESSION['cliente']['id_cliente'];
+
+$cliente = Cliente::getClienteById($id_cliente);
 
 
 
@@ -34,55 +38,37 @@ if($result){
                     <li>Total</li>
                 </ul>
                 <div class="shape_sacola"></div>
-                <ul class="produto_list_cart">
+                <div class="teste-cart" id="DivIdCart">
+        
 
-                    <li class="produto_item_cart-1">
-                        <div class="produto_item_cart_left">
-                            <div class="container_img_produto_cart">
-                                <img src="../../src/imagens/card_produto/IMG1-Produto.png" alt="">
-                            </div>
-                        </div>
-                        <div class="produto_item_cart_right">
-                            <h6 class="name_produto_cart">Amigurumi Ursos Sem Curso</h6>
-                            <h6 class="detalhes_produto_cart">
-                                <div class="cor_produto_cart">Cor - Preto //</div>
-                                <div class="tamanho_produto_cart">Tamanho - 10 cm</div>
-                            </h6>
-
-                        </div>
-                    </li>
-                    <li class="produto_item_cart-2">
-                       <h6 class="desconto_produto_cart">- 122.60 R$</h6>
-                       <h6 class="preco_produto_cart">99.98 R$</h6>
-                    </li>
-                    <li class="produto_item_cart-3">
-                       <h6 id='sub_item_solo' class="subtrair_produto_cart">-</h6>
-                        <h6  id='quant_item_solo' class="quant_produto_cart">1</h6>
-                       <h6   id='sum_item_solo' class="adicionar_produto_cart">+</h6>
-                    </li>
-                    <li class="produto_item_cart-4 ">
-                    <h6 class="preco_produto_cart"><div id="valor_produt">99.98</div> R$</h6>
-                        <button class="container_remover_produto_cart">
-                            <i class="fa-solid fa-trash"></i>
-                        </button>
-                    </li>
-                </ul>
-                <div class="shape_sacola"></div>
+                </div>
+              
             </div>
             <div class="conatiner_final_carrinho">
                 <div class="conatiner_final_carrinho_left">
                     <div class="item_edereco_carrinho">
+                        <input type="hidden" id='iputCepStatus'>
                         <div class="radio_cep" id="radio_cep2"></div>
-                        <div class="text_carrinho_endereco">Endereço - Avenida Eucaliptos, 789, Centro, Rj - CEP: 79012-2321 </div>
+                        <div class="text_carrinho_endereco">
+                            Endereço - <?= $cliente['rua'] ?>, <?= $cliente['numero_casa'] ?>, <?= $cliente['bairro'] ?>, <?= $cliente['estado'] ?> - CEP: <?= $cliente['cep'] ?>
+                        </div>
+
                     </div>
                     <div class="item_edereco_carrinho">
                         <div class="radio_cep" id="radio_cep"></div>
-                        <div class="text_carrinho_endereco">Outro endereço</div>
+                        <div class="text_carrinho_endereco" id='newEndereco'  >Outro endereço</div>
                     </div>
                     <div class="conatiner_cep_drop" id="conatiner_cep_drop">
-                        <input type="text">
-                        <button class="btn_input_cep" ><i class="fa-solid fa-truck"></i></button>
+                        <div class="conatiner_cep_drop_input_btn">
+                            <input id='input-cep' type="text">
+                            <button  id='btn-input-cep'  class="btn_input_cep" ><i class="fa-solid fa-truck"></i></button>
+
+                        </div>
                     </div>
+                    <div id='new_edereco'  class="text_carrinho_endereco">
+                          
+                    </div>
+                    <div id='divErr' class="err-alert"></div>
                     
                 </div>
                 <div class="conatiner_final_carrinho_right">
@@ -92,10 +78,11 @@ if($result){
                                 SubTotal
                                 
                             </div>
-                            <div class="preco_text_carrinho">
-                                R$ 319,19
+                            <div id='subtotal' class="preco_text_carrinho">
+                                    00,00 R$
 
                             </div>
+            
                         </div>
                         <div class="linha_preco_carrinho"></div>
                         <div class="item_preco_carrinho">
@@ -104,41 +91,25 @@ if($result){
                                 
                             </div>
                             <div class="preco_text_carrinho">
-                                R$ 22,69
+                                15,65 R$
 
                             </div>
-                        </div>
+                        </div> 
                         <div class="linha_preco_carrinho"></div>
                         <div class="item_preco_carrinho">
                             <div style="font-weight: 600;" class="preco_text_carrinho">
                                 Valor Total
                                 
                             </div>
-                            <div style="font-weight: 600;"class="preco_text_carrinho">
-                                R$ 341,88
+                            <div  id='total'  style="font-weight: 600;"class="preco_text_carrinho">
+                                 00,00 R$
 
                             </div>
                         </div>
                         <div class="linha_preco_carrinho"></div>
                         <div class="conatiner_btn_finalizar_compra_cart">
-                            <button data-modal="modal-1" class=" open-modal btn_finalizar">Finalizar Pedido</button>
+                            <button id="btn-finalizar" class=" open-modal btn_finalizar">Finalizar Pedido</button>
                         </div>
-                        <dialog id="modal-1">
-                            <div class="modal_header">
-                                <button class="close-modal" data-modal="modal-1"><i class="fa-solid fa-xmark"></i></button>
-                            </div>
-                            <div class="modal_body">
-                                <h5 class="title_modal_zap">Pedido Realizado!</h5>
-                                <div class="text_modal_zap">Segue o link do nosso WhatsApp para realizar o pagamento. Entraremos em contato em breve.</div>
-                                <div class="conatiner_item_modal_link_zap">
-                                <div class="item_modal_link_zap">
-                                    <i class="fa-brands fa-whatsapp"></i>
-                                    <a href="https://wa.me/">67 991924837</a>
-                                </div>
-                                </div>  
-                            </div>
-                            </dialog>
-                            <script src="../../src/JS/modal.js"></script>
                     </div>
 
                 </div>
@@ -148,6 +119,31 @@ if($result){
        
 
     </main>
+
+
+    <div id='alertModal' class="alertModalErr">
+        <div class="diverrborder">
+            <i class="fa-solid fa-xmark"></i>
+        </div>
+        <div id="divErrmodal">
+        </div>
+
+    </div>
+
+    <div >
+
+    </div>
+
+    <div class='opacity-modal' id='opacityModal'>
+
+    </div>
+    <div class='ModalSucess' id='ModalSucess'>
+    </div>
+
+
+   
+
+
     
 <?php
 

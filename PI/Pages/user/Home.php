@@ -175,7 +175,7 @@ $produtoCategoria3 = Produto::buscarProdutoCategoria($categoriaArray[2]);
                                     </div>
                                     <div class="preco_card_produto">R$ '.number_format($produto['preco'], 2, ',', '.').'</div>
                                     <div class="btn_content_card_produto">
-                                        <button class="btn_bag_card btn-cart-add"><i class="fa-solid fa-bag-shopping"></i></button>
+                                        <button data-id='.$produto['id_produto'].' class="btn_bag_card btn-cart-add"><i class="fa-solid fa-bag-shopping"></i></button>
                                         <a href="./comprar_produto.php?id_produto='. $produto['id_produto'] .'"class="btn_buy_card">Comprar</a>
                                     </div>
                                 </div>
@@ -265,7 +265,7 @@ $produtoCategoria3 = Produto::buscarProdutoCategoria($categoriaArray[2]);
                                     </div>
                                     <div class="preco_card_produto">R$ '.number_format($produto['preco'], 2, ',', '.').'</div>
                                     <div class="btn_content_card_produto">
-                                        <div class="btn_bag_card"><i class="fa-solid fa-bag-shopping"></i></div>
+                                        <button data-id='.$produto['id_produto'].' class="btn_bag_card btn-cart-add"><i class="fa-solid fa-bag-shopping"></i></button>
                                         <a href="./comprar_produto.php?id_produto='. $produto['id_produto'] .'"class="btn_buy_card">Comprar</a>
                                     </div>
                                 </div>
@@ -327,7 +327,7 @@ $produtoCategoria3 = Produto::buscarProdutoCategoria($categoriaArray[2]);
                                     </div>
                                     <div class="preco_card_produto">R$ '.number_format($produto['preco'], 2, ',', '.').'</div>
                                     <div class="btn_content_card_produto">
-                                        <div class="btn_bag_card"><i class="fa-solid fa-bag-shopping"></i></div>
+                                        <button data-id='.$produto['id_produto'].' class="btn_bag_card btn-cart-add"><i class="fa-solid fa-bag-shopping"></i></button>
                                         <a href="./comprar_produto.php?id_produto='. $produto['id_produto'] .'"class="btn_buy_card">Comprar</a>
                                     </div>
                                 </div>
@@ -400,7 +400,7 @@ $produtoCategoria3 = Produto::buscarProdutoCategoria($categoriaArray[2]);
                                     </div>
                                     <div class="preco_card_produto">R$ '.number_format($produto['preco'], 2, ',', '.').'</div>
                                     <div class="btn_content_card_produto">
-                                        <div class="btn_bag_card"><i class="fa-solid fa-bag-shopping"></i></div>
+                                        <button data-id='.$produto['id_produto'].' class="btn_bag_card btn-cart-add"><i class="fa-solid fa-bag-shopping"></i></button>
                                         <a href="./comprar_produto.php?id_produto='. $produto['id_produto'] .'"class="btn_buy_card">Comprar</a>
                                     </div>
                                 </div>

@@ -276,9 +276,9 @@
 
 .card_produto{
     display: flex;
-    background-color: rgb(248, 248, 248);
+    background-color: rgba(247, 247, 247, 0.45);
     flex-direction: column;
-    padding: 10px 0px 0px 10px;
+    padding: 10px;
     width: 240px;
     border-radius: 5px;
     height: auto;
@@ -363,10 +363,15 @@
 
 .btn_content_card_produto{
     display: flex;
-    width: 100%;
+    width: auto;
     height: 100%;
     padding-top: 1rem;
     justify-content: center;
+    outline: none;
+    justify-content: space-between;
+    text-decoration: none;
+   
+    gap: 1rem;
 }
 
 
@@ -374,15 +379,63 @@
 .btn_content_card_produto .btn_bag_card{
     width: 51%;
     justify-content: center;
+    text-decoration: none;
     align-items: center;
     display: flex;
     font-size: 20px;
     color: #4A4A4A;
     cursor: pointer;
     border-radius: 5px;
+    background-color: transparent;
+
+    border: 1px solid rgb(220, 220, 220);
+    transition: all 0.2s ease;
 
 }
 
+.btn_bag_card:hover{
+
+    background-color: #FA301E;
+
+
+}
+
+.btn_bag_card:hover i{
+    transition: all 0.2s ease;
+    color: white;
+    transform: scale(1.15);
+}
+
+.quntCart{
+    display: flex;
+    background-color: #ffe5e2;
+    color: #FA301E;
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 100%;
+    position: absolute;
+    justify-content: center;
+    align-items: center;
+    bottom:10px;
+    font-weight: 500;
+
+}
+
+
+.quntCart2{
+    display: flex;
+    background-color: #FA301E;
+    color: #ffffff;
+    width: 2em;
+    height:2rem;
+    border-radius: 100%;
+    position: absolute;
+    justify-content: center;
+    align-items: center;
+    font-weight: 500;
+    bottom: -25px;
+
+}
 
 .btn_content_card_produto .btn_buy_card{
     width: 49%;
@@ -397,6 +450,7 @@
     font-weight: 600;
     cursor: pointer;
     transition: 0.2s ease-in-out;
+    text-decoration: none;
 }
 
 .btn_content_card_produto .btn_buy_card:hover{

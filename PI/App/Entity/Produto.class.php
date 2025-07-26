@@ -85,6 +85,12 @@ class Produto{
 
     
     }
+    public static function buscarProdutoCart($ids){
+
+        return (new Database('produto'))->select_buscar_produto_cart($ids);
+
+    
+    }
 
 
     

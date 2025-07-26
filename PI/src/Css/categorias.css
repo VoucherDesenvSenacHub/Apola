@@ -167,8 +167,9 @@
 .container_filtro_right{
     display: flex;
     width: 95%;
-    justify-content: end;
+    justify-content: space-between;
     padding-top: 3rem;
+
 }
 
 
@@ -315,7 +316,12 @@ MOBILE */
     color: #4A4A4A;
 }
 
-
+.title_cat_sect{
+    display: flex;
+    background-color: aqua;
+    font-size: 10px;
+    width: 100%;
+}
 
 .top_mobile_filtro_open {
     display:flex;
