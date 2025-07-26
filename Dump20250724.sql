@@ -500,6 +500,7 @@ UNLOCK TABLES;
 DROP TABLE IF EXISTS `sacola`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
+
 CREATE TABLE `sacola` (
   `id_sacola` int(11) NOT NULL AUTO_INCREMENT,
   `preco_frete` decimal(10,2) NOT NULL,
@@ -507,14 +508,18 @@ CREATE TABLE `sacola` (
   `cep` char(9) NOT NULL,
   `quant_produto` int(11) NOT NULL,
   `produto_id_produto` int(11) NOT NULL,
-  `cliente_id_cliente` int(11) NOT NULL,
+  `cliente_id_cliente` int(11) NOT NULL,        -- <=== Adicionado novamente
+  `pedido_id_pedido` int(11) NOT NULL,
   PRIMARY KEY (`id_sacola`),
   UNIQUE KEY `id_sacola` (`id_sacola`),
   KEY `produto_id_produto` (`produto_id_produto`),
-  KEY `cliente_id_cliente` (`cliente_id_cliente`),
+  KEY `cliente_id_cliente` (`cliente_id_cliente`),   -- <=== Adicionado o índice
+  KEY `pedido_id_pedido` (`pedido_id_pedido`),
   CONSTRAINT `sacola_ibfk_1` FOREIGN KEY (`produto_id_produto`) REFERENCES `produto` (`id_produto`),
-  CONSTRAINT `sacola_ibfk_2` FOREIGN KEY (`cliente_id_cliente`) REFERENCES `cliente` (`id_cliente`)
+  CONSTRAINT `sacola_ibfk_2` FOREIGN KEY (`cliente_id_cliente`) REFERENCES `cliente` (`id_cliente`),
+  CONSTRAINT `sacola_pedido_2fk` FOREIGN KEY (`pedido_id_pedido`) REFERENCES `pedido` (`id_pedido`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -523,7 +528,6 @@ CREATE TABLE `sacola` (
 
 LOCK TABLES `sacola` WRITE;
 /*!40000 ALTER TABLE `sacola` DISABLE KEYS */;
-INSERT INTO `sacola` VALUES (3,10.00,89.90,'98765-432',1,37,5);
 /*!40000 ALTER TABLE `sacola` ENABLE KEYS */;
 UNLOCK TABLES;
 
