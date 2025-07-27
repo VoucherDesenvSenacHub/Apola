@@ -234,28 +234,35 @@ $avaliacoesDoProduto = $avaliacaoProduto->select_avaliacao_produto($id_produto);
                                 </div>  
                                 </div>
                             </dialog>
-                            <?php foreach($avaliacoesDoProduto as $ava): ?>
-                                <div class="comentario_item">
-                                    <div class="name_comentario"><?= htmlspecialchars($ava['nome'] .' ' .$ava['sobrenome'])?? ''; ?></div>
+                          <?php if (empty($avaliacoesDoProduto)): ?>
+                                <p class="sem-avaliacoes">Sem avaliações até o momento.</p>
+                            <?php else: ?>
+                                <?php foreach ($avaliacoesDoProduto as $ava): ?>
+                                    <div class="comentario_item">
+                                        <div class="name_comentario">
+                                            <?= htmlspecialchars($ava['nome'] . ' ' . $ava['sobrenome']) ?>
+                                        </div>
 
-                                    <div class="conatiner_comentario_star">
-                                        <?php 
-                                            $nota = (int) $ava['notas']; // Garante que é número inteiro
-                                            for ($i = 1; $i <= 5; $i++):
-                                        ?>
-                                            <?php if ($i <= $nota): ?>
-                                                <i class="fa-solid fa-star" id="star_active"></i>
-                                            <?php else: ?>
-                                                <i class="fa-regular fa-star"></i> <!-- estrela vazia -->
-                                            <?php endif; ?>
-                                        <?php endfor; ?>
+                                        <div class="conatiner_comentario_star">
+                                            <?php 
+                                                $nota = (int) $ava['notas'];
+                                                for ($i = 1; $i <= 5; $i++): 
+                                            ?>
+                                                <?php if ($i <= $nota): ?>
+                                                    <i class="fa-solid fa-star star_active"></i>
+                                                <?php else: ?>
+                                                    <i class="fa-regular fa-star"></i>
+                                                <?php endif; ?>
+                                            <?php endfor; ?>
+                                        </div>
+
+                                        <div class="comentario_text">
+                                            <?= !empty($ava['comentario']) ? htmlspecialchars($ava['comentario']) : 'Sem comentário.' ?>
+                                        </div>  
                                     </div>
+                                <?php endforeach; ?>
+                            <?php endif; ?>
 
-                                    <div class="comentario_text">
-                                        <?= htmlspecialchars($ava['comentario']) ?? 'Sem comentário.' ?>
-                                    </div>  
-                                </div>
-                            <?php endforeach; ?>
 
                             <div class="modal-sobre-nois-avaliado">
                                 <div class="conteudo-modal">

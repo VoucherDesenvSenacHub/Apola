@@ -811,8 +811,20 @@
     }
 
 
+    .div-flex-input{
+    
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+    }
 
-
+    #newNumber, #newComplemento, #newCepbtn{
+        width: 100%;
+    }
+    #new_edereco{
+        width: 100%;
+    }
 
 
     

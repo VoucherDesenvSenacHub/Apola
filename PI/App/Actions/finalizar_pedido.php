@@ -3,8 +3,21 @@
 require '../../App/config.inc.php';
 require '../../App/Session/Login.php';
 
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+use PHPMailer\PHPMailer\SMTP;
+
+
+require __DIR__ . '/../../../vendor/autoload.php';
+
 session_start();
 $id_cliente = $_SESSION['cliente']['id_cliente'] ?? null;
+
+
+$cliente = Cliente::getClienteById($id_cliente);
+$usuario = User::getUsuarioById($cliente['id_usuario']);
+
+
 
 header('Content-Type: application/json');
 
@@ -89,15 +102,59 @@ foreach ($cart as $produto) {
     $valorTotal += $sacola->valor_total;
 }
 
+
+
+
+$mail = new PHPMailer(true); 
+
+try {
+    // Config PHPMailer
+    $mail = new PHPMailer(true);
+    $mail->SMTPDebug = SMTP::DEBUG_OFF;
+    $mail->isSMTP();
+    $mail->Host       = 'smtp.gmail.com';
+    $mail->SMTPAuth   = true;
+    $mail->Username   = 'apolasuporte@gmail.com';
+    $mail->Password   = 'teugmoawafflqgkf';
+    $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+    $mail->Port       = 587;
+
+    $mail->setFrom('apolasuporte@gmail.com', 'E.T Artesanatos');
+    $mail->addAddress($usuario->email, $usuario->nome);
+
+    $mail->isHTML(true);
+    $mail->Subject = "Pedido de #{$LastIdPedido} aprovado";
+    $mail->Body = "
+        <h2>Olá, {$usuario->nome}!</h2>
+        <p>Recebemos seu pedido <strong>#{$LastIdPedido}</strong> com sucesso.</p>
+        <p>Estamos preparando tudo com carinho e em breve você receberá mais atualizações sobre o envio.</p>
+        <p>Qualquer dúvida, entre em contato conosco.</p>
+        <br>
+        <p>Atenciosamente,</p>
+        <p><strong>Apola Artesanatos</strong></p>
+    ";
+    $mail->AltBody = "Olá, {$usuario->nome}!\n\nRecebemos seu pedido #{$LastIdPedido} com sucesso.\n\nE.T Artesanatos";
+
+    $mail->send();
+    $sucesso = true;
+
+} catch (Exception $e) {
+    echo json_encode([
+        'status' => 'erro',
+        'mensagem' => 'Erro ao tentar enviar o e-mail: ' . $mail->ErrorInfo
+    ]);
+    exit;
+}
+
 if ($sucesso) {
     echo json_encode([
         'status' => true,
-        'mensagem' => 'Pedido cadastrado com sucesso!',
+        'mensagem' => 'Pedido cadastrado e e-mail enviado com sucesso!',
         'valor_total' => number_format($valorTotal + $valorFrete, 2, ',', '.')
     ]);
 } else {
     echo json_encode([
         'status' => 'erro',
-        'mensagem' => 'Erro ao cadastrar pedido.'
+        'mensagem' => 'Erro ao cadastrar pedido ou enviar e-mail.'
     ]);
 }
