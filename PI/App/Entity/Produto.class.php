@@ -96,6 +96,5 @@ class Produto{
         return (new Database('produto'))->buscarProdutosMaisVendidos();
     }
 
-
     
 }

@@ -41,11 +41,7 @@ $produtos = $produto->buscarProduto("categoria_id_categoria = ".$id_categoria);
 
             <aside class="top_categoria_mobile">
                 <div class="shape_categoria_top"></div>
-                    <div class="container_text_top_categoria">
-                        <div class="item_text_top_cat">2016 produtos encontrados.</div>
-                        <i  class="fa-solid fa-filter"></i>
-                        <div id="btn_filtro" class="item_text_top_cat">filtrar</div>
-                    </div>
+               
                 <div class="shape_categoria_top"></div>
             </aside>
             <div class="top_mobile_filtro_open" id="open_filtro">
@@ -264,21 +260,9 @@ $produtos = $produto->buscarProduto("categoria_id_categoria = ".$id_categoria);
             </aside>
 
             <aside class="right_categoria">
-
-                <div class="container_filtro_right">
-                    <div>
-                        Home > <?php echo $categoria->nome ; ?>
-
-                        
-                    </div>
-                    <select name="" id="">
-                        <option value="">Mais Vendidos</option>
-                        <option value=""></option>
-                        <option value=""></option>
-                    </select>
-                </div>
+            
                 <div class="wrap__filtro_right">
-                    <!-- <a  style ="text-decoration:none;"class="link_produto_home" href="./comprar_produto.php"> -->
+              
                     <?php
                     foreach ($produtos as $prod): 
                         if($prod->status_produto === 'a'):
@@ -313,6 +297,8 @@ $produtos = $produto->buscarProduto("categoria_id_categoria = ".$id_categoria);
                             endif;
                         endforeach;
                         ?>
+                 
+
                 </div>
 
 

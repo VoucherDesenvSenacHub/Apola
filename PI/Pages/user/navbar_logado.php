@@ -6,6 +6,7 @@ require_once '../../App/Session/Login.php';
 require_once '../../App/Entity/Cliente.class.php';
 require_once '../../App/Entity/Categoria.class.php';
 
+
 $result = Login::IsLogedCliente();
 if($result){
     $id_cliente = $_SESSION['cliente']['id_cliente'];
@@ -74,9 +75,14 @@ if($result){
                         </div>
                         <div class="barra-pesquisa-mobile">
                             <div class="content-mobile-pesquisa">
-                                <input type="text"><button class="btn-pesquisa-mobile"><i class="fa-solid fa-magnifying-glass"></i></button>
+                                <input type="text" id="input-busca-mobile" placeholder="Pesquise seu produto...">
+                                <button class="btn-pesquisa-mobile">
+                                    <i class="fa-solid fa-magnifying-glass"></i>
+                                </button>
                             </div>
+                            <div id="resultado-busca-mobile" class="resultados-busca"></div>
                         </div>
+
     
                         <div class="content-conteudo-mobile">
                             <h5>Destaque</h5>
@@ -186,5 +192,62 @@ if($result){
                         </nav>
                     </div>
             </nav>
-             <!-- FIM MENU NAVBAR -->
-        </header>
+            
+        </body>
+ 
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    const inputDesktop = document.getElementById('input-busca');
+    const resultadosDesktop = document.getElementById('resultado-busca');
+
+    const inputMobile = document.getElementById('input-busca-mobile');
+    const resultadosMobile = document.getElementById('resultado-busca-mobile');
+
+    function configurarBusca(input, resultados) {
+        if (!input) return;
+
+        input.addEventListener('keyup', function () {
+            const termo = this.value.trim();
+
+            if (termo.length > 1) {
+                fetch('buscar.php?termo=' + encodeURIComponent(termo))
+                    .then(res => res.text())
+                    .then(dados => {
+                        resultados.innerHTML = dados;
+
+                        if (dados.trim() !== '') {
+                            resultados.classList.add('mostrar');
+                        } else {
+                            resultados.classList.remove('mostrar');
+                        }
+                    })
+                    .catch(err => {
+                        console.error('Erro ao buscar:', err);
+                        resultados.classList.remove('mostrar');
+                    });
+            } else {
+                resultados.innerHTML = '';
+                resultados.classList.remove('mostrar');
+            }
+        });
+
+        // Oculta os resultados ao clicar fora
+        document.addEventListener('click', function (e) {
+            if (!input.contains(e.target) && !resultados.contains(e.target)) {
+                resultados.classList.remove('mostrar');
+            }
+        });
+    }
+
+    // Ativa a busca para desktop e mobile
+    configurarBusca(inputDesktop, resultadosDesktop);
+    configurarBusca(inputMobile, resultadosMobile);
+});
+</script>
+
+
+
+
+</header>
+        
+

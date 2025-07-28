@@ -64,9 +64,7 @@ else {
 
                     </div> 
 
-                    <!-- <div class="content_btn_about">
-                        <button class="btn_about">Confira</button>
-                    </div> -->
+                    
                 </div>
 
             </div>
@@ -80,11 +78,13 @@ else {
 
             <!-- Slides do Carrossel -->
             <div class="swiper_sobre">
+                
 
                     <!-- Card dos Comentários -->
-                <div class="swiper-wrapper" id="carregar-avaliacoes-sobre-nois">
-
-                </div>
+                   
+                <div class="swiper-wrapper" id="carregar-avaliacoes-sobre-nois"></div>
+                  
+                   
                     
             </div>
 
@@ -103,7 +103,9 @@ else {
             <div class="avaliacao-container">
                 
                 <form class="avaliacao-form" id="formulario_avaliacao" method="POST">
+                    
                     <div class="form-row">
+                        
                         <div class="form-group nota">
 
                             <div class="estrelas-avaliacao">

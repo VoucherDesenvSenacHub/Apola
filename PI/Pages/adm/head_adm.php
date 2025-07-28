@@ -18,22 +18,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
 
 
-    <!-- SCRIPT USER -->
-    <!-- <script src="../../src/JS/banner.js" defer></script>
-    <script src="../../src/JS/comprar_produto.js" defer></script>
-    <script src="../../src/JS/drop_cep.js" defer></script>
-    <script src="../../src/JS/drop_pedido.js" defer></script>
-    <script src="../../src/JS/filtro-mobile.js" defer></script>
-    <script src="../../src/JS/list_adm.js" defer></script>
-    <script src="../../src/JS/list_controle_adm.js" defer></script>
-    <script src="../../src/JS/menu-mobile.js" defer></script>
-    <script src="../../src/JS/modal.js" defer></script>
-    <script src="../../src/JS/swiper_sobre.js" defer></script>
-    <script src="../../src/JS/swipper_card.js" defer></script>
-    <script src="../../src/JS/drop_footer.js" defer></script>
-
-     -->
-    <!-- SCRIPT ADM -->
+ 
 
     <script src="../../src/JS/adm_nav.js" defer></script>
     <script src="../../src/JS/btn_listar_adm.js" defer></script>
