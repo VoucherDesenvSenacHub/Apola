@@ -12,10 +12,13 @@ if (!Login::IsLogedCliente()) {
 
 $id_cliente = $_SESSION['cliente']['id_cliente'];
 $pedidos_normais = Pedido::getPedidosComDetalhes($id_cliente);
+
+
 $pedidos_personalizados = Pedido::getPedidosPersonalizadosComDetalhes($id_cliente);
 
 // Junta os dois arrays
 $pedidos = array_merge($pedidos_normais, $pedidos_personalizados);
+
 
 // Opcional: ordenar por data_pedido decrescente para ficar organizado
 usort($pedidos, function($a, $b) {

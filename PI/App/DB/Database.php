@@ -489,6 +489,39 @@ class Database{
 
 
 
+public function select_pedido_com_detalhes($id_cliente){
+
+    $query =  "
+        SELECT 
+            p.id_pedido,
+            p.data_pedido,
+            p.status_pedido,
+            p.codigo_rastreio,
+            p.tipo,
+
+            pr.nome AS nome_produto,
+            pr.imagem,
+            pr.cor,
+            pr.altura,
+            pr.preco,
+
+            s.quant_produto,
+            s.valor_total,
+            s.preco_frete,
+            s.cep
+
+        FROM pedido p
+        INNER JOIN sacola s ON s.pedido_id_pedido = p.id_pedido
+        INNER JOIN produto pr ON pr.id_produto = s.produto_id_produto
+
+        WHERE p.id_cliente = :id_cliente
+        ORDER BY p.data_pedido DESC;
+    
+    ";
+
+    return $this->execute($query, [':id_cliente' => $id_cliente])->fetchAll(PDO::FETCH_ASSOC);
+}
+
 
 
 

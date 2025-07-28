@@ -71,30 +71,14 @@ class Pedido {
             ]);
         }
     }
+
+
     public static function getPedidosComDetalhes($id_cliente) {
-        $sql = "
-            SELECT 
-                p.id_pedido,
-                p.codigo_rastreio,
-                p.status_pedido,
-                p.data_pedido,
-                pr.nome AS nome_produto,
-                pr.imagem,
-                pr.cor,
-                pr.altura,
-                pr.preco,
-                s.quant_produto
-            FROM pedido p
-            INNER JOIN sacola s ON s.id_sacola = p.sacola_id_sacola
-            INNER JOIN produto pr ON pr.id_produto = s.produto_id_produto
-            WHERE p.id_cliente = :id_cliente
-            ORDER BY p.data_pedido DESC
-        ";
-    
-        $db = new Database();
-        $stmt = $db->execute($sql, [':id_cliente' => $id_cliente]);
-        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        return (new Database('pedido'))->select_pedido_com_detalhes($id_cliente);
     }
+
+
     public static function getPedidosPersonalizadosComDetalhes($id_cliente) {
         $sql = "
             SELECT 
