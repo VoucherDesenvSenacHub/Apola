@@ -181,7 +181,7 @@ if (isset($_POST['carregarDadosProduto'])) {
                     <div class="conatiner_cadastro_adm_items_header_right">
                         <div class="conatiner_img_add_adm add_img_categoria">
                             <label for="imgInput" style="cursor: pointer;">
-                                <img class="imagemCategoria-active" src="<?= $produto->imagem; ?>" alt="Imagem do Produto" id="preview_img" >
+                                <img class="imagemCategoria-active" src="../../<?= $produto->imagem; ?>" alt="Imagem do Produto" id="preview_img" >
                             <input type="file" name="imagemProduto" id="imgInput" style="display: none;" accept="image/*">
                         </div>
                         <p>Clique na Imagem para Trocar <i class="fa-solid fa-pencil"></i></p>

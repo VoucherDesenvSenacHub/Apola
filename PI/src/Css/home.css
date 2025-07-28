@@ -2112,7 +2112,8 @@ BANNER PROMOCIONAL FINAL */
 
 
     .carrosel_pc{
-        display: none;
+        display: flex;
+
     }
 
     

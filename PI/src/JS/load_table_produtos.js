@@ -89,7 +89,7 @@ async function handleTablesProdutos(event=null){
         let response = await dados_php.json();
         
         response.forEach(e =>{
-            table.innerHTML +=`<td><img src='${e.imagem}' alt="Imagem" style="max-width:100px; max-height:50px;"></td>
+            table.innerHTML +=`<td><img src='../../${e.imagem}' alt="Imagem" style="max-width:100px; max-height:50px;"></td>
             <td>${e.nome}</td>
             <td>${e.preco}</td>
             <td>${e.tipo}</td>
