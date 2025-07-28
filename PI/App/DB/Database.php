@@ -15,7 +15,6 @@ class Database{
     public $table;
 
     // public $conection;
-    
     // public string $local="192.168.22.9";
     // public string $db="140p1";
     // public string $user = "devweb";
@@ -329,7 +328,7 @@ class Database{
 
     public function select_produto_por_categoria($categoria){
         $query =  "SELECT 
-            favoritos.status_favoritos, 
+            MAX(favoritos.status_favoritos) AS status_favoritos, 
             produto.id_produto, 
             ROUND(AVG(CAST(a.notas AS UNSIGNED)), 1) AS media_notas,
             categoria.nome AS categoria_nome, 
@@ -337,7 +336,7 @@ class Database{
             produto.nome AS produto_nome, 
             produto.preco 
         FROM produto
-        JOIN avaliacao_produto a ON a.id_produto = produto.id_produto
+        LEFT JOIN avaliacao_produto a ON a.id_produto = produto.id_produto
         JOIN categoria ON produto.categoria_id_categoria = categoria.id_categoria 
         LEFT JOIN favoritos ON produto.id_produto = favoritos.produto_id_produto
         WHERE
@@ -351,10 +350,25 @@ class Database{
         return $result = $this->execute($query)->fetchAll(PDO::FETCH_ASSOC);
     }
 
+    public function select_Produto_Categoria_Nota($id_categoria){
+
+        $query = '
+            SELECT produto.*, 
+                ROUND(AVG(CAST(a.notas AS UNSIGNED)), 1) AS media_notas
+            FROM produto
+            LEFT JOIN avaliacao_produto a ON a.id_produto = produto.id_produto
+            WHERE categoria_id_categoria = :id_categoria
+            GROUP BY produto.id_produto';
+
+        return $this->execute($query, [':id_categoria' => $id_categoria])->fetchAll(PDO::FETCH_OBJ);
+
+
+    }
+
 
     public function select_produto_por_aleatorio(){
                 $query = "SELECT 
-                    favoritos.status_favoritos, 
+                    MAX(favoritos.status_favoritos) AS status_favoritos, 
                     ROUND(AVG(CAST(a.notas AS UNSIGNED)), 1) AS media_notas,
                     produto.id_produto, 
                     categoria.nome AS categoria_nome, 
@@ -362,13 +376,14 @@ class Database{
                     produto.nome AS produto_nome, 
                     produto.preco 
                 FROM produto 
-                JOIN avaliacao_produto a ON a.id_produto = produto.id_produto
+                LEFT JOIN avaliacao_produto a ON a.id_produto = produto.id_produto
                 JOIN categoria ON produto.categoria_id_categoria = categoria.id_categoria 
                 LEFT JOIN favoritos ON produto.id_produto = favoritos.produto_id_produto
                 WHERE produto.status_produto = 'a' 
                 GROUP BY produto.id_produto
                 ORDER BY RAND() 
                 LIMIT 10;
+                ;
                 ";
 
     

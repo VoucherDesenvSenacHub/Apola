@@ -40,8 +40,7 @@ $bannerPromocionalPosicao3  = $banner->getBannerForPosicao('banners_promocionais
 $produtosAleatorios = Produto::buscarProdutoAleatorio();
 
 
-// print_r($produtosAleatorios);
-// exit;
+
 
 $categorias = Categoria::buscarCategoriaLimit("status_categoria = 'a'",'BY RAND()',3);
 
@@ -61,6 +60,10 @@ foreach ($categorias as $categoria) {
 $produtoCategoria1 = Produto::buscarProdutoCategoria($categoriaArray[0]);
 $produtoCategoria2 = Produto::buscarProdutoCategoria($categoriaArray[1]);
 $produtoCategoria3 = Produto::buscarProdutoCategoria($categoriaArray[2]);
+
+
+
+
 
 // print_r($produtoCategoria1);
 

@@ -85,10 +85,15 @@ class Produto{
     }
 
     public static function buscarProduto($where=null, $order =null, $limit = null){
-        // print_r($where);
+
         return (new Database('produto'))->select($where,$order,$limit)
                                         ->fetchAll(PDO::FETCH_CLASS,self::class);
 
+    }
+
+    public static function buscarProdutoCategoriaNota($id_categoria){
+        
+        return (new Database('produto'))->select_Produto_Categoria_Nota($id_categoria);
     }
 
 

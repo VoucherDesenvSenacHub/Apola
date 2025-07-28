@@ -29,7 +29,7 @@ $categoria = Categoria::SelectCategoriaPorId($id_categoria);
 
 
 $produto = new Produto();
-$produtos = $produto->buscarProduto("categoria_id_categoria = ".$id_categoria);
+$produtos = $produto->buscarProdutoCategoriaNota($id_categoria);
 
 // if($produtos)
 
@@ -106,18 +106,21 @@ $produtos = $produto->buscarProduto("categoria_id_categoria = ".$id_categoria);
                     <div>
                         Home > <?php echo $categoria->nome ; ?>
 
-                        
                     </div>
-                    <select name="" id="">
-                        <option value="">Mais Vendidos</option>
-                        <option value=""></option>
-                        <option value=""></option>
-                    </select>
                 </div>
                 <div class="wrap__filtro_right" id="produtos-container">
                     <!-- <a  style ="text-decoration:none;"class="link_produto_home" href="./comprar_produto.php"> -->
                     <?php
                     foreach ($produtos as $prod): 
+
+                        $media = round($prod->media_notas ?? 0);
+                        $estrelasHtml = '';
+                        for ($i = 1; $i <= 5; $i++) {
+                            $estrelasHtml .= $i <= $media 
+                                ? '<i class="fa-solid fa-star"></i>' 
+                                : '<i class="fa-regular fa-star"></i>';
+                    }
+                        
                         if($prod->status_produto === 'a'):
                     ?>
                         <div class="card_produto" style="max-width: 40%;">
@@ -133,9 +136,7 @@ $produtos = $produto->buscarProduto("categoria_id_categoria = ".$id_categoria);
                             <div class="conteudo_card">
                                 <div class="nome_card_produto"><?= htmlspecialchars($prod->nome) ?></div>
                                 <div class="content_star_icon">
-                                    <?php for ($i = 0; $i < 5; $i++): ?>
-                                        <i class="fa-solid fa-star"></i>
-                                    <?php endfor; ?>
+                                    <?php echo $estrelasHtml; ?>
                                 </div>
                                 <div class="preco_card_produto">R$ <?= number_format($prod->preco, 2, ',', '.') ?></div>
                                 <div class="btn_content_card_produto">
