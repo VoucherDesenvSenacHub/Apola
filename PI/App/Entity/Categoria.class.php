@@ -48,4 +48,9 @@ class Categoria{
         return (new Database('categoria'))->select($where,$order,$limit)
                                           ->fetchAll(PDO::FETCH_CLASS,self::class);
     }
+
+
+    public function buscarCategoriasMaisVendidas(){
+        return (new Database('categoria'))->buscarCategoriasMaisVendidas();
+    }
 }

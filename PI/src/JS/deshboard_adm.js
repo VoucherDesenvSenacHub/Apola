@@ -130,131 +130,165 @@
     //     chart.render();
         // Dados dos produtos e suas vendas
         // Dados dos produtos e suas vendas
-        const produtos = ['Amigurumi Raposa', 'Amigurumi Urso', 'Vaso de Plantas'];
-        const vendas = [150, 300, 250]; // Quantidade de vendas
 
-        var optionsProdutosVendidos = {
-            chart: {
-                type: 'bar',
-                height: window.innerWidth <= 1318 ? 250 : 350, // Ajusta altura baseado no tamanho da tela
-                width: '100%', // Faz o gráfico ocupar toda a largura disponível
-                background: 'transparent',
-            },
-            plotOptions: {
-                bar: {
-                    horizontal: false,
-                    columnWidth: '50%',
-                    borderRadius: 8,
-                    dataLabels: {
-                        position: 'top',
-                    }
-                }
-            },
-            series: [{
-                name: 'Vendas',
-                data: vendas,
-            }],
-            xaxis: {
-                categories: produtos,
-                labels: {
-                    style: {
-                        colors: 'black'
-                    }
-                }
-            },
-            yaxis: {
-                labels: {
-                    style: {
-                        colors: 'black'
-                    }
-                }
-            },
-            dataLabels: {
-                enabled: true,
-                formatter: function (val) {
-                    return val;
+
+        // Variável global para os nomes dos produtos
+
+// Função para buscar os dados reais e criar o gráfico
+    async function carregarGraficoProdutosVendidos() {
+        try {
+            const response = await fetch('../../App/Actions/actionProdutoMaisVendido.php');
+            const produtos = await response.json();
+
+            // Validação básica
+            if (!Array.isArray(produtos)) {
+                throw new Error("Dados retornados não estão no formato esperado.");
+            }
+
+            const nomes = produtos.map(p => p.nome);
+            const vendas = produtos.map(p => parseInt(p.vendas)); // Garante que seja número
+
+            const optionsProdutosVendidos = {
+                chart: {
+                    type: 'bar',
+                    height: 300,
+                    width: '100%',
+                    background: 'transparent',
                 },
-                style: {
-                    colors: ['black']
-                }
-            },
-            colors: ['#FA301E', '#4CAF50', '#FFC107', '#2196F3', '#9C27B0']
-        };
+                plotOptions: {
+                    bar: {
+                        horizontal: false,
+                        columnWidth: '50%',
+                        borderRadius: 5,
+                        dataLabels: {
+                            position: 'top',
+                        }
+                    }
+                },
+                series: [{
+                    name: 'Vendas',
+                    data: vendas,
+                }],
+                xaxis: {
+                    categories: nomes,
+                    labels: {
+                        style: {
+                            colors: 'black'
+                        }
+                    }
+                },
+                yaxis: {
+                    labels: {
+                        style: {
+                            colors: 'black'
+                        }
+                    }
+                },
+                dataLabels: {
+                    enabled: true,
+                    formatter: val => val,
+                    style: {
+                        colors: ['black']
+                    }
+                },
+                colors: ['#FA301E']
+            };
+
+            const chartProdutos = new ApexCharts(
+                document.querySelector("#graficoProdutosVendidos"),
+                optionsProdutosVendidos
+            );
+            chartProdutos.render();
+
+        } catch (error) {
+            console.error("Erro ao carregar gráfico de produtos vendidos:", error);
+        }
+    }
+
+    // Chamada automática ao carregar a página
+    carregarGraficoProdutosVendidos();
+
+    // Chama a função assim que a página carregar
+        // carregarGraficoProdutosVendidos();
+
+    // Função corrigida com dois parâmetros
+   
+
 
         // Renderize o gráfico de produtos vendidos
-        var chart1 = new ApexCharts(document.querySelector("#grafico1"), optionsProdutosVendidos);
-        chart1.render();
+        
 
 
-        const categorias = ['Amigurumi', 'Cachepô', 'Porta-chaves', 'Bordado'];
-        const medias = [75, 60, 90, 50]; // Valores em porcentagem
+    async function carregarGraficoCategoriasVendidas() {
+        try {
+            const response = await fetch('../../App/Actions/actionCategoriaMaisVendida.php'); // ou o caminho correto
+            const dados = await response.json();
+            
+            const categorias = dados.map(item => item.categoria);
+            const vendas = dados.map(item => Number(item.vendas));
+            console.log(categorias)
+            console.log(vendas)
 
-        var optionsMediaCategorias = {
-            chart: {
-                type: 'donut', // Tipo de gráfico (donut)
-                // height: 350,
-                // width: 340,
-                height: 450,
-                width: 450,
-                background: 'transparent',
-            },
-            series: medias, // Dados das médias
-            labels: categorias, // Nomes das categorias
-            plotOptions: {
-                pie: {
-                    donut: {
-                        size: '60%', // Tamanho do centro vazio (tamanho do buraco)
-                        labels: {
-                            show: true,
-                            name: {
-                                show: true, // Exibe o nome da categoria no centro
-                                fontSize: '16px',
-                                fontWeight: 600,
-                            },
-                            value: {
-                                show: true, // Exibe o valor percentual
-                                fontSize: '14px',
-                                fontWeight: 400,
-                            },
-                            total: {
-                                show: true, // Exibe o total no centro
-                                label: 'Média Total',
-                                fontSize: '20px',
-                                fontWeight: 700,
-                                formatter: function (w) {
-                                    return w.globals.seriesTotals.reduce((a, b) => a + b, 0) / w.globals.series.length + "%"; // Cálculo da média total
+            var optionsMediaCategorias = {
+                chart: {
+                    type: 'donut',
+                    height: 450,
+                    width: 450,
+                    background: 'transparent',
+                },
+                series: vendas,
+                labels: categorias,
+                plotOptions: {
+                    pie: {
+                        donut: {
+                            size: '60%',
+                            labels: {
+                                show: true,
+                                name: {
+                                    show: true,
+                                    fontSize: '16px',
+                                    fontWeight: 600,
+                                },
+                                value: {
+                                    show: true,
+                                    fontSize: '14px',
+                                    fontWeight: 400,
+                                },
+                                total: {
+                                    show: true,
+                                    label: 'Total',
+                                    fontSize: '20px',
+                                    fontWeight: 700,
+                                    formatter: function (w) {
+                                        return Math.round(w.globals.seriesTotals.reduce((a, b) => a + b, 0)) + " vendas";
+                                    }
                                 }
                             }
                         }
                     }
-                }
-            },
-            // dataLabels: {
-            //     enabled: true,
-            //     formatter: function (val) {
-            //         return val + "%"; // Exibe os valores das fatias em porcentagem
-            //     },
-            //     style: {
-            //         colors: ['black'] // Cor do texto dos rótulos
-            //     }
-            // },
-            colors: ['#FA301E', '#F9A825', '#FFEB3B', '#00C853', '#1976D2'], // Cores das fatias
-            responsive: [
-                {
-                    breakpoint: 1318, // Quando a largura da tela for menor que 1318px
+                },
+                colors: ['#FA301E', '#F9A825', '#FFEB3B', '#00C853', '#1976D2'],
+                responsive: [{
+                    breakpoint: 1318,
                     options: {
                         chart: {
-                            height: 350, // Altura para telas menores
-                            width: 340,  // Largura para telas menores
-                        },
+                            height: 350,
+                            width: 340,
+                        }
                     }
-                }
-            ]
-        };
+                }]
+            };
 
-        // Renderiza o gráfico
-        var chart2 = new ApexCharts(document.querySelector("#grafico2"), optionsMediaCategorias);
-        chart2.render();
+            var chart2 = new ApexCharts(document.querySelector("#grafico2"), optionsMediaCategorias);
+            chart2.render();
+        } catch (error) {
+            console.error("Erro ao carregar categorias mais vendidas:", error);
+        }
+    }
+
+    // Chamada para exibir o gráfico ao carregar
+    carregarGraficoCategoriasVendidas();
+
 
 
 
