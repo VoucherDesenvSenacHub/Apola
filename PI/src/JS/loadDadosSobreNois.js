@@ -56,6 +56,8 @@ async function handleAvaliacoesSobreNois(event=null){
             for (let i = 0; i < e.notas; i++) {
                 estrelasHTML += `<i class="fa-solid fa-star"></i>`;
             }
+
+
         
             avaliacoes.innerHTML += `
             <div class="comentario swiper-slide">

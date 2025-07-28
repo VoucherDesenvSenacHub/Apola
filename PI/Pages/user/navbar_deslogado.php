@@ -12,7 +12,7 @@
         <nav class="container-menu">
                 <div class="img-menu">
                     <a href="./Home.php">
-                        <img src="../../Src/imagens/Apola__1_-removebg-preview.png" alt=""class="img-logo" >
+                      <img src="../../src/imagens/Banners/Logo/3.png" alt=""class="img-logo" >
                     </a>
                 </div>
                 <div class="barra-pesquisa">

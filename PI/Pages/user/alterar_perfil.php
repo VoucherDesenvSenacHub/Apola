@@ -138,7 +138,8 @@ if (isset($_POST['carregarNovosDados'])) {
                 <form method="POST" class="inputs_perfil"  enctype="multipart/form-data">
 
                     <div class="container_banner_perfil">
-                        <img src="../../src/imagens/cadastro/perfil/banner-perfil2.png" alt="" class="banner-img">
+                        <img src="../../src/imagens/Banners/Banners(1000x500)/2
+                        .png" alt="" class="banner-img">
                         <label for="foto_perfil" class="custom-upload">
                             <i class="fas fa-camera"></i>
                         </label>

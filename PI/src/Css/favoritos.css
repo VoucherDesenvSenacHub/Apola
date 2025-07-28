@@ -123,6 +123,12 @@
     justify-content: end;
     
 } 
+.icon_favorite2{
+    display: flex;
+    width: 50% ;
+    justify-content: end;
+    
+} 
 
 .icon_favorite i{
     font-size: 24px;

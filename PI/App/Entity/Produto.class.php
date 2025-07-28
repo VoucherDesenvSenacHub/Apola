@@ -64,6 +64,11 @@ class Produto{
 
     }
 
+    public static function buscarProdutoPorIdEstrelas($id_produto){
+
+          return (new Database('produto'))->selectProdutoIdEstrela($id_produto);
+    }
+
     public static function buscarProduto($where=null, $order =null, $limit = null){
         // print_r($where);
         return (new Database('produto'))->select($where,$order,$limit)
@@ -96,5 +101,14 @@ class Produto{
         return (new Database('produto'))->buscarProdutosMaisVendidos();
     }
 
+    
+    public function buscarProdutosPorNota($nota, $categoria){
+
+        return (new Database('produto'))->selectProdutosPorNota($nota, $categoria);
+
+    
+    }
+
+   
     
 }

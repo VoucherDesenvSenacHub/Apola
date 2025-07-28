@@ -28,6 +28,21 @@ if(isset($_GET['id_produto'])){
 }
 $produto = new Produto();
 $result = $produto->buscarProdutoPorId($id_produto);
+$estrelas = $produto->buscarProdutoPorIdEstrelas($id_produto);
+$media = round($estrelas['media_notas'] ?? 0);
+
+
+
+
+$estrelasHtml = '';
+for ($i = 1; $i <= 5; $i++) {
+    $estrelasHtml .= $i <= $media 
+        ? '<i class="fa-solid fa-star estrela"></i>' 
+        : '<i class="fa-regular fa-star"></i>';
+}
+
+
+$categoria = Categoria::SelectCategoriaPorId($result->categoria_id_categoria);
 
 
 if(isset($_POST['enviarAvaliacaoProduto'])){
@@ -43,14 +58,13 @@ if(isset($_POST['enviarAvaliacaoProduto'])){
 
         $resultAvaliacaoProduto = $avaliacaoProduto->cadastrarAvaliacaoProduto();
         if($resultAvaliacaoProduto){
-            echo '<script>alert("Avaliado com sucesso!!!!")</script>';
+            echo "<script>window.avaliado = true;</script>";
         }
     }
 
     else{
-       
-        echo '<script>alert("Você deve inserir ao menos uma estrela!!")</script>';
-        // echo "<meta http-equiv='refresh' content='2'>";
+
+       echo "<script>window.star = true;</script>";
     }
 
    
@@ -68,16 +82,20 @@ $avaliacoesDoProduto = $avaliacaoProduto->select_avaliacao_produto($id_produto);
     <main  class="main2">
         <div class="comprar_produto">
             <section class="comprar_produto_top">
-                <div class="conatiner_name_produto_cat">
-                    <!-- <h6>Home / Amigurumi / Amigo Urso</h6> -->
-                </div>
+
                 <div class="product-container">
+                    
                     <script src="../../src/JS/comprar_produto.js" defer></script>
                     <div class="product-thumb-container">
                         <div class="thumbnail-images">
                             <img src="<?php echo $result->imagem ?>" class="thumbnail" data-image="<?php echo $result->imagem ?>">
                         </div>
                         <div class="image-gallery">
+                              <div class="suntitle_comprar_produto">
+                                    Home > <?php echo $categoria->nome ; ?> > <?php echo $result->nome ; ?>
+
+                                    
+                                </div>
                             <div class="image-gallery-urso">
                                 <img src="<?php echo $result->imagem; ?>" id="main-image">
                             </div>
@@ -92,11 +110,7 @@ $avaliacoesDoProduto = $avaliacaoProduto->select_avaliacao_produto($id_produto);
                                 <i class="fa-solid fa-heart"></i>
                             </div>
                             <div class="container_avaliacao_produto">
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
+                                <?php echo $estrelasHtml; ?>
                             </div>
                             <div class="item_flex_produto">
                                 <label for="">Cor</label>
@@ -136,27 +150,22 @@ $avaliacoesDoProduto = $avaliacaoProduto->select_avaliacao_produto($id_produto);
                                 <!-- O botão da bolsa -->
                                 
                                 <button data-id="<?= $result->id_produto ?>" class="btn_bag_produto btn-cart-add">
-                                    <i class="fa-solid fa-bag-shopping"></i>
+                                    Adicionar <i class="fa-solid fa-bag-shopping"></i>
                                 </button>
                             </div>
-                            <div class="container_buy_quant display_none_solo">
+                            <!-- <div class="container_buy_quant display_none_solo">
                                 <div id='sub_item_solo' class="menos_cart"><i class="fa-solid fa-minus"></i></div>
-                                <div  id='quant_item_solo' class="quant_cart_solo">1</div>
+                                <div  id='quant_item_solo'  class="quant_cart_solo">1</div>
                                 <div  id='sum_item_solo' class="mais_cart"><i class="fa-solid fa-plus"></i></div>
-                            </div>
+                            </div> -->
                         </div>
         
                     </div>
                     <div class="container_buy_produto2  ">
                         <div class="container_buy_buy none_display">
-                        <button type="button" class="btn_buy_produto">Comprar</button>
-
-                        </div>
-                        <div class="container_buy_quant none_display">
-                                <div id='sub_item_solo2' class="menos_cart"><i class="fa-solid fa-minus"></i></div>
-                                <div  id='quant_item_solo2' class="quant_cart_solo">1</div>
-                                <div  id='sum_item_solo2' class="mais_cart"><i class="fa-solid fa-plus"></i></div>
-                            </div>
+                         <button data-id="<?= $result->id_produto ?>" class="btn_bag_produto btn-cart-add">
+                                    Adicionar <i class="fa-solid fa-bag-shopping"></i>
+                        </button>
                     </div>
                     
 
@@ -270,7 +279,6 @@ $avaliacoesDoProduto = $avaliacaoProduto->select_avaliacao_produto($id_produto);
                                     <p>Avaliado com sucesso!</p>
                                 </div>
                             </div>
-                        
                         </div>
                     </div>
                     <div class="shape_solo"></div>
@@ -284,6 +292,40 @@ $avaliacoesDoProduto = $avaliacaoProduto->select_avaliacao_produto($id_produto);
         </div>
         
     </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script>
+    if (window.avaliado) {
+      Swal.fire({
+        icon: 'success',
+        title: 'Avaliado com sucesso!',
+        showConfirmButton: false,
+        timer: 1500
+      });
+
+      setTimeout(function () {
+        window.avaliado = false;
+      }, 1600);
+    }
+</script>
+
+  <script>
+    if (window.star) {
+      Swal.fire({
+        icon: 'error',
+        title: 'Adicione pelo menos uma estrela para avaliar',
+        showConfirmButton: false,
+        timer: 1500
+      });
+
+      setTimeout(function () {
+        window.star = true;
+      }, 1600);
+    }
+</script>
+
+
+
     <script>
     document.addEventListener('DOMContentLoaded', () => {
         const openButtons = document.querySelectorAll('.open-modal');
