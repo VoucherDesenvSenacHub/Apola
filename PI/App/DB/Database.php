@@ -403,6 +403,46 @@ class Database{
     }
     
 
+    public function buscarProdutosMaisVendidos() {
+        $query = "SELECT 
+                    p.nome, 
+                    SUM(s.quant_produto) AS vendas 
+                FROM 
+                    pedido ped
+                JOIN 
+                    sacola s ON ped.sacola_id_sacola = s.id_sacola
+                JOIN 
+                    produto p ON s.produto_id_produto = p.id_produto
+                GROUP BY  
+                    p.id_produto, p.nome
+                ORDER BY 
+                    vendas DESC";
+
+        return $this->execute($query)->fetchAll(PDO::FETCH_ASSOC);
+    }
+    
+    public function buscarCategoriasMaisVendidas(){
+        $query = "SELECT 
+                c.nome AS categoria, 
+                SUM(s.quant_produto) AS vendas
+                    FROM 
+                        pedido ped
+                    JOIN 
+                        sacola s ON ped.sacola_id_sacola = s.id_sacola
+                    JOIN 
+                        produto p ON s.produto_id_produto = p.id_produto
+                    JOIN 
+                        categoria c ON p.categoria_id_categoria = c.id_categoria
+                    GROUP BY 
+                        c.id_categoria, c.nome
+                    ORDER BY 
+                        vendas DESC;";
+                        
+        return $this->execute($query)->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    
+
 
 
 

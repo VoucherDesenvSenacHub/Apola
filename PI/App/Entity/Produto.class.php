@@ -92,6 +92,10 @@ class Produto{
     
     }
 
+    public function buscarProdutoMaisVendido(){
+        return (new Database('produto'))->buscarProdutosMaisVendidos();
+    }
+
 
     
 }

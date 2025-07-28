@@ -18,7 +18,7 @@ include "nav_bar_adm.php";
         </div>
 
         <div class="conatiner_dados_dashbord">
-            <div class="cont_dados">
+            <!-- <div class="cont_dados">
                 <div class="metric_card clics">
                     <p>Clicks</p>
                     <p>220</p>
@@ -39,7 +39,7 @@ include "nav_bar_adm.php";
                     <p>30</p>
                     <div id="graficoSales"></div> 
                 </div>
-            </div>
+            </div> -->
             <!-- <div class="grafico_dados">
                 <div class="grafico_dados_1">
                     <h2>Vendas (Ano)</h2>
@@ -58,7 +58,7 @@ include "nav_bar_adm.php";
                 <div class="grafico_geral_produtos">
                     <h2>Produtos mais Vendidos</h2>
                     <div class="area_grafico">
-                        <div id="grafico1"></div>
+                        <div id="graficoProdutosVendidos"></div>
                     </div>
                     
                 </div>
