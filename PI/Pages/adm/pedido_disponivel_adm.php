@@ -1,6 +1,6 @@
 <?php
 session_start();
-// include "head_adm.php";
+include "head_adm.php";
 include "nav_bar_adm.php";
 require_once '../../App/Entity/Pedido.class.php';
 
@@ -9,10 +9,6 @@ $entity = new Pedido();
 
 $pedido_cliente = $entity->buscar_pedido_by_id($id);
 
-if (!$pedido_cliente) {
-    echo "<script>alert('Pedido não encontrado!'); window.location.href='listar_pedidos_adm.php';</script>";
-    exit;
-}
 
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {

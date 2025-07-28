@@ -17,7 +17,7 @@ if (isset($_GET['termo'])) {
             echo '
                 <div class="produto-busca-item">
                     <div class="div-flex-search-prod"> 
-                        <img class="search-img-prod" src='.$produto->imagem.' alt="">
+                        <img class="search-img-prod" src=../../'.$produto->imagem.' alt="">
                          <a  href="./comprar_produto.php?id_produto='. $produto->id_produto .'">
                             <h3>' . $produto->nome . '</h3>
                         </a>    

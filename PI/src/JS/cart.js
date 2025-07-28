@@ -57,7 +57,7 @@ document.addEventListener('DOMContentLoaded', function(){
                 <li class="produto_item_cart-1">
                     <div class="produto_item_cart_left">
                         <div class="container_img_produto_cart">
-                            <img src="${prod.imagem}" alt="">
+                            <img src="../../${prod.imagem}" alt="">
                         </div>
                     </div>
                     <div class="produto_item_cart_right">

@@ -246,30 +246,30 @@ class Database{
 
     public function select_pedido_by_id($id){
         $query = "SELECT 
-                    produto.nome AS nome_produto, 
-                    produto.quantidade AS quantidade, 
-                    produto.cor AS cor, 
-                    produto.imagem AS imagem,
-                    sacola.valor_total AS valor_total, 
-                    pedido.codigo_rastreio AS rastreio, 
-                    pedido.status_pedido AS status_pedido,
-                    cliente.telefone AS contato, 
-                    cliente.cep AS cep, 
-                    cliente.rua AS rua, 
-                    cliente.numero_casa AS numero, 
-                    cliente.bairro AS bairro,
-                    cliente.cidade AS cidade, 
-                    cliente.estado AS estado, 
-                    usuario.nome AS nome_cliente, 
-                    cliente.sobrenome AS sobrenome
-                FROM produto 
-                JOIN sacola ON produto.id_produto = sacola.produto_id_produto 
-                JOIN pedido ON sacola.produto_id_produto = pedido.sacola_produto_id_produto 
-                JOIN cliente ON pedido.sacola_cliente_id_cliente = cliente.id_cliente 
-                JOIN usuario ON cliente.id_usuario = usuario.id_usuario
-                WHERE pedido.id_pedido = ?";
+            p.nome AS nome_produto, 
+            p.quantidade, 
+            p.cor, 
+            p.imagem,
+            s.valor_total, 
+            ped.codigo_rastreio, 
+            ped.status_pedido,
+            c.telefone, 
+            c.cep, 
+            c.rua, 
+            c.numero_casa AS numero, 
+            c.bairro,
+            c.cidade, 
+            c.estado, 
+            u.nome AS nome_cliente, 
+            c.sobrenome
+        FROM produto p
+        JOIN sacola s ON p.id_produto = s.produto_id_produto
+        JOIN pedido ped ON s.produto_id_produto = ped.sacola_produto_id_produto
+        JOIN cliente c ON ped.id_cliente = c.id_cliente
+        JOIN usuario u ON c.id_usuario = u.id_usuario
+        WHERE ped.id_pedido = :id;";
     
-        $stmt = $this->execute($query, [$id]);
+        $stmt = $this->execute($query, [':id' => $id]);
     
         return $stmt;
     }

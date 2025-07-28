@@ -8,8 +8,6 @@ $id_usuario = $adm->id_usuario;
 $entityUsuario = new User();
 $usuario = $entityUsuario->getUsuarioById($id_usuario);
 
-print_r($adm);
-exit;
 
 if (isset($_POST['enviarDados'])) {
     $nome = $_POST['nome'];
@@ -22,7 +20,7 @@ if (isset($_POST['enviarDados'])) {
         $nome_foto = $arquivo['name'];
         $novo_nome = uniqid();
         $extensao = strtolower(pathinfo($nome_foto, PATHINFO_EXTENSION));
-        if ($extensao != 'png' && $extensao != 'jpg' && $extensao != 'jpeg') die("Extensão inválida");
+        if ($extensao != 'png' && $extensao != 'jpg' && $extensao != 'jpeg' && $extensao!= 'jfif') die("Extensão inválida");
 
         $caminho = $pasta . $novo_nome . '.' . $extensao;
         move_uploaded_file($arquivo['tmp_name'], $caminho);

@@ -28,12 +28,6 @@ else{
                         </a>
                     </li>
                     <li class="side_bar-itens">
-                        <a style="text-decoration:none;" href="dashbord_adm.php">
-                            <i class="fa-solid fa-chart-simple"></i>
-                            <span class="text_side_item">Dashbord</span>
-                        </a>
-                    </li>
-                    <li class="side_bar-itens">
                         <a style="text-decoration:none; " href="listar_pedidos_adm.php">
                             <i class="fa-solid fa-truck"></i>
                             <span class="text_side_item">Pedidos</span>
