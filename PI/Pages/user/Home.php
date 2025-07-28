@@ -40,7 +40,8 @@ $bannerPromocionalPosicao3  = $banner->getBannerForPosicao('banners_promocionais
 $produtosAleatorios = Produto::buscarProdutoAleatorio();
 
 
-
+// print_r($produtosAleatorios);
+// exit;
 
 $categorias = Categoria::buscarCategoriaLimit("status_categoria = 'a'",'BY RAND()',3);
 
@@ -153,6 +154,15 @@ $produtoCategoria3 = Produto::buscarProdutoCategoria($categoriaArray[2]);
                 <?php
 
                     foreach ($produtosAleatorios as $produto) {
+
+                        $media = round($produto['media_notas'] ?? 0);
+                            $estrelasHtml = '';
+                            for ($i = 1; $i <= 5; $i++) {
+                                $estrelasHtml .= $i <= $media 
+                                    ? '<i class="fa-solid fa-star"></i>' 
+                                    : '<i class="fa-regular fa-star"></i>';
+                        }
+
                         echo '
                             <div class="swiper-slide card_produto">
                                 <div class="icon_favorite">
@@ -166,13 +176,7 @@ $produtoCategoria3 = Produto::buscarProdutoCategoria($categoriaArray[2]);
                                 </div>
                                 <div class="conteudo_card">
                                     <div class="nome_card_produto">'.htmlspecialchars($produto['produto_nome']).'</div>
-                                    <div class="content_star_icon">
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                    </div>
+                                       <div class="content_star_icon">'.$estrelasHtml.'</div>
                                     <div class="preco_card_produto">R$ '.number_format($produto['preco'], 2, ',', '.').'</div>
                                     <div class="btn_content_card_produto">
                                         <button data-id='.$produto['id_produto'].' class="btn_bag_card btn-cart-add"><i class="fa-solid fa-bag-shopping"></i></button>
@@ -242,36 +246,44 @@ $produtoCategoria3 = Produto::buscarProdutoCategoria($categoriaArray[2]);
                 <div class="swiper-wrapper">
                     
                 <?php
-                    foreach ($produtoCategoria1 as $produto) {
-                        echo'
-                            <div class="swiper-slide card_produto">
-                                <div class="icon_favorite">
-                                    <label class="checkbox-heart">
-                                        <input class="input-check" type="checkbox" data-status="'.$produto['status_favoritos'] .'" data-id="'.$produto['id_produto'].'" '.($produto['status_favoritos'] ? 'checked' : '').'>
-                                        <i class="fa-solid fa-heart"></i>
-                                    </label> 
+                   foreach ($produtoCategoria1 as $produto) {
+
+                    // Arredonda a média de notas
+                    $media = round($produto['media_notas'] ?? 0);
+
+                    // Gera HTML das estrelas
+                    $estrelasHtml = '';
+                    for ($i = 1; $i <= 5; $i++) {
+                        $estrelasHtml .= $i <= $media 
+                            ? '<i class="fa-solid fa-star"></i>' 
+                            : '<i class="fa-regular fa-star"></i>';
+                    }
+
+                    echo '
+                        <div class="swiper-slide card_produto">
+                            <div class="icon_favorite">
+                                <label class="checkbox-heart">
+                                    <input class="input-check" type="checkbox" data-status="'.$produto['status_favoritos'].'" data-id="'.$produto['id_produto'].'" '.($produto['status_favoritos'] ? 'checked' : '').'>
+                                    <i class="fa-solid fa-heart"></i>
+                                </label> 
+                            </div>
+                            <div class="img_content_produto">
+                                <img src="'.$produto['imagem'].'" alt="">
+                            </div>
+                            <div class="conteudo_card">
+                                <div class="nome_card_produto">'.htmlspecialchars($produto['produto_nome']).'</div>
+                                <div class="content_star_icon">
+                                    '.$estrelasHtml.'
                                 </div>
-                                <div class="img_content_produto">
-                                    <img src="'.$produto['imagem'].'" alt="">
-                                </div>
-                                <div class="conteudo_card">
-                                    <div class="nome_card_produto">'.htmlspecialchars($produto['produto_nome']).'</div>
-                                    <div class="content_star_icon">
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                    </div>
-                                    <div class="preco_card_produto">R$ '.number_format($produto['preco'], 2, ',', '.').'</div>
-                                    <div class="btn_content_card_produto">
-                                        <button data-id='.$produto['id_produto'].' class="btn_bag_card btn-cart-add"><i class="fa-solid fa-bag-shopping"></i></button>
-                                        <a href="./comprar_produto.php?id_produto='. $produto['id_produto'] .'"class="btn_buy_card">Comprar</a>
-                                    </div>
+                                <div class="preco_card_produto">R$ '.number_format($produto['preco'], 2, ',', '.').'</div>
+                                <div class="btn_content_card_produto">
+                                    <button data-id="'.$produto['id_produto'].'" class="btn_bag_card btn-cart-add"><i class="fa-solid fa-bag-shopping"></i></button>
+                                    <a href="./comprar_produto.php?id_produto='.$produto['id_produto'].'" class="btn_buy_card">Comprar</a>
                                 </div>
                             </div>
-                            ';
-                        }
+                        </div>
+                    ';
+                }
 
                     ?>
             </div>
@@ -304,36 +316,44 @@ $produtoCategoria3 = Produto::buscarProdutoCategoria($categoriaArray[2]);
                 </div>
                 <div class="swiper-wrapper">
                 <?php
-                    foreach ($produtoCategoria2 as $produto) {
-                        echo'
-                            <div class="swiper-slide card_produto">
-                                <div class="icon_favorite">
-                                    <label class="checkbox-heart">
-                                        <input class="input-check" type="checkbox" data-status="'.$produto['status_favoritos'] .'" data-id="'.$produto['id_produto'].'" '.($produto['status_favoritos'] ? 'checked' : '').'>
-                                        <i class="fa-solid fa-heart"></i>
-                                    </label> 
+                   foreach ($produtoCategoria2 as $produto) {
+
+                    // Arredonda a média de notas
+                    $media = round($produto['media_notas'] ?? 0);
+
+                    // Gera HTML das estrelas
+                    $estrelasHtml = '';
+                    for ($i = 1; $i <= 5; $i++) {
+                        $estrelasHtml .= $i <= $media 
+                            ? '<i class="fa-solid fa-star"></i>' 
+                            : '<i class="fa-regular fa-star"></i>';
+                    }
+
+                    echo '
+                        <div class="swiper-slide card_produto">
+                            <div class="icon_favorite">
+                                <label class="checkbox-heart">
+                                    <input class="input-check" type="checkbox" data-status="'.$produto['status_favoritos'].'" data-id="'.$produto['id_produto'].'" '.($produto['status_favoritos'] ? 'checked' : '').'>
+                                    <i class="fa-solid fa-heart"></i>
+                                </label> 
+                            </div>
+                            <div class="img_content_produto">
+                                <img src="'.$produto['imagem'].'" alt="">
+                            </div>
+                            <div class="conteudo_card">
+                                <div class="nome_card_produto">'.htmlspecialchars($produto['produto_nome']).'</div>
+                                <div class="content_star_icon">
+                                    '.$estrelasHtml.'
                                 </div>
-                                <div class="img_content_produto">
-                                    <img src="'.$produto['imagem'].'" alt="">
-                                </div>
-                                <div class="conteudo_card">
-                                    <div class="nome_card_produto">'.htmlspecialchars($produto['produto_nome']).'</div>
-                                    <div class="content_star_icon">
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                    </div>
-                                    <div class="preco_card_produto">R$ '.number_format($produto['preco'], 2, ',', '.').'</div>
-                                    <div class="btn_content_card_produto">
-                                        <button data-id='.$produto['id_produto'].' class="btn_bag_card btn-cart-add"><i class="fa-solid fa-bag-shopping"></i></button>
-                                        <a href="./comprar_produto.php?id_produto='. $produto['id_produto'] .'"class="btn_buy_card">Comprar</a>
-                                    </div>
+                                <div class="preco_card_produto">R$ '.number_format($produto['preco'], 2, ',', '.').'</div>
+                                <div class="btn_content_card_produto">
+                                    <button data-id="'.$produto['id_produto'].'" class="btn_bag_card btn-cart-add"><i class="fa-solid fa-bag-shopping"></i></button>
+                                    <a href="./comprar_produto.php?id_produto='.$produto['id_produto'].'" class="btn_buy_card">Comprar</a>
                                 </div>
                             </div>
-                            ';
-                        }
+                        </div>
+                    ';
+                }
 
                     ?>
                 
@@ -350,6 +370,8 @@ $produtoCategoria3 = Produto::buscarProdutoCategoria($categoriaArray[2]);
                 <?php
 
                 foreach ($categorias as $categoria) {
+
+                    
                     echo'
                     <a href="./categorias.php?id_categoria='. $categoria->id_categoria .'" class="item_card_cat_2" style="text-decoration: none; color: inherit;">
                         <img src=" '.$categoria->imagem.' " alt="" class="img_card_cat_2">
@@ -377,39 +399,45 @@ $produtoCategoria3 = Produto::buscarProdutoCategoria($categoriaArray[2]);
                 </div>
                 <div class="swiper-wrapper">
                 <?php
-                    foreach ($produtoCategoria3 as $produto) {
-                        echo'
-                            <div class="swiper-slide card_produto">
-                                <div class="icon_favorite">
-                                    <label class="checkbox-heart">
-                                        <input class="input-check" type="checkbox" data-status="'.$produto['status_favoritos'] .'" data-id="'.$produto['id_produto'].'" '.($produto['status_favoritos'] ? 'checked' : '').'>
-                                        <i class="fa-solid fa-heart"></i>
-                                    </label> 
+                   foreach ($produtoCategoria3 as $produto) {
+
+                   
+                    $media = round($produto['media_notas'] ?? 0);
+
+                    $estrelasHtml = '';
+                    for ($i = 1; $i <= 5; $i++) {
+                        $estrelasHtml .= $i <= $media 
+                            ? '<i class="fa-solid fa-star"></i>' 
+                            : '<i class="fa-regular fa-star"></i>';
+                    }
+
+                    echo '
+                        <div class="swiper-slide card_produto">
+                            <div class="icon_favorite">
+                                <label class="checkbox-heart">
+                                    <input class="input-check" type="checkbox" data-status="'.$produto['status_favoritos'].'" data-id="'.$produto['id_produto'].'" '.($produto['status_favoritos'] ? 'checked' : '').'>
+                                    <i class="fa-solid fa-heart"></i>
+                                </label> 
+                            </div>
+                            <div class="img_content_produto">
+                                <img src="'.$produto['imagem'].'" alt="">
+                            </div>
+                            <div class="conteudo_card">
+                                <div class="nome_card_produto">'.htmlspecialchars($produto['produto_nome']).'</div>
+                                <div class="content_star_icon">
+                                    '.$estrelasHtml.'
                                 </div>
-                                <div class="img_content_produto">
-                                    <img src="'.$produto['imagem'].'" alt="">
-                                </div>
-                                <div class="conteudo_card">
-                                    <div class="nome_card_produto">'.htmlspecialchars($produto['produto_nome']).'</div>
-                                    <div class="content_star_icon">
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                    </div>
-                                    <div class="preco_card_produto">R$ '.number_format($produto['preco'], 2, ',', '.').'</div>
-                                    <div class="btn_content_card_produto">
-                                        <button data-id='.$produto['id_produto'].' class="btn_bag_card btn-cart-add"><i class="fa-solid fa-bag-shopping"></i></button>
-                                        <a href="./comprar_produto.php?id_produto='. $produto['id_produto'] .'"class="btn_buy_card">Comprar</a>
-                                    </div>
+                                <div class="preco_card_produto">R$ '.number_format($produto['preco'], 2, ',', '.').'</div>
+                                <div class="btn_content_card_produto">
+                                    <button data-id="'.$produto['id_produto'].'" class="btn_bag_card btn-cart-add"><i class="fa-solid fa-bag-shopping"></i></button>
+                                    <a href="./comprar_produto.php?id_produto='.$produto['id_produto'].'" class="btn_buy_card">Comprar</a>
                                 </div>
                             </div>
-                            ';
-                        }
+                        </div>
+                    ';
+                }
 
                     ?>
-                
                 
                 
                 </div>
@@ -448,6 +476,25 @@ $produtoCategoria3 = Produto::buscarProdutoCategoria($categoriaArray[2]);
 
 
     </main >
+
+
+    <script>
+
+
+    const isClienteLogado = <?php echo Login::IsLogedCliente() ? 'true' : 'false'; ?>;
+            const buyButtons = document.querySelectorAll('.btn-cart-add');
+
+            buyButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    if (!isClienteLogado) {
+                        window.location.href = './login.php';
+                    } else {
+                    }
+                });
+            });
+
+
+    </script>
 
 
 <?php

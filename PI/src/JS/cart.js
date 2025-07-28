@@ -332,7 +332,6 @@ document.addEventListener('DOMContentLoaded', function(){
 
     const BtnAddCart = document.querySelectorAll(".btn-cart-add"); 
 
-
     BtnAddCart.forEach(itemProdutoBtn => {
 
         itemProdutoBtn.addEventListener('click', () =>{

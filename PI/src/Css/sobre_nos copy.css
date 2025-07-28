@@ -1996,7 +1996,17 @@ MEDIA QUERIES SOBRE */
 @media (max-width:570px) {
 
 
-
+.comentario {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+     
+        border-radius: 8px;
+        padding: 20px;
+   
+    }
 
     /* AREA BANNER SOBRE NÓS */
 
@@ -2126,7 +2136,7 @@ MEDIA QUERIES SOBRE */
         height: 100%; */
         justify-content: center;
         align-items: center;
-        height: 300px;
+        height: auto;
         width: 40%;
         /* Ou ajuste conforme necessário */
         max-width: 500px;
@@ -2898,7 +2908,7 @@ MEDIA QUERIES SOBRE */
         padding: 20px;
         background-color: #fffbee;
         border-radius: 16px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+   
     }
 
     /* Título */
@@ -2910,16 +2920,15 @@ MEDIA QUERIES SOBRE */
     }
 
     /* Um comentário individual */
-    .comentario {
+   .comentario {
         display: flex;
         flex-direction: column;
         align-items: center;
+        justify-content: center;
         text-align: center;
-        background-color: #fff;
-        border: 1px solid #ffeaa7;
-        border-radius: 16px;
+        border-radius: 8px;
         padding: 20px;
-        margin-bottom: 20px;
+
     }
 
     /* Avatar circular */
@@ -2956,10 +2965,15 @@ MEDIA QUERIES SOBRE */
 /* === RESPONSIVIDADE === */
 @media (max-width: 576px) {
     .comentario {
-        flex-direction: row;
-        align-items: flex-start;
-        text-align: left;
-        gap: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+     
+        border-radius: 8px;
+        padding: 20px;
+   
     }
 
     .comentario-texto {
@@ -2969,11 +2983,9 @@ MEDIA QUERIES SOBRE */
     .avatar {
         width: 80px;
         height: 80px;
-        /* display: flex;    */
         border-radius: 100%;
-        /* Torna a imagem redondinha */
+
         object-fit: cover;
-        border: 4px solid #f1c40f;
         margin-bottom: 10px;
     }
 }
@@ -2996,11 +3008,9 @@ MEDIA QUERIES SOBRE */
     .avatar {
         width: 80px;
         height: 80px;
-        /* display: flex;    */
         border-radius: 100%;
-        /* Torna a imagem redondinha */
+     
         object-fit: cover;
-        border: 4px solid #f1c40f;
         margin-bottom: 10px;
     }
 }
@@ -3009,11 +3019,10 @@ MEDIA QUERIES SOBRE */
     .avatar {
         width: 160px;
         height: 160px;
-        /* display: flex;    */
         border-radius: 100%;
-        /* Torna a imagem redondinha */
+ 
         object-fit: cover;
-        border: 4px solid #f1c40f;
+ 
         margin-bottom: 10px;
     }
 }

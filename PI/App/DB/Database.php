@@ -313,22 +313,39 @@ class Database{
 
 
 
+    public function selectProdutoIdEstrela($id_produto){
+        $query = "
+            SELECT 
+                ROUND(AVG(CAST(notas AS UNSIGNED)), 1) AS media_notas
+            FROM 
+                avaliacao_produto
+            WHERE 
+                id_produto = ". $id_produto .";
 
+        ";
+
+        return $this->execute($query)->fetch(PDO::FETCH_ASSOC);
+    }
 
     public function select_produto_por_categoria($categoria){
-        $query =  "Select 
+        $query =  "SELECT 
             favoritos.status_favoritos, 
             produto.id_produto, 
+            ROUND(AVG(CAST(a.notas AS UNSIGNED)), 1) AS media_notas,
             categoria.nome AS categoria_nome, 
             produto.imagem, 
             produto.nome AS produto_nome, 
             produto.preco 
         FROM produto
-        JOIN categoria on produto.categoria_id_categoria = categoria.id_categoria 
+        JOIN avaliacao_produto a ON a.id_produto = produto.id_produto
+        JOIN categoria ON produto.categoria_id_categoria = categoria.id_categoria 
         LEFT JOIN favoritos ON produto.id_produto = favoritos.produto_id_produto
         WHERE
-        categoria.nome = '". $categoria. "' 
-        AND categoria.status_categoria = 'a' LIMIT 10  " ;
+            categoria.nome = '". $categoria ."' 
+            AND categoria.status_categoria = 'a'
+        GROUP BY produto.id_produto
+        LIMIT 10;
+        " ;
 
     
         return $result = $this->execute($query)->fetchAll(PDO::FETCH_ASSOC);
@@ -337,19 +354,22 @@ class Database{
 
     public function select_produto_por_aleatorio(){
                 $query = "SELECT 
-                favoritos.status_favoritos, 
-                produto.id_produto, 
-                categoria.nome AS categoria_nome, 
-                produto.imagem, 
-                produto.nome AS produto_nome, 
-                produto.preco 
-            FROM produto 
-            JOIN categoria ON produto.categoria_id_categoria = categoria.id_categoria 
-            LEFT JOIN favoritos ON produto.id_produto = favoritos.produto_id_produto
-            WHERE produto.status_produto = 'a' 
-            ORDER BY RAND() 
-            LIMIT 10;
-        ";
+                    favoritos.status_favoritos, 
+                    ROUND(AVG(CAST(a.notas AS UNSIGNED)), 1) AS media_notas,
+                    produto.id_produto, 
+                    categoria.nome AS categoria_nome, 
+                    produto.imagem, 
+                    produto.nome AS produto_nome, 
+                    produto.preco 
+                FROM produto 
+                JOIN avaliacao_produto a ON a.id_produto = produto.id_produto
+                JOIN categoria ON produto.categoria_id_categoria = categoria.id_categoria 
+                LEFT JOIN favoritos ON produto.id_produto = favoritos.produto_id_produto
+                WHERE produto.status_produto = 'a' 
+                GROUP BY produto.id_produto
+                ORDER BY RAND() 
+                LIMIT 10;
+                ";
 
     
          return $result = $this->execute($query)->fetchAll(PDO::FETCH_ASSOC);
@@ -404,7 +424,27 @@ class Database{
     
 
 
+   public function selectProdutosPorNota($nota, $categoria) {
+    $query = "
+       SELECT 
+            p.*,
+            ROUND(AVG(CAST(a.notas AS UNSIGNED)), 1) AS media_notas,
+            COUNT(a.id_avaliacao_produto) AS total_avaliacoes
+        FROM 
+            produto p
+        JOIN 
+            avaliacao_produto a ON a.id_produto = p.id_produto
+        WHERE 
+            p.status_produto = 'A' AND p.categoria_id_categoria = :categoria
+        GROUP BY 
+            p.id_produto
+        HAVING 
+            media_notas >= :nota
+    ";
 
+    
+    return $this->execute($query, [':nota' => $nota, ':categoria' => $categoria])->fetchAll(PDO::FETCH_OBJ);
+}
 
 
 

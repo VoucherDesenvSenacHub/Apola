@@ -52,110 +52,23 @@ $produtos = $produto->buscarProduto("categoria_id_categoria = ".$id_categoria);
                 <div class="accordion_mobile_filtro">
                     <button class="accodion-header_mobile">
                         <h6 class="name_item_filtro_cat">
-                            Material
-                        </h6>
-                        <i class="fa-solid fa-chevron-down arrow"></i>
-                    </button>
-                    
-                    <div class="accordion-body_mobile">
-                        <div class="flex_filtro_cat_mobile">
-                            <input type="checkbox" name="" id="">
-                            <h6 class="name_filtro_cat_mobile">Cachepô Crochê</h6>
-                        </div>
-                        <div class="flex_filtro_cat_mobile">
-                            <input type="checkbox" name="" id="">
-                            <h6 class="name_filtro_cat_mobile">Cachepô Crochê</h6>
-                        </div>
-                        <div class="flex_filtro_cat_mobile">
-                            <input type="checkbox" name="" id="">
-                            <h6 class="name_filtro_cat_mobile">Cachepô Crochê</h6>
-                        </div>
-                        <div class="flex_filtro_cat_mobile">
-                            <input type="checkbox" name="" id="">
-                            <h6 class="name_filtro_cat_mobile">Cachepô Crochê</h6>
-                        </div>
-                    </div>
-                </div>
-                <div class="accordion_mobile_filtro">
-                    <button class="accodion-header_mobile">
-                        <h6 class="name_item_filtro_cat">
                             Avaliação
                         </h6>
                         <i class="fa-solid fa-chevron-down arrow"></i>
                     </button>
                     
                     <div class="accordion-body_mobile">
-                        <div class="flex_filtro_cat_mobile">
-                            <input type="checkbox" name="" id="">
-                            <h6 class="star_filtro_cat">
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                            </h6>
-                        </div>
-                        <div class="flex_filtro_cat_mobile">
-                            <input type="checkbox" name="" id="">
-                            <h6 class="star_filtro_cat">
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star a"></i>
-                            </h6>
-                        </div>
-                        <div class="flex_filtro_cat_mobile">
-                            <input type="checkbox" name="" id="">
-                            <h6 class="star_filtro_cat">
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star a"></i>
-                                <i class="fa-solid fa-star a"></i>
-                            </h6>
-                        </div>
-                        <div class="flex_filtro_cat_mobile">
-                            <input type="checkbox" name="" id="">
-                            <h6 class="star_filtro_cat">
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star a"></i>
-                                <i class="fa-solid fa-star a"></i>
-                                <i class="fa-solid fa-star a"></i>
-                            </h6>
-                        </div>
+                         <?php for ($i = 5; $i >= 1; $i--): ?>
+                            <div class="flex_filtro_cat">
+                                <input class="filtro-nota" type="checkbox" value="<?= $i ?>" id="star-cat-<?= $i ?>">
+                                <h6 class="star_filtro_cat clickable-stars" data-target="star-cat-<?= $i ?>">
+                                    <?php for ($j = 1; $j <= 5; $j++): ?>
+                                        <i class="fa-solid fa-star <?= $j > $i ? 'a' : '' ?>"></i>
+                                    <?php endfor; ?>
+                                </h6>
+                            </div>
+                        <?php endfor; ?>
                     </div>
-                </div>
-                <div class="accordion_mobile_filtro">
-                    <button class="accodion-header_mobile">
-                        <h6 class="name_item_filtro_cat">
-                            Tamanho
-                        </h6>
-                        <i class="fa-solid fa-chevron-down arrow"></i>
-                    </button>
-                    
-                    <div class="accordion-body_mobile">
-                        <div class="flex_filtro_cat_mobile">
-                            <input type="checkbox" name="" id="">
-                            <h6 class="name_filtro_cat_mobile">10 cm</h6>
-                        </div>
-                        <div class="flex_filtro_cat_mobile">
-                            <input type="checkbox" name="" id="">
-                            <h6 class="name_filtro_cat_mobile">15 cm</h6>
-                        </div>
-                        <div class="flex_filtro_cat_mobile">
-                            <input type="checkbox" name="" id="">
-                            <h6 class="name_filtro_cat_mobile">20 cm</h6>
-                        </div>
-                        <div class="flex_filtro_cat_mobile">
-                            <input type="checkbox" name="" id="">
-                            <h6 class="name_filtro_cat_mobile">25 cm</h6>
-                        </div>
-                        <div class="flex_filtro_cat_mobile">
-                            <input type="checkbox" name="" id="">
-                            <h6 class="name_filtro_cat_mobile">30 cm</h6>
-                        </div>
-                    </div>
-                </div>
-                <div class="container_btn_mobile_filtro">
-                    <button >Aplicar</button>
                 </div>
             </div>
 
@@ -172,95 +85,23 @@ $produtos = $produto->buscarProduto("categoria_id_categoria = ".$id_categoria);
                     <div class="range-value">R$ <span id="rangeValue">500</span></div>
                 </div>
                 <div class="container_left_filtro">
-                    <div class="item_filtro_cat">
-                        <div class="title_filtro_cat">Material</div>
-                        <div class="flex_filtro_cat">
-                            <input type="checkbox" name="" id="">
-                            <h6 class="name_filtro_cat">Cachepô Crochê</h6>
-                        </div>
-                        <div class="flex_filtro_cat">
-                            <input type="checkbox" name="" id="">
-                            <h6 class="name_filtro_cat">Cachepô Crochê</h6>
-                        </div>
-                        <div class="flex_filtro_cat">
-                            <input type="checkbox" name="" id="">
-                            <h6 class="name_filtro_cat">Cachepô Crochê</h6>
-                        </div>
-                        <div class="flex_filtro_cat">
-                            <input type="checkbox" name="" id="">
-                            <h6 class="name_filtro_cat">Cachepô Crochê</h6>
-                        </div>
-                        <div class="flex_filtro_cat">
-                            <input type="checkbox" name="" id="">
-                            <h6 class="name_filtro_cat">Cachepô Crochê</h6>
-                        </div>
-                        <span class="linha_quebra_categoria"></span>
+                   <div class="item_filtro_cat">
+                <div class="title_filtro_cat">Avaliação</div>
+
+                <?php for ($i = 5; $i >= 1; $i--): ?>
+                    <div class="flex_filtro_cat">
+                        <input class="filtro-nota" type="checkbox" value="<?= $i ?>" id="star-cat-<?= $i ?>">
+                        <h6 class="star_filtro_cat clickable-stars" data-target="star-cat-<?= $i ?>">
+                            <?php for ($j = 1; $j <= 5; $j++): ?>
+                                <i class="fa-solid fa-star <?= $j > $i ? 'a' : '' ?>"></i>
+                            <?php endfor; ?>
+                        </h6>
                     </div>
-                    <div class="item_filtro_cat">
-                        <div class="title_filtro_cat">Avaliação</div>
-                        <div class="flex_filtro_cat">
-                            <input type="checkbox" name="" id="">
-                            <h6 class="star_filtro_cat">
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                            </h6>
-                        </div>
-                        <div class="flex_filtro_cat">
-                            <input type="checkbox" name="" id="">
-                            <h6 class="star_filtro_cat">
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star a"></i>
-                            </h6>
-                        </div>
-                        <div class="flex_filtro_cat">
-                            <input  type="checkbox" name="" id="">
-                            <h6 class="star_filtro_cat">
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star a"></i>
-                                <i class="fa-solid fa-star a"></i>
-                            </h6>
-                        </div>
-                        <div class="flex_filtro_cat">
-                            <input type="checkbox" name="" id="">
-                            <h6 class="star_filtro_cat">
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star a"></i>
-                                <i class="fa-solid fa-star a"></i>
-                                <i class="fa-solid fa-star a"></i>
-                            </h6>
-                        </div>
-                        <span class="linha_quebra_categoria"></span>
-                    </div>
-                    <div class="item_filtro_cat">
-                        <div class="title_filtro_cat">Tamanho</div>
-                        <div class="flex_filtro_cat">
-                            <input type="checkbox" name="" id="">
-                            <h6 class="name_filtro_cat">10 cm</h6>
-                        </div>
-                        <div class="flex_filtro_cat">
-                            <input type="checkbox" name="" id="">
-                            <h6 class="name_filtro_cat">15 cm</h6>
-                        </div>
-                        <div class="flex_filtro_cat">
-                            <input type="checkbox" name="" id="">
-                            <h6 class="name_filtro_cat">20 cm</h6>
-                        </div>
-                        <div class="flex_filtro_cat">
-                            <input type="checkbox" name="" id="">
-                            <h6 class="name_filtro_cat">25 cm</h6>
-                        </div>
-                        <div class="flex_filtro_cat">
-                            <input type="checkbox" name="" id="">
-                            <h6 class="name_filtro_cat">30 cm</h6>
-                        </div>
-                    </div>
-                </div>
-                
+                <?php endfor; ?>
+
+                <span class="linha_quebra_categoria"></span>
+            </div>
+
             </aside>
 
             <aside class="right_categoria">
@@ -277,7 +118,7 @@ $produtos = $produto->buscarProduto("categoria_id_categoria = ".$id_categoria);
                         <option value=""></option>
                     </select>
                 </div>
-                <div class="wrap__filtro_right">
+                <div class="wrap__filtro_right" id="produtos-container">
                     <!-- <a  style ="text-decoration:none;"class="link_produto_home" href="./comprar_produto.php"> -->
                     <?php
                     foreach ($produtos as $prod): 

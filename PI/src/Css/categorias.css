@@ -323,11 +323,19 @@ MOBILE */
     width: 100%;
 }
 
+.estrela{
+    background-color: #ffbd07;
+    color: #ffbd07;
+}
+#apagada-star{
+    color: #c2c2c2;
+    background-color: #c2c2c2;
+}
 .top_mobile_filtro_open {
     display:flex;
     background-color: rgb(255, 255, 255);
     right: 0;
-    top: 8.2rem;
+    top: 14rem;
     transition:all 0.3s ease-in-out;
     z-index: 1000;
     width: 0;

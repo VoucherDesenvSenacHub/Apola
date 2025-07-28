@@ -173,7 +173,7 @@
 
 .container_avaliacao_produto{
     display: flex;
-    color: #e2e2e2;
+    color: #ffbd07;
     gap: 0.3rem;
     font-size: 18px;
 }
@@ -373,10 +373,14 @@
     transform: scale(1.05);
 }
 
-
+.suntitle_comprar_produto{
+    display: flex;
+    padding-bottom: 1rem;
+}
 .container_buy_produto  .btn_bag_produto{
     display: flex;
-    width: 20%;
+    gap: 1rem;
+    padding: 2rem;
     height: 50px;
     border-radius: 5px;
     font-size: 20px;
@@ -693,7 +697,7 @@
 .conatiner_comentario_star .fa-star{
     font-size: 14px;
     display: flex;
-    color: #eeeeee;
+    color: #ff9900;
 }
 
 #star_active{
@@ -743,6 +747,34 @@
 
 
 
+.modal-avaliacao {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.modal-avaliacao .conteudo-modal {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.btn_fechar_modal {
+    margin-top: 10px;
+    padding: 5px 15px;
+    background-color: #4200db;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
 
 
 
@@ -804,7 +836,7 @@
 
 .container_buy_produto  .btn_bag_produto{
     display: flex;
-    width: 20%;
+    padding: 1rem;
     height: 50px;
     border-radius: 5px;
     font-size: 20px;
@@ -816,6 +848,7 @@
     background-color: transparent;
     transition: all 0.2s ease;
     cursor: pointer;
+    gap: 1rem;
 
 
 }
@@ -863,12 +896,18 @@ color: #4A4A4A;
 outline: none;
 }
 
+.container_buy_produto2{
 
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    padding: 1rem;
+}
 
 .container_buy_produto2  .btn_bag_produto{
 display: flex;
-width: 20%;
+padding: 2rem;
+width: 50%;
 height: 50px;
+
 border-radius: 5px;
 font-size: 20px;
 font-weight: 500;
@@ -879,6 +918,7 @@ align-items: center;
 background-color: transparent;
 transition: all 0.2s ease;
 cursor: pointer;
+gap: 1rem;
 
 
 }
@@ -1172,6 +1212,27 @@ gap: 1rem;
     
     }
  
+
+   .container_buy_produto2  .btn_bag_produto{
+    display: flex;
+    padding: 2rem;
+    width: 100%;
+    height: 50px;
+
+    border-radius: 5px;
+    font-size: 20px;
+    font-weight: 500;
+    color: #4A4A4A;
+    outline: none;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+    transition: all 0.2s ease;
+    cursor: pointer;
+    gap: 1rem;
+
+
+    }
     .thumbnail{
         width: 50px;
         height: 50px;

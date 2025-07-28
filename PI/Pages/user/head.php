@@ -35,10 +35,11 @@
     <script src="../../src/JS/carregarImagensPerso.js" defer></script>
     <script src="../../src/JS/loadDadosAvaliacaoProduto.js" defer></script>
     <script src="../../src/JS/cart.js" defer></script>
+    <script src="../../src/JS/filtro-categorias.js" defer></script>
 
 
 
-    <link rel="shortcut icon" href=../../src/imagens/logoconvertida.png type="imagex/png">
+    <link rel="shortcut icon" href=../../src/imagens/Banners/Logo/2.png type="imagex/png">
 
 
     <title>Apola</title>
