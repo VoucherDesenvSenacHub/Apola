@@ -39,25 +39,40 @@ class Produto{
         return $result;
     }
 
-    public function atualizarProduto($id_produto){
+    public function atualizarProduto($id) {
         $db = new Database('produto');
-        $res = $db->update('id_produto = '.$id_produto, [
+
+        // Verifica se já existe imagem no banco
+        $produtoAntigo = (new Database('produto'))->select('id_produto = ' . $id)->fetch(PDO::FETCH_ASSOC);
+
+        $imagemFinal = $this->imagem;
+
+        // Se a imagem nova for diferente da anterior, atualiza
+        if (!empty($this->imagem) && $this->imagem !== $produtoAntigo['imagem']) {
+            $imagemFinal = $this->imagem;
+        } else {
+            $imagemFinal = $produtoAntigo['imagem'];
+        }
+
+        $dados = [
             'nome' => $this->nome,
             'preco' => $this->preco,
             'avaliacao' => $this->avaliacao,
             'quantidade' => $this->quantidade,
             'cor' => $this->cor,
-            'largura' => $this->largura,
             'altura' => $this->altura,
-            'imagem' => $this->imagem,
+            'largura' => $this->largura,
+            'imagem' => $imagemFinal,
             'descricao' => $this->descricao,
             'tipo' => $this->tipo,
             'status_produto' => $this->status_produto,
             'categoria_id_categoria' => $this->categoria_id_categoria
-        ]);
-    
-        return $res;
+        ];
+
+        return $db->update('id_produto = ' . $id, $dados);
     }
+
+
 
     public static function buscarProdutoPorId($where=null, $order =null, $limit = null){
         return (new Database('produto'))->select('id_produto = "'. $where .'"')->fetchObject(self::class);

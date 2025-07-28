@@ -73,7 +73,10 @@ if (isset($_POST['carregarDadosProduto'])) {
         $produto->cor = $cor;
         $produto->altura = $altura;
         $produto->largura = $largura;
-        $produto->imagem = $caminhoFinal;
+
+        // Salva caminho relativo no banco
+        $produto->imagem = 'src/imagens/produtos/' . $novoNome;
+
         $produto->descricao = $descricao;
         $produto->tipo = "Da loja";
         $produto->status_produto = $status;
@@ -82,9 +85,8 @@ if (isset($_POST['carregarDadosProduto'])) {
         $resultado = $produto->cadastrarProduto();
 
         if ($resultado) {
-            $mostrarModal = true; // <-- adicione esta linha
-            echo '<meta http-equiv="refresh" content="1.9">'; // ou remova se quiser deixar a página "parada"
-        }
+            $mostrarModal = true;
+            echo '<meta http-equiv="refresh" content="1.9">';
         } else {
             echo "<script>
                 Swal.fire({
@@ -96,9 +98,8 @@ if (isset($_POST['carregarDadosProduto'])) {
             </script>";
         }
     }
+}
 ?>
-
-
 
 <body>   
     <main class="main_adm">
@@ -128,8 +129,7 @@ if (isset($_POST['carregarDadosProduto'])) {
                         <div class="item_flex_adm">
                             <label for="">Categoria</label>
                             <select name="selectCategoria" id="dadosTodasCategoria">
-                                <!-- <option value="">Amigurumi</option>
-                                <option value="">Cachepô</option> -->
+                                <!-- opções preenchidas via JS, mantenha assim -->
                             </select>
                             <p class="text_tamanho_img" style="color:red;"> <?= $errCategoria; ?> </p>
                         </div>
@@ -138,15 +138,11 @@ if (isset($_POST['carregarDadosProduto'])) {
                             <textarea name="descricaoProduto" id=""></textarea>
                             <p class="text_tamanho_img" style="color:red;"> <?= $errDescricao; ?> </p>
                         </div>
-                        
                     </div>
-                    <div class="conatiner_cadastro_adm_items_header_right">
-                        <div class="conatiner_img_add_adm add_img_categoria">
-                                <input type="file" name="imagemProduto" id="imgInput" class="imagemCategoria" >
-                                <img class= "imagemCategoria-active" id="preview_img" src="" alt="">
-                                <p> + Adicionar Imagem</p>  
-                        </div>
-                        <p class="text_tamanho_img" style="color:red;"> <?= $errImg; ?> </p>
+                    <div class="conatiner_img_add_adm add_img_categoria">
+                        <input type="file" name="imagemProduto" id="imgInput" class="imagemCategoria" accept="image/*" style="display:none;">
+                        <label for="imgInput" style="cursor:pointer; user-select:none;">+ Adicionar Imagem</label>
+                        <img class="imagemCategoria-active" id="preview_img" src="" alt="Preview da imagem" style="display:none; max-width: 150px; margin-top: 10px;">
                     </div>
                 </div>
                 <div class="conatiner_cadastro_adm_items_body">
@@ -161,7 +157,6 @@ if (isset($_POST['carregarDadosProduto'])) {
                             <input type="color" name="corProduto" class="input_adcionar_produto" >
                             <p class="text_tamanho_img" style="color:red;"> <?= $errCor; ?> </p>
                         </div>
-                        <!-- <button class="btn_produto_add">Adicionar</button> -->
                         <div class="item_flex_adm">
                             <label for="">Adicionar Altura</label>
                             <input name="alturaProduto" placeholder="cm" class="input_adcionar_produto" type="text">
@@ -178,12 +173,10 @@ if (isset($_POST['carregarDadosProduto'])) {
                             <label for="">Adicionar Estoque</label>
                             <input name="estoqueProduto" class="input_adcionar_produto" type="text">
                         </div>
-                        <!-- <button class="btn_produto_add">Adicionar</button> -->
                     </div>
                 </div>
             </div>
             <div id="conatiner_btn_adm_pc"  class="conatiner_btn_adm">
-                <!-- <button class="btn_excluir_adm">Excluir</button> -->
                 <button type="submit" name="carregarDadosProduto" class="btn_salvar_adm">Salvar</button>
             </div>
             <div id="modalSucesso" class="modal-sucesso">
@@ -192,24 +185,41 @@ if (isset($_POST['carregarDadosProduto'])) {
                     <p><strong>✔ Sucesso!</strong> A operação foi realizada corretamente.</p>
                 </div>
             </div>     
-    </form>   
+        </form>   
     </main>
+
 <script>
+    // Função para mostrar preview da imagem selecionada
+    document.getElementById('imgInput').addEventListener('change', function(event) {
+        const preview = document.getElementById('preview_img');
+        const file = event.target.files[0];
+
+        if(file) {
+            const reader = new FileReader();
+
+            reader.onload = function(e) {
+                preview.src = e.target.result;
+                preview.style.display = 'block';
+            }
+
+            reader.readAsDataURL(file);
+        } else {
+            preview.src = '';
+            preview.style.display = 'none';
+        }
+    });
+
 function mostrarModal() {
     const modal = document.getElementById("modalSucesso");
     modal.style.display = "block";
 
-    // Fecha automaticamente após 3 segundos
     setTimeout(() => {
         modal.style.display = "none";
-        
-    }, 1);
+    }, 1900);
 }
 
 function fecharModal() {
-
     document.getElementById("modalSucesso").style.display = "none";
-
 }
 </script>
 
@@ -218,11 +228,9 @@ function fecharModal() {
     <!-- SweetAlert2 -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script>
-        window.onload = function  () {
-            // Mostra o modal verdinho simples
+        window.onload = function() {
             mostrarModal();
 
-            // E também mostra o SweetAlert como reforço visual
             Swal.fire({
                 icon: 'success',
                 title: 'Cadastrado com Sucesso',
@@ -232,7 +240,6 @@ function fecharModal() {
         };
     </script>
 <?php endif; ?>
-    <!-- <script src="adm_nav.js"></script>
-    <script src="btn_listar_adm.js"></script> -->
+
 </body>
 </html>

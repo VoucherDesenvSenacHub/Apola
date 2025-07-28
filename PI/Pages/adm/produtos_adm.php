@@ -5,7 +5,7 @@ include "nav_bar_adm.php";
 
 require_once '../../App/config.inc.php';
 require_once '../../App/Session/Login.php';
-require_once '../../App/Entity/Produto.class.php';  // <-- mantive exatamente como você tinha
+require_once '../../App/Entity/Produto.class.php';
 
 $result = Login::IsLogedAdm();
 if($result){
@@ -68,7 +68,7 @@ if (isset($_POST['carregarDadosProduto'])) {
 
         if (isset($_FILES['imagemProduto']) && $_FILES['imagemProduto']['error'] === UPLOAD_ERR_OK && $_FILES['imagemProduto']['size'] > 0) {
             $extensoesPermitidas = ['png', 'jpg', 'jpeg', 'jfif'];
-            $pastaDestino = '../../src/imagens/produtos/';
+            $pastaDestino = '../../src/imagens/produtos/'; // caminho físico para salvar
             $imagem = $_FILES['imagemProduto'];
             $nomeOriginal = $imagem['name'];
             $extensao = strtolower(pathinfo($nomeOriginal, PATHINFO_EXTENSION));
@@ -77,22 +77,23 @@ if (isset($_POST['carregarDadosProduto'])) {
                 $errImagem = "A extensão do arquivo \"$nomeOriginal\" não é permitida.";
             } else {
                 $novoNome = uniqid('ImagemProduto_', true) . '.' . $extensao;
-                $caminhoFinal = $pastaDestino . $novoNome;
+                $caminhoFisico = $pastaDestino . $novoNome;
 
-                if (move_uploaded_file($imagem['tmp_name'], $caminhoFinal)) {
-                    $nomeSalvoNoBanco = 'src/imagens/produtos/' . $novoNome;
+                if (move_uploaded_file($imagem['tmp_name'], $caminhoFisico)) {
+                    $caminhoBanco = '../../src/imagens/produtos/' . $novoNome; // com ../../ para banco
 
-                    $caminhoAntigo = '../../' . $produto->imagem;
-                    if (file_exists($caminhoAntigo) && $produto->imagem !== $nomeSalvoNoBanco) {
+                    $caminhoAntigo = $produto->imagem; // já tem ../../
+                    if (file_exists($caminhoAntigo) && $produto->imagem !== $caminhoBanco) {
                         unlink($caminhoAntigo);
                     }
 
-                    $imagemNova = $nomeSalvoNoBanco;
+                    $imagemNova = $caminhoBanco;
                 } else {
                     $errImagem = "Falha ao mover a imagem para o destino.";
                 }
             }
         }
+
 
         if (empty($errImagem)) {
             $entity = new Produto();
@@ -112,7 +113,11 @@ if (isset($_POST['carregarDadosProduto'])) {
             $resultado = $entity->atualizarProduto($id_produto);
             if ($resultado) {
                 $produto = Produto::buscarProdutoPorId($id_produto);
+                // Adicione essa linha para forçar o navegador a pegar a imagem nova
+                $produto->imagem = htmlspecialchars($produto->imagem) . "?t=" . time();
                 $mostrarModal = true;
+            }
+
             } else {
                 echo "<script>
                     Swal.fire({
@@ -125,7 +130,6 @@ if (isset($_POST['carregarDadosProduto'])) {
             }
         }
     }
-}
 ?>
 
 <body>
@@ -177,8 +181,7 @@ if (isset($_POST['carregarDadosProduto'])) {
                     <div class="conatiner_cadastro_adm_items_header_right">
                         <div class="conatiner_img_add_adm add_img_categoria">
                             <label for="imgInput" style="cursor: pointer;">
-                                <img class="imagemCategoria-active" src="<?= htmlspecialchars($produto->imagem); ?>" alt="Imagem do Produto" id="preview_img" />
-                            </label>
+                                <img class="imagemCategoria-active" src="<?= $produto->imagem; ?>" alt="Imagem do Produto" id="preview_img" >
                             <input type="file" name="imagemProduto" id="imgInput" style="display: none;" accept="image/*">
                         </div>
                         <p>Clique na Imagem para Trocar <i class="fa-solid fa-pencil"></i></p>
@@ -230,6 +233,7 @@ if (isset($_POST['carregarDadosProduto'])) {
     </main>
 
 <script>
+    // Atualiza o preview ao escolher arquivo no input
     document.getElementById('imgInput').addEventListener('change', function(event) {
         const preview = document.getElementById('preview_img');
         const file = event.target.files[0];
@@ -244,6 +248,26 @@ if (isset($_POST['carregarDadosProduto'])) {
             reader.readAsDataURL(file);
         }
     });
+
+    // Função para forçar atualizar a imagem do preview com timestamp para evitar cache
+    function atualizarPreviewComCacheBust() {
+        const preview = document.getElementById('preview_img');
+        let srcOriginal = "<?= htmlspecialchars($produto->imagem); ?>";
+        // Adiciona timestamp para forçar recarregar imagem
+        preview.src = srcOriginal + "?t=" + new Date().getTime();
+    }
+
+    // Mostrar modal e depois atualizar a imagem no preview
+    function mostrarModal() {
+        const modal = document.getElementById("modalSucesso");
+        modal.style.display = "block";
+
+        setTimeout(() => {
+            modal.style.display = "none";
+            atualizarPreviewComCacheBust(); // Atualiza a imagem logo depois de fechar o modal
+        }, 3000);
+    }
+
 
     function mostrarModal() {
         const modal = document.getElementById("modalSucesso");
@@ -270,6 +294,11 @@ if (isset($_POST['carregarDadosProduto'])) {
                 title: 'Salvo com sucesso!',
                 showConfirmButton: false,
                 timer: 1500
+            }).then(() => {
+                // Força reload da imagem para evitar cache antigo
+                const preview = document.getElementById('preview_img');
+                const srcAtual = preview.src.split('?')[0];
+                preview.src = srcAtual + '?t=' + new Date().getTime();
             });
         };
     </script>
