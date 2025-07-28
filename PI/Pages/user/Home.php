@@ -447,6 +447,9 @@ $produtoCategoria3 = Produto::buscarProdutoCategoria($categoriaArray[2]);
 
 
 
+
+
+
     </main >
 
 

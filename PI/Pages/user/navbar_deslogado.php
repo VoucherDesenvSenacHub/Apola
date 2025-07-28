@@ -17,12 +17,14 @@
                 </div>
                 <div class="barra-pesquisa">
                     <div class="container-barra">
-                        <input class="input-pesquisa" type="text" placeholder="Pesquise seu produto...">
+                        <input class="input-pesquisa" id="input-busca" type="text" placeholder="Pesquise seu produto...">
+                    <div id="resultado-busca" class="resultados-busca"></div>
                         <a href="#" class="btn-pesquisa">
-                                <i class="fa-solid fa-magnifying-glass"></i>
+                        <i class="fa-solid fa-magnifying-glass"></i>
                         </a>
                     </div>
                 </div>
+
         <!-- INICIO MENU MOBILE -->
                 <div class="btn-abrir-menu" id="btn-menu-abrir">
                     <i class="fa-solid fa-bars"></i>
@@ -147,3 +149,44 @@
         </nav>
         <!-- FIM MENU NAVBAR -->
     </header>
+    
+        <script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const input = document.getElementById('input-busca');
+        const resultados = document.getElementById('resultado-busca');
+
+        if (input) {
+            input.addEventListener('keyup', function () {
+                const termo = this.value.trim();
+
+                if (termo.length > 1) {
+                    fetch('buscar.php?termo=' + encodeURIComponent(termo))
+                        .then(res => res.text())
+                        .then(dados => {
+                            resultados.innerHTML = dados;
+
+                            if (dados.trim() !== '') {
+                                resultados.classList.add('mostrar');
+                            } else {
+                                resultados.classList.remove('mostrar');
+                            }
+                        })
+                        .catch(err => {
+                            console.error('Erro ao buscar:', err);
+                            resultados.classList.remove('mostrar');
+                        });
+                } else {
+                    resultados.innerHTML = '';
+                    resultados.classList.remove('mostrar');
+                }
+            });
+
+            // Oculta o resultado ao clicar fora
+            document.addEventListener('click', function (e) {
+                if (!input.contains(e.target) && !resultados.contains(e.target)) {
+                    resultados.classList.remove('mostrar');
+                }
+            });
+        }
+    });
+</script>

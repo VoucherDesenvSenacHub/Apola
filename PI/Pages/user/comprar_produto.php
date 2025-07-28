@@ -263,30 +263,7 @@ $avaliacoesDoProduto = $avaliacaoProduto->select_avaliacao_produto($id_produto);
                                     <p>Avaliado com sucesso!</p>
                                 </div>
                             </div>
-                            <!-- <div class="shape_comentario"></div>
-                            <div class="comentario_item">
-                                <div class="name_comentario">Amanda Neto</div>
-                                <div class="conatiner_comentario_star">
-                                    <i class="fa-solid fa-star " id='star_active'></i>
-                                    <i class="fa-solid fa-star" id='star_active'></i>
-                                    <i class="fa-solid fa-star" id='star_active'></i>
-                                    <i class="fa-solid fa-star"></i>
-                                </div>
-                                <div class="comentario_text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore obcaecati architecto eaque accusantium tempore doloribus saepe ratione fugit sed quisquam libero, ea consequatur, ad nostrum dolores officia repellendus deserunt recusandae.
-                                </div>  
-                            </div>
-                            <div class="shape_comentario"></div>
-                            <div class="comentario_item">
-                                <div class="name_comentario">Larissa Ribeiro</div>
-                                <div class="conatiner_comentario_star">
-                                    <i class="fa-solid fa-star " id='star_active'></i>
-                                    <i class="fa-solid fa-star" id='star_active'></i>
-                                    <i class="fa-solid fa-star" id='star_active'></i>
-                                    <i class="fa-solid fa-star"  id='star_active'></i>
-                                </div>
-                                <div class="comentario_text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore eos natus eius neque sint sed maxime id, quo amet corrupti ipsa ut vitae sunt distinctio quis dolor? Est, distinctio dignissimos?
-                                </div>  
-                            </div> -->
+                        
                         </div>
                     </div>
                     <div class="shape_solo"></div>
@@ -298,6 +275,7 @@ $avaliacoesDoProduto = $avaliacaoProduto->select_avaliacao_produto($id_produto);
 
 
         </div>
+        
     </main>
     <script>
     document.addEventListener('DOMContentLoaded', () => {

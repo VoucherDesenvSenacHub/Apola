@@ -10,8 +10,8 @@ class Database{
     public $conection;
     public string $local="localhost";
     public string $db="140p1";
-    public string $user = "devweb";
-    public string $password = 'Suporte@22';
+    public string $user = "root";
+    public string $password = '';
     public $table;
     
     

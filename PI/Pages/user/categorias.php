@@ -37,11 +37,7 @@ $produtos = $produto->buscarProduto("categoria_id_categoria = ".$id_categoria);
 
             <aside class="top_categoria_mobile">
                 <div class="shape_categoria_top"></div>
-                    <div class="container_text_top_categoria">
-                        <div class="item_text_top_cat">2016 produtos encontrados.</div>
-                        <i  class="fa-solid fa-filter"></i>
-                        <div id="btn_filtro" class="item_text_top_cat">filtrar</div>
-                    </div>
+               
                 <div class="shape_categoria_top"></div>
             </aside>
             <div class="top_mobile_filtro_open" id="open_filtro">
@@ -260,15 +256,9 @@ $produtos = $produto->buscarProduto("categoria_id_categoria = ".$id_categoria);
             </aside>
 
             <aside class="right_categoria">
-                <div class="container_filtro_right">
-                    <select name="" id="">
-                        <option value="">Mais Vendidos</option>
-                        <option value=""></option>
-                        <option value=""></option>
-                    </select>
-                </div>
+            
                 <div class="wrap__filtro_right">
-                    <!-- <a  style ="text-decoration:none;"class="link_produto_home" href="./comprar_produto.php"> -->
+              
                     <?php
                     foreach ($produtos as $prod): 
                         if($prod->status_produto === 'a'):
@@ -304,93 +294,7 @@ $produtos = $produto->buscarProduto("categoria_id_categoria = ".$id_categoria);
                             endif;
                         endforeach;
                         ?>
-                    <!-- <a  style ="text-decoration:none;"class="link_produto_home" href="./comprar_produto.php">
-                    <div class="card_produto">
-                        <div class="icon_favorite"><i class="fa-solid fa-heart"></i></div>
-                        <div class="img_content_produto">
-                            <img src="../../src/imagens/card_produto/IMG1-Produto.png" alt="">
-                        </div>
-                        <div class="conteudo_card">
-                            <div class="nome_card_produto">Amigurmi Raposa</div>
-                            <div class="content_star_icon">
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                            </div>
-                            <div class="preco_card_produto">R$ 50,89</div>
-                            <div class="btn_content_card_produto">
-                                <div class="btn_bag_card"><i class="fa-solid fa-bag-shopping"></i></div>
-                                <div class="btn_buy_card">Comprar</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card_produto">
-                    <a  style ="text-decoration:none;"class="link_produto_home" href="./comprar_produto.php">
-                        <div class="icon_favorite"><i class="fa-solid fa-heart"></i></div>
-                        <div class="img_content_produto">
-                            <img src="../../src/imagens/card_produto/IMG1-Produto.png" alt="">
-                        </div>
-                        <div class="conteudo_card">
-                            <div class="nome_card_produto">Amigurmi Raposa</div>
-                            <div class="content_star_icon">
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                            </div>
-                            <div class="preco_card_produto">R$ 50,89</div>
-                            <div class="btn_content_card_produto">
-                                <div class="btn_bag_card"><i class="fa-solid fa-bag-shopping"></i></div>
-                                <div class="btn_buy_card">Comprar</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card_produto">
-                    <a  style ="text-decoration:none;"class="link_produto_home" href="./comprar_produto.php">
-                        <div class="icon_favorite"><i class="fa-solid fa-heart"></i></div>
-                        <div class="img_content_produto">
-                            <img src="../../src/imagens/card_produto/IMG1-Produto.png" alt="">
-                        </div>
-                        <div class="conteudo_card">
-                            <div class="nome_card_produto">Amigurmi Raposa</div>
-                            <div class="content_star_icon">
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                            </div>
-                            <div class="preco_card_produto">R$ 50,89</div>
-                            <div class="btn_content_card_produto">
-                                <div class="btn_bag_card"><i class="fa-solid fa-bag-shopping"></i></div>
-                                <div class="btn_buy_card">Comprar</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card_produto">
-                        <div class="icon_favorite"><i class="fa-solid fa-heart"></i></div>
-                        <div class="img_content_produto">
-                            <img src="../../src/imagens/card_produto/IMG1-Produto.png" alt="">
-                        </div>
-                        <div class="conteudo_card">
-                            <div class="nome_card_produto">Amigurmi Raposa</div>
-                            <div class="content_star_icon">
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                            </div>
-                            <div class="preco_card_produto">R$ 50,89</div>
-                            <div class="btn_content_card_produto">
-                                <div class="btn_bag_card"><i class="fa-solid fa-bag-shopping"></i></div>
-                                <div class="btn_buy_card">Comprar</div>
-                            </div>
-                        </div>
-                    </div> -->
+                 
 
                 </div>
 
