@@ -1,3 +1,4 @@
+
 <?php
 require_once('../../App/Entity/Produto.class.php');
 require_once('../../App/Entity/Categoria.class.php');
@@ -15,11 +16,16 @@ if (isset($_GET['termo'])) {
 
             echo '
                 <div class="produto-busca-item">
-                    <a href="categorias.php?id_categoria=' . $produto->categoria_id_categoria . '">
-                        <h3>' . $produto->nome . '</h3>
-                    </a>
+                    <div class="div-flex-search-prod"> 
+                        <img class="search-img-prod" src='.$produto->imagem.' alt="">
+                         <a  href="./comprar_produto.php?id_produto='. $produto->id_produto .'">
+                            <h3>' . $produto->nome . '</h3>
+                        </a>    
+                    </div>
                     
                     <p>' . $produto->descricao . '</p>
+
+                    <div class="linha-search"> </div>
                 </div>
             ';
         }
@@ -28,3 +34,18 @@ if (isset($_GET['termo'])) {
     }
 }
 ?>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
