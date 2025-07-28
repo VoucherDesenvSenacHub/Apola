@@ -8,9 +8,8 @@ require '../../App/Session/Login.php';
 
 include "head.php";
 
-if(isset($_SESSION)){
-    $id_cliente = $_SESSION['cliente']['id_cliente'];
-}
+$id_cliente = isset($_SESSION['cliente']['id_cliente']) ? $_SESSION['cliente']['id_cliente'] : null;
+
 
 if (Login::IsLogedCliente()) {
     include 'navbar_logado.php';
@@ -88,7 +87,7 @@ $avaliacoesDoProduto = $avaliacaoProduto->select_avaliacao_produto($id_produto);
                     <script src="../../src/JS/comprar_produto.js" defer></script>
                     <div class="product-thumb-container">
                         <div class="thumbnail-images">
-                            <img src="<?php echo $result->imagem ?>" class="thumbnail" data-image="<?php echo $result->imagem ?>">
+                            <img src="../../<?php echo $result->imagem ?>" class="thumbnail" data-image="<?php echo $result->imagem ?>">
                         </div>
                         <div class="image-gallery">
                               <div class="suntitle_comprar_produto">
@@ -97,7 +96,7 @@ $avaliacoesDoProduto = $avaliacaoProduto->select_avaliacao_produto($id_produto);
                                     
                                 </div>
                             <div class="image-gallery-urso">
-                                <img src="<?php echo $result->imagem; ?>" id="main-image">
+                                <img src="../../<?php echo $result->imagem; ?>" id="main-image">
                             </div>
                             <div class="zoom-result" id="zoom-result"></div>
                         </div>

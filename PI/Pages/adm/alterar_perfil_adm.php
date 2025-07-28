@@ -8,6 +8,9 @@ $id_usuario = $adm->id_usuario;
 $entityUsuario = new User();
 $usuario = $entityUsuario->getUsuarioById($id_usuario);
 
+print_r($adm);
+exit;
+
 if (isset($_POST['enviarDados'])) {
     $nome = $_POST['nome'];
     $email = $_POST['email'];

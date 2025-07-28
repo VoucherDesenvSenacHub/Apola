@@ -175,7 +175,7 @@ $produtoCategoria3 = Produto::buscarProdutoCategoria($categoriaArray[2]);
                                     </label> 
                                 </div>
                                 <div class="img_content_produto">
-                                    <img src="'.$produto['imagem'].'" alt="">
+                                    <img src="../../'.$produto['imagem'].'" alt="">
                                 </div>
                                 <div class="conteudo_card">
                                     <div class="nome_card_produto">'.htmlspecialchars($produto['produto_nome']).'</div>
@@ -271,7 +271,7 @@ $produtoCategoria3 = Produto::buscarProdutoCategoria($categoriaArray[2]);
                                 </label> 
                             </div>
                             <div class="img_content_produto">
-                                <img src="'.$produto['imagem'].'" alt="">
+                                <img src="../../'.$produto['imagem'].'" alt="">
                             </div>
                             <div class="conteudo_card">
                                 <div class="nome_card_produto">'.htmlspecialchars($produto['produto_nome']).'</div>
@@ -341,7 +341,7 @@ $produtoCategoria3 = Produto::buscarProdutoCategoria($categoriaArray[2]);
                                 </label> 
                             </div>
                             <div class="img_content_produto">
-                                <img src="'.$produto['imagem'].'" alt="">
+                                <img src="../../'.$produto['imagem'].'" alt="">
                             </div>
                             <div class="conteudo_card">
                                 <div class="nome_card_produto">'.htmlspecialchars($produto['produto_nome']).'</div>
@@ -423,7 +423,7 @@ $produtoCategoria3 = Produto::buscarProdutoCategoria($categoriaArray[2]);
                                 </label> 
                             </div>
                             <div class="img_content_produto">
-                                <img src="'.$produto['imagem'].'" alt="">
+                                <img src="../../'.$produto['imagem'].'" alt="">
                             </div>
                             <div class="conteudo_card">
                                 <div class="nome_card_produto">'.htmlspecialchars($produto['produto_nome']).'</div>

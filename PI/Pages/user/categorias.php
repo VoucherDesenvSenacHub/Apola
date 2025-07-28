@@ -131,7 +131,7 @@ $produtos = $produto->buscarProdutoCategoriaNota($id_categoria);
                                     </label> 
                                 </div>
                             <div class="img_content_produto">
-                                <img src="<?= $prod->imagem ?>" alt="<?= htmlspecialchars($prod->nome) ?>">
+                                <img src="../../<?= $prod->imagem ?>" alt="<?= htmlspecialchars($prod->nome) ?>">
                             </div>
                             <div class="conteudo_card">
                                 <div class="nome_card_produto"><?= htmlspecialchars($prod->nome) ?></div>
