@@ -3,7 +3,7 @@
         'name' => 'felix/apola',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
-        'reference' => '8aac958495b55d028b0ef43ebfbee471b3e8526e',
+        'reference' => '786ce3594593e1042fcbe496bace63466ac78586',
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -13,7 +13,7 @@
         'felix/apola' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => '8aac958495b55d028b0ef43ebfbee471b3e8526e',
+            'reference' => '786ce3594593e1042fcbe496bace63466ac78586',
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
