@@ -22,12 +22,17 @@ document.addEventListener('DOMContentLoaded', function(){
     .then(response => response.json())
     .then(produtos => {
 
-        
-        let total =15.65;
+        let total = 15.65;
         let subtotal = 0;
 
+     
+
         produtos.forEach(prod => {
-            const prodCart = cart.find(c => parseInt(c.id_produto) === prod.id_produto);
+            console.log(prod)
+            console.log(cart)
+            const prodCart = cart.find(c => parseInt(c.id_produto) == prod.id_produto);
+            console.log('teste')
+            console.log(prod.preco * prodCart.quantidade)
             total += prod.preco * prodCart.quantidade;
             subtotal += prod.preco * prodCart.quantidade;
         });
@@ -45,7 +50,7 @@ document.addEventListener('DOMContentLoaded', function(){
     
         produtos.forEach(prod => {
         
-            let prodCart = cart.find(c => parseInt(c.id_produto) === prod.id_produto);
+            let prodCart = cart.find(c => parseInt(c.id_produto) == prod.id_produto);
 
             DivCart.innerHTML += `
             <ul class="produto_list_cart">
@@ -505,7 +510,7 @@ document.addEventListener('DOMContentLoaded', function(){
             
             `
 
-            DivModalSucess.style.top ='350px'
+            DivModalSucess.style.top ='280px'
             DivModalSucess.style.transition ='all 0.4s ease-in-out'
             DivModalOpacity.style.display='flex'
 

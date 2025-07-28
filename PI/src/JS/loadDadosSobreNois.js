@@ -57,8 +57,7 @@ async function handleAvaliacoesSobreNois(event=null){
                 estrelasHTML += `<i class="fa-solid fa-star"></i>`;
             }
 
-
-        
+            
             avaliacoes.innerHTML += `
             <div class="comentario swiper-slide">
                 <img class="avatar" src="${e.foto_perfil}" alt="Foto de ${e.nome}"/>

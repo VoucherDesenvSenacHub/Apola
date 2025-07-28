@@ -779,6 +779,7 @@
     center;
     /* word-wrap: break-word; */
     overflow-wrap: break-word; 
+    font-size: 15px;
 }
 
 @media (max-width: 1000px){
@@ -1255,14 +1256,12 @@ MEDIA QUERIES SOBRE */
     /* Um comentário individual */
     .comentario {
         display: flex;
-        width: 200px !important;
-        height: 500px !important;
         flex-direction: column;
         align-items: center;
         justify-content: center;
         text-align: center;
         background-color: #fff;
-        border: 1px solid #ffeaa7;
+
         border-radius: 8px;
         padding: 20px;
         /* margin-bottom: 20px; */
