@@ -43,8 +43,9 @@ class Pedido {
     }
     
     public static function buscar_pedido_by_id($id){
-        return (new Database('pedido'))->select_pedido_by_id($id)->fetchObject(self::class);
+        return (new Database('pedido'))->select_pedido_by_id($id)->fetch(PDO::FETCH_OBJ);
     }
+    
     public static function buscar_pedidoperso_by_id($id){
         return (new Database('pedido'))->select_pedido_personalizado_by_id($id)->fetchObject(self::class);
     }

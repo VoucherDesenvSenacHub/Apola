@@ -9,6 +9,12 @@ $entity = new Pedido();
 
 $pedido_cliente = $entity->buscar_pedido_by_id($id);
 
+if (!$pedido_cliente) {
+    echo "<script>alert('Pedido não encontrado!'); window.location.href='listar_pedidos_adm.php';</script>";
+    exit;
+}
+
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $status = $_POST['selectStatus'] ?? '';
     $codigo = $_POST['rastreio'] ?? '';
